@@ -4,192 +4,255 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>9-10 Matematik Yaz Kampı | Sezer Hoca</title>
-
-<meta name="description" content="9 ve 10. sınıflar için yaz matematik kampı. Küçük gruplar, birebir ilgi ve yeni nesil soru çözümü.">
-
-<!-- WhatsApp / Instagram ön izleme -->
-<meta property="og:title" content="9-10 Matematik Yaz Kampı | Sezer Hoca">
-<meta property="og:description" content="Maarif Model uyumlu matematik dersleri. 5 kişilik gruplar ve birebir özel ders.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://eyecbul-oss.github.io/matematik-ders/">
-<meta property="og:image" content="https://picsum.photos/800/400">
+<title>SezR Matematik | Yaz Dersleri</title>
+<meta name="description" content="SezR Matematik ile birebir ve maksimum 5 kişilik grup matematik dersleri. 9-10-11-12. sınıflar için yaz dönemi ders programları.">
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #eef4ff, #f8fbff);
-    color: #1f2d3d;
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+.hero {
+    min-height: 100vh;
+    padding: 28px 18px;
+    background:
+        radial-gradient(circle at top, #2563eb 0, transparent 35%),
+        linear-gradient(135deg, #0f172a, #111827);
 }
 
 .container {
-    max-width: 720px;
-    margin: 25px auto;
-    padding: 18px;
+    max-width: 980px;
+    margin: 0 auto;
 }
 
-.card {
-    background: white;
-    border-radius: 22px;
-    padding: 24px;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+.logo {
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: #facc15;
+    margin-bottom: 28px;
+}
+
+.logo span {
+    color: white;
+}
+
+.header {
     text-align: center;
+    margin-bottom: 26px;
 }
 
 .badge {
     display: inline-block;
-    background: #fff3cd;
-    color: #7a5500;
-    padding: 8px 12px;
-    border-radius: 30px;
+    background: rgba(250, 204, 21, 0.15);
+    color: #facc15;
+    padding: 8px 14px;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    border-radius: 999px;
     font-size: 14px;
     font-weight: bold;
 }
 
 h1 {
-    font-size: 30px;
-    margin: 14px 0 8px;
-    color: #17324d;
+    font-size: 42px;
+    line-height: 1.1;
+    margin: 18px 0 12px;
 }
 
 .subtitle {
-    font-size: 17px;
-    line-height: 1.5;
-    margin-bottom: 18px;
+    color: #cbd5e1;
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 720px;
+    margin: 0 auto;
 }
 
-.section-title {
-    margin-top: 24px;
+.cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 22px;
+    padding: 22px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+}
+
+.card h2 {
+    margin-top: 0;
     font-size: 22px;
-    color: #17324d;
+    color: #facc15;
 }
 
-.box {
-    background: #f3f7ff;
-    padding: 15px;
-    margin: 12px 0;
-    border-radius: 14px;
-    text-align: left;
-    border: 1px solid #dce8ff;
+.card p {
+    color: #e2e8f0;
     line-height: 1.7;
 }
 
-.box h3 {
-    margin: 0 0 8px;
-    color: #17324d;
+.list {
+    color: #e2e8f0;
+    line-height: 1.9;
 }
 
-.green {
-    background: #eafaf1;
-    border-color: #c8efd8;
-}
-
-.red {
-    background: #fff0f0;
-    border-color: #ffd1d1;
-}
-
-.purple {
-    background: #f4efff;
-    border-color: #dfd0ff;
+.special {
+    background: linear-gradient(135deg, rgba(250,204,21,0.18), rgba(37,99,235,0.18));
 }
 
 .warning {
-    background: #fff0f0;
-    color: #b42318;
-    padding: 12px;
-    border-radius: 14px;
+    margin-top: 22px;
+    padding: 16px;
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.35);
+    border-radius: 18px;
+    color: #fecaca;
+    text-align: center;
     font-weight: bold;
-    margin-top: 18px;
+}
+
+.cta {
+    text-align: center;
+    margin-top: 28px;
 }
 
 .button {
-    display: block;
-    margin-top: 22px;
-    padding: 16px;
-    background: #16a34a;
+    display: inline-block;
+    background: #22c55e;
     color: white;
     text-decoration: none;
-    border-radius: 14px;
+    padding: 17px 24px;
+    border-radius: 16px;
+    font-size: 18px;
     font-weight: bold;
-    font-size: 17px;
+    box-shadow: 0 10px 25px rgba(34,197,94,0.35);
 }
 
 .note {
-    font-size: 13px;
-    color: #666;
     margin-top: 12px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 32px;
+    color: #64748b;
+    font-size: 13px;
+}
+
+@media (min-width: 760px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .wide {
+        grid-column: span 2;
+    }
+
+    h1 {
+        font-size: 56px;
+    }
 }
 </style>
 </head>
 
 <body>
 
+<section class="hero">
 <div class="container">
-<div class="card">
 
-<div class="badge">2026 Yaz Dönemi Kayıtları</div>
+<div class="logo">Sez<span>R</span> Matematik</div>
 
-<h1>📚 Sezer Hoca ile Matematik Dersleri</h1>
+<div class="header">
+    <div class="badge">2026 Yaz Dönemi Kayıtları</div>
 
-<p class="subtitle">
-9, 10, 11 ve 12. sınıflar için<br>
-<b>birebir özel ders</b> ve <b>maksimum 5 kişilik grup dersleri</b>
-</p>
+    <h1>Matematikte Yazı Avantaja Çevir</h1>
 
-<h2 class="section-title">Ders Seçenekleri</h2>
-
-<div class="box green">
-<h3>👤 Birebir Özel Ders</h3>
-Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.
+    <p class="subtitle">
+        9, 10, 11 ve 12. sınıflar için birebir özel ders ve maksimum 5 kişilik grup dersleri.
+        Eksik tamamlama, yeni nesil soru çözümü ve sınava hazırlık odaklı programlar.
+    </p>
 </div>
 
-<div class="box">
-<h3>👥 Grup Dersleri</h3>
-Maksimum 5 kişilik gruplarla işlenir. Küçük grup sayesinde öğrenciler takip edilir ve derse aktif katılım sağlanır.
-</div>
+<div class="cards">
 
-<h2 class="section-title">Ders Paketleri</h2>
+    <div class="card">
+        <h2>👤 Birebir Özel Ders</h2>
+        <p>
+            Öğrencinin seviyesine göre özel ders planı hazırlanır.
+            Konu eksikleri belirlenir, soru çözümü ve takip kişiye özel ilerler.
+        </p>
+    </div>
 
-<div class="box">
-<h3>📘 9 ve 10. Sınıf Matematik</h3>
-Maarif Model uyumlu konu anlatımı, yeni nesil soru çözümü ve yaz dönemi temel güçlendirme programı.
-</div>
+    <div class="card">
+        <h2>👥 Grup Dersleri</h2>
+        <p>
+            Maksimum 5 kişilik gruplarla ders yapılır.
+            Küçük grup sayesinde öğrenciler aktif takip edilir.
+        </p>
+    </div>
 
-<div class="box purple">
-<h3>🔥 Büyük Dertler Serisi</h3>
-11’den 12’ye geçen öğrenciler için:<br>
-✔ Limit<br>
-✔ Türev<br>
-✔ İntegral
-</div>
+    <div class="card">
+        <h2>📘 9 ve 10. Sınıf</h2>
+        <div class="list">
+            ✔ Maarif Model uyumlu çalışma<br>
+            ✔ Konu anlatımı<br>
+            ✔ Yeni nesil soru çözümü<br>
+            ✔ Yaz dönemi temel güçlendirme
+        </div>
+    </div>
 
-<div class="box red">
-<h3>🧠 Problemler Paket Dersi</h3>
-TYT ve okul sınavları için problem çözme teknikleri ve soru mantığı.
-</div>
+    <div class="card special">
+        <h2>🔥 Büyük Dertler Serisi</h2>
+        <p>11’den 12’ye geçen öğrenciler için özel paket:</p>
+        <div class="list">
+            ✔ Limit<br>
+            ✔ Türev<br>
+            ✔ İntegral
+        </div>
+    </div>
 
-<div class="box green">
-<h3>📅 Program</h3>
-4 haftalık ders programları.<br>
-Grup saatleri WhatsApp üzerinden paylaşılır.
+    <div class="card wide">
+        <h2>🧠 Problemler Paket Dersi</h2>
+        <p>
+            TYT ve okul sınavları için problem çözme mantığı,
+            soru tipleri ve pratik çözüm teknikleri üzerine yoğunlaşan özel paket.
+        </p>
+    </div>
+
 </div>
 
 <div class="warning">
-⚠️ Grup dersleri maksimum 5 kişiyle sınırlıdır.
+    ⚠️ Grup dersleri maksimum 5 kişiyle sınırlıdır. Kontenjan dolmadan bilgi alabilirsiniz.
 </div>
 
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
-📲 WhatsApp'tan Bilgi Al
-</a>
+<div class="cta">
+    <a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
+        📲 WhatsApp'tan Bilgi Al
+    </a>
 
-<p class="note">
-Ücret ve detaylar WhatsApp üzerinden paylaşılır.
-</p>
+    <div class="note">
+        Ücret, uygun günler ve grup saatleri WhatsApp üzerinden paylaşılır.
+    </div>
+</div>
+
+<div class="footer">
+    SezR Matematik | Birebir ve Grup Matematik Dersleri
+</div>
 
 </div>
-</div>
+</section>
 
 </body>
 </html>
