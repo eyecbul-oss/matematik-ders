@@ -4,153 +4,167 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SezR Matematik | Yaz Dersleri</title>
+<title>SezR Matematik</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
 <style>
-* { box-sizing: border-box; }
-
-body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top, #2563eb 0, transparent 35%), linear-gradient(135deg, #0f172a, #111827);
-    color: #f8fafc;
+body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background: radial-gradient(circle at top,#1e3a8a,#020617);
+    color:white;
 }
 
-.container {
-    max-width: 950px;
-    margin: auto;
-    padding: 28px 20px;
+/* HERO */
+.hero{
+    text-align:center;
+    padding:40px 15px;
 }
 
-.header {
-    text-align: center;
+/* FOTO + ÖZGÜN ÇERÇEVE */
+.profile-wrapper{
+    width:200px;
+    height:200px;
+    margin:auto;
+    position:relative;
 }
 
-.profile-logo {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 16px;
-    border-radius: 50%;
-    padding: 5px;
-    background: linear-gradient(135deg, #facc15, #ffffff, #facc15);
-    box-shadow: 0 0 35px rgba(250,204,21,0.45);
+/* dış glow */
+.profile-wrapper::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    background:conic-gradient(#facc15,#3b82f6,#f97316,#facc15);
+    animation:spin 6s linear infinite;
 }
 
-.profile-logo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+/* iç boşluk */
+.profile-wrapper::after{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:50%;
+    background:#020617;
 }
 
-.brand {
-    color: #facc15;
-    font-size: 28px;
-    font-weight: 900;
-    letter-spacing: 1px;
+/* foto */
+.profile-wrapper img{
+    position:absolute;
+    inset:12px;
+    width:calc(100% - 24px);
+    height:calc(100% - 24px);
+    border-radius:50%;
+    object-fit:cover;
+    z-index:2;
 }
 
-.brand span {
-    color: white;
+@keyframes spin{
+    to{transform:rotate(360deg);}
 }
 
-.badge {
-    display: inline-block;
-    margin-top: 14px;
-    background: rgba(250,204,21,0.15);
-    color: #facc15;
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-weight: 700;
+/* MARKA */
+.brand{
+    font-size:32px;
+    font-weight:900;
+    margin-top:20px;
+}
+.brand span{color:#facc15;}
+
+.badge{
+    margin-top:10px;
+    display:inline-block;
+    background:#1e293b;
+    padding:8px 18px;
+    border-radius:20px;
+    color:#facc15;
+    font-weight:600;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    line-height: 1.2;
-    margin: 20px 0 10px;
+/* BAŞLIK */
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:40px;
+    margin:25px 0 10px;
 }
 
-.subtitle {
-    font-size: 18px;
-    color: #cbd5e1;
-    max-width: 720px;
-    margin: auto;
-    line-height: 1.6;
+.highlight{
+    color:#facc15;
 }
 
-.card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 18px;
-    margin-top: 15px;
-    border: 1px solid rgba(255,255,255,0.1);
+.subtitle{
+    color:#cbd5e1;
 }
 
-.card h2 {
-    color: #facc15;
+/* KARTLAR */
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
 }
 
-.card p {
-    color: #e2e8f0;
-    line-height: 1.7;
+.grid{
+    display:grid;
+    gap:15px;
 }
 
-.flame {
-    background: linear-gradient(135deg, #1e293b, #7c2d12, #facc15);
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:18px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
 }
 
-.button {
-    display: block;
-    text-align: center;
-    margin-top: 25px;
-    padding: 16px;
-    background: #22c55e;
-    border-radius: 12px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 17px;
-    box-shadow: 0 0 25px rgba(34,197,94,0.55);
+.card h3{
+    color:#facc15;
 }
 
-.note {
-    text-align: center;
-    margin-top: 10px;
-    color: #94a3b8;
+/* özel kart */
+.special{
+    background:linear-gradient(135deg,#7c2d12,#facc15);
+    color:black;
 }
 
-@media(min-width:768px){
-    .cards {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-    }
+/* BUTON */
+.button{
+    display:block;
+    margin:25px auto;
+    padding:18px;
+    text-align:center;
+    background:#22c55e;
+    border-radius:14px;
+    font-weight:bold;
+    color:white;
+    text-decoration:none;
+    box-shadow:0 0 25px #22c55e;
+}
 
-    .wide {
-        grid-column: span 2;
-    }
+.footer{
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="hero">
 
-<div class="header">
-
-<div class="profile-logo">
-<img src="profil.jpg" alt="SezR Matematik">
+<div class="profile-wrapper">
+<img src="profil.jpg">
 </div>
 
 <div class="brand">Sez<span>R</span> Matematik</div>
 
 <div class="badge">2026 Yaz Dönemi Kayıtları</div>
 
-<h1>Matematikte Eksiklerini Kapat, Yeni Döneme Güçlü Başla</h1>
+<h1>
+Matematikte Eksiklerini Kapat<br>
+<span class="highlight">Yeni Döneme Güçlü Başla</span>
+</h1>
 
 <p class="subtitle">
 Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
@@ -158,41 +172,33 @@ Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
 
 </div>
 
-<div class="cards">
+<div class="container">
+
+<div class="grid">
 
 <div class="card">
-<h2>👤 Birebir Özel Ders</h2>
-<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
-</div>
-
-<div class="card">
-<h2>👥 Grup Dersleri</h2>
-<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
+<h3>👤 Birebir Özel Ders</h3>
+<p>Kişiye özel planlama ve takip</p>
 </div>
 
 <div class="card">
-<h2>📘 9 ve 10. Sınıf Matematik</h2>
-<p>
-✔ Maarif Model uyumlu çalışma<br>
-✔ Temel eksikleri kapatma<br>
-✔ Yeni nesil soru çözümü<br>
-✔ Yeni döneme hazırlık
-</p>
+<h3>👥 Grup Dersleri</h3>
+<p>Verimli ve aktif katılım</p>
 </div>
 
-<div class="card flame">
-<h2>🔥 Büyük Dertler Serisi</h2>
-<p><strong>11’den 12’ye geçenler için en kritik paket.</strong></p>
-<p>
-🔥 Limit<br>
-🔥 Türev<br>
-🔥 İntegral
-</p>
+<div class="card">
+<h3>📘 9 ve 10. Sınıf</h3>
+<p>Temel + yeni nesil soru</p>
 </div>
 
-<div class="card wide">
-<h2>🧠 Problemler Paket Dersi</h2>
-<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma.</p>
+<div class="card special">
+<h3>🔥 Büyük Dertler Serisi</h3>
+<p>Limit • Türev • İntegral</p>
+</div>
+
+<div class="card">
+<h3>🧠 Problemler</h3>
+<p>Problem çözme teknikleri</p>
 </div>
 
 </div>
@@ -201,7 +207,9 @@ Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
 📲 Bana Uygun Programı Sor
 </a>
 
-<div class="note">Ücret ve program WhatsApp üzerinden paylaşılır</div>
+<div class="footer">
+Ücret ve program WhatsApp üzerinden paylaşılır
+</div>
 
 </div>
 
