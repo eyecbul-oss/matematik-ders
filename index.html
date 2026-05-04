@@ -5,26 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>SezR Matematik | Yaz Dersleri</title>
-<meta name="description" content="SezR Matematik ile yaz döneminde birebir veya grup matematik dersleri. 9-10-11-12. sınıflar için eksik kapatma ve yeni döneme hazırlık.">
+
+<!-- PREMIUM FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; }
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
     background: #0f172a;
     color: #f8fafc;
     opacity: 0;
     animation: pageFade 1s ease forwards;
 }
 
-@keyframes pageFade {
-    to { opacity: 1; }
-}
+@keyframes pageFade { to { opacity: 1; } }
 
 .hero {
-    min-height: 100vh;
     padding: 30px 18px;
     background:
         radial-gradient(circle at top, #2563eb 0, transparent 35%),
@@ -36,10 +35,12 @@ body {
     margin: auto;
 }
 
+/* LOGO */
 .logo {
-    font-size: 27px;
-    font-weight: 900;
+    font-size: 26px;
+    font-weight: 800;
     color: #facc15;
+    letter-spacing: 1px;
     margin-bottom: 25px;
     opacity: 0;
     transform: translateY(-20px);
@@ -52,9 +53,8 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.header {
-    text-align: center;
-}
+/* HEADER */
+.header { text-align: center; }
 
 .badge {
     display: inline-block;
@@ -62,29 +62,34 @@ body {
     color: #facc15;
     padding: 8px 14px;
     border-radius: 999px;
-    font-weight: bold;
+    font-weight: 600;
     opacity: 0;
     animation: fadeUp 0.8s 0.3s forwards;
 }
 
+/* PREMIUM BAŞLIK */
 h1 {
-    font-size: 42px;
-    line-height: 1.1;
-    margin: 16px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    line-height: 1.2;
+    margin: 18px 0;
+    letter-spacing: -1px;
     opacity: 0;
     animation: fadeUp 0.8s 0.5s forwards;
 }
 
+/* ALT METİN */
 .subtitle {
-    color: #cbd5e1;
     font-size: 18px;
-    max-width: 760px;
+    color: #cbd5e1;
+    max-width: 750px;
     margin: auto;
     line-height: 1.6;
     opacity: 0;
     animation: fadeUp 0.8s 0.7s forwards;
 }
 
+/* KARTLAR */
 .cards {
     display: grid;
     gap: 18px;
@@ -126,6 +131,7 @@ h1 {
     color: #e2e8f0;
 }
 
+/* 🔥 BÜYÜK DERTLER */
 .flame {
     position: relative;
     overflow: hidden;
@@ -156,14 +162,7 @@ h1 {
     animation: flameRise2 4s infinite;
 }
 
-.flame * {
-    position: relative;
-    z-index: 1;
-}
-
-.flame h2 {
-    color: #fff7ed;
-}
+.flame * { position: relative; z-index: 1; }
 
 @keyframes flameRise {
     0% { transform: translateY(0); opacity: 0.45; }
@@ -177,10 +176,12 @@ h1 {
     100% { transform: translateY(-110px); opacity: 0; }
 }
 
+/* PROBLEM KART */
 .problem-card {
     background: linear-gradient(135deg, rgba(168,85,247,0.22), rgba(59,130,246,0.16));
 }
 
+/* UYARI */
 .warning {
     margin-top: 20px;
     padding: 15px;
@@ -191,6 +192,7 @@ h1 {
     animation: fadeUp 0.8s 2s forwards;
 }
 
+/* SAYAÇ */
 .counter {
     margin-top: 15px;
     padding: 15px;
@@ -201,6 +203,7 @@ h1 {
     animation: fadeUp 0.8s 2.2s forwards;
 }
 
+/* BUTON */
 .cta {
     text-align: center;
     margin-top: 30px;
@@ -224,6 +227,7 @@ h1 {
     100% { box-shadow: 0 0 10px rgba(34,197,94,0.4); }
 }
 
+/* ALT METİN */
 .note {
     margin-top: 12px;
     color: #94a3b8;
@@ -236,14 +240,15 @@ h1 {
     color: #64748b;
 }
 
+/* ANİMASYON */
 @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* RESPONSIVE */
 @media(min-width:768px){
     .cards { grid-template-columns: 1fr 1fr; }
     .wide { grid-column: span 2; }
-    h1 { font-size: 56px; }
 }
 </style>
 </head>
@@ -256,82 +261,76 @@ h1 {
 <div class="logo">Sez<span>R</span> Matematik</div>
 
 <div class="header">
+
 <div class="badge">2026 Yaz Dönemi Kayıtları</div>
 
-<h1>Matematikte Eksik Bırakma, Yazı Avantaja Çevir</h1>
+<h1>
+Matematikte Eksiklerini Kapat, Yeni Döneme Güçlü Başla
+</h1>
 
 <p class="subtitle">
-9-10-11-12. sınıflar için birebir veya grup matematik dersleri.
-Yaz döneminde eksikleri kapat, yeni döneme daha güçlü başla.
+Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
 </p>
+
 </div>
 
 <div class="cards">
 
 <div class="card">
 <h2>👤 Birebir Ders</h2>
-<p>
-Öğrencinin seviyesine göre özel plan hazırlanır.
-Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.
-</p>
+<p>Kişiye özel planlama ve takip</p>
 </div>
 
 <div class="card">
 <h2>👥 Grup Dersleri</h2>
-<p>
-Derse aktif katılım sağlayan, takipli ve verimli grup dersleri.
-Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.
-</p>
+<p>Verimli ve takipli ders ortamı</p>
 </div>
 
 <div class="card">
 <h2>📘 9-10 Matematik</h2>
 <div class="list">
-✔ Maarif Model uyumlu çalışma<br>
 ✔ Temel eksikleri kapatma<br>
-✔ Yeni nesil soru çözümü<br>
+✔ Yeni nesil sorular<br>
 ✔ Yeni döneme hazırlık
 </div>
 </div>
 
 <div class="card flame">
 <h2>🔥 Büyük Dertler Serisi</h2>
-<p><strong>11’den 12’ye geçenler için en kritik paket.</strong></p>
 <div class="list">
-🔥 Limit<br>
-🔥 Türev<br>
-🔥 İntegral<br>
-🔥 Temeli sağlam kur, 12. sınıfa güçlü gir
+Limit<br>
+Türev<br>
+İntegral
 </div>
 </div>
 
 <div class="card wide problem-card">
-<h2>🧠 Problemler Paket Dersi</h2>
-<p>
-“Problemler yapamıyorum” diyen öğrenciler için özel çalışma.
-Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklı ilerlenir.
-</p>
+<h2>🧠 Problemler Paketi</h2>
+<p>Problem çözme teknikleri</p>
 </div>
 
 </div>
 
 <div class="warning">
-⚠️ Yaz dönemi grupları sınırlıdır. Uygun saatler dolmadan bilgi alabilirsiniz.
+⚠️ Kontenjan sınırlıdır
 </div>
 
 <div class="counter">
-⏳ Ön kayıtlar başlamıştır. Size uygun program için WhatsApp’tan yazabilirsiniz.
+⏳ Yerler dolmadan iletişime geçin
 </div>
 
 <div class="cta">
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
+<a class="button" href="https://wa.me/905058266949?text=Merhaba%20bilgi%20almak%20istiyorum">
 📲 Bana Uygun Programı Sor
 </a>
-<div class="note">Ücret, uygun günler ve ders programı WhatsApp üzerinden paylaşılır.</div>
+
+<div class="note">
+Ücret ve program WhatsApp üzerinden paylaşılır
+</div>
 </div>
 
 <div class="footer">
-SezR Matematik | Birebir veya Grup Matematik Dersleri
+SezR Matematik
 </div>
 
 </div>
