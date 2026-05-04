@@ -9,41 +9,100 @@
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter;background:#020617;color:#fff}
+
+body{
+font-family:Inter;
+background:#020617;
+color:#fff;
+overflow-x:hidden;
+}
 
 /* BACKGROUND */
 .page{
 min-height:100vh;
 padding:30px 16px;
-background:linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.95)),url("math-bg.jpg");
+position:relative;
+overflow:hidden;
+background:
+linear-gradient(rgba(2,6,23,.84),rgba(2,6,23,.95)),
+url("math-bg.jpg");
 background-size:cover;
 background-position:center;
 }
 
-/* CONTAINER */
-.container{max-width:1050px;margin:auto}
+/* PREMIUM LIGHT LAYERS */
+.page::before{
+content:"";
+position:absolute;
+inset:-20%;
+background:
+radial-gradient(circle at 20% 15%,rgba(56,189,248,.28),transparent 28%),
+radial-gradient(circle at 80% 20%,rgba(250,204,21,.25),transparent 26%),
+radial-gradient(circle at 50% 80%,rgba(34,197,94,.14),transparent 32%);
+animation:slowMove 14s ease-in-out infinite alternate;
+pointer-events:none;
+}
+
+.page::after{
+content:"";
+position:absolute;
+inset:0;
+background-image:
+radial-gradient(rgba(250,204,21,.45) 1px, transparent 1px),
+radial-gradient(rgba(56,189,248,.35) 1px, transparent 1px);
+background-size:90px 90px, 140px 140px;
+opacity:.12;
+pointer-events:none;
+}
+
+@keyframes slowMove{
+from{transform:translate(-20px,-10px) scale(1)}
+to{transform:translate(25px,20px) scale(1.05)}
+}
+
+.container{
+max-width:1050px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+/* FADE ANIM */
+.fade{
+opacity:0;
+transform:translateY(22px);
+animation:fadeUp .85s ease forwards;
+}
+
+@keyframes fadeUp{
+to{opacity:1;transform:translateY(0)}
+}
 
 /* HERO */
 .hero{text-align:center}
 
 /* PROFILE */
 .profile{
-width:260px;height:260px;margin:0 auto 20px;border-radius:50%;position:relative;
+width:260px;
+height:260px;
+margin:0 auto 20px;
+border-radius:50%;
+position:relative;
+filter:drop-shadow(0 0 24px rgba(250,204,21,.25));
 }
 
-/* DIŞ HALKA (SOLA DÖNÜYOR) */
 .profile::before{
 content:"";
 position:absolute;
-inset:-18px;
+inset:-20px;
 border-radius:50%;
 border:3px solid transparent;
 border-top-color:#facc15;
 border-right-color:#38bdf8;
-animation:spinLeft 30s linear infinite;
+border-bottom-color:rgba(250,204,21,.35);
+animation:spinLeft 46s linear infinite;
 }
 
-/* İÇ HALKA (SAĞA DÖNÜYOR) */
 .profile::after{
 content:"";
 position:absolute;
@@ -52,7 +111,8 @@ border-radius:50%;
 border:3px solid transparent;
 border-bottom-color:#f97316;
 border-left-color:#22c55e;
-animation:spinRight 20s linear infinite;
+border-top-color:rgba(56,189,248,.35);
+animation:spinRight 32s linear infinite;
 }
 
 @keyframes spinLeft{
@@ -73,6 +133,7 @@ height:100%;
 object-fit:cover;
 border-radius:50%;
 border:6px solid #fff;
+box-shadow:0 0 30px rgba(255,255,255,.25);
 }
 
 /* TEXT */
@@ -81,7 +142,9 @@ font-family:Montserrat;
 font-size:56px;
 font-weight:900;
 margin-top:10px;
+text-shadow:0 8px 22px rgba(0,0,0,.55);
 }
+
 .brand span{color:#facc15}
 
 .badge{
@@ -92,37 +155,66 @@ border-radius:999px;
 border:2px solid #facc15;
 color:#facc15;
 font-weight:900;
+background:rgba(2,6,23,.45);
+box-shadow:0 0 18px rgba(250,204,21,.25);
 }
 
 h1{
 margin-top:15px;
 font-size:32px;
 text-align:center;
+text-shadow:0 5px 18px rgba(0,0,0,.5);
 }
+
 h1 .big{
 display:block;
 font-size:48px;
 color:#facc15;
+text-shadow:0 0 18px rgba(250,204,21,.45);
 }
 
 /* CARDS */
-.cards{margin-top:25px;display:grid;gap:15px}
+.cards{
+margin-top:25px;
+display:grid;
+gap:15px;
+}
 
 .card{
 padding:18px;
-border-radius:15px;
-background:rgba(255,255,255,.05);
-border:1px solid rgba(255,255,255,.15);
+border-radius:17px;
+background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.035));
+border:1px solid rgba(255,255,255,.17);
 display:flex;
 gap:15px;
 align-items:center;
+transition:.35s ease;
+backdrop-filter:blur(10px);
+box-shadow:
+inset 0 0 20px rgba(255,255,255,.04),
+0 14px 35px rgba(0,0,0,.35);
 }
 
+.card:hover{
+transform:translateY(-7px) scale(1.025);
+box-shadow:
+inset 0 0 22px rgba(255,255,255,.08),
+0 20px 45px rgba(0,0,0,.65);
+background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.045));
+}
+
+/* ICON */
 .icon{
-width:70px;height:70px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
 font-size:30px;
 border:2px solid currentColor;
+box-shadow:0 0 16px currentColor;
+background:rgba(2,6,23,.42);
 }
 
 /* COLORS */
@@ -131,10 +223,12 @@ border:2px solid currentColor;
 .green{color:#86efac}
 .red{color:#fb6b4b}
 
-/* 🔥 GERÇEK ALEVLİ İKON */
+/* FIRE */
 .fire{
-width:50px;height:70px;
+width:50px;
+height:70px;
 position:relative;
+filter:drop-shadow(0 0 12px rgba(255,100,0,.8));
 }
 
 .fire span{
@@ -142,31 +236,34 @@ position:absolute;
 bottom:0;
 left:50%;
 transform:translateX(-50%);
-border-radius:50%;
-animation:flame 1.5s infinite ease-in-out;
+border-radius:50% 50% 45% 45%;
+animation:flame 1.35s infinite ease-in-out;
 }
 
 .fire span:nth-child(1){
-width:40px;height:60px;
-background:radial-gradient(circle,#ff6b00,#ff0000);
-animation-delay:0s;
+width:42px;
+height:62px;
+background:radial-gradient(circle at 50% 25%,#ffb000,#ff6b00 45%,#ff0000);
 }
 
 .fire span:nth-child(2){
-width:30px;height:50px;
-background:radial-gradient(circle,#ffd000,#ff6b00);
-animation-delay:.2s;
+width:30px;
+height:50px;
+background:radial-gradient(circle at 50% 20%,#fff176,#ffd000 45%,#ff6b00);
+animation-delay:.18s;
 }
 
 .fire span:nth-child(3){
-width:20px;height:40px;
+width:18px;
+height:36px;
 background:radial-gradient(circle,#fff,#ffd000);
-animation-delay:.4s;
+animation-delay:.35s;
 }
 
 @keyframes flame{
-0%,100%{transform:translate(-50%,0) scale(1);opacity:.9}
-50%{transform:translate(-50%,-10px) scale(1.1);opacity:1}
+0%,100%{transform:translate(-50%,0) scale(1) skewX(0deg);opacity:.92}
+35%{transform:translate(-53%,-8px) scale(1.12) skewX(-5deg);opacity:1}
+65%{transform:translate(-47%,-14px) scale(1.05) skewX(6deg);opacity:.95}
 }
 
 /* CTA */
@@ -176,20 +273,109 @@ align-items:center;
 gap:10px;
 margin:25px auto;
 padding:14px 24px;
-background:linear-gradient(#25d366,#128c4a);
+background:linear-gradient(180deg,#25d366,#128c4a);
 border-radius:15px;
 color:#fff;
 font-weight:900;
 text-decoration:none;
+position:relative;
+overflow:hidden;
+box-shadow:0 0 22px rgba(37,211,102,.6);
+transition:.3s ease;
+}
+
+.button:hover{
+transform:translateY(-3px) scale(1.03);
+box-shadow:0 0 36px rgba(37,211,102,.95);
+}
+
+.button::before{
+content:"";
+position:absolute;
+top:0;
+left:-80%;
+width:60%;
+height:100%;
+background:linear-gradient(120deg,transparent,rgba(255,255,255,.35),transparent);
+animation:buttonShine 3.5s infinite;
+}
+
+.button::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:15px;
+box-shadow:0 0 22px #25d366;
+animation:pulse 2s infinite;
+pointer-events:none;
+}
+
+@keyframes buttonShine{
+0%{left:-80%}
+55%{left:120%}
+100%{left:120%}
+}
+
+@keyframes pulse{
+0%,100%{opacity:.35}
+50%{opacity:1}
 }
 
 .button img{
-width:28px;height:28px;
+width:26px;
+height:26px;
+z-index:1;
+}
+
+.button span{
+z-index:1;
 }
 
 /* NOTE */
-.note{text-align:center;color:#ccc;font-size:14px}
+.note{
+text-align:center;
+color:#ccc;
+font-size:14px;
+}
 
+@media(min-width:768px){
+.cards{
+grid-template-columns:1fr 1fr;
+}
+}
+
+@media(max-width:560px){
+.profile{
+width:215px;
+height:215px;
+}
+
+.brand{
+font-size:42px;
+}
+
+h1{
+font-size:25px;
+}
+
+h1 .big{
+font-size:34px;
+}
+
+.card{
+align-items:flex-start;
+}
+
+.icon{
+width:62px;
+height:62px;
+font-size:28px;
+}
+
+.button{
+padding:13px 20px;
+}
+}
 </style>
 </head>
 
@@ -198,10 +384,10 @@ width:28px;height:28px;
 <div class="page">
 <div class="container">
 
-<div class="hero">
+<div class="hero fade">
 
 <div class="profile">
-<img src="profil.jpg?v=4">
+<img src="profil.jpg?v=6">
 </div>
 
 <div class="brand">Sez<span>R</span> Matematik</div>
@@ -214,7 +400,7 @@ MATEMATİKTE EKSİKLERİNİ KAPAT,
 
 </div>
 
-<div class="cards">
+<div class="cards fade">
 
 <div class="card blue">
 <div class="icon">👤</div>
@@ -244,14 +430,14 @@ MATEMATİKTE EKSİKLERİNİ KAPAT,
 
 </div>
 
-<div style="text-align:center">
+<div style="text-align:center" class="fade">
 <a class="button" href="https://wa.me/905058266949">
 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-Bana Uygun Programı Sor
+<span>Bana Uygun Programı Sor</span>
 </a>
 </div>
 
-<div class="note">
+<div class="note fade">
 Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.
 </div>
 
