@@ -14,57 +14,71 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: #0f172a;
+    background: radial-gradient(circle at top, #2563eb 0, transparent 35%), linear-gradient(135deg, #0f172a, #111827);
     color: #f8fafc;
 }
 
-/* HERO FOTO */
-.hero {
-    position: relative;
+.container {
+    max-width: 950px;
+    margin: auto;
+    padding: 28px 20px;
+}
+
+.header {
     text-align: center;
 }
 
-.hero-img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    filter: brightness(0.55);
+.profile-logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    padding: 5px;
+    background: linear-gradient(135deg, #facc15, #ffffff, #facc15);
+    box-shadow: 0 0 35px rgba(250,204,21,0.45);
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.profile-logo img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
+.brand {
+    color: #facc15;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
 }
 
-/* BAŞLIK */
+.brand span {
+    color: white;
+}
+
+.badge {
+    display: inline-block;
+    margin-top: 14px;
+    background: rgba(250,204,21,0.15);
+    color: #facc15;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 42px;
     line-height: 1.2;
+    margin: 20px 0 10px;
 }
 
 .subtitle {
     font-size: 18px;
-    color: #e5e7eb;
-    margin-top: 10px;
-}
-
-/* CONTENT */
-.container {
-    max-width: 950px;
+    color: #cbd5e1;
+    max-width: 720px;
     margin: auto;
-    padding: 20px;
+    line-height: 1.6;
 }
 
 .card {
@@ -72,18 +86,22 @@ h1 {
     padding: 20px;
     border-radius: 18px;
     margin-top: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card h2 {
     color: #facc15;
 }
 
-/* 🔥 BÜYÜK DERTLER */
+.card p {
+    color: #e2e8f0;
+    line-height: 1.7;
+}
+
 .flame {
     background: linear-gradient(135deg, #1e293b, #7c2d12, #facc15);
 }
 
-/* BUTON */
 .button {
     display: block;
     text-align: center;
@@ -95,49 +113,61 @@ h1 {
     color: white;
     font-weight: bold;
     font-size: 17px;
+    box-shadow: 0 0 25px rgba(34,197,94,0.55);
 }
 
-/* ALT */
 .note {
     text-align: center;
     margin-top: 10px;
     color: #94a3b8;
+}
+
+@media(min-width:768px){
+    .cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .wide {
+        grid-column: span 2;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- FOTOĞRAF ALANI -->
-<div class="hero">
-<img src="profil.jpg" class="hero-img">
+<div class="container">
 
-<div class="hero-text">
-<h1>
-Matematikte Eksiklerini Kapat, Yeni Döneme Güçlü Başla
-</h1>
+<div class="header">
+
+<div class="profile-logo">
+<img src="profil.jpg" alt="SezR Matematik">
+</div>
+
+<div class="brand">Sez<span>R</span> Matematik</div>
+
+<div class="badge">2026 Yaz Dönemi Kayıtları</div>
+
+<h1>Matematikte Eksiklerini Kapat, Yeni Döneme Güçlü Başla</h1>
 
 <p class="subtitle">
 Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
 </p>
-</div>
+
 </div>
 
-<!-- İÇERİK -->
-<div class="container">
+<div class="cards">
 
 <div class="card">
 <h2>👤 Birebir Özel Ders</h2>
-<p>
-Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.
-</p>
+<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
 </div>
 
 <div class="card">
 <h2>👥 Grup Dersleri</h2>
-<p>
-Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.
-</p>
+<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
 </div>
 
 <div class="card">
@@ -160,20 +190,18 @@ Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabal�
 </p>
 </div>
 
-<div class="card">
+<div class="card wide">
 <h2>🧠 Problemler Paket Dersi</h2>
-<p>
-“Problemler yapamıyorum” diyen öğrenciler için özel çalışma.
-</p>
+<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma.</p>
+</div>
+
 </div>
 
 <a class="button" href="https://wa.me/905058266949?text=Merhaba%20bilgi%20almak%20istiyorum">
 📲 Bana Uygun Programı Sor
 </a>
 
-<div class="note">
-Ücret ve program WhatsApp üzerinden paylaşılır
-</div>
+<div class="note">Ücret ve program WhatsApp üzerinden paylaşılır</div>
 
 </div>
 
