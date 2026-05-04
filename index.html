@@ -1,144 +1,309 @@
-<!-- SADECE TAM KOD: index.html içine komple yapıştır -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SezR Matematik | Yaz Dersleri</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:'Inter',sans-serif;background:#020617;color:#fff}
-.page{min-height:100vh;padding:28px 16px;position:relative;overflow:hidden;background:radial-gradient(circle at 50% 10%,rgba(37,99,235,.45),transparent 30%),radial-gradient(circle at 15% 20%,rgba(14,165,233,.22),transparent 25%),radial-gradient(circle at 80% 30%,rgba(250,204,21,.16),transparent 25%),linear-gradient(180deg,#06142e,#020617 75%)}
 
-.math-bg{position:absolute;inset:0;pointer-events:none;opacity:.34;color:#9ca3af}
-.math-bg span{position:absolute;color:#9fb1c9;text-shadow:0 0 12px rgba(56,189,248,.18)}
-.eq{font-size:28px;font-weight:700;opacity:.55}
-.big-symbol{font-size:64px;font-weight:900;opacity:.22}
-.line-art{font-size:54px;opacity:.28}
-.gold-dot{color:#facc15!important;opacity:.75}
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+color:#fff;
+background:#020617;
+}
 
-.m1{top:7%;left:8%;transform:rotate(-11deg)}
-.m2{top:7%;right:9%;transform:rotate(9deg)}
-.m3{top:19%;left:7%;font-size:52px}
-.m4{top:18%;right:10%;font-size:58px}
-.m5{top:27%;left:8%;transform:rotate(-8deg)}
-.m6{top:26%;right:13%;font-size:62px}
-.m7{top:36%;left:4%}
-.m8{top:39%;right:7%}
-.m9{top:13%;left:21%;font-size:34px}
-.m10{top:13%;right:28%;font-size:36px}
-.m11{top:31%;left:21%;font-size:32px;transform:rotate(8deg)}
-.m12{top:32%;right:24%;font-size:32px;transform:rotate(-8deg)}
-.m13{top:45%;left:3%;font-size:28px}
-.m14{top:47%;right:4%;font-size:28px}
+/* 🚀 ULTRA ARKA PLAN */
+.page{
+min-height:100vh;
+padding:28px 16px;
+position:relative;
+overflow:hidden;
+
+/* ANA BACKGROUND */
+background:
+linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.95)),
+url("math-bg.jpg");
+
+background-size:cover;
+background-position:center;
+}
+
+/* ✨ IŞIK EFEKTLERİ */
+.page::before{
+content:"";
+position:absolute;
+inset:0;
+
+background:
+radial-gradient(circle at 20% 10%, rgba(37,99,235,0.45), transparent 30%),
+radial-gradient(circle at 80% 20%, rgba(56,189,248,0.35), transparent 30%),
+radial-gradient(circle at 50% 90%, rgba(250,204,21,0.25), transparent 40%);
+
+mix-blend-mode:screen;
+pointer-events:none;
+}
+
+/* 🌟 PARLAK NOKTALAR */
+.page::after{
+content:"";
+position:absolute;
+inset:0;
+
+background-image:
+radial-gradient(#facc15 1px, transparent 1px),
+radial-gradient(#38bdf8 1px, transparent 1px);
+
+background-size:80px 80px, 120px 120px;
+opacity:0.15;
+
+pointer-events:none;
+}
 
 .container{max-width:1040px;margin:auto;position:relative;z-index:2}
 .hero{text-align:center}
-.profile{width:260px;height:260px;margin:0 auto 22px;border-radius:50%;position:relative}
-.profile:before{content:"";position:absolute;inset:-12px;border-radius:50%;background:conic-gradient(from 10deg,#facc15 0 35%,transparent 35% 48%,#38bdf8 48% 62%,transparent 62% 72%,#f97316 72% 100%);filter:drop-shadow(0 0 18px #facc15)}
-.profile:after{content:"";position:absolute;inset:-28px;border-radius:50%;border:3px solid transparent;border-top-color:#facc15;border-right-color:#38bdf8;transform:rotate(-20deg)}
-.profile img{position:absolute;inset:12px;width:calc(100% - 24px);height:calc(100% - 24px);object-fit:cover;object-position:center 28%;border-radius:50%;border:6px solid #fff;z-index:2}
-.brand{font-family:'Montserrat',sans-serif;font-size:58px;font-weight:900;letter-spacing:-2px;text-shadow:0 5px 15px rgba(0,0,0,.45)}
-.brand .gold{color:#facc15}
-.badge{display:inline-block;margin:18px 0 24px;padding:10px 34px;border-radius:999px;border:2px solid #facc15;color:#facc15;font-size:26px;font-weight:900;letter-spacing:2px;background:rgba(2,6,23,.42)}
-h1{font-family:'Montserrat',sans-serif;text-transform:uppercase;font-size:38px;line-height:1.15;margin:0;font-weight:900}
-h1 .big{display:block;color:#facc15;font-size:54px;text-shadow:0 0 18px rgba(250,204,21,.28)}
-.subtitle{margin:16px auto 24px;color:#e5e7eb;font-size:22px}
-.subtitle span{color:#38bdf8;font-weight:900}
 
-.cards{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
-.card{display:flex;gap:18px;align-items:center;min-height:150px;padding:20px;border-radius:18px;background:rgba(2,6,23,.58);border:1px solid rgba(148,163,184,.38);box-shadow:inset 0 0 22px rgba(59,130,246,.12),0 12px 25px rgba(0,0,0,.28)}
-.icon{min-width:88px;width:88px;height:88px;display:grid;place-items:center;border-radius:50%;font-size:44px;border:3px solid currentColor;box-shadow:0 0 20px currentColor}
-.card h2{margin:0 0 8px;font-family:'Montserrat',sans-serif;font-size:24px;font-weight:900;text-transform:uppercase}
-.card p{margin:0;color:#fff;font-size:17px;line-height:1.45}
-.blue h2,.blue{color:#38bdf8}.purple h2,.purple{color:#c084fc}.green h2,.green{color:#86efac}.red h2,.red{color:#fb6b4b}
-.green .check{color:#a7f3d0;line-height:1.7;font-size:17px}
-.flame{border-color:rgba(248,113,113,.55);box-shadow:inset 0 0 30px rgba(239,68,68,.2),0 0 22px rgba(239,68,68,.18)}
-.tags{margin-top:12px}
-.tag{display:inline-block;padding:9px 14px;margin:4px;border-radius:9px;background:linear-gradient(180deg,#8b1e16,#5b1110);color:#fff;font-weight:900;border:1px solid rgba(251,146,60,.65)}
-.problem{justify-content:space-between;border-color:rgba(168,85,247,.55);box-shadow:inset 0 0 30px rgba(168,85,247,.16)}
-.problem .icon{color:#c084fc}
-
-.info-row{margin-top:20px;display:grid;grid-template-columns:1fr;border:1px solid rgba(250,204,21,.5);border-radius:16px;overflow:hidden;background:rgba(2,6,23,.72)}
-.info{padding:18px;display:flex;align-items:center;justify-content:center;gap:12px;color:#fff;font-weight:900;font-size:17px;border-bottom:1px solid rgba(255,255,255,.18)}
-.info:last-child{border-bottom:none}.info .emoji{color:#facc15;font-size:34px}.script{color:#facc15;font-style:italic;font-size:23px;margin-left:4px}
-.cta-wrap{margin:26px auto 12px;position:relative;text-align:center}
-.arrow{position:absolute;color:#facc15;font-size:48px;top:30%}.arrow.left{left:4%}.arrow.right{right:4%;transform:scaleX(-1)}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:16px;width:100%;max-width:650px;padding:22px 24px;border-radius:22px;text-decoration:none;color:white;font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;background:linear-gradient(180deg,#22c55e,#15803d);border:3px solid #bbf7d0;box-shadow:0 0 28px rgba(34,197,94,.9)}
-.button small{display:block;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;color:#dcfce7}.whatsapp{font-size:46px}
-.note{text-align:center;color:#d1d5db;font-size:17px;margin-top:14px}
-
-@media(min-width:760px){
-.cards{grid-template-columns:1fr 1fr}.wide{grid-column:span 2}
-.info-row{grid-template-columns:1fr 1fr 1.4fr}
-.info{border-bottom:none;border-right:1px solid rgba(255,255,255,.22)}.info:last-child{border-right:none}
+/* FOTO */
+.profile{
+width:260px;
+height:260px;
+margin:0 auto 22px;
+border-radius:50%;
+position:relative;
 }
-@media(max-width:560px){
-.profile{width:210px;height:210px}.brand{font-size:42px}.badge{font-size:18px;padding:9px 18px}
-h1{font-size:25px}h1 .big{font-size:34px}.subtitle{font-size:18px}
-.card{align-items:flex-start}.icon{min-width:62px;width:62px;height:62px;font-size:30px}
-.card h2{font-size:19px}.card p,.green .check{font-size:15px}.button{font-size:21px}.arrow{display:none}
+
+.profile:before{
+content:"";
+position:absolute;
+inset:-12px;
+border-radius:50%;
+background:conic-gradient(from 10deg,#facc15 0 35%,transparent 35% 48%,#38bdf8 48% 62%,transparent 62% 72%,#f97316 72% 100%);
+filter:drop-shadow(0 0 18px #facc15);
+}
+
+.profile:after{
+content:"";
+position:absolute;
+inset:-28px;
+border-radius:50%;
+border:3px solid transparent;
+border-top-color:#facc15;
+border-right-color:#38bdf8;
+transform:rotate(-20deg);
+}
+
+.profile img{
+position:absolute;
+inset:12px;
+width:calc(100% - 24px);
+height:calc(100% - 24px);
+object-fit:cover;
+object-position:center 28%;
+border-radius:50%;
+border:6px solid #fff;
+z-index:2;
+}
+
+/* MARKA */
+.brand{
+font-family:'Montserrat',sans-serif;
+font-size:58px;
+font-weight:900;
+letter-spacing:-2px;
+text-shadow:0 5px 15px rgba(0,0,0,.45);
+}
+.brand .gold{color:#facc15}
+
+.badge{
+display:inline-block;
+margin:18px 0 24px;
+padding:10px 34px;
+border-radius:999px;
+border:2px solid #facc15;
+color:#facc15;
+font-size:26px;
+font-weight:900;
+background:rgba(2,6,23,.55);
+}
+
+/* BAŞLIK */
+h1{
+font-family:'Montserrat',sans-serif;
+text-transform:uppercase;
+font-size:38px;
+line-height:1.15;
+margin:0;
+font-weight:900;
+}
+
+h1 .big{
+display:block;
+color:#facc15;
+font-size:54px;
+text-shadow:0 0 18px rgba(250,204,21,.4);
+}
+
+.subtitle{
+margin:16px auto 24px;
+color:#e5e7eb;
+font-size:22px;
+}
+
+.subtitle span{
+color:#38bdf8;
+font-weight:900;
+}
+
+/* KARTLAR */
+.cards{
+display:grid;
+grid-template-columns:1fr;
+gap:16px;
+margin-top:18px;
+}
+
+.card{
+display:flex;
+gap:18px;
+align-items:center;
+min-height:150px;
+padding:20px;
+border-radius:18px;
+background:rgba(2,6,23,.65);
+border:1px solid rgba(148,163,184,.35);
+box-shadow:0 10px 25px rgba(0,0,0,.5);
+}
+
+.icon{
+min-width:88px;
+width:88px;
+height:88px;
+display:grid;
+place-items:center;
+border-radius:50%;
+font-size:44px;
+border:3px solid currentColor;
+box-shadow:0 0 20px currentColor;
+}
+
+.card h2{
+margin:0 0 8px;
+font-family:'Montserrat',sans-serif;
+font-size:24px;
+font-weight:900;
+}
+
+.card p{
+margin:0;
+font-size:17px;
+}
+
+/* RENKLER */
+.blue{color:#38bdf8}
+.purple{color:#c084fc}
+.green{color:#86efac}
+.red{color:#fb6b4b}
+
+/* BUTON */
+.button{
+display:block;
+text-align:center;
+margin:30px auto;
+padding:22px;
+background:linear-gradient(180deg,#22c55e,#15803d);
+border-radius:18px;
+font-size:26px;
+font-weight:900;
+color:white;
+text-decoration:none;
+box-shadow:0 0 30px #22c55e;
+}
+
+/* ALT */
+.note{
+text-align:center;
+margin-top:12px;
+color:#cbd5e1;
 }
 </style>
 </head>
 
 <body>
+
 <div class="page">
-
-<div class="math-bg">
-    <span class="eq m1">y = x² − 2x + 1</span>
-    <span class="eq m2">lim<sub>x→0</sub> sinx / x = 1</span>
-    <span class="line-art m3">⌁ 📈</span>
-    <span class="line-art m4">△ ABC</span>
-    <span class="eq m5">a² + b² = c²</span>
-    <span class="big-symbol m6">∫</span>
-    <span class="gold-dot m7">✦</span>
-    <span class="gold-dot m8">✦</span>
-    <span class="eq m9">f′(x)</span>
-    <span class="eq m10">∑ n²</span>
-    <span class="eq m11">√x</span>
-    <span class="eq m12">∠A = 60°</span>
-    <span class="eq m13">π ≈ 3.14</span>
-    <span class="eq m14">∞</span>
-</div>
-
 <div class="container">
 
-<section class="hero">
-<div class="profile"><img src="profil.jpg" alt="SezR Matematik"></div>
+<div class="hero">
+
+<div class="profile">
+<img src="profil.jpg">
+</div>
+
 <div class="brand">Sez<span class="gold">R</span> Matematik</div>
+
 <div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div>
-<h1>MATEMATİKTE EKSİKLERİNİ KAPAT,<span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span></h1>
-<p class="subtitle">Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.</p>
-</section>
 
-<section class="cards">
-<div class="card blue"><div class="icon">👤</div><div><h2>Birebir Özel Ders</h2><p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p></div></div>
-<div class="card purple"><div class="icon">👥</div><div><h2>Grup Dersleri</h2><p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p></div></div>
-<div class="card green"><div class="icon">📖</div><div><h2>9 ve 10. Sınıf Matematik</h2><div class="check">✔ Maarif Model uyumlu çalışma<br>✔ Temel eksikleri kapatma<br>✔ Yeni nesil soru çözümü<br>✔ Yeni döneme hazırlık</div></div></div>
-<div class="card red flame"><div class="icon">🔥</div><div><h2>Büyük Dertler Serisi</h2><p>11’den 12’ye geçenler için en kritik paket.</p><div class="tags"><span class="tag">LİMİT</span><span class="tag">TÜREV</span><span class="tag">İNTEGRAL</span></div></div></div>
-<div class="card problem wide"><div class="icon">🧠</div><div><h2>Problemler Paket Dersi</h2><p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma. Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklıdır.</p></div><div class="icon">🎯</div></div>
-</section>
+<h1>
+MATEMATİKTE EKSİKLERİNİ KAPAT,
+<span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
+</h1>
 
-<div class="info-row">
-<div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div>
-<div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div>
-<div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div>
+<p class="subtitle">
+Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
+</p>
+
 </div>
 
-<div class="cta-wrap">
-<div class="arrow left">➜</div>
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
-<span class="whatsapp">☘</span><span>BANA UYGUN PROGRAMI SOR<small>WhatsApp üzerinden hemen yazın!</small></span>
+<div class="cards">
+
+<div class="card blue">
+<div class="icon">👤</div>
+<div>
+<h2>Birebir Özel Ders</h2>
+<p>Öğrencinin seviyesine göre özel planlama yapılır.</p>
+</div>
+</div>
+
+<div class="card purple">
+<div class="icon">👥</div>
+<div>
+<h2>Grup Dersleri</h2>
+<p>Takipli ve verimli ders ortamı.</p>
+</div>
+</div>
+
+<div class="card green">
+<div class="icon">📖</div>
+<div>
+<h2>9 ve 10. Sınıf</h2>
+<p>Temel + yeni nesil soru</p>
+</div>
+</div>
+
+<div class="card red">
+<div class="icon">🔥</div>
+<div>
+<h2>Büyük Dertler</h2>
+<p>Limit • Türev • İntegral</p>
+</div>
+</div>
+
+</div>
+
+<a class="button" href="https://wa.me/905058266949">
+📲 Bana Uygun Programı Sor
 </a>
-<div class="arrow right">➜</div>
+
+<div class="note">
+Ücret ve program WhatsApp üzerinden paylaşılır
 </div>
 
-<div class="note">🔒 Ücret ve program WhatsApp üzerinden paylaşılır.</div>
+</div>
+</div>
 
-</div>
-</div>
 </body>
 </html>
