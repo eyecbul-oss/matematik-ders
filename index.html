@@ -3,357 +3,193 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SezR Matematik | Yaz Dersleri</title>
+<title>SezR Matematik</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter;background:#020617;color:#fff}
 
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#020617;
-color:white;
-}
-
+/* BACKGROUND */
 .page{
 min-height:100vh;
-padding:28px 16px;
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(rgba(2,6,23,.82),rgba(2,6,23,.95)),
-url("math-bg.jpg");
+padding:30px 16px;
+background:linear-gradient(rgba(2,6,23,.85),rgba(2,6,23,.95)),url("math-bg.jpg");
 background-size:cover;
 background-position:center;
 }
 
-.page::after{
-content:"";
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at 20% 10%,rgba(56,189,248,.22),transparent 30%),
-radial-gradient(circle at 80% 20%,rgba(250,204,21,.20),transparent 30%);
-mix-blend-mode:screen;
-pointer-events:none;
-}
+/* CONTAINER */
+.container{max-width:1050px;margin:auto}
 
-.container{
-max-width:1040px;
-margin:auto;
-position:relative;
-z-index:2;
-}
-
+/* HERO */
 .hero{text-align:center}
 
+/* PROFILE */
 .profile{
-width:260px;
-height:260px;
-margin:0 auto 22px;
-border-radius:50%;
-position:relative;
+width:260px;height:260px;margin:0 auto 20px;border-radius:50%;position:relative;
 }
 
-.profile:before{
+/* DIŞ HALKA (SOLA DÖNÜYOR) */
+.profile::before{
 content:"";
 position:absolute;
-inset:-12px;
-border-radius:50%;
-background:conic-gradient(from 10deg,#facc15 0 35%,transparent 35% 48%,#38bdf8 48% 62%,transparent 62% 72%,#f97316 72% 100%);
-filter:drop-shadow(0 0 18px #facc15);
-}
-
-.profile:after{
-content:"";
-position:absolute;
-inset:-28px;
+inset:-18px;
 border-radius:50%;
 border:3px solid transparent;
 border-top-color:#facc15;
 border-right-color:#38bdf8;
-transform:rotate(-20deg);
+animation:spinLeft 30s linear infinite;
+}
+
+/* İÇ HALKA (SAĞA DÖNÜYOR) */
+.profile::after{
+content:"";
+position:absolute;
+inset:-8px;
+border-radius:50%;
+border:3px solid transparent;
+border-bottom-color:#f97316;
+border-left-color:#22c55e;
+animation:spinRight 20s linear infinite;
+}
+
+@keyframes spinLeft{
+from{transform:rotate(0)}
+to{transform:rotate(-360deg)}
+}
+
+@keyframes spinRight{
+from{transform:rotate(0)}
+to{transform:rotate(360deg)}
 }
 
 .profile img{
 position:absolute;
-inset:12px;
-width:calc(100% - 24px);
-height:calc(100% - 24px);
+inset:0;
+width:100%;
+height:100%;
 object-fit:cover;
-object-position:center 28%;
 border-radius:50%;
 border:6px solid #fff;
-z-index:2;
 }
 
+/* TEXT */
 .brand{
-font-family:'Montserrat',sans-serif;
-font-size:58px;
+font-family:Montserrat;
+font-size:56px;
 font-weight:900;
-letter-spacing:-2px;
-text-shadow:0 5px 15px rgba(0,0,0,.45);
+margin-top:10px;
 }
-
-.brand .gold{color:#facc15}
+.brand span{color:#facc15}
 
 .badge{
+margin:15px auto;
 display:inline-block;
-margin:18px 0 24px;
-padding:10px 34px;
+padding:8px 25px;
 border-radius:999px;
 border:2px solid #facc15;
 color:#facc15;
-font-size:26px;
 font-weight:900;
-letter-spacing:2px;
-background:rgba(2,6,23,.42);
 }
 
 h1{
-font-family:'Montserrat',sans-serif;
-text-transform:uppercase;
-font-size:38px;
-line-height:1.15;
-margin:0;
-font-weight:900;
+margin-top:15px;
+font-size:32px;
+text-align:center;
 }
-
 h1 .big{
 display:block;
+font-size:48px;
 color:#facc15;
-font-size:54px;
-text-shadow:0 0 18px rgba(250,204,21,.28);
 }
 
-.subtitle{
-margin:16px auto 24px;
-color:#e5e7eb;
-font-size:22px;
-}
-
-.subtitle span{
-color:#38bdf8;
-font-weight:900;
-}
-
-.cards{
-display:grid;
-grid-template-columns:1fr;
-gap:16px;
-margin-top:18px;
-}
+/* CARDS */
+.cards{margin-top:25px;display:grid;gap:15px}
 
 .card{
+padding:18px;
+border-radius:15px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.15);
 display:flex;
-gap:18px;
+gap:15px;
 align-items:center;
-min-height:150px;
-padding:20px;
-border-radius:18px;
-background:rgba(2,6,23,.58);
-border:1px solid rgba(148,163,184,.38);
-box-shadow:inset 0 0 22px rgba(59,130,246,.12),0 12px 25px rgba(0,0,0,.28);
 }
 
 .icon{
-min-width:88px;
-width:88px;
-height:88px;
-display:grid;
-place-items:center;
+width:70px;height:70px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:30px;
+border:2px solid currentColor;
+}
+
+/* COLORS */
+.blue{color:#38bdf8}
+.purple{color:#c084fc}
+.green{color:#86efac}
+.red{color:#fb6b4b}
+
+/* 🔥 GERÇEK ALEVLİ İKON */
+.fire{
+width:50px;height:70px;
+position:relative;
+}
+
+.fire span{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
 border-radius:50%;
-font-size:44px;
-border:3px solid currentColor;
-box-shadow:0 0 20px currentColor;
+animation:flame 1.5s infinite ease-in-out;
 }
 
-.card h2{
-margin:0 0 8px;
-font-family:'Montserrat',sans-serif;
-font-size:24px;
-font-weight:900;
-text-transform:uppercase;
+.fire span:nth-child(1){
+width:40px;height:60px;
+background:radial-gradient(circle,#ff6b00,#ff0000);
+animation-delay:0s;
 }
 
-.card p{
-margin:0;
-color:#fff;
-font-size:17px;
-line-height:1.45;
+.fire span:nth-child(2){
+width:30px;height:50px;
+background:radial-gradient(circle,#ffd000,#ff6b00);
+animation-delay:.2s;
 }
 
-.blue h2,.blue{color:#38bdf8}
-.purple h2,.purple{color:#c084fc}
-.green h2,.green{color:#86efac}
-.red h2,.red{color:#fb6b4b}
-
-.green .check{
-color:#a7f3d0;
-line-height:1.7;
-font-size:17px;
+.fire span:nth-child(3){
+width:20px;height:40px;
+background:radial-gradient(circle,#fff,#ffd000);
+animation-delay:.4s;
 }
 
-.flame{
-border-color:rgba(248,113,113,.55);
-box-shadow:inset 0 0 30px rgba(239,68,68,.2),0 0 22px rgba(239,68,68,.18);
+@keyframes flame{
+0%,100%{transform:translate(-50%,0) scale(1);opacity:.9}
+50%{transform:translate(-50%,-10px) scale(1.1);opacity:1}
 }
 
-.tags{margin-top:12px}
-
-.tag{
-display:inline-block;
-padding:9px 14px;
-margin:4px;
-border-radius:9px;
-background:linear-gradient(180deg,#8b1e16,#5b1110);
-color:#fff;
-font-weight:900;
-border:1px solid rgba(251,146,60,.65);
-}
-
-.problem{
-justify-content:space-between;
-border-color:rgba(168,85,247,.55);
-box-shadow:inset 0 0 30px rgba(168,85,247,.16);
-}
-
-.problem .icon{color:#c084fc}
-
-.info-row{
-margin-top:20px;
-display:grid;
-grid-template-columns:1fr;
-border:1px solid rgba(250,204,21,.5);
-border-radius:16px;
-overflow:hidden;
-background:rgba(2,6,23,.72);
-}
-
-.info{
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-color:#fff;
-font-weight:900;
-font-size:17px;
-border-bottom:1px solid rgba(255,255,255,.18);
-}
-
-.info:last-child{border-bottom:none}
-
-.info .emoji{
-color:#facc15;
-font-size:34px;
-}
-
-.script{
-color:#facc15;
-font-style:italic;
-font-size:23px;
-margin-left:4px;
-}
-
-.cta-wrap{
-margin:24px auto 12px;
-text-align:center;
-}
-
+/* CTA */
 .button{
 display:inline-flex;
 align-items:center;
-justify-content:center;
-gap:12px;
-width:auto;
-min-width:280px;
-max-width:520px;
-padding:16px 26px;
-border-radius:18px;
+gap:10px;
+margin:25px auto;
+padding:14px 24px;
+background:linear-gradient(#25d366,#128c4a);
+border-radius:15px;
+color:#fff;
+font-weight:900;
 text-decoration:none;
-color:white;
-font-family:'Montserrat',sans-serif;
-font-size:22px;
-font-weight:900;
-background:linear-gradient(180deg,#25d366,#128c4a);
-border:2px solid #bbf7d0;
-box-shadow:0 0 18px rgba(37,211,102,.65);
-transition:.25s ease;
 }
 
-.button:hover{
-transform:translateY(-3px) scale(1.02);
-box-shadow:0 0 32px rgba(37,211,102,.95);
+.button img{
+width:28px;height:28px;
 }
 
-.button small{
-display:block;
-font-family:'Inter',sans-serif;
-font-size:13px;
-font-weight:600;
-color:#dcfce7;
-}
+/* NOTE */
+.note{text-align:center;color:#ccc;font-size:14px}
 
-.whatsapp-icon{
-width:40px;
-height:40px;
-border-radius:50%;
-background:#fff;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 16px rgba(255,255,255,.35);
-}
-
-.whatsapp-icon svg{
-width:27px;
-height:27px;
-fill:#25d366;
-}
-
-.note{
-text-align:center;
-color:#d1d5db;
-font-size:17px;
-margin-top:14px;
-}
-
-@media(min-width:760px){
-.cards{grid-template-columns:1fr 1fr}
-.wide{grid-column:span 2}
-.info-row{grid-template-columns:1fr 1fr 1.4fr}
-.info{border-bottom:none;border-right:1px solid rgba(255,255,255,.22)}
-.info:last-child{border-right:none}
-}
-
-@media(max-width:560px){
-.profile{width:210px;height:210px}
-.brand{font-size:42px}
-.badge{font-size:18px;padding:9px 18px}
-h1{font-size:25px}
-h1 .big{font-size:34px}
-.subtitle{font-size:18px}
-.card{align-items:flex-start}
-.icon{min-width:62px;width:62px;height:62px;font-size:30px}
-.card h2{font-size:19px}
-.card p,.green .check{font-size:15px}
-.button{
-font-size:18px;
-min-width:240px;
-padding:15px 20px;
-}
-.whatsapp-icon{
-width:34px;
-height:34px;
-}
-.whatsapp-icon svg{
-width:23px;
-height:23px;
-}
-}
 </style>
 </head>
 
@@ -362,14 +198,13 @@ height:23px;
 <div class="page">
 <div class="container">
 
-<section class="hero">
+<div class="hero">
 
 <div class="profile">
-<img src="profil.jpg?v=3" alt="SezR Matematik">
+<img src="profil.jpg?v=4">
 </div>
 
-<div class="brand">Sez<span class="gold">R</span> Matematik</div>
-
+<div class="brand">Sez<span>R</span> Matematik</div>
 <div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div>
 
 <h1>
@@ -377,88 +212,48 @@ MATEMATİKTE EKSİKLERİNİ KAPAT,
 <span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
 </h1>
 
-<p class="subtitle">
-Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
-</p>
+</div>
 
-</section>
-
-<section class="cards">
+<div class="cards">
 
 <div class="card blue">
 <div class="icon">👤</div>
-<div>
-<h2>Birebir Özel Ders</h2>
-<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
-</div>
+<div>Birebir özel ders</div>
 </div>
 
 <div class="card purple">
 <div class="icon">👥</div>
-<div>
-<h2>Grup Dersleri</h2>
-<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
-</div>
+<div>Grup dersleri</div>
 </div>
 
 <div class="card green">
 <div class="icon">📖</div>
-<div>
-<h2>9 ve 10. Sınıf Matematik</h2>
-<div class="check">
-✔ Maarif Model uyumlu çalışma<br>
-✔ Temel eksikleri kapatma<br>
-✔ Yeni nesil soru çözümü<br>
-✔ Yeni döneme hazırlık
-</div>
-</div>
+<div>9 ve 10. sınıf matematik</div>
 </div>
 
-<div class="card red flame">
-<div class="icon">🔥</div>
-<div>
-<h2>Büyük Dertler Serisi</h2>
-<p>11’den 12’ye geçenler için en kritik paket.</p>
-<div class="tags">
-<span class="tag">LİMİT</span>
-<span class="tag">TÜREV</span>
-<span class="tag">İNTEGRAL</span>
+<div class="card red">
+<div class="icon">
+<div class="fire">
+<span></span>
+<span></span>
+<span></span>
 </div>
 </div>
+<div>Büyük Dertler Serisi (Limit - Türev - İntegral)</div>
 </div>
 
-<div class="card problem wide">
-<div class="icon">🧠</div>
-<div>
-<h2>Problemler Paket Dersi</h2>
-<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma. Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklıdır.</p>
-</div>
-<div class="icon">🎯</div>
 </div>
 
-</section>
-
-<div class="info-row">
-<div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div>
-<div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div>
-<div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div>
-</div>
-
-<div class="cta-wrap">
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
-<span class="whatsapp-icon">
-<svg viewBox="0 0 32 32">
-<path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
-</svg>
-</span>
-<span>
-BANA UYGUN PROGRAMI SOR
-<small>WhatsApp üzerinden hemen yazın</small>
-</span>
+<div style="text-align:center">
+<a class="button" href="https://wa.me/905058266949">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+Bana Uygun Programı Sor
 </a>
 </div>
 
-<div class="note">Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.</div>
+<div class="note">
+Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.
+</div>
 
 </div>
 </div>
