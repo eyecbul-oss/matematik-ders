@@ -61,53 +61,70 @@ position:relative;
 z-index:2;
 }
 
-.hero{
-text-align:center;
-}
+.hero{text-align:center}
 
-.profile{
+/* PREMIUM PROFIL CERCEVESI */
+.profile-wrapper{
+position:relative;
 width:250px;
 height:250px;
-margin:0 auto 22px;
+margin:0 auto 24px;
+display:flex;
+align-items:center;
+justify-content:center;
 border-radius:50%;
-position:relative;
 }
 
-.profile:before{
+.profile-wrapper::before{
 content:"";
 position:absolute;
-inset:-5px;
+inset:-10px;
 border-radius:50%;
-background:conic-gradient(from 10deg,#facc15 0 35%,transparent 35% 48%,#38bdf8 48% 62%,transparent 62% 72%,#f97316 72% 100%);
-filter:drop-shadow(0 0 8px rgba(250,204,21,.65));
-animation:spinRight 70s linear infinite;
+background:conic-gradient(from 0deg,#38bdf8 0 18%,transparent 18% 33%,#facc15 33% 55%,transparent 55% 70%,#f97316 70% 88%,transparent 88% 100%);
+filter:drop-shadow(0 0 14px rgba(250,204,21,.55));
+animation:rotateOuter 70s linear infinite;
 }
 
-.profile:after{
+.profile-wrapper::after{
 content:"";
 position:absolute;
-inset:-13px;
+inset:-20px;
 border-radius:50%;
-border:1.5px solid transparent;
+border:2px solid transparent;
 border-top-color:#facc15;
 border-right-color:#38bdf8;
-transform:rotate(-20deg);
-animation:spinLeft 90s linear infinite;
+border-bottom-color:rgba(249,115,22,.55);
+animation:rotateInner 90s linear infinite reverse;
 }
 
-@keyframes spinRight{to{transform:rotate(360deg)}}
-@keyframes spinLeft{to{transform:rotate(-360deg)}}
-
-.profile img{
+.profile-mask{
 position:absolute;
-inset:7px;
-width:calc(100% - 14px);
-height:calc(100% - 14px);
+width:238px;
+height:238px;
+border-radius:50%;
+background:#020617;
+z-index:1;
+}
+
+.profile-wrapper img{
+width:232px;
+height:232px;
+border-radius:50%;
 object-fit:cover;
 object-position:center 28%;
-border-radius:50%;
-border:2px solid #fff;
+border:3px solid white;
+position:relative;
 z-index:2;
+}
+
+@keyframes rotateOuter{
+from{transform:rotate(0deg)}
+to{transform:rotate(360deg)}
+}
+
+@keyframes rotateInner{
+from{transform:rotate(0deg)}
+to{transform:rotate(-360deg)}
 }
 
 .brand{
@@ -451,9 +468,27 @@ border-right:none;
 padding:24px 14px;
 }
 
-.profile{
+.profile-wrapper{
 width:205px;
 height:205px;
+}
+
+.profile-wrapper::before{
+inset:-8px;
+}
+
+.profile-wrapper::after{
+inset:-15px;
+}
+
+.profile-mask{
+width:195px;
+height:195px;
+}
+
+.profile-wrapper img{
+width:190px;
+height:190px;
 }
 
 .brand{
@@ -572,8 +607,9 @@ font-size:15px;
 
 <section class="hero">
 
-<div class="profile">
-<img src="profil.jpg?v=12" alt="SezR Matematik">
+<div class="profile-wrapper">
+<div class="profile-mask"></div>
+<img src="profil.jpg?v=13" alt="SezR Matematik">
 </div>
 
 <div class="brand">Sez<span class="gold">R</span> Matematik</div>
