@@ -317,6 +317,21 @@ font-weight:900;
 font-size:14px;
 letter-spacing:.5px;
 border:1px solid rgba(251,146,60,.65);
+opacity:0;
+transform:translateY(8px) scale(.95);
+animation:tagPop 2.8s ease infinite;
+}
+
+.tag:nth-child(1){animation-delay:0s}
+.tag:nth-child(2){animation-delay:.35s}
+.tag:nth-child(3){animation-delay:.7s}
+.tag:nth-child(4){animation-delay:1.05s}
+
+@keyframes tagPop{
+0%{opacity:0;transform:translateY(8px) scale(.95)}
+18%{opacity:1;transform:translateY(0) scale(1)}
+78%{opacity:1;transform:translateY(0) scale(1)}
+100%{opacity:.75;transform:translateY(0) scale(.98)}
 }
 
 .problem{
@@ -544,14 +559,16 @@ line-height:1.5;
 }
 
 .tags{
-gap:6px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:7px;
 margin-top:10px;
 }
 
 .tag{
-min-width:auto;
-font-size:12px;
-padding:7px 10px;
+min-width:0;
+font-size:11.5px;
+padding:7px 8px;
 }
 
 .problem{
@@ -609,7 +626,7 @@ font-size:15px;
 
 <div class="profile-wrapper">
 <div class="profile-mask"></div>
-<img src="profil.jpg?v=13" alt="SezR Matematik">
+<img src="profil.jpg?v=14" alt="SezR Matematik">
 </div>
 
 <div class="brand">Sez<span class="gold">R</span> Matematik</div>
@@ -688,6 +705,7 @@ Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
 <span class="tag">LİMİT</span>
 <span class="tag">TÜREV</span>
 <span class="tag">İNTEGRAL</span>
+<span class="tag">TRİGONOMETRİ</span>
 </div>
 </div>
 </div>
