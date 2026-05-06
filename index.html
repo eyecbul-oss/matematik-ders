@@ -3,22 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SezR Matematik</title>
+<title>SezR Matematik | Kolay İçerik Yönetimi</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
-:root{
---bg:#020617;
---blue:#38bdf8;
---gold:#facc15;
-}
-
-*{
-box-sizing:border-box;
-}
+*{box-sizing:border-box;scroll-behavior:smooth}
 
 body{
 margin:0;
@@ -28,29 +18,11 @@ color:white;
 overflow-x:hidden;
 }
 
-body::before{
-content:"∫  Σ  π  f(x)  lim  √x";
-position:fixed;
-bottom:20px;
-left:0;
-font-size:60px;
-letter-spacing:28px;
-color:rgba(56,189,248,.05);
-white-space:nowrap;
-animation:kay 40s linear infinite;
-pointer-events:none;
-}
-
-@keyframes kay{
-from{transform:translateX(0)}
-to{transform:translateX(-700px)}
-}
-
 .topbar{
 position:sticky;
 top:0;
 z-index:50;
-background:rgba(2,6,23,.85);
+background:rgba(2,6,23,.88);
 backdrop-filter:blur(16px);
 border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -62,6 +34,7 @@ padding:14px 18px;
 display:flex;
 align-items:center;
 justify-content:space-between;
+gap:16px;
 }
 
 .logo{
@@ -70,11 +43,11 @@ font-size:34px;
 font-weight:900;
 letter-spacing:-1px;
 line-height:.9;
+color:white;
+text-decoration:none;
 }
 
-.logo span{
-color:#facc15;
-}
+.logo span{color:#facc15}
 
 .logo small{
 display:block;
@@ -91,32 +64,17 @@ gap:18px;
 .nav-links a{
 color:white;
 text-decoration:none;
-font-size:14px;
 font-weight:800;
+font-size:14px;
 }
 
 .hero{
-position:relative;
-min-height:100vh;
-padding:60px 18px;
+padding:70px 18px 46px;
 background:
 linear-gradient(rgba(2,6,23,.88),rgba(2,6,23,.96)),
 url("math-bg.jpg");
-
 background-size:cover;
 background-position:center;
-overflow:hidden;
-}
-
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(90deg,rgba(56,189,248,.05) 1px,transparent 1px),
-linear-gradient(rgba(56,189,248,.05) 1px,transparent 1px);
-
-background-size:60px 60px;
 }
 
 .container{
@@ -128,14 +86,14 @@ z-index:2;
 
 .hero-grid{
 display:grid;
-grid-template-columns:360px 1fr;
-gap:50px;
+grid-template-columns:330px 1fr;
+gap:46px;
 align-items:center;
 }
 
 .profile-wrap{
-width:320px;
-height:320px;
+width:310px;
+height:310px;
 margin:auto;
 position:relative;
 display:flex;
@@ -160,13 +118,11 @@ border-radius:50%;
 border:4px solid rgba(250,204,21,.35);
 }
 
-@keyframes don{
-to{transform:rotate(360deg)}
-}
+@keyframes don{to{transform:rotate(360deg)}}
 
 .profile-wrap img{
-width:250px;
-height:250px;
+width:245px;
+height:245px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid white;
@@ -184,9 +140,7 @@ letter-spacing:-2px;
 margin-bottom:22px;
 }
 
-.brand span{
-color:#facc15;
-}
+.brand span{color:#facc15}
 
 .brand small{
 display:block;
@@ -216,25 +170,21 @@ text-transform:uppercase;
 h1 span{
 display:block;
 color:#facc15;
-font-size:72px;
+font-size:68px;
 }
 
 .subtitle{
-font-size:22px;
+font-size:21px;
 line-height:1.5;
 max-width:700px;
 color:#e5e7eb;
-}
-
-.subtitle strong{
-color:#38bdf8;
 }
 
 .actions{
 display:flex;
 gap:12px;
 flex-wrap:wrap;
-margin-top:26px;
+margin-top:24px;
 }
 
 .btn{
@@ -250,20 +200,35 @@ color:white;
 transition:.25s;
 }
 
-.btn:hover{
-transform:translateY(-4px);
+.btn:hover{transform:translateY(-4px)}
+.whatsapp{background:linear-gradient(180deg,#25d366,#128c4a)}
+.youtube{background:linear-gradient(180deg,#ef4444,#991b1b)}
+.notes{background:linear-gradient(180deg,#38bdf8,#075985)}
+
+.announcement{
+background:linear-gradient(90deg,rgba(250,204,21,.18),rgba(56,189,248,.10),rgba(250,204,21,.18));
+border-top:1px solid rgba(250,204,21,.22);
+border-bottom:1px solid rgba(250,204,21,.22);
+padding:14px 18px;
 }
 
-.whatsapp{
-background:linear-gradient(180deg,#25d366,#128c4a);
+.announcement-track{
+max-width:1180px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:14px;
+font-family:'Montserrat',sans-serif;
+font-weight:900;
+color:#fef3c7;
+text-align:center;
 }
 
-.youtube{
-background:linear-gradient(180deg,#ef4444,#991b1b);
-}
-
-.notes{
-background:linear-gradient(180deg,#38bdf8,#075985);
+.section{
+padding:46px 18px;
+background:#020617;
+border-bottom:1px solid rgba(148,163,184,.12);
 }
 
 .section-title{
@@ -271,7 +236,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 gap:18px;
-margin:34px 0 18px;
+margin:0 0 24px;
 }
 
 .section-title::before,
@@ -288,189 +253,341 @@ font-size:28px;
 margin:0;
 }
 
-.cards{
+.grid-5{
 display:grid;
 grid-template-columns:repeat(5,1fr);
 gap:14px;
 }
 
+.grid-4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:16px;
+}
+
+.grid-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+
 .card{
-background:rgba(7,17,31,.82);
-border:1px solid rgba(255,255,255,.08);
-border-radius:20px;
-padding:20px;
-text-align:center;
+background:rgba(7,17,31,.88);
+border:1px solid rgba(148,163,184,.20);
+border-radius:22px;
+padding:22px;
+box-shadow:0 16px 32px rgba(0,0,0,.26);
 transition:.25s;
 }
 
 .card:hover{
 transform:translateY(-6px);
+border-color:rgba(250,204,21,.42);
 }
 
 .icon{
-width:76px;
-height:76px;
-border-radius:50%;
+width:66px;
+height:66px;
+border-radius:18px;
 display:grid;
 place-items:center;
-margin:0 auto 14px;
 font-size:34px;
-border:2px solid currentColor;
-box-shadow:0 0 22px currentColor;
+background:rgba(56,189,248,.10);
+border:1px solid rgba(56,189,248,.26);
+margin-bottom:14px;
 }
-
-.blue{color:#38bdf8;}
-.purple{color:#c084fc;}
-.green{color:#86efac;}
-.red{color:#fb6b4b;}
-.indigo{color:#93a4ff;}
 
 .card h3{
 font-family:'Montserrat',sans-serif;
 font-size:20px;
-margin:0 0 10px;
+margin:0 0 8px;
+color:#facc15;
 }
 
 .card p{
-font-size:14px;
-line-height:1.5;
 color:#e5e7eb;
+font-size:15px;
+line-height:1.55;
+margin:0 0 14px;
 }
 
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:6px;
+.card a{
+display:inline-flex;
+width:100%;
 justify-content:center;
-margin-top:10px;
-}
-
-.tag{
-padding:6px 10px;
-border-radius:8px;
-background:rgba(239,68,68,.15);
-border:1px solid rgba(251,146,60,.4);
-font-size:12px;
+padding:12px;
+border-radius:14px;
+background:rgba(250,204,21,.10);
+border:1px solid rgba(250,204,21,.30);
+color:#fef3c7;
+text-decoration:none;
+font-family:'Montserrat',sans-serif;
 font-weight:900;
-color:#fed7aa;
 }
 
-@media(max-width:980px){
-
-.hero-grid{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.subtitle{
+.question-card{
+max-width:900px;
 margin:auto;
 }
 
-.actions{
-justify-content:center;
+.option{
+padding:13px 14px;
+border-radius:14px;
+background:rgba(2,6,23,.62);
+border:1px solid rgba(148,163,184,.20);
+font-weight:800;
+color:#e5e7eb;
+margin:8px 0;
 }
 
-.cards{
-grid-template-columns:repeat(2,1fr);
+.answer-btn{
+width:100%;
+border:1px solid #facc15;
+background:linear-gradient(180deg,rgba(250,204,21,.16),rgba(250,204,21,.06));
+color:#fef3c7;
+padding:14px;
+border-radius:15px;
+font-family:'Montserrat',sans-serif;
+font-weight:900;
+cursor:pointer;
+font-size:16px;
 }
 
+.answer-box{
+display:none;
+margin-top:14px;
+padding:15px;
+border-radius:15px;
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.4);
+color:#bbf7d0;
+line-height:1.6;
+}
+
+.form-card{
+max-width:760px;
+margin:auto;
+}
+
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.form-group.full{grid-column:span 2}
+
+label{
+font-weight:900;
+color:#facc15;
+font-size:14px;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid rgba(148,163,184,.25);
+background:rgba(2,6,23,.72);
+color:white;
+font-family:'Inter',sans-serif;
+font-size:15px;
+outline:none;
+}
+
+textarea{min-height:110px;resize:vertical}
+
+.form-submit{
+margin-top:16px;
+width:100%;
+border:none;
+padding:15px 20px;
+border-radius:16px;
+background:linear-gradient(180deg,#25d366,#128c4a);
+color:white;
+font-family:'Montserrat',sans-serif;
+font-weight:900;
+font-size:17px;
+cursor:pointer;
+}
+
+.footer{
+background:#020617;
+border-top:1px solid rgba(250,204,21,.22);
+padding:36px 18px 18px;
+}
+
+.footer-inner{
+max-width:1180px;
+margin:auto;
+display:grid;
+grid-template-columns:1.25fr 1fr 1fr 1fr;
+gap:26px;
+}
+
+.footer-logo{
+font-family:'Montserrat',sans-serif;
+font-size:42px;
+font-weight:900;
+line-height:.85;
+color:white;
+text-decoration:none;
+display:inline-block;
+margin-bottom:14px;
+}
+
+.footer-logo span{color:#facc15}
+
+.footer-logo small{
+display:block;
+font-size:13px;
+letter-spacing:4px;
+margin-top:7px;
+color:white;
+}
+
+.footer p,.footer a{
+color:#cbd5e1;
+line-height:1.6;
+}
+
+.footer a{
+display:block;
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+margin:9px 0;
+}
+
+.footer h3{
+font-family:'Montserrat',sans-serif;
+font-size:18px;
+margin:0 0 14px;
+color:#facc15;
+}
+
+.footer-box{
+padding:14px;
+border-radius:16px;
+background:rgba(7,17,31,.68);
+border:1px solid rgba(148,163,184,.18);
+}
+
+.footer-bottom{
+max-width:1180px;
+margin:26px auto 0;
+padding-top:16px;
+border-top:1px solid rgba(148,163,184,.16);
+display:flex;
+justify-content:space-between;
+gap:16px;
+color:#94a3b8;
+font-size:14px;
+}
+
+.mobile-tabbar{
+display:none;
+position:fixed;
+left:12px;
+right:12px;
+bottom:12px;
+z-index:80;
+padding:8px;
+border-radius:22px;
+background:rgba(2,6,23,.92);
+backdrop-filter:blur(18px);
+border:1px solid rgba(250,204,21,.22);
+box-shadow:0 12px 30px rgba(0,0,0,.45);
+}
+
+.mobile-tabbar a{
+flex:1;
+text-align:center;
+color:#e5e7eb;
+text-decoration:none;
+font-size:11px;
+font-weight:900;
+padding:8px 4px;
+border-radius:16px;
+}
+
+.mobile-tabbar a span{
+display:block;
+font-size:20px;
+margin-bottom:3px;
+}
+
+@media(max-width:980px){
+.hero-grid{grid-template-columns:1fr;text-align:center}
+.subtitle{margin:auto}
+.actions{justify-content:center}
+.grid-5,.grid-4,.grid-3{grid-template-columns:repeat(2,1fr)}
+.footer-inner{grid-template-columns:1fr 1fr}
 }
 
 @media(max-width:680px){
-
-.nav-links{
-display:none;
+body{padding-bottom:88px}
+.nav-links{display:none}
+.mobile-tabbar{display:flex}
+.profile-wrap{width:240px;height:240px}
+.profile-wrap img{width:185px;height:185px}
+.brand{font-size:44px}
+.brand small{font-size:13px;letter-spacing:4px}
+h1{font-size:30px}
+h1 span{font-size:42px}
+.subtitle{font-size:18px}
+.section-title::before,.section-title::after{width:50px}
+.grid-5,.grid-4,.grid-3{grid-template-columns:1fr}
+.form-grid{grid-template-columns:1fr}
+.form-group.full{grid-column:span 1}
+.footer-inner{grid-template-columns:1fr}
+.footer-bottom{flex-direction:column;text-align:center}
+.announcement-track{font-size:13px;line-height:1.4;flex-direction:column}
 }
-
-.profile-wrap{
-width:240px;
-height:240px;
-}
-
-.profile-wrap img{
-width:185px;
-height:185px;
-}
-
-.brand{
-font-size:44px;
-}
-
-.brand small{
-font-size:13px;
-letter-spacing:4px;
-}
-
-h1{
-font-size:30px;
-}
-
-h1 span{
-font-size:42px;
-}
-
-.subtitle{
-font-size:18px;
-}
-
-.cards{
-grid-template-columns:1fr;
-}
-
-.section-title::before,
-.section-title::after{
-width:50px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
 <header class="topbar">
-
 <nav class="nav">
-
-<div class="logo">
+<a class="logo" href="#">
 Sez<span>R</span>
 <small>MATEMATİK</small>
-</div>
+</a>
 
 <div class="nav-links">
-<a href="#">Ana Sayfa</a>
-<a href="#">Dersler</a>
-<a href="#">PDF</a>
-<a href="#">YouTube</a>
-<a href="#">İletişim</a>
+<a href="#dersler">Dersler</a>
+<a href="#soru">Günün Sorusu</a>
+<a href="#pdf">PDF</a>
+<a href="#youtube">YouTube</a>
+<a href="#iletisim">İletişim</a>
 </div>
-
 </nav>
-
 </header>
 
 <section class="hero">
-
 <div class="container">
-
 <div class="hero-grid">
 
 <div class="profile-wrap">
 <div class="profile-ring"></div>
-<img src="profil.jpg">
+<img src="profil.jpg" alt="SezR Matematik">
 </div>
 
 <div>
-
 <div class="brand">
 Sez<span>R</span>
 <small>MATEMATİK</small>
 </div>
 
-<div class="badge">
-2026 YAZ DÖNEMİ
-</div>
+<div class="badge">2026 YAZ DÖNEMİ</div>
 
 <h1>
 Matematikte Eksiklerini Kapat,
@@ -478,81 +595,243 @@ Matematikte Eksiklerini Kapat,
 </h1>
 
 <p class="subtitle">
-Yazı doğru değerlendir,
-<strong>önde olan</strong> öğrenci ol.
+Yazı doğru değerlendir, önde olan öğrenci ol.
 </p>
 
 <div class="actions">
-
-<a class="btn whatsapp"
-href="https://wa.me/905058266949">
-WhatsApp’tan Yaz
-</a>
-
-<a class="btn youtube"
-href="https://youtube.com/@SezRmatematik">
-YouTube Kanalı
-</a>
-
-<a class="btn notes"
-href="#">
-PDF Notlar
-</a>
-
+<a class="btn whatsapp" href="#iletisim">WhatsApp’tan Yaz</a>
+<a class="btn youtube" href="https://youtube.com/@SezRmatematik" target="_blank">YouTube Kanalı</a>
+<a class="btn notes" href="#pdf">PDF Notlar</a>
+</div>
 </div>
 
 </div>
-
 </div>
-
-<div class="section-title">
-<h2>DERSLERİM</h2>
-</div>
-
-<div class="cards">
-
-<div class="card blue">
-<div class="icon">👤</div>
-<h3>Birebir Ders</h3>
-<p>Kişiye özel planlama ve takip sistemi.</p>
-</div>
-
-<div class="card purple">
-<div class="icon">👥</div>
-<h3>Grup Dersleri</h3>
-<p>Takipli ve aktif katılımlı çalışma ortamı.</p>
-</div>
-
-<div class="card green">
-<div class="icon">📖</div>
-<h3>9-10. Sınıf</h3>
-<p>Temel güçlendirme ve yeni nesil soru çözümü.</p>
-</div>
-
-<div class="card red">
-<div class="icon">🔥</div>
-<h3>Büyük Dertler</h3>
-
-<div class="tags">
-<span class="tag">LİMİT</span>
-<span class="tag">TÜREV</span>
-<span class="tag">İNTEGRAL</span>
-<span class="tag">TRİGO</span>
-</div>
-
-</div>
-
-<div class="card indigo">
-<div class="icon">🧠</div>
-<h3>Problemler</h3>
-<p>Problem çözme mantığı geliştirme çalışmaları.</p>
-</div>
-
-</div>
-
-</div>
-
 </section>
+
+<section class="announcement">
+<div class="announcement-track" id="duyuruAlani"></div>
+</section>
+
+<section id="dersler" class="section">
+<div class="container">
+<div class="section-title"><h2>DERSLERİM</h2></div>
+<div class="grid-5" id="dersAlani"></div>
+</div>
+</section>
+
+<section id="soru" class="section">
+<div class="container">
+<div class="section-title"><h2>GÜNÜN SORUSU</h2></div>
+<div class="card question-card">
+<h3 id="soruBaslik"></h3>
+<p id="soruMetni"></p>
+<div id="secenekAlani"></div>
+<button class="answer-btn" onclick="document.getElementById('cevap').style.display='block'">Cevabı Göster</button>
+<div id="cevap" class="answer-box"></div>
+</div>
+</div>
+</section>
+
+<section id="pdf" class="section">
+<div class="container">
+<div class="section-title"><h2>PDF NOTLAR</h2></div>
+<div class="grid-4" id="pdfAlani"></div>
+</div>
+</section>
+
+<section id="youtube" class="section">
+<div class="container">
+<div class="section-title"><h2>YOUTUBE</h2></div>
+<div class="grid-3" id="videoAlani"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-title"><h2>ÖĞRENCİ PANELİ</h2></div>
+<div class="grid-4" id="panelAlani"></div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-title"><h2>ÖĞRENCİ YORUMLARI</h2></div>
+<div class="grid-3" id="yorumAlani"></div>
+</div>
+</section>
+
+<section id="iletisim" class="section">
+<div class="container">
+<div class="section-title"><h2>BİLGİ AL</h2></div>
+
+<div class="card form-card">
+<div class="form-grid">
+<div class="form-group">
+<label>Ad Soyad</label>
+<input id="ad" type="text" placeholder="Örn: Ahmet Yılmaz">
+</div>
+
+<div class="form-group">
+<label>Sınıf</label>
+<select id="sinif">
+<option value="">Seçiniz</option>
+<option>6. Sınıf</option>
+<option>7. Sınıf</option>
+<option>8. Sınıf / LGS</option>
+<option>9. Sınıf</option>
+<option>10. Sınıf</option>
+<option>11. Sınıf</option>
+<option>12. Sınıf</option>
+<option>TYT / AYT</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Ders Türü</label>
+<select id="ders">
+<option value="">Seçiniz</option>
+<option>Birebir Özel Ders</option>
+<option>Grup Dersi</option>
+<option>Problemler Paketi</option>
+<option>Büyük Dertler Serisi</option>
+<option>PDF / Notlar</option>
+</select>
+</div>
+
+<div class="form-group">
+<label>Uygun Zaman</label>
+<select id="zaman">
+<option value="">Seçiniz</option>
+<option>Hafta içi</option>
+<option>Hafta sonu</option>
+<option>Akşam saatleri</option>
+<option>Fark etmez</option>
+</select>
+</div>
+
+<div class="form-group full">
+<label>Ek Mesaj</label>
+<textarea id="mesaj" placeholder="Örn: Yaz dönemi için bilgi almak istiyorum."></textarea>
+</div>
+</div>
+
+<button class="form-submit" onclick="whatsappFormuGonder()">WhatsApp Mesajı Oluştur</button>
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+<div class="footer-inner">
+<div>
+<a class="footer-logo" href="#">
+Sez<span>R</span>
+<small>MATEMATİK</small>
+</a>
+<p>Matematiği ezberletmeden, mantığını kavratarak öğreten modern ders sistemi.</p>
+</div>
+
+<div class="footer-box">
+<h3>Hızlı Menü</h3>
+<a href="#dersler">Dersler</a>
+<a href="#soru">Günün Sorusu</a>
+<a href="#pdf">PDF Notlar</a>
+<a href="#youtube">YouTube</a>
+</div>
+
+<div class="footer-box">
+<h3>Dersler</h3>
+<a href="#dersler">Birebir Özel Ders</a>
+<a href="#dersler">Grup Dersleri</a>
+<a href="#dersler">Problemler Paketi</a>
+</div>
+
+<div class="footer-box">
+<h3>İletişim</h3>
+<a href="tel:+905058266949">0505 826 69 49</a>
+<a href="mailto:sezrmatematik@gmail.com">sezrmatematik@gmail.com</a>
+</div>
+</div>
+
+<div class="footer-bottom">
+<div>© 2026 SezR Matematik | Tüm hakları saklıdır.</div>
+<div>Matematiği ezberleme, anla.</div>
+</div>
+</footer>
+
+<nav class="mobile-tabbar">
+<a href="#"><span>🏠</span>Ana</a>
+<a href="#dersler"><span>📚</span>Ders</a>
+<a href="#soru"><span>💡</span>Soru</a>
+<a href="#pdf"><span>📄</span>PDF</a>
+<a href="#iletisim"><span>💬</span>İletişim</a>
+</nav>
+
+<script src="icerikler.js"></script>
+
+<script>
+function kartOlustur(icon, baslik, aciklama, link, buton){
+  return `
+  <div class="card">
+    <div class="icon">${icon}</div>
+    <h3>${baslik}</h3>
+    <p>${aciklama}</p>
+    <a href="${link || '#'}">${buton || 'Detay'}</a>
+  </div>`;
+}
+
+function icerikleriYukle(){
+  document.getElementById("duyuruAlani").innerHTML = siteIcerikleri.duyurular.map(d => `<span>${d}</span>`).join("");
+
+  document.getElementById("dersAlani").innerHTML = siteIcerikleri.dersler.map(d =>
+    kartOlustur(d.icon, d.baslik, d.aciklama, d.link, d.buton)
+  ).join("");
+
+  document.getElementById("pdfAlani").innerHTML = siteIcerikleri.pdfler.map(p =>
+    kartOlustur(p.icon, p.baslik, p.aciklama, p.link, p.buton)
+  ).join("");
+
+  document.getElementById("videoAlani").innerHTML = siteIcerikleri.videolar.map(v =>
+    kartOlustur(v.icon, v.baslik, v.aciklama, v.link, v.buton)
+  ).join("");
+
+  document.getElementById("panelAlani").innerHTML = siteIcerikleri.panel.map(p =>
+    kartOlustur(p.icon, p.baslik, p.aciklama, p.link, p.buton)
+  ).join("");
+
+  document.getElementById("yorumAlani").innerHTML = siteIcerikleri.yorumlar.map(y =>
+    `<div class="card"><h3>★★★★★</h3><p>${y.yorum}</p><p><b>${y.ad}</b><br>${y.sinif}</p></div>`
+  ).join("");
+
+  document.getElementById("soruBaslik").innerText = siteIcerikleri.gununSorusu.baslik;
+  document.getElementById("soruMetni").innerHTML = siteIcerikleri.gununSorusu.soru;
+  document.getElementById("secenekAlani").innerHTML = siteIcerikleri.gununSorusu.secenekler.map(s =>
+    `<div class="option">${s}</div>`
+  ).join("");
+  document.getElementById("cevap").innerHTML = siteIcerikleri.gununSorusu.cevap;
+}
+
+function whatsappFormuGonder(){
+  var ad = document.getElementById("ad").value.trim();
+  var sinif = document.getElementById("sinif").value;
+  var ders = document.getElementById("ders").value;
+  var zaman = document.getElementById("zaman").value;
+  var mesaj = document.getElementById("mesaj").value.trim();
+
+  var metin = "Merhaba SezR Matematik, bilgi almak istiyorum.%0A%0A";
+
+  if(ad){ metin += "Ad Soyad: " + encodeURIComponent(ad) + "%0A"; }
+  if(sinif){ metin += "Sınıf: " + encodeURIComponent(sinif) + "%0A"; }
+  if(ders){ metin += "İlgilendiğim ders: " + encodeURIComponent(ders) + "%0A"; }
+  if(zaman){ metin += "Uygun zaman: " + encodeURIComponent(zaman) + "%0A"; }
+  if(mesaj){ metin += "Mesaj: " + encodeURIComponent(mesaj) + "%0A"; }
+
+  window.open("https://wa.me/905058266949?text=" + metin, "_blank");
+}
+
+document.addEventListener("DOMContentLoaded", icerikleriYukle);
+</script>
 
 </body>
 </html>
