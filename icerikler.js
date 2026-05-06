@@ -97,7 +97,7 @@ const siteIcerikleri = {
     {
       icon: "▶",
       baslik: "Limit Nedir?",
-      aciklama: "Temelden limit konu anlatımı.",
+      aciklama: "Temelden limit konu anlatımı. Gerçek video linkini buraya ekleyebilirsin.",
       link: "https://youtube.com/@SezRmatematik",
       buton: "İzle"
     },
@@ -122,8 +122,54 @@ const siteIcerikleri = {
       link: "https://youtube.com/@SezRmatematik",
       buton: "İzle"
     }
+  ],
+
+  panel: [
+    {
+      icon: "📄",
+      baslik: "PDF Notlar",
+      aciklama: "Konu özetleri ve çalışma kağıtları.",
+      link: "#pdf",
+      buton: "PDF Alanı"
+    },
+    {
+      icon: "📝",
+      baslik: "Mini Testler",
+      aciklama: "Kısa testlerle kendini dene.",
+      link: "#soru",
+      buton: "Teste Git"
+    },
+    {
+      icon: "▶",
+      baslik: "Videolar",
+      aciklama: "Seçilmiş ders videoları.",
+      link: "#youtube",
+      buton: "Videolar"
+    },
+    {
+      icon: "✅",
+      baslik: "Ödev Takibi",
+      aciklama: "Haftalık çalışma planı ve ödevler.",
+      link: "#",
+      buton: "Yakında"
+    }
+  ],
+
+  yorumlar: [
+    {
+      ad: "Efe",
+      sinif: "10. Sınıf",
+      yorum: "Matematikten korkuyordum ama artık sorulara nasıl yaklaşacağımı biliyorum."
+    },
+    {
+      ad: "Zeynep",
+      sinif: "TYT Öğrencisi",
+      yorum: "Problemler konusunda ciddi gelişme sağladım."
+    },
+    {
+      ad: "Ahmet",
+      sinif: "12. Sınıf",
+      yorum: "Limit ve türev artık daha anlaşılır geliyor."
+    }
   ]
 };
-
-
-
