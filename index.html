@@ -1,783 +1,215 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>SezR Matematik | Yaz Dersleri</title>
-<meta name="description" content="Birebir ve grup matematik dersleri. Eksiklerini kapat, yeni döneme güçlü başla.">
-
-<meta property="og:title" content="SezR Matematik Yaz Dersleri">
-<meta property="og:description" content="Birebir ve grup dersleri. Yazı doğru değerlendir, yeni döneme güçlü başla.">
-<meta property="og:image" content="https://eyecbul-oss.github.io/matematik-ders/preview.jpg">
-<meta property="og:url" content="https://eyecbul-oss.github.io/matematik-ders/">
-<meta property="og:type" content="website">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
-
-<style>
-*{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#020617;
-color:white;
-}
-
-.page{
-min-height:100vh;
-padding:28px 16px;
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(rgba(2,6,23,.82),rgba(2,6,23,.95)),
-url("math-bg.jpg");
-background-size:cover;
-background-position:center;
-}
-
-.page::after{
-content:"";
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at 20% 10%,rgba(56,189,248,.22),transparent 30%),
-radial-gradient(circle at 80% 20%,rgba(250,204,21,.20),transparent 30%);
-mix-blend-mode:screen;
-pointer-events:none;
-}
-
-.container{
-max-width:1040px;
-margin:auto;
-position:relative;
-z-index:2;
-}
-
-.hero{
-text-align:center;
-}
-
-/* PROFİL */
-.profile-wrap{
-width:270px;
-height:270px;
-margin:0 auto 22px;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.profile-ring{
-position:absolute;
-inset:0;
-border-radius:50%;
-}
-
-.profile-ring::before{
-content:"";
-position:absolute;
-inset:0;
-border-radius:50%;
-border:3px solid transparent;
-border-left-color:#38bdf8;
-border-bottom-color:#38bdf8;
-border-top-color:rgba(56,189,248,.2);
-box-shadow:0 0 18px rgba(56,189,248,.8);
-animation:spinLeft 35s linear infinite;
-}
-
-.profile-ring::after{
-content:"";
-position:absolute;
-inset:14px;
-border-radius:50%;
-border:5px solid transparent;
-border-top-color:#facc15;
-border-right-color:#facc15;
-border-left-color:rgba(250,204,21,.18);
-box-shadow:0 0 20px rgba(250,204,21,.75);
-animation:spinRight 45s linear infinite;
-}
-
-.profile-wrap img{
-width:220px;
-height:220px;
-border-radius:50%;
-object-fit:cover;
-object-position:center 28%;
-border:5px solid white;
-position:relative;
-z-index:3;
-box-shadow:0 0 25px rgba(250,204,21,.35);
-}
-
-.spark{
-position:absolute;
-width:8px;
-height:8px;
-border-radius:50%;
-z-index:4;
-background:#38bdf8;
-box-shadow:0 0 12px #38bdf8,0 0 26px #38bdf8;
-animation:spark 3s ease-in-out infinite;
-}
-
-.spark.gold{
-background:#facc15;
-box-shadow:0 0 12px #facc15,0 0 28px #facc15;
-}
-
-.s1{top:24px;right:48px}
-.s2{bottom:34px;left:36px;animation-delay:1s}
-.s3{bottom:42px;right:34px;animation-delay:2s}
-.s4{top:86px;left:10px;animation-delay:1.5s}
-
-@keyframes spinLeft{
-to{transform:rotate(-360deg)}
-}
-
-@keyframes spinRight{
-to{transform:rotate(360deg)}
-}
-
-@keyframes spark{
-0%,100%{opacity:.45;transform:scale(.8)}
-50%{opacity:1;transform:scale(1.45)}
-}
-
-.brand{
-font-family:'Montserrat',sans-serif;
-font-size:58px;
-font-weight:900;
-letter-spacing:-2px;
-text-shadow:0 5px 15px rgba(0,0,0,.45);
-line-height:1;
-}
-
-.brand .gold{
-color:#facc15;
-}
-
-.badge{
-display:inline-block;
-margin:18px 0 24px;
-padding:10px 34px;
-border-radius:999px;
-border:2px solid #facc15;
-color:#facc15;
-font-size:24px;
-font-weight:900;
-letter-spacing:1.5px;
-background:rgba(2,6,23,.42);
-}
-
-h1{
-font-family:'Montserrat',sans-serif;
-text-transform:uppercase;
-font-size:36px;
-line-height:1.18;
-margin:0;
-font-weight:900;
-}
-
-h1 .big{
-display:block;
-color:#facc15;
-font-size:52px;
-line-height:1.08;
-text-shadow:0 0 18px rgba(250,204,21,.28);
-}
-
-.subtitle{
-margin:16px auto 24px;
-color:#e5e7eb;
-font-size:21px;
-line-height:1.45;
-max-width:760px;
-}
-
-.subtitle span{
-color:#38bdf8;
-font-weight:900;
-}
-
-/* KARTLAR */
-.cards{
-display:grid;
-grid-template-columns:1fr;
-gap:16px;
-margin-top:18px;
-align-items:stretch;
-}
-
-.card{
-display:flex;
-gap:18px;
-align-items:center;
-min-height:165px;
-padding:22px;
-border-radius:18px;
-background:rgba(2,6,23,.58);
-border:1px solid rgba(148,163,184,.38);
-box-shadow:inset 0 0 22px rgba(59,130,246,.12),0 12px 25px rgba(0,0,0,.28);
-transition:.3s ease;
-}
-
-.card:hover{
-transform:translateY(-5px);
-background:rgba(2,6,23,.68);
-box-shadow:inset 0 0 25px rgba(59,130,246,.16),0 18px 35px rgba(0,0,0,.45);
-}
-
-.icon{
-flex:0 0 82px;
-width:82px;
-height:82px;
-display:grid;
-place-items:center;
-border-radius:50%;
-font-size:40px;
-border:3px solid currentColor;
-box-shadow:0 0 18px currentColor;
-}
-
-.card-content{
-flex:1;
-min-width:0;
-}
-
-.card h2{
-margin:0 0 8px;
-font-family:'Montserrat',sans-serif;
-font-size:23px;
-font-weight:900;
-text-transform:uppercase;
-line-height:1.18;
-}
-
-.card p{
-margin:0;
-color:#fff;
-font-size:16.5px;
-line-height:1.55;
-}
-
-.blue h2,.blue{color:#38bdf8}
-.purple h2,.purple{color:#c084fc}
-.green h2,.green{color:#86efac}
-.red h2,.red{color:#fb6b4b}
-
-.green .check{
-color:#a7f3d0;
-line-height:1.65;
-font-size:16.5px;
-}
-
-/* ALEV */
-.flame{
-border-color:rgba(248,113,113,.55);
-box-shadow:inset 0 0 30px rgba(239,68,68,.2),0 0 22px rgba(239,68,68,.18);
-}
-
-.fire-icon{
-width:54px;
-height:66px;
-position:relative;
-filter:drop-shadow(0 0 14px rgba(255,90,0,.95));
-}
-
-.fire-icon svg{
-width:100%;
-height:100%;
-overflow:visible;
-}
-
-.fire-main{
-animation:fireFlicker 1.05s infinite ease-in-out;
-transform-origin:50% 85%;
-}
-
-.fire-mid{
-animation:fireFlicker .85s infinite ease-in-out reverse;
-transform-origin:50% 85%;
-}
-
-.fire-core{
-animation:fireCore .7s infinite ease-in-out;
-transform-origin:50% 85%;
-}
-
-@keyframes fireFlicker{
-0%,100%{transform:scale(1) skewX(0deg);opacity:.92}
-25%{transform:scale(1.08) skewX(-3deg) translateY(-2px);opacity:1}
-50%{transform:scale(.96) skewX(4deg) translateY(1px);opacity:.86}
-75%{transform:scale(1.12) skewX(-2deg) translateY(-4px);opacity:1}
-}
-
-@keyframes fireCore{
-0%,100%{transform:scale(.92) translateY(0);opacity:.9}
-50%{transform:scale(1.1) translateY(-5px);opacity:1}
-}
-
-/* TAGLER */
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:14px;
-}
-
-.tag{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-min-width:96px;
-padding:9px 14px;
-border-radius:10px;
-background:linear-gradient(180deg,#8b1e16,#5b1110);
-color:#fff;
-font-weight:900;
-font-size:14px;
-letter-spacing:.5px;
-border:1px solid rgba(251,146,60,.65);
-box-shadow:0 0 10px rgba(255,100,40,.15);
-animation:tagGlow 7s ease-in-out infinite;
-}
-
-.tag:nth-child(1){animation-delay:0s}
-.tag:nth-child(2){animation-delay:1.4s}
-.tag:nth-child(3){animation-delay:2.8s}
-.tag:nth-child(4){animation-delay:4.2s}
-
-@keyframes tagGlow{
-0%,100%{
-opacity:.72;
-transform:scale(1);
-box-shadow:0 0 8px rgba(255,100,40,.12);
-}
-45%{
-opacity:1;
-transform:scale(1.04);
-box-shadow:0 0 22px rgba(255,120,40,.55),0 0 42px rgba(255,70,20,.22);
-}
-}
-
-/* PROBLEMLER */
-.problem{
-justify-content:space-between;
-border-color:rgba(168,85,247,.55);
-box-shadow:inset 0 0 30px rgba(168,85,247,.16);
-}
-
-.problem .icon{
-color:#c084fc;
-}
-
-.problem .card-content{
-padding-right:8px;
-}
-
-/* ALT BİLGİ */
-.info-row{
-margin-top:20px;
-display:grid;
-grid-template-columns:1fr;
-border:1px solid rgba(250,204,21,.5);
-border-radius:16px;
-overflow:hidden;
-background:rgba(2,6,23,.72);
-}
-
-.info{
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-color:#fff;
-font-weight:900;
-font-size:17px;
-text-align:center;
-border-bottom:1px solid rgba(255,255,255,.18);
-}
-
-.info:last-child{
-border-bottom:none;
-}
-
-.info .emoji{
-color:#facc15;
-font-size:32px;
-line-height:1;
-}
-
-.script{
-color:#facc15;
-font-style:italic;
-font-size:22px;
-margin-left:4px;
-white-space:nowrap;
-}
-
-/* WHATSAPP */
-.cta-wrap{
-margin:24px auto 12px;
-text-align:center;
-}
-
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-width:auto;
-min-width:280px;
-max-width:520px;
-padding:15px 24px;
-border-radius:18px;
-text-decoration:none;
-color:white;
-font-family:'Montserrat',sans-serif;
-font-size:21px;
-font-weight:900;
-background:linear-gradient(180deg,#25d366,#128c4a);
-border:2px solid #bbf7d0;
-box-shadow:0 0 18px rgba(37,211,102,.65);
-transition:.25s ease;
-}
-
-.button:hover{
-transform:translateY(-3px) scale(1.02);
-box-shadow:0 0 32px rgba(37,211,102,.95);
-}
-
-.button small{
-display:block;
-font-family:'Inter',sans-serif;
-font-size:13px;
-font-weight:600;
-color:#dcfce7;
-line-height:1.2;
-}
-
-.whatsapp-icon{
-flex:0 0 38px;
-width:38px;
-height:38px;
-border-radius:50%;
-background:#fff;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 16px rgba(255,255,255,.35);
-}
-
-.whatsapp-icon svg{
-width:25px;
-height:25px;
-fill:#25d366;
-}
-
-.note{
-text-align:center;
-color:#d1d5db;
-font-size:16.5px;
-line-height:1.45;
-margin-top:14px;
-}
-
-/* RESPONSIVE */
-@media(min-width:760px){
-.cards{
-grid-template-columns:1fr 1fr;
-}
-
-.wide{
-grid-column:span 2;
-}
-
-.info-row{
-grid-template-columns:1fr 1fr 1.4fr;
-}
-
-.info{
-border-bottom:none;
-border-right:1px solid rgba(255,255,255,.22);
-}
-
-.info:last-child{
-border-right:none;
-}
-}
-
-@media(max-width:560px){
-.page{
-padding:24px 14px;
-}
-
-.profile-wrap{
-width:215px;
-height:215px;
-}
-
-.profile-wrap img{
-width:176px;
-height:176px;
-}
-
-.profile-ring::after{
-inset:11px;
-border-width:4px;
-}
-
-.brand{
-font-size:41px;
-letter-spacing:-1px;
-}
-
-.badge{
-font-size:17px;
-padding:9px 18px;
-letter-spacing:.8px;
-}
-
-h1{
-font-size:24px;
-line-height:1.2;
-}
-
-h1 .big{
-font-size:32px;
-line-height:1.12;
-}
-
-.subtitle{
-font-size:18px;
-line-height:1.45;
-}
-
-.card{
-align-items:center;
-gap:14px;
-min-height:auto;
-padding:16px;
-}
-
-.icon{
-flex:0 0 58px;
-width:58px;
-height:58px;
-font-size:28px;
-border-width:2px;
-}
-
-.card h2{
-font-size:18px;
-margin-bottom:6px;
-}
-
-.card p,
-.green .check{
-font-size:14.5px;
-line-height:1.5;
-}
-
-.tags{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px;
-margin-top:10px;
-}
-
-.tag{
-min-width:0;
-font-size:11.5px;
-padding:7px 8px;
-}
-
-.problem{
-align-items:flex-start;
-}
-
-.problem .icon:last-child{
-display:none;
-}
-
-.button{
-font-size:17px;
-min-width:240px;
-padding:14px 18px;
-}
-
-.whatsapp-icon{
-width:32px;
-height:32px;
-flex-basis:32px;
-}
-
-.whatsapp-icon svg{
-width:22px;
-height:22px;
-}
-
-.fire-icon{
-width:40px;
-height:52px;
-}
-
-.info{
-font-size:15px;
-padding:15px;
-}
-
-.script{
-font-size:18px;
-}
-
-.note{
-font-size:15px;
-}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SezR Matematik</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: white;
+    }
+    header {
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.35);
+      position: sticky;
+      top: 0;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+        linear-gradient(rgba(7,17,31,0.88), rgba(7,17,31,0.95)),
+        url("math-bg.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+    .hero h1 {
+      font-size: 46px;
+      margin-bottom: 15px;
+    }
+    .hero h1 span {
+      color: #38bdf8;
+    }
+    .hero p {
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      color: #cbd5e1;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 14px 24px;
+      background: #ef4444;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+    section {
+      padding: 60px 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      color: #38bdf8;
+      margin-bottom: 30px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #0f172a;
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    }
+    .card h3 {
+      color: #facc15;
+      margin-top: 0;
+    }
+    .about {
+      text-align: center;
+      font-size: 18px;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #020617;
+      color: #94a3b8;
+    }
+    .whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      background: #22c55e;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 34px; }
+      nav { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="page">
-<div class="container">
+  <header>
+    <div class="logo">SezR Matematik</div>
+    <nav>
+      <a href="#hakkimda">Hakkımda</a>
+      <a href="#dersler">Dersler</a>
+      <a href="#notlar">Notlar</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </header>
 
-<section class="hero">
+  <div class="hero">
+    <div>
+      <h1>Matematiği <span>Ezberleme</span>, Anla.</h1>
+      <p>
+        LGS, okul dersleri ve temel matematik konularında sade, anlaşılır ve öğrencinin seviyesine uygun anlatımlar.
+      </p>
+      <a class="btn" href="https://www.youtube.com/@SezRmatematik" target="_blank">
+        YouTube Kanalına Git
+      </a>
+    </div>
+  </div>
 
-<div class="profile-wrap">
-<div class="profile-ring"></div>
-<span class="spark s1"></span>
-<span class="spark gold s2"></span>
-<span class="spark s3"></span>
-<span class="spark gold s4"></span>
-<img src="profil.jpg?v=16" alt="SezR Matematik">
-</div>
+  <section id="hakkimda">
+    <h2>Hakkımda</h2>
+    <p class="about">
+      Merhaba, ben Sezer. SezR Matematik ile öğrencilerin matematiği korkmadan,
+      adım adım ve mantığını kavrayarak öğrenmesini amaçlıyorum.
+      Bu sitede konu anlatımları, soru çözümleri, PDF notlar ve faydalı içerikler yer alacak.
+    </p>
+  </section>
 
-<div class="brand">Sez<span class="gold">R</span> Matematik</div>
+  <section id="dersler">
+    <h2>Ders İçerikleri</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>6. Sınıf Matematik</h3>
+        <p>Temel konular, yeni nesil sorular ve düzenli tekrar içerikleri.</p>
+      </div>
+      <div class="card">
+        <h3>7. Sınıf Matematik</h3>
+        <p>Konu anlatımı, pratik soru çözümü ve sınava hazırlık çalışmaları.</p>
+      </div>
+      <div class="card">
+        <h3>8. Sınıf / LGS</h3>
+        <p>LGS’ye yönelik yeni nesil soru çözümleri ve stratejiler.</p>
+      </div>
+      <div class="card">
+        <h3>Lise Matematik</h3>
+        <p>Fonksiyon, denklem, limit, türev ve integral gibi konular.</p>
+      </div>
+    </div>
+  </section>
 
-<div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div>
+  <section id="notlar">
+    <h2>PDF Notlar</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Konu Özetleri</h3>
+        <p>Yakında PDF ders notları burada paylaşılacak.</p>
+      </div>
+      <div class="card">
+        <h3>Çalışma Kağıtları</h3>
+        <p>Öğrenciler için çözülebilir etkinlik ve soru sayfaları eklenecek.</p>
+      </div>
+      <div class="card">
+        <h3>Günün Sorusu</h3>
+        <p>Her hafta seçilmiş dikkat çekici matematik soruları yayınlanacak.</p>
+      </div>
+    </div>
+  </section>
 
-<h1>
-MATEMATİKTE EKSİKLERİNİ KAPAT,
-<span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
-</h1>
+  <section id="iletisim">
+    <h2>İletişim</h2>
+    <p class="about">
+      İş birliği, ders içerikleri ve öneriler için YouTube kanalım üzerinden ulaşabilirsiniz.
+    </p>
+  </section>
 
-<p class="subtitle">
-Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
-</p>
+  <footer>
+    © 2026 SezR Matematik | Tüm hakları saklıdır.
+  </footer>
 
-</section>
-
-<section class="cards">
-
-<div class="card blue">
-<div class="icon">👤</div>
-<div class="card-content">
-<h2>Birebir Özel Ders</h2>
-<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
-</div>
-</div>
-
-<div class="card purple">
-<div class="icon">👥</div>
-<div class="card-content">
-<h2>Grup Dersleri</h2>
-<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
-</div>
-</div>
-
-<div class="card green">
-<div class="icon">📖</div>
-<div class="card-content">
-<h2>9 ve 10. Sınıf Matematik</h2>
-<div class="check">
-✔ Maarif Model uyumlu çalışma<br>
-✔ Temel eksikleri kapatma<br>
-✔ Yeni nesil soru çözümü<br>
-✔ Yeni döneme hazırlık
-</div>
-</div>
-</div>
-
-<div class="card red flame">
-<div class="icon">
-<div class="fire-icon">
-<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
-<defs>
-<radialGradient id="outerFire" cx="50%" cy="65%" r="60%">
-<stop offset="0%" stop-color="#ffd166"/>
-<stop offset="45%" stop-color="#ff7a18"/>
-<stop offset="100%" stop-color="#d00000"/>
-</radialGradient>
-<radialGradient id="innerFire" cx="50%" cy="70%" r="55%">
-<stop offset="0%" stop-color="#fff7ad"/>
-<stop offset="55%" stop-color="#ffd000"/>
-<stop offset="100%" stop-color="#ff6b00"/>
-</radialGradient>
-</defs>
-<path class="fire-main" fill="url(#outerFire)" d="M51 5C72 30 79 48 72 66C88 54 95 78 85 96C74 117 32 119 17 95C4 75 13 54 30 42C29 57 39 60 43 50C49 36 36 23 51 5Z"/>
-<path class="fire-mid" fill="#ff7a18" d="M50 33C64 49 66 61 59 72C72 68 74 85 66 98C56 113 31 109 26 93C22 81 29 70 40 61C39 72 48 74 51 65C55 53 45 43 50 33Z"/>
-<path class="fire-core" fill="url(#innerFire)" d="M49 55C60 69 58 78 53 86C62 84 64 96 56 103C47 111 34 104 34 94C34 85 42 79 46 72C47 82 52 78 53 71C54 64 48 60 49 55Z"/>
-</svg>
-</div>
-</div>
-
-<div class="card-content">
-<h2>Büyük Dertler Serisi</h2>
-<p>11’den 12’ye geçenler için en kritik paket.</p>
-<div class="tags">
-<span class="tag">LİMİT</span>
-<span class="tag">TÜREV</span>
-<span class="tag">İNTEGRAL</span>
-<span class="tag">TRİGONOMETRİ</span>
-</div>
-</div>
-</div>
-
-<div class="card problem wide">
-<div class="icon">🧠</div>
-<div class="card-content">
-<h2>Problemler Paket Dersi</h2>
-<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma. Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklıdır.</p>
-</div>
-<div class="icon">🎯</div>
-</div>
-
-</section>
-
-<div class="info-row">
-<div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div>
-<div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div>
-<div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div>
-</div>
-
-<div class="cta-wrap">
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
-<span class="whatsapp-icon">
-<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-<path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
-</svg>
-</span>
-<span>
-BANA UYGUN PROGRAMI SOR
-<small>WhatsApp üzerinden hemen yazın</small>
-</span>
-</a>
-</div>
-
-<div class="note">
-Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.
-</div>
-
-</div>
-</div>
+  <a class="whatsapp" href="#" onclick="alert('WhatsApp numarası daha sonra eklenecek.')">
+    WhatsApp
+  </a>
 
 </body>
 </html>
