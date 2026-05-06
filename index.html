@@ -55,9 +55,11 @@ position:relative;
 z-index:2;
 }
 
-.hero{text-align:center}
+.hero{
+text-align:center;
+}
 
-/* PROFIL */
+/* PROFİL */
 .profile-wrap{
 width:270px;
 height:270px;
@@ -133,8 +135,14 @@ box-shadow:0 0 12px #facc15,0 0 28px #facc15;
 .s3{bottom:42px;right:34px;animation-delay:2s}
 .s4{top:86px;left:10px;animation-delay:1.5s}
 
-@keyframes spinLeft{to{transform:rotate(-360deg)}}
-@keyframes spinRight{to{transform:rotate(360deg)}}
+@keyframes spinLeft{
+to{transform:rotate(-360deg)}
+}
+
+@keyframes spinRight{
+to{transform:rotate(360deg)}
+}
+
 @keyframes spark{
 0%,100%{opacity:.45;transform:scale(.8)}
 50%{opacity:1;transform:scale(1.45)}
@@ -149,7 +157,9 @@ text-shadow:0 5px 15px rgba(0,0,0,.45);
 line-height:1;
 }
 
-.brand .gold{color:#facc15}
+.brand .gold{
+color:#facc15;
+}
 
 .badge{
 display:inline-block;
@@ -189,8 +199,12 @@ line-height:1.45;
 max-width:760px;
 }
 
-.subtitle span{color:#38bdf8;font-weight:900}
+.subtitle span{
+color:#38bdf8;
+font-weight:900;
+}
 
+/* KARTLAR */
 .cards{
 display:grid;
 grid-template-columns:1fr;
@@ -230,7 +244,10 @@ border:3px solid currentColor;
 box-shadow:0 0 18px currentColor;
 }
 
-.card-content{flex:1;min-width:0}
+.card-content{
+flex:1;
+min-width:0;
+}
 
 .card h2{
 margin:0 0 8px;
@@ -259,12 +276,12 @@ line-height:1.65;
 font-size:16.5px;
 }
 
+/* ALEV */
 .flame{
 border-color:rgba(248,113,113,.55);
 box-shadow:inset 0 0 30px rgba(239,68,68,.2),0 0 22px rgba(239,68,68,.18);
 }
 
-/* HAREKETLI ALEV */
 .fire-icon{
 width:54px;
 height:66px;
@@ -272,11 +289,26 @@ position:relative;
 filter:drop-shadow(0 0 14px rgba(255,90,0,.95));
 }
 
-.fire-icon svg{width:100%;height:100%;overflow:visible}
+.fire-icon svg{
+width:100%;
+height:100%;
+overflow:visible;
+}
 
-.fire-main{animation:fireFlicker 1.05s infinite ease-in-out;transform-origin:50% 85%}
-.fire-mid{animation:fireFlicker .85s infinite ease-in-out reverse;transform-origin:50% 85%}
-.fire-core{animation:fireCore .7s infinite ease-in-out;transform-origin:50% 85%}
+.fire-main{
+animation:fireFlicker 1.05s infinite ease-in-out;
+transform-origin:50% 85%;
+}
+
+.fire-mid{
+animation:fireFlicker .85s infinite ease-in-out reverse;
+transform-origin:50% 85%;
+}
+
+.fire-core{
+animation:fireCore .7s infinite ease-in-out;
+transform-origin:50% 85%;
+}
 
 @keyframes fireFlicker{
 0%,100%{transform:scale(1) skewX(0deg);opacity:.92}
@@ -321,19 +353,34 @@ animation:tagGlow 7s ease-in-out infinite;
 .tag:nth-child(4){animation-delay:4.2s}
 
 @keyframes tagGlow{
-0%,100%{opacity:.72;transform:scale(1);box-shadow:0 0 8px rgba(255,100,40,.12)}
-45%{opacity:1;transform:scale(1.04);box-shadow:0 0 22px rgba(255,120,40,.55),0 0 42px rgba(255,70,20,.22)}
+0%,100%{
+opacity:.72;
+transform:scale(1);
+box-shadow:0 0 8px rgba(255,100,40,.12);
+}
+45%{
+opacity:1;
+transform:scale(1.04);
+box-shadow:0 0 22px rgba(255,120,40,.55),0 0 42px rgba(255,70,20,.22);
+}
 }
 
+/* PROBLEMLER */
 .problem{
 justify-content:space-between;
 border-color:rgba(168,85,247,.55);
 box-shadow:inset 0 0 30px rgba(168,85,247,.16);
 }
 
-.problem .icon{color:#c084fc}
-.problem .card-content{padding-right:8px}
+.problem .icon{
+color:#c084fc;
+}
 
+.problem .card-content{
+padding-right:8px;
+}
+
+/* ALT BİLGİ */
 .info-row{
 margin-top:20px;
 display:grid;
@@ -357,7 +404,9 @@ text-align:center;
 border-bottom:1px solid rgba(255,255,255,.18);
 }
 
-.info:last-child{border-bottom:none}
+.info:last-child{
+border-bottom:none;
+}
 
 .info .emoji{
 color:#facc15;
@@ -373,6 +422,7 @@ margin-left:4px;
 white-space:nowrap;
 }
 
+/* WHATSAPP */
 .cta-wrap{
 margin:24px auto 12px;
 text-align:center;
@@ -439,16 +489,34 @@ line-height:1.45;
 margin-top:14px;
 }
 
+/* RESPONSIVE */
 @media(min-width:760px){
-.cards{grid-template-columns:1fr 1fr}
-.wide{grid-column:span 2}
-.info-row{grid-template-columns:1fr 1fr 1.4fr}
-.info{border-bottom:none;border-right:1px solid rgba(255,255,255,.22)}
-.info:last-child{border-right:none}
+.cards{
+grid-template-columns:1fr 1fr;
+}
+
+.wide{
+grid-column:span 2;
+}
+
+.info-row{
+grid-template-columns:1fr 1fr 1.4fr;
+}
+
+.info{
+border-bottom:none;
+border-right:1px solid rgba(255,255,255,.22);
+}
+
+.info:last-child{
+border-right:none;
+}
 }
 
 @media(max-width:560px){
-.page{padding:24px 14px}
+.page{
+padding:24px 14px;
+}
 
 .profile-wrap{
 width:215px;
@@ -589,7 +657,7 @@ font-size:15px;
 <span class="spark gold s2"></span>
 <span class="spark s3"></span>
 <span class="spark gold s4"></span>
-<img src="profil.jpg?v=15" alt="SezR Matematik">
+<img src="profil.jpg?v=16" alt="SezR Matematik">
 </div>
 
 <div class="brand">Sez<span class="gold">R</span> Matematik</div>
@@ -641,7 +709,7 @@ Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
 <div class="card red flame">
 <div class="icon">
 <div class="fire-icon">
-<svg viewBox="0 0 100 120">
+<svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <radialGradient id="outerFire" cx="50%" cy="65%" r="60%">
 <stop offset="0%" stop-color="#ffd166"/>
@@ -693,7 +761,7 @@ Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
 <div class="cta-wrap">
 <a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
 <span class="whatsapp-icon">
-<svg viewBox="0 0 32 32">
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
 </svg>
 </span>
