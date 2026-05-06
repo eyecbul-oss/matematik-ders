@@ -1,751 +1,759 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>SezR Matematik | Yaz Dersleri</title>
-<meta name="description" content="Birebir ve grup matematik dersleri. Eksiklerini kapat, yeni döneme güçlü başla.">
+<title>SezR Matematik</title>
 
-<meta property="og:title" content="SezR Matematik Yaz Dersleri">
-<meta property="og:description" content="Birebir ve grup dersleri. Yazı doğru değerlendir, yeni döneme güçlü başla.">
-<meta property="og:image" content="https://eyecbul-oss.github.io/matematik-ders/preview.jpg">
-<meta property="og:url" content="https://eyecbul-oss.github.io/matematik-ders/">
-<meta property="og:type" content="website">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:#020617;
-color:white;
-}
+    font-family:'Poppins',sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.82)),
+        url('math-bg.jpg');
 
-.page{
-min-height:100vh;
-padding:28px 16px;
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(rgba(2,6,23,.82),rgba(2,6,23,.95)),
-url("math-bg.jpg");
-background-size:cover;
-background-position:center;
-animation:pageIn .8s ease both;
-}
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
 
-@keyframes pageIn{
-from{opacity:0;transform:scale(1.01)}
-to{opacity:1;transform:scale(1)}
-}
-
-.page::after{
-content:"";
-position:absolute;
-inset:0;
-background:
-radial-gradient(circle at 20% 10%,rgba(56,189,248,.22),transparent 30%),
-radial-gradient(circle at 80% 20%,rgba(250,204,21,.20),transparent 30%);
-mix-blend-mode:screen;
-pointer-events:none;
+    color:white;
+    overflow-x:hidden;
 }
 
 .container{
-max-width:1040px;
-margin:auto;
-position:relative;
-z-index:2;
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 18px 80px;
 }
 
-.hero{text-align:center}
+/* =====================================================
+ÜST KISIM
+===================================================== */
 
-/* PREMIUM PROFIL CERCEVESI */
-.profile-wrapper{
-position:relative;
-width:250px;
-height:250px;
-margin:0 auto 24px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
+.hero{
+    text-align:center;
+    position:relative;
 }
 
-.profile-wrapper::before{
-content:"";
-position:absolute;
-inset:-10px;
-border-radius:50%;
-background:conic-gradient(from 0deg,#38bdf8 0 18%,transparent 18% 33%,#facc15 33% 55%,transparent 55% 70%,#f97316 70% 88%,transparent 88% 100%);
-filter:drop-shadow(0 0 14px rgba(250,204,21,.55));
-animation:rotateOuter 70s linear infinite;
+/* =====================================================
+PROFİL FOTOĞRAFI
+===================================================== */
+
+.hero-profile{
+    position:relative;
+    width:280px;
+    height:280px;
+    margin:0 auto 30px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.profile-wrapper::after{
-content:"";
-position:absolute;
-inset:-20px;
-border-radius:50%;
-border:2px solid transparent;
-border-top-color:#facc15;
-border-right-color:#38bdf8;
-border-bottom-color:rgba(249,115,22,.55);
-animation:rotateInner 90s linear infinite reverse;
+.profile-img{
+    width:235px;
+    height:235px;
+    object-fit:cover;
+    border-radius:50%;
+    z-index:5;
+    position:relative;
+
+    border:4px solid rgba(255,255,255,.95);
+
+    box-shadow:
+        0 0 25px rgba(255,190,60,.35),
+        0 0 60px rgba(30,140,255,.20);
 }
 
-.profile-mask{
-position:absolute;
-width:238px;
-height:238px;
-border-radius:50%;
-background:#020617;
-z-index:1;
+/* =====================================================
+DÖNEN HALKALAR
+===================================================== */
+
+.profile-ring{
+    position:absolute;
+    inset:-8px;
+    border-radius:50%;
 }
 
-.profile-wrapper img{
-width:232px;
-height:232px;
-border-radius:50%;
-object-fit:cover;
-object-position:center 28%;
-border:3px solid white;
-position:relative;
-z-index:2;
+.profile-ring::before{
+    content:"";
+    position:absolute;
+    inset:-10px;
+    border-radius:50%;
+
+    border:3px solid transparent;
+
+    border-top:3px solid #25b8ff;
+    border-left:3px solid #25b8ff;
+
+    border-right:3px solid rgba(37,184,255,.05);
+    border-bottom:3px solid rgba(37,184,255,.12);
+
+    box-shadow:
+        0 0 12px #25b8ff,
+        0 0 35px rgba(37,184,255,.35);
+
+    animation:ringRotateLeft 18s linear infinite;
 }
 
-@keyframes rotateOuter{
-from{transform:rotate(0deg)}
-to{transform:rotate(360deg)}
+.profile-ring::after{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border-radius:50%;
+
+    border:3px solid transparent;
+
+    border-top:3px solid #ffcc3d;
+    border-right:3px solid #ffcc3d;
+
+    border-left:3px solid rgba(255,204,61,.08);
+    border-bottom:3px solid rgba(255,204,61,.12);
+
+    box-shadow:
+        0 0 12px #ffcc3d,
+        0 0 35px rgba(255,204,61,.35);
+
+    animation:ringRotateRight 14s linear infinite;
 }
 
-@keyframes rotateInner{
-from{transform:rotate(0deg)}
-to{transform:rotate(-360deg)}
+/* =====================================================
+PARLAYAN NOKTALAR
+===================================================== */
+
+.profile-glow-dot{
+    position:absolute;
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    z-index:20;
+
+    background:#38c0ff;
+
+    box-shadow:
+        0 0 10px #38c0ff,
+        0 0 20px #38c0ff,
+        0 0 32px #38c0ff;
+
+    animation:sparkle 3s ease-in-out infinite;
 }
 
-.brand{
-font-family:'Montserrat',sans-serif;
-font-size:56px;
-font-weight:900;
-letter-spacing:-2px;
-text-shadow:0 5px 15px rgba(0,0,0,.45);
-line-height:1;
+.profile-glow-dot.gold{
+    background:#ffd34f;
+
+    box-shadow:
+        0 0 10px #ffd34f,
+        0 0 20px #ffd34f,
+        0 0 32px #ffd34f;
 }
 
-.brand .gold{color:#facc15}
-
-.badge{
-display:inline-block;
-margin:18px 0 24px;
-padding:10px 34px;
-border-radius:999px;
-border:2px solid #facc15;
-color:#facc15;
-font-size:24px;
-font-weight:900;
-letter-spacing:1.5px;
-background:rgba(2,6,23,.42);
+.dot1{
+    top:16px;
+    right:40px;
 }
 
-h1{
-font-family:'Montserrat',sans-serif;
-text-transform:uppercase;
-font-size:36px;
-line-height:1.18;
-margin:0;
-font-weight:900;
+.dot2{
+    bottom:30px;
+    left:16px;
+    animation-delay:1s;
 }
 
-h1 .big{
-display:block;
-color:#facc15;
-font-size:52px;
-line-height:1.08;
-text-shadow:0 0 18px rgba(250,204,21,.28);
+.dot3{
+    bottom:16px;
+    right:36px;
+    animation-delay:2s;
 }
 
-.subtitle{
-margin:16px auto 24px;
-color:#e5e7eb;
-font-size:21px;
-line-height:1.45;
-max-width:760px;
+.dot4{
+    top:56px;
+    left:-4px;
+    animation-delay:1.5s;
 }
 
-.subtitle span{
-color:#38bdf8;
-font-weight:900;
+/* =====================================================
+BAŞLIK
+===================================================== */
+
+.logo-title{
+    font-size:72px;
+    font-weight:800;
+    line-height:1;
+    margin-bottom:22px;
 }
+
+.logo-title span{
+    color:#ffc400;
+}
+
+/* =====================================================
+ALT BAŞLIK
+===================================================== */
+
+.sub-box{
+    display:inline-block;
+    border:2px solid #ffcc33;
+    border-radius:999px;
+    padding:14px 36px;
+    margin-bottom:28px;
+
+    background:rgba(0,0,0,.28);
+
+    box-shadow:
+        0 0 20px rgba(255,204,51,.18);
+}
+
+.sub-box h2{
+    color:#ffcc33;
+    font-size:30px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+/* =====================================================
+ANA YAZI
+===================================================== */
+
+.main-text{
+    margin-top:10px;
+    margin-bottom:26px;
+}
+
+.main-text h1{
+    font-size:64px;
+    line-height:1.1;
+    font-weight:800;
+}
+
+.main-text .yellow{
+    color:#ffc400;
+}
+
+.desc{
+    margin-top:18px;
+    font-size:24px;
+    color:#d6d6d6;
+}
+
+/* =====================================================
+KARTLAR
+===================================================== */
 
 .cards{
-display:grid;
-grid-template-columns:1fr;
-gap:16px;
-margin-top:18px;
-align-items:stretch;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:40px;
 }
 
 .card{
-display:flex;
-gap:18px;
-align-items:center;
-min-height:165px;
-padding:22px;
-border-radius:18px;
-background:rgba(2,6,23,.58);
-border:1px solid rgba(148,163,184,.38);
-box-shadow:inset 0 0 22px rgba(59,130,246,.12),0 12px 25px rgba(0,0,0,.28);
-transition:.3s ease;
+    position:relative;
+
+    border-radius:28px;
+    padding:28px;
+
+    background:rgba(8,10,25,.65);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    overflow:hidden;
 }
 
-.card:hover{
-transform:translateY(-5px);
-background:rgba(2,6,23,.68);
-box-shadow:inset 0 0 25px rgba(59,130,246,.16),0 18px 35px rgba(0,0,0,.45);
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.05),
+            transparent
+        );
+    pointer-events:none;
 }
 
-.icon{
-flex:0 0 82px;
-width:82px;
-height:82px;
-display:grid;
-place-items:center;
-border-radius:50%;
-font-size:40px;
-border:3px solid currentColor;
-box-shadow:0 0 18px currentColor;
+.blue{
+    box-shadow:0 0 30px rgba(0,150,255,.12);
 }
 
-.card-content{
-flex:1;
-min-width:0;
+.purple{
+    box-shadow:0 0 30px rgba(190,0,255,.12);
 }
 
-.card h2{
-margin:0 0 8px;
-font-family:'Montserrat',sans-serif;
-font-size:23px;
-font-weight:900;
-text-transform:uppercase;
-line-height:1.18;
+.green{
+    box-shadow:0 0 30px rgba(0,255,120,.10);
+}
+
+.orange{
+    box-shadow:0 0 30px rgba(255,100,0,.12);
+}
+
+.card h3{
+    font-size:32px;
+    margin-bottom:14px;
+    font-weight:800;
 }
 
 .card p{
-margin:0;
-color:#fff;
-font-size:16.5px;
-line-height:1.55;
+    color:#d7d7d7;
+    line-height:1.8;
+    font-size:21px;
 }
 
-.blue h2,.blue{color:#38bdf8}
-.purple h2,.purple{color:#c084fc}
-.green h2,.green{color:#86efac}
-.red h2,.red{color:#fb6b4b}
+/* =====================================================
+BÜYÜK DERTLER
+===================================================== */
 
-.green .check{
-color:#a7f3d0;
-line-height:1.65;
-font-size:16.5px;
-}
-
-.flame{
-border-color:rgba(248,113,113,.55);
-box-shadow:inset 0 0 30px rgba(239,68,68,.2),0 0 22px rgba(239,68,68,.18);
+.big-dert-tags{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
-.fire-icon{
-width:54px;
-height:66px;
-position:relative;
-filter:drop-shadow(0 0 14px rgba(255,90,0,.95));
+.big-dert-tags span{
+
+    min-width:95px;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:.5px;
+
+    color:#fff4ec;
+
+    border:1px solid rgba(255,120,60,.35);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,110,40,.30),
+            rgba(120,20,0,.45)
+        );
+
+    box-shadow:
+        inset 0 0 10px rgba(255,255,255,.04),
+        0 0 12px rgba(255,100,40,.12);
+
+    animation:softGlow 6s ease-in-out infinite;
 }
 
-.fire-icon svg{
-width:100%;
-height:100%;
-overflow:visible;
+.big-dert-tags span:nth-child(1){
+    animation-delay:0s;
 }
 
-.fire-main{
-animation:fireFlicker 1.05s infinite ease-in-out;
-transform-origin:50% 85%;
+.big-dert-tags span:nth-child(2){
+    animation-delay:1.5s;
 }
 
-.fire-mid{
-animation:fireFlicker .85s infinite ease-in-out reverse;
-transform-origin:50% 85%;
+.big-dert-tags span:nth-child(3){
+    animation-delay:3s;
 }
 
-.fire-core{
-animation:fireCore .7s infinite ease-in-out;
-transform-origin:50% 85%;
+.big-dert-tags span:nth-child(4){
+    animation-delay:4.5s;
 }
 
-@keyframes fireFlicker{
-0%,100%{transform:scale(1) skewX(0deg);opacity:.92}
-25%{transform:scale(1.08) skewX(-3deg) translateY(-2px);opacity:1}
-50%{transform:scale(.96) skewX(4deg) translateY(1px);opacity:.86}
-75%{transform:scale(1.12) skewX(-2deg) translateY(-4px);opacity:1}
+/* =====================================================
+PROBLEMLER
+===================================================== */
+
+.problem-card{
+    margin-top:24px;
 }
 
-@keyframes fireCore{
-0%,100%{transform:scale(.92) translateY(0);opacity:.9}
-50%{transform:scale(1.1) translateY(-5px);opacity:1}
+/* =====================================================
+ALT BİLGİLER
+===================================================== */
+
+.bottom-info{
+    margin-top:30px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
 }
 
-.tags{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-top:14px;
+.info-box{
+    border-radius:24px;
+    padding:22px;
+
+    background:rgba(10,10,18,.75);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    text-align:center;
+
+    font-size:24px;
+    font-weight:700;
 }
 
-.tag{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-min-width:92px;
-padding:9px 14px;
-border-radius:10px;
-background:linear-gradient(180deg,#8b1e16,#5b1110);
-color:#fff;
-font-weight:900;
-font-size:14px;
-letter-spacing:.5px;
-border:1px solid rgba(251,146,60,.65);
-opacity:0;
-transform:translateY(8px) scale(.95);
-animation:tagPop 2.8s ease infinite;
+/* =====================================================
+WHATSAPP BUTONU
+===================================================== */
+
+.whatsapp-area{
+    margin-top:46px;
+    text-align:center;
 }
 
-.tag:nth-child(1){animation-delay:0s}
-.tag:nth-child(2){animation-delay:.35s}
-.tag:nth-child(3){animation-delay:.7s}
-.tag:nth-child(4){animation-delay:1.05s}
+.whatsapp-btn{
 
-@keyframes tagPop{
-0%{opacity:0;transform:translateY(8px) scale(.95)}
-18%{opacity:1;transform:translateY(0) scale(1)}
-78%{opacity:1;transform:translateY(0) scale(1)}
-100%{opacity:.75;transform:translateY(0) scale(.98)}
-}
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
 
-.problem{
-justify-content:space-between;
-border-color:rgba(168,85,247,.55);
-box-shadow:inset 0 0 30px rgba(168,85,247,.16);
-}
+    text-decoration:none;
+    color:white;
 
-.problem .icon{
-color:#c084fc;
-}
+    padding:26px 44px;
 
-.problem .card-content{
-padding-right:8px;
-}
+    border-radius:30px;
 
-.info-row{
-margin-top:20px;
-display:grid;
-grid-template-columns:1fr;
-border:1px solid rgba(250,204,21,.5);
-border-radius:16px;
-overflow:hidden;
-background:rgba(2,6,23,.72);
+    background:
+        linear-gradient(
+            180deg,
+            #26d957,
+            #0ea43c
+        );
+
+    font-size:34px;
+    font-weight:800;
+
+    box-shadow:
+        0 0 25px rgba(0,255,80,.35),
+        0 0 60px rgba(0,255,80,.15);
+
+    transition:.35s;
 }
 
-.info{
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-color:#fff;
-font-weight:900;
-font-size:17px;
-text-align:center;
-border-bottom:1px solid rgba(255,255,255,.18);
+.whatsapp-btn:hover{
+    transform:translateY(-4px) scale(1.02);
 }
 
-.info:last-child{
-border-bottom:none;
+.whatsapp-btn img{
+    width:48px;
 }
 
-.info .emoji{
-color:#facc15;
-font-size:32px;
-line-height:1;
+.whatsapp-sub{
+    margin-top:14px;
+    font-size:20px;
+    color:#d5ffd8;
 }
 
-.script{
-color:#facc15;
-font-style:italic;
-font-size:22px;
-margin-left:4px;
-white-space:nowrap;
+/* =====================================================
+ANİMASYONLAR
+===================================================== */
+
+@keyframes ringRotateLeft{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(-360deg);
+    }
 }
 
-.cta-wrap{
-margin:24px auto 12px;
-text-align:center;
+@keyframes ringRotateRight{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
 }
 
-.button{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-width:auto;
-min-width:280px;
-max-width:520px;
-padding:15px 24px;
-border-radius:18px;
-text-decoration:none;
-color:white;
-font-family:'Montserrat',sans-serif;
-font-size:21px;
-font-weight:900;
-background:linear-gradient(180deg,#25d366,#128c4a);
-border:2px solid #bbf7d0;
-box-shadow:0 0 18px rgba(37,211,102,.65);
-transition:.25s ease;
+@keyframes sparkle{
+
+    0%,100%{
+        opacity:.45;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
 }
 
-.button:hover{
-transform:translateY(-3px) scale(1.02);
-box-shadow:0 0 32px rgba(37,211,102,.95);
+@keyframes softGlow{
+
+    0%{
+
+        opacity:.82;
+
+        transform:translateY(0px) scale(1);
+
+        box-shadow:
+            0 0 8px rgba(255,110,40,.10),
+            0 0 18px rgba(255,110,40,.08);
+    }
+
+    25%{
+
+        opacity:1;
+
+        transform:translateY(-1px) scale(1.02);
+
+        box-shadow:
+            0 0 18px rgba(255,130,50,.22),
+            0 0 36px rgba(255,110,30,.16);
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:translateY(0px) scale(1.05);
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255,145,60,.42),
+                rgba(170,30,0,.50)
+            );
+
+        box-shadow:
+            0 0 24px rgba(255,145,60,.38),
+            0 0 48px rgba(255,90,20,.20),
+            0 0 70px rgba(255,70,20,.10);
+    }
+
+    75%{
+
+        opacity:.96;
+
+        transform:translateY(-1px) scale(1.02);
+
+        box-shadow:
+            0 0 16px rgba(255,120,40,.18),
+            0 0 32px rgba(255,110,40,.12);
+    }
+
+    100%{
+
+        opacity:.82;
+
+        transform:translateY(0px) scale(1);
+
+        box-shadow:
+            0 0 8px rgba(255,110,40,.10),
+            0 0 18px rgba(255,110,40,.08);
+    }
 }
 
-.button small{
-display:block;
-font-family:'Inter',sans-serif;
-font-size:13px;
-font-weight:600;
-color:#dcfce7;
-line-height:1.2;
+/* =====================================================
+MOBİL
+===================================================== */
+
+@media(max-width:900px){
+
+    .logo-title{
+        font-size:54px;
+    }
+
+    .main-text h1{
+        font-size:46px;
+    }
+
+    .desc{
+        font-size:19px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .bottom-info{
+        grid-template-columns:1fr;
+    }
+
+    .card h3{
+        font-size:26px;
+    }
+
+    .card p{
+        font-size:18px;
+    }
+
+    .whatsapp-btn{
+        width:100%;
+        font-size:28px;
+        padding:22px;
+    }
+
+    .sub-box h2{
+        font-size:22px;
+    }
 }
 
-.whatsapp-icon{
-flex:0 0 38px;
-width:38px;
-height:38px;
-border-radius:50%;
-background:#fff;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-box-shadow:0 0 16px rgba(255,255,255,.35);
-}
-
-.whatsapp-icon svg{
-width:25px;
-height:25px;
-fill:#25d366;
-}
-
-.note{
-text-align:center;
-color:#d1d5db;
-font-size:16.5px;
-line-height:1.45;
-margin-top:14px;
-}
-
-@media(min-width:760px){
-.cards{
-grid-template-columns:1fr 1fr;
-}
-
-.wide{
-grid-column:span 2;
-}
-
-.info-row{
-grid-template-columns:1fr 1fr 1.4fr;
-}
-
-.info{
-border-bottom:none;
-border-right:1px solid rgba(255,255,255,.22);
-}
-
-.info:last-child{
-border-right:none;
-}
-}
-
-@media(max-width:560px){
-.page{
-padding:24px 14px;
-}
-
-.profile-wrapper{
-width:205px;
-height:205px;
-}
-
-.profile-wrapper::before{
-inset:-8px;
-}
-
-.profile-wrapper::after{
-inset:-15px;
-}
-
-.profile-mask{
-width:195px;
-height:195px;
-}
-
-.profile-wrapper img{
-width:190px;
-height:190px;
-}
-
-.brand{
-font-size:41px;
-letter-spacing:-1px;
-}
-
-.badge{
-font-size:17px;
-padding:9px 18px;
-letter-spacing:.8px;
-}
-
-h1{
-font-size:24px;
-line-height:1.2;
-}
-
-h1 .big{
-font-size:32px;
-line-height:1.12;
-}
-
-.subtitle{
-font-size:18px;
-line-height:1.45;
-}
-
-.card{
-align-items:center;
-gap:14px;
-min-height:auto;
-padding:16px;
-}
-
-.icon{
-flex:0 0 58px;
-width:58px;
-height:58px;
-font-size:28px;
-border-width:2px;
-}
-
-.card h2{
-font-size:18px;
-margin-bottom:6px;
-}
-
-.card p,
-.green .check{
-font-size:14.5px;
-line-height:1.5;
-}
-
-.tags{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:7px;
-margin-top:10px;
-}
-
-.tag{
-min-width:0;
-font-size:11.5px;
-padding:7px 8px;
-}
-
-.problem{
-align-items:flex-start;
-}
-
-.problem .icon:last-child{
-display:none;
-}
-
-.button{
-font-size:17px;
-min-width:240px;
-padding:14px 18px;
-}
-
-.whatsapp-icon{
-width:32px;
-height:32px;
-flex-basis:32px;
-}
-
-.whatsapp-icon svg{
-width:22px;
-height:22px;
-}
-
-.fire-icon{
-width:40px;
-height:52px;
-}
-
-.info{
-font-size:15px;
-padding:15px;
-}
-
-.script{
-font-size:18px;
-}
-
-.note{
-font-size:15px;
-}
-}
 </style>
 </head>
 
 <body>
 
-<div class="page">
 <div class="container">
 
-<section class="hero">
+    <section class="hero">
 
-<div class="profile-wrapper">
-<div class="profile-mask"></div>
-<img src="profil.jpg?v=14" alt="SezR Matematik">
-</div>
+        <div class="hero-profile">
 
-<div class="brand">Sez<span class="gold">R</span> Matematik</div>
+            <img src="profil.jpg" class="profile-img">
 
-<div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div>
+            <div class="profile-ring"></div>
 
-<h1>
-MATEMATİKTE EKSİKLERİNİ KAPAT,
-<span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
-</h1>
+            <span class="profile-glow-dot dot1"></span>
+            <span class="profile-glow-dot gold dot2"></span>
+            <span class="profile-glow-dot dot3"></span>
+            <span class="profile-glow-dot gold dot4"></span>
 
-<p class="subtitle">
-Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.
-</p>
+        </div>
 
-</section>
+        <div class="logo-title">
+            Sez<span>R</span> Matematik
+        </div>
 
-<section class="cards">
+        <div class="sub-box">
+            <h2>2026 YAZ DÖNEMİ KAYITLARI</h2>
+        </div>
 
-<div class="card blue">
-<div class="icon">👤</div>
-<div class="card-content">
-<h2>Birebir Özel Ders</h2>
-<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
-</div>
-</div>
+        <div class="main-text">
+            <h1>
+                MATEMATİKTE EKSİKLERİNİ KAPAT,<br>
+                <span class="yellow">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
+            </h1>
 
-<div class="card purple">
-<div class="icon">👥</div>
-<div class="card-content">
-<h2>Grup Dersleri</h2>
-<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
-</div>
-</div>
+            <div class="desc">
+                Yazı doğru değerlendir, zorlanan değil önde olan öğrenci ol.
+            </div>
+        </div>
 
-<div class="card green">
-<div class="icon">📖</div>
-<div class="card-content">
-<h2>9 ve 10. Sınıf Matematik</h2>
-<div class="check">
-✔ Maarif Model uyumlu çalışma<br>
-✔ Temel eksikleri kapatma<br>
-✔ Yeni nesil soru çözümü<br>
-✔ Yeni döneme hazırlık
-</div>
-</div>
-</div>
+    </section>
 
-<div class="card red flame">
-<div class="icon">
-<div class="fire-icon">
-<svg viewBox="0 0 100 120">
-<defs>
-<radialGradient id="outerFire" cx="50%" cy="65%" r="60%">
-<stop offset="0%" stop-color="#ffd166"/>
-<stop offset="45%" stop-color="#ff7a18"/>
-<stop offset="100%" stop-color="#d00000"/>
-</radialGradient>
-<radialGradient id="innerFire" cx="50%" cy="70%" r="55%">
-<stop offset="0%" stop-color="#fff7ad"/>
-<stop offset="55%" stop-color="#ffd000"/>
-<stop offset="100%" stop-color="#ff6b00"/>
-</radialGradient>
-</defs>
-<path class="fire-main" fill="url(#outerFire)" d="M51 5C72 30 79 48 72 66C88 54 95 78 85 96C74 117 32 119 17 95C4 75 13 54 30 42C29 57 39 60 43 50C49 36 36 23 51 5Z"/>
-<path class="fire-mid" fill="#ff7a18" d="M50 33C64 49 66 61 59 72C72 68 74 85 66 98C56 113 31 109 26 93C22 81 29 70 40 61C39 72 48 74 51 65C55 53 45 43 50 33Z"/>
-<path class="fire-core" fill="url(#innerFire)" d="M49 55C60 69 58 78 53 86C62 84 64 96 56 103C47 111 34 104 34 94C34 85 42 79 46 72C47 82 52 78 53 71C54 64 48 60 49 55Z"/>
-</svg>
-</div>
-</div>
+    <section class="cards">
 
-<div class="card-content">
-<h2>Büyük Dertler Serisi</h2>
-<p>11’den 12’ye geçenler için en kritik paket.</p>
-<div class="tags">
-<span class="tag">LİMİT</span>
-<span class="tag">TÜREV</span>
-<span class="tag">İNTEGRAL</span>
-<span class="tag">TRİGONOMETRİ</span>
-</div>
-</div>
-</div>
+        <div class="card blue">
 
-<div class="card problem wide">
-<div class="icon">🧠</div>
-<div class="card-content">
-<h2>Problemler Paket Dersi</h2>
-<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma. Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklıdır.</p>
-</div>
-<div class="icon">🎯</div>
-</div>
+            <h3>BİREBİR ÖZEL DERS</h3>
 
-</section>
+            <p>
+                Öğrencinin seviyesine göre özel planlama yapılır.
+                Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.
+            </p>
 
-<div class="info-row">
-<div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div>
-<div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div>
-<div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div>
-</div>
+        </div>
 
-<div class="cta-wrap">
-<a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
-<span class="whatsapp-icon">
-<svg viewBox="0 0 32 32">
-<path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/>
-</svg>
-</span>
-<span>
-BANA UYGUN PROGRAMI SOR
-<small>WhatsApp üzerinden hemen yazın</small>
-</span>
-</a>
-</div>
+        <div class="card purple">
 
-<div class="note">
-Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.
-</div>
+            <h3>GRUP DERSLERİ</h3>
 
-</div>
+            <p>
+                Derse aktif katılım sağlayan,
+                takipli ve verimli ders ortamı.
+                Amaç kalabalıkta kaybolmak değil,
+                birlikte güçlenmek.
+            </p>
+
+        </div>
+
+        <div class="card green">
+
+            <h3>9 VE 10. SINIF MATEMATİK</h3>
+
+            <p>
+                ✔ Maarif Model uyumlu çalışma<br>
+                ✔ Temel eksikleri kapatma<br>
+                ✔ Yeni nesil soru çözümü<br>
+                ✔ Yeni döneme hazırlık
+            </p>
+
+        </div>
+
+        <div class="card orange">
+
+            <h3>BÜYÜK DERTLER SERİSİ</h3>
+
+            <p>
+                11’den 12’ye geçenler için en kritik paket.
+            </p>
+
+            <div class="big-dert-tags">
+
+                <span>LIMIT</span>
+                <span>TÜREV</span>
+                <span>İNTEGRAL</span>
+                <span>TRİGONOMETRİ</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="card purple problem-card">
+
+        <h3>PROBLEMLER PAKET DERSİ</h3>
+
+        <p>
+            “Problemler yapamıyorum” diyen öğrenciler için özel çalışma.
+            Soru tiplerini tanıma, çözüm yolu kurma ve pratik kazanma odaklıdır.
+        </p>
+
+    </div>
+
+    <div class="bottom-info">
+
+        <div class="info-box">
+            KONTENJAN SINIRLIDIR!
+        </div>
+
+        <div class="info-box">
+            ÖN KAYITLAR BAŞLAMIŞTIR!
+        </div>
+
+        <div class="info-box">
+            Bugünden Güçlen!
+        </div>
+
+    </div>
+
+    <div class="whatsapp-area">
+
+        <a class="whatsapp-btn"
+           href="https://wa.me/905058266949"
+           target="_blank">
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+
+            BANA UYGUN PROGRAMI SOR
+
+        </a>
+
+        <div class="whatsapp-sub">
+            WhatsApp üzerinden hemen yazın.
+        </div>
+
+    </div>
+
 </div>
 
 </body>
