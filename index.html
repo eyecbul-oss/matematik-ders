@@ -1,215 +1,558 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SezR Matematik</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #07111f;
-      color: white;
-    }
-    header {
-      padding: 18px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0,0,0,0.35);
-      position: sticky;
-      top: 0;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #38bdf8;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 18px;
-      font-size: 15px;
-    }
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      background:
-        linear-gradient(rgba(7,17,31,0.88), rgba(7,17,31,0.95)),
-        url("math-bg.jpg");
-      background-size: cover;
-      background-position: center;
-    }
-    .hero h1 {
-      font-size: 46px;
-      margin-bottom: 15px;
-    }
-    .hero h1 span {
-      color: #38bdf8;
-    }
-    .hero p {
-      font-size: 20px;
-      max-width: 700px;
-      margin: auto;
-      color: #cbd5e1;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 14px 24px;
-      background: #ef4444;
-      color: white;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-    }
-    section {
-      padding: 60px 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      font-size: 32px;
-      color: #38bdf8;
-      margin-bottom: 30px;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #0f172a;
-      padding: 24px;
-      border-radius: 18px;
-      border: 1px solid #1e293b;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-    }
-    .card h3 {
-      color: #facc15;
-      margin-top: 0;
-    }
-    .about {
-      text-align: center;
-      font-size: 18px;
-      color: #cbd5e1;
-      line-height: 1.7;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #020617;
-      color: #94a3b8;
-    }
-    .whatsapp {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      background: #22c55e;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 34px; }
-      nav { display: none; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SezR Matematik</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--bg:#020617;
+--blue:#38bdf8;
+--gold:#facc15;
+}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:#020617;
+color:white;
+overflow-x:hidden;
+}
+
+body::before{
+content:"∫  Σ  π  f(x)  lim  √x";
+position:fixed;
+bottom:20px;
+left:0;
+font-size:60px;
+letter-spacing:28px;
+color:rgba(56,189,248,.05);
+white-space:nowrap;
+animation:kay 40s linear infinite;
+pointer-events:none;
+}
+
+@keyframes kay{
+from{transform:translateX(0)}
+to{transform:translateX(-700px)}
+}
+
+.topbar{
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(2,6,23,.85);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+max-width:1180px;
+margin:auto;
+padding:14px 18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+font-family:'Montserrat',sans-serif;
+font-size:34px;
+font-weight:900;
+letter-spacing:-1px;
+line-height:.9;
+}
+
+.logo span{
+color:#facc15;
+}
+
+.logo small{
+display:block;
+font-size:12px;
+letter-spacing:3px;
+margin-top:4px;
+}
+
+.nav-links{
+display:flex;
+gap:18px;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-size:14px;
+font-weight:800;
+}
+
+.hero{
+position:relative;
+min-height:100vh;
+padding:60px 18px;
+background:
+linear-gradient(rgba(2,6,23,.88),rgba(2,6,23,.96)),
+url("math-bg.jpg");
+
+background-size:cover;
+background-position:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(90deg,rgba(56,189,248,.05) 1px,transparent 1px),
+linear-gradient(rgba(56,189,248,.05) 1px,transparent 1px);
+
+background-size:60px 60px;
+}
+
+.container{
+max-width:1180px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:360px 1fr;
+gap:50px;
+align-items:center;
+}
+
+.profile-wrap{
+width:320px;
+height:320px;
+margin:auto;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.profile-ring{
+position:absolute;
+inset:0;
+border-radius:50%;
+border:3px solid rgba(56,189,248,.25);
+box-shadow:0 0 30px rgba(56,189,248,.4);
+animation:don 28s linear infinite;
+}
+
+.profile-ring::after{
+content:"";
+position:absolute;
+inset:18px;
+border-radius:50%;
+border:4px solid rgba(250,204,21,.35);
+}
+
+@keyframes don{
+to{transform:rotate(360deg)}
+}
+
+.profile-wrap img{
+width:250px;
+height:250px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+position:relative;
+z-index:3;
+box-shadow:0 0 30px rgba(250,204,21,.3);
+}
+
+.brand{
+font-family:'Montserrat',sans-serif;
+font-size:62px;
+font-weight:900;
+line-height:.9;
+letter-spacing:-2px;
+margin-bottom:22px;
+}
+
+.brand span{
+color:#facc15;
+}
+
+.brand small{
+display:block;
+font-size:18px;
+letter-spacing:6px;
+margin-top:10px;
+}
+
+.badge{
+display:inline-block;
+padding:10px 22px;
+border-radius:999px;
+border:2px solid #facc15;
+color:#facc15;
+font-weight:900;
+margin-bottom:18px;
+}
+
+h1{
+font-family:'Montserrat',sans-serif;
+font-size:52px;
+line-height:1.02;
+margin:0 0 18px;
+text-transform:uppercase;
+}
+
+h1 span{
+display:block;
+color:#facc15;
+font-size:72px;
+}
+
+.subtitle{
+font-size:22px;
+line-height:1.5;
+max-width:700px;
+color:#e5e7eb;
+}
+
+.subtitle strong{
+color:#38bdf8;
+}
+
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:26px;
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:15px 22px;
+border-radius:16px;
+font-family:'Montserrat',sans-serif;
+font-weight:900;
+text-decoration:none;
+color:white;
+transition:.25s;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+}
+
+.whatsapp{
+background:linear-gradient(180deg,#25d366,#128c4a);
+}
+
+.youtube{
+background:linear-gradient(180deg,#ef4444,#991b1b);
+}
+
+.notes{
+background:linear-gradient(180deg,#38bdf8,#075985);
+}
+
+.section-title{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:18px;
+margin:34px 0 18px;
+}
+
+.section-title::before,
+.section-title::after{
+content:"";
+width:180px;
+height:1px;
+background:linear-gradient(90deg,transparent,rgba(250,204,21,.4),transparent);
+}
+
+.section-title h2{
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+margin:0;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:14px;
+}
+
+.card{
+background:rgba(7,17,31,.82);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:20px;
+text-align:center;
+transition:.25s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.icon{
+width:76px;
+height:76px;
+border-radius:50%;
+display:grid;
+place-items:center;
+margin:0 auto 14px;
+font-size:34px;
+border:2px solid currentColor;
+box-shadow:0 0 22px currentColor;
+}
+
+.blue{color:#38bdf8;}
+.purple{color:#c084fc;}
+.green{color:#86efac;}
+.red{color:#fb6b4b;}
+.indigo{color:#93a4ff;}
+
+.card h3{
+font-family:'Montserrat',sans-serif;
+font-size:20px;
+margin:0 0 10px;
+}
+
+.card p{
+font-size:14px;
+line-height:1.5;
+color:#e5e7eb;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+gap:6px;
+justify-content:center;
+margin-top:10px;
+}
+
+.tag{
+padding:6px 10px;
+border-radius:8px;
+background:rgba(239,68,68,.15);
+border:1px solid rgba(251,146,60,.4);
+font-size:12px;
+font-weight:900;
+color:#fed7aa;
+}
+
+@media(max-width:980px){
+
+.hero-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.subtitle{
+margin:auto;
+}
+
+.actions{
+justify-content:center;
+}
+
+.cards{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:680px){
+
+.nav-links{
+display:none;
+}
+
+.profile-wrap{
+width:240px;
+height:240px;
+}
+
+.profile-wrap img{
+width:185px;
+height:185px;
+}
+
+.brand{
+font-size:44px;
+}
+
+.brand small{
+font-size:13px;
+letter-spacing:4px;
+}
+
+h1{
+font-size:30px;
+}
+
+h1 span{
+font-size:42px;
+}
+
+.subtitle{
+font-size:18px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.section-title::before,
+.section-title::after{
+width:50px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="logo">SezR Matematik</div>
-    <nav>
-      <a href="#hakkimda">Hakkımda</a>
-      <a href="#dersler">Dersler</a>
-      <a href="#notlar">Notlar</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
-  </header>
+<header class="topbar">
 
-  <div class="hero">
-    <div>
-      <h1>Matematiği <span>Ezberleme</span>, Anla.</h1>
-      <p>
-        LGS, okul dersleri ve temel matematik konularında sade, anlaşılır ve öğrencinin seviyesine uygun anlatımlar.
-      </p>
-      <a class="btn" href="https://www.youtube.com/@SezRmatematik" target="_blank">
-        YouTube Kanalına Git
-      </a>
-    </div>
-  </div>
+<nav class="nav">
 
-  <section id="hakkimda">
-    <h2>Hakkımda</h2>
-    <p class="about">
-      Merhaba, ben Sezer. SezR Matematik ile öğrencilerin matematiği korkmadan,
-      adım adım ve mantığını kavrayarak öğrenmesini amaçlıyorum.
-      Bu sitede konu anlatımları, soru çözümleri, PDF notlar ve faydalı içerikler yer alacak.
-    </p>
-  </section>
+<div class="logo">
+Sez<span>R</span>
+<small>MATEMATİK</small>
+</div>
 
-  <section id="dersler">
-    <h2>Ders İçerikleri</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>6. Sınıf Matematik</h3>
-        <p>Temel konular, yeni nesil sorular ve düzenli tekrar içerikleri.</p>
-      </div>
-      <div class="card">
-        <h3>7. Sınıf Matematik</h3>
-        <p>Konu anlatımı, pratik soru çözümü ve sınava hazırlık çalışmaları.</p>
-      </div>
-      <div class="card">
-        <h3>8. Sınıf / LGS</h3>
-        <p>LGS’ye yönelik yeni nesil soru çözümleri ve stratejiler.</p>
-      </div>
-      <div class="card">
-        <h3>Lise Matematik</h3>
-        <p>Fonksiyon, denklem, limit, türev ve integral gibi konular.</p>
-      </div>
-    </div>
-  </section>
+<div class="nav-links">
+<a href="#">Ana Sayfa</a>
+<a href="#">Dersler</a>
+<a href="#">PDF</a>
+<a href="#">YouTube</a>
+<a href="#">İletişim</a>
+</div>
 
-  <section id="notlar">
-    <h2>PDF Notlar</h2>
-    <div class="cards">
-      <div class="card">
-        <h3>Konu Özetleri</h3>
-        <p>Yakında PDF ders notları burada paylaşılacak.</p>
-      </div>
-      <div class="card">
-        <h3>Çalışma Kağıtları</h3>
-        <p>Öğrenciler için çözülebilir etkinlik ve soru sayfaları eklenecek.</p>
-      </div>
-      <div class="card">
-        <h3>Günün Sorusu</h3>
-        <p>Her hafta seçilmiş dikkat çekici matematik soruları yayınlanacak.</p>
-      </div>
-    </div>
-  </section>
+</nav>
 
-  <section id="iletisim">
-    <h2>İletişim</h2>
-    <p class="about">
-      İş birliği, ders içerikleri ve öneriler için YouTube kanalım üzerinden ulaşabilirsiniz.
-    </p>
-  </section>
+</header>
 
-  <footer>
-    © 2026 SezR Matematik | Tüm hakları saklıdır.
-  </footer>
+<section class="hero">
 
-  <a class="whatsapp" href="#" onclick="alert('WhatsApp numarası daha sonra eklenecek.')">
-    WhatsApp
-  </a>
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="profile-wrap">
+<div class="profile-ring"></div>
+<img src="profil.jpg">
+</div>
+
+<div>
+
+<div class="brand">
+Sez<span>R</span>
+<small>MATEMATİK</small>
+</div>
+
+<div class="badge">
+2026 YAZ DÖNEMİ
+</div>
+
+<h1>
+Matematikte Eksiklerini Kapat,
+<span>Yeni Döneme Güçlü Başla!</span>
+</h1>
+
+<p class="subtitle">
+Yazı doğru değerlendir,
+<strong>önde olan</strong> öğrenci ol.
+</p>
+
+<div class="actions">
+
+<a class="btn whatsapp"
+href="https://wa.me/905058266949">
+WhatsApp’tan Yaz
+</a>
+
+<a class="btn youtube"
+href="https://youtube.com/@SezRmatematik">
+YouTube Kanalı
+</a>
+
+<a class="btn notes"
+href="#">
+PDF Notlar
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="section-title">
+<h2>DERSLERİM</h2>
+</div>
+
+<div class="cards">
+
+<div class="card blue">
+<div class="icon">👤</div>
+<h3>Birebir Ders</h3>
+<p>Kişiye özel planlama ve takip sistemi.</p>
+</div>
+
+<div class="card purple">
+<div class="icon">👥</div>
+<h3>Grup Dersleri</h3>
+<p>Takipli ve aktif katılımlı çalışma ortamı.</p>
+</div>
+
+<div class="card green">
+<div class="icon">📖</div>
+<h3>9-10. Sınıf</h3>
+<p>Temel güçlendirme ve yeni nesil soru çözümü.</p>
+</div>
+
+<div class="card red">
+<div class="icon">🔥</div>
+<h3>Büyük Dertler</h3>
+
+<div class="tags">
+<span class="tag">LİMİT</span>
+<span class="tag">TÜREV</span>
+<span class="tag">İNTEGRAL</span>
+<span class="tag">TRİGO</span>
+</div>
+
+</div>
+
+<div class="card indigo">
+<div class="icon">🧠</div>
+<h3>Problemler</h3>
+<p>Problem çözme mantığı geliştirme çalışmaları.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 </body>
 </html>
