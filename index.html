@@ -87,6 +87,8 @@ backdrop-filter:blur(14px);
 border:1px solid rgba(148,163,184,.18);
 
 margin-bottom:34px;
+
+animation:fadeUp .8s ease forwards;
 }
 
 .logo{
@@ -143,6 +145,32 @@ gap:58px;
 align-items:center;
 
 padding:12px 0 24px;
+
+position:relative;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.1s;
+opacity:0;
+}
+
+.hero::after{
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:
+radial-gradient(circle,
+rgba(56,189,248,.14),
+transparent 70%);
+
+top:-120px;
+right:-120px;
+
+pointer-events:none;
+filter:blur(10px);
 }
 
 /* ======================================================
@@ -341,6 +369,26 @@ font-family:'Montserrat',sans-serif;
 
 font-size:30px;
 font-weight:900;
+
+display:flex;
+align-items:center;
+gap:16px;
+}
+
+.section-title::after{
+content:"";
+
+height:3px;
+flex:1;
+
+border-radius:999px;
+
+background:
+linear-gradient(
+90deg,
+#facc15,
+transparent
+);
 }
 
 /* ======================================================
@@ -351,6 +399,10 @@ font-weight:900;
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:18px;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.25s;
+opacity:0;
 }
 
 /* ======================================================
@@ -363,6 +415,10 @@ grid-template-columns:repeat(3,1fr);
 gap:18px;
 
 margin-top:18px;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.4s;
+opacity:0;
 }
 
 /* ======================================================
@@ -391,6 +447,25 @@ inset 0 0 24px rgba(59,130,246,.08),
 0 14px 28px rgba(0,0,0,.28);
 
 transition:.3s;
+
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.05),
+transparent 45%
+);
+
+pointer-events:none;
 }
 
 .card:hover{
@@ -422,6 +497,12 @@ border:3px solid currentColor;
 
 box-shadow:
 0 0 24px currentColor;
+
+transition:.35s;
+}
+
+.card:hover .icon{
+transform:scale(1.08) rotate(-3deg);
 }
 
 .card h2{
@@ -641,6 +722,32 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 gap:20px;
+
+position:relative;
+overflow:hidden;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.55s;
+opacity:0;
+}
+
+.pdf-box::before{
+content:"";
+
+position:absolute;
+
+width:260px;
+height:260px;
+
+border-radius:50%;
+
+background:
+radial-gradient(circle,
+rgba(255,255,255,.12),
+transparent 70%);
+
+right:-80px;
+top:-80px;
 }
 
 .pdf-left h3{
@@ -691,6 +798,29 @@ rgba(185,28,28,.12)
 );
 
 border:1px solid rgba(255,255,255,.12);
+
+position:relative;
+overflow:hidden;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.7s;
+opacity:0;
+}
+
+.youtube-box::before{
+content:"";
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,255,255,.05),
+transparent 45%
+);
+
+pointer-events:none;
 }
 
 .youtube-box h3{
@@ -719,6 +849,15 @@ font-weight:900;
 
 box-shadow:
 0 0 20px rgba(255,0,0,.35);
+
+transition:.25s;
+}
+
+.youtube-btn:hover{
+transform:translateY(-2px) scale(1.03);
+
+box-shadow:
+0 0 30px rgba(255,0,0,.55);
 }
 
 /* ======================================================
@@ -738,6 +877,10 @@ overflow:hidden;
 border:1px solid rgba(250,204,21,.34);
 
 background:rgba(2,6,23,.68);
+
+animation:fadeUp .9s ease forwards;
+animation-delay:.85s;
+opacity:0;
 }
 
 .info{
@@ -776,6 +919,10 @@ WHATSAPP
 .cta-wrap{
 margin-top:28px;
 text-align:center;
+
+animation:fadeUp .9s ease forwards;
+animation-delay:1s;
+opacity:0;
 }
 
 .button{
@@ -854,6 +1001,95 @@ color:#d1d5db;
 }
 
 /* ======================================================
+FOOTER
+====================================================== */
+
+.footer{
+margin-top:42px;
+
+padding:30px;
+
+border-radius:26px;
+
+background:rgba(2,6,23,.62);
+
+border:1px solid rgba(148,163,184,.18);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.footer-left h3{
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+margin-bottom:10px;
+}
+
+.footer-left p{
+font-size:16px;
+line-height:1.7;
+color:#dbeafe;
+}
+
+.footer-links{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+text-decoration:none;
+
+padding:12px 18px;
+
+border-radius:14px;
+
+background:rgba(15,23,42,.75);
+
+border:1px solid rgba(148,163,184,.18);
+
+color:white;
+
+font-weight:800;
+
+transition:.25s;
+}
+
+.footer-links a:hover{
+transform:translateY(-2px);
+
+border-color:#facc15;
+
+color:#facc15;
+}
+
+/* ======================================================
+SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#020617;
+}
+
+::-webkit-scrollbar-thumb{
+background:
+linear-gradient(
+180deg,
+#38bdf8,
+#facc15
+);
+
+border-radius:999px;
+}
+
+/* ======================================================
 ANIM
 ====================================================== */
 
@@ -879,6 +1115,19 @@ transform:scale(.8);
 50%{
 opacity:1;
 transform:scale(1.5);
+}
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 
@@ -924,6 +1173,10 @@ height:178px;
 .profile-ring::after{
 inset:12px;
 border-width:4px;
+}
+
+.hero::after{
+display:none;
 }
 
 .hero h1{
@@ -995,6 +1248,15 @@ font-size:18px;
 padding:16px;
 }
 
+.footer{
+flex-direction:column;
+text-align:center;
+}
+
+.footer-links{
+justify-content:center;
+}
+
 .quick-menu{
 position:fixed;
 
@@ -1049,10 +1311,6 @@ font-size:22px;
 
 <div class="container">
 
-<!-- ======================================================
-TOPBAR
-====================================================== -->
-
 <header class="topbar">
 
 <div class="logo">
@@ -1081,10 +1339,6 @@ WhatsApp
 
 </header>
 
-<!-- ======================================================
-HERO
-====================================================== -->
-
 <section class="hero">
 
 <div class="profile-wrap">
@@ -1096,7 +1350,7 @@ HERO
 <span class="spark s3"></span>
 <span class="spark gold s4"></span>
 
-<img src="profil.jpg?v=18" alt="SezR Matematik">
+<img src="profil.jpg?v=20" alt="SezR Matematik">
 
 </div>
 
@@ -1124,21 +1378,13 @@ Yazı doğru değerlendir, zorlanan değil
 
 </section>
 
-<!-- ======================================================
-DERSLER
-====================================================== -->
-
 <section id="dersler">
 
 <h2 class="section-title">
 Derslerim
 </h2>
 
-<!-- ÜST 2 -->
-
 <div class="top-grid">
-
-<!-- MAARIF -->
 
 <div class="card green">
 
@@ -1164,8 +1410,6 @@ Derslerim
 </div>
 
 </div>
-
-<!-- BUYUK DERTLER -->
 
 <div class="card red flame">
 
@@ -1227,8 +1471,6 @@ Büyük Dertler Serisi
 </div>
 
 </div>
-
-<!-- ALT 3 -->
 
 <div class="bottom-grid">
 
@@ -1296,10 +1538,6 @@ Problemler Paket Dersi
 
 </section>
 
-<!-- ======================================================
-PDF
-====================================================== -->
-
 <section id="pdf" class="pdf-box">
 
 <div class="pdf-left">
@@ -1319,10 +1557,6 @@ YAKINDA
 </div>
 
 </section>
-
-<!-- ======================================================
-YOUTUBE
-====================================================== -->
 
 <section class="youtube-box">
 
@@ -1349,10 +1583,6 @@ KANALA GİT
 
 </section>
 
-<!-- ======================================================
-INFO
-====================================================== -->
-
 <section class="info-row">
 
 <div class="info">
@@ -1372,10 +1602,6 @@ FIRSATI KAÇIRMA,
 </div>
 
 </section>
-
-<!-- ======================================================
-WHATSAPP
-====================================================== -->
 
 <section id="iletisim" class="cta-wrap">
 
@@ -1411,13 +1637,51 @@ WhatsApp üzerinden hemen yazın
 Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.
 </div>
 
-</div>
+<footer class="footer">
+
+<div class="footer-left">
+
+<h3>
+SezR Matematik
+</h3>
+
+<p>
+Yeni nesil matematik anlatımı, özel dersler,
+grup dersleri ve güçlü tekrar sistemleriyle
+yeni döneme hazır olun.
+</p>
 
 </div>
 
-<!-- ======================================================
-MOBIL MENU
-====================================================== -->
+<div class="footer-links">
+
+<a href="#">
+Ana Sayfa
+</a>
+
+<a href="#dersler">
+Dersler
+</a>
+
+<a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">
+YouTube
+</a>
+
+<a href="#pdf">
+PDF Notlar
+</a>
+
+<a href="https://wa.me/905058266949">
+WhatsApp
+</a>
+
+</div>
+
+</footer>
+
+</div>
+
+</div>
 
 <nav class="quick-menu">
 
