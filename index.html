@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>SezR Matematik | Yaz Dersleri</title>
-<meta name="description" content="SezR Matematik birebir ve grup dersleri. Yeni döneme güçlü başla.">
+
+<meta name="description" content="SezR Matematik yaz dönemi birebir ve grup matematik dersleri. Eksiklerini kapat, yeni döneme güçlü başla.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
@@ -15,20 +15,20 @@
 body{
 font-family:'Inter',sans-serif;
 background:#020617;
-color:white;
+color:#fff;
 overflow-x:hidden;
 }
 
 .page{
 min-height:100vh;
+position:relative;
+overflow:hidden;
 background:
-linear-gradient(rgba(2,6,23,.88),rgba(2,6,23,.96)),
+linear-gradient(rgba(2,6,23,.88),rgba(2,6,23,.97)),
 url("math-bg.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
-position:relative;
-overflow:hidden;
 }
 
 .page::before{
@@ -36,9 +36,9 @@ content:"";
 position:absolute;
 inset:0;
 background:
-radial-gradient(circle at 20% 10%,rgba(56,189,248,.18),transparent 28%),
-radial-gradient(circle at 80% 20%,rgba(250,204,21,.18),transparent 28%),
-radial-gradient(circle at 50% 100%,rgba(168,85,247,.14),transparent 32%);
+radial-gradient(circle at 15% 10%,rgba(56,189,248,.22),transparent 28%),
+radial-gradient(circle at 82% 16%,rgba(250,204,21,.20),transparent 30%),
+radial-gradient(circle at 50% 95%,rgba(168,85,247,.16),transparent 35%);
 pointer-events:none;
 }
 
@@ -49,8 +49,8 @@ inset:0;
 background-image:
 linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
 linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-background-size:40px 40px;
-opacity:.22;
+background-size:42px 42px;
+opacity:.2;
 pointer-events:none;
 }
 
@@ -62,6 +62,7 @@ position:relative;
 z-index:5;
 }
 
+/* TOPBAR */
 .topbar{
 position:sticky;
 top:14px;
@@ -69,14 +70,14 @@ z-index:50;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:20px;
+gap:18px;
 padding:16px 22px;
 border-radius:22px;
 background:rgba(2,6,23,.62);
 backdrop-filter:blur(18px);
-border:1px solid rgba(148,163,184,.2);
+border:1px solid rgba(148,163,184,.22);
+box-shadow:0 10px 30px rgba(0,0,0,.25);
 margin-bottom:34px;
-box-shadow:0 10px 30px rgba(0,0,0,.24);
 }
 
 .logo{
@@ -90,8 +91,8 @@ letter-spacing:-1px;
 
 .nav{
 display:flex;
+gap:11px;
 align-items:center;
-gap:12px;
 flex-wrap:wrap;
 }
 
@@ -102,8 +103,7 @@ text-decoration:none;
 color:#dbeafe;
 font-size:14px;
 font-weight:800;
-letter-spacing:.3px;
-padding:11px 16px;
+padding:11px 15px;
 border-radius:999px;
 background:rgba(15,23,42,.62);
 border:1px solid rgba(148,163,184,.18);
@@ -111,15 +111,15 @@ transition:.25s;
 }
 
 .nav a:hover{
-transform:translateY(-2px);
 color:#facc15;
 border-color:#facc15;
+transform:translateY(-2px);
 }
 
 .nav a::before{
 content:"";
 position:absolute;
-left:-120%;
+left:-130%;
 top:0;
 width:100%;
 height:100%;
@@ -127,28 +127,28 @@ background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
 transition:.5s;
 }
 
-.nav a:hover::before{left:120%}
+.nav a:hover::before{left:130%}
 
+/* HERO */
 .hero{
 display:grid;
 grid-template-columns:360px 1fr;
 gap:58px;
 align-items:center;
-padding:12px 0 24px;
+padding:18px 0 34px;
 position:relative;
-animation:fadeUp .9s ease forwards;
 }
 
 .hero::after{
 content:"";
 position:absolute;
-width:500px;
-height:500px;
+width:520px;
+height:520px;
+right:-150px;
+top:-130px;
 background:radial-gradient(circle,rgba(56,189,248,.14),transparent 70%);
-top:-120px;
-right:-120px;
-pointer-events:none;
 filter:blur(10px);
+pointer-events:none;
 }
 
 .profile-wrap{
@@ -176,9 +176,7 @@ border:3px solid transparent;
 border-left-color:#38bdf8;
 border-bottom-color:#38bdf8;
 border-top-color:rgba(56,189,248,.16);
-box-shadow:
-0 0 18px rgba(56,189,248,.9),
-0 0 36px rgba(56,189,248,.32);
+box-shadow:0 0 18px rgba(56,189,248,.9),0 0 36px rgba(56,189,248,.32);
 animation:spinLeft 36s linear infinite;
 }
 
@@ -191,9 +189,7 @@ border:6px solid transparent;
 border-top-color:#facc15;
 border-right-color:#facc15;
 border-left-color:rgba(250,204,21,.12);
-box-shadow:
-0 0 22px rgba(250,204,21,.92),
-0 0 44px rgba(250,204,21,.26);
+box-shadow:0 0 22px rgba(250,204,21,.92),0 0 44px rgba(250,204,21,.26);
 animation:spinRight 48s linear infinite;
 }
 
@@ -235,13 +231,13 @@ position:absolute;
 inset:-8px;
 border-radius:50%;
 pointer-events:none;
-animation:orbitRotate 36s linear infinite;
+animation:orbitRotate 38s linear infinite;
 z-index:6;
 }
 
 .math-orbit.reverse{
 inset:24px;
-animation:orbitRotateReverse 48s linear infinite;
+animation:orbitRotateReverse 52s linear infinite;
 }
 
 .math-symbol{
@@ -254,7 +250,7 @@ justify-content:center;
 border-radius:50%;
 font-size:20px;
 font-weight:900;
-background:rgba(15,23,42,.75);
+background:rgba(15,23,42,.78);
 border:1px solid rgba(255,255,255,.14);
 box-shadow:0 0 18px rgba(56,189,248,.28);
 color:#38bdf8;
@@ -284,7 +280,7 @@ display:inline-block;
 padding:11px 28px;
 border-radius:999px;
 border:2px solid #facc15;
-background:rgba(2,6,23,.5);
+background:rgba(2,6,23,.54);
 color:#facc15;
 font-size:20px;
 font-weight:900;
@@ -320,6 +316,62 @@ color:#38bdf8;
 font-weight:900;
 }
 
+.hero-tags{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:20px;
+}
+
+.hero-tags span{
+padding:10px 15px;
+border-radius:999px;
+font-weight:900;
+font-size:14px;
+background:rgba(15,23,42,.68);
+border:1px solid rgba(148,163,184,.24);
+color:#dbeafe;
+box-shadow:0 0 16px rgba(56,189,248,.08);
+}
+
+.hero-actions{
+display:flex;
+flex-wrap:wrap;
+gap:14px;
+margin-top:24px;
+}
+
+.primary-btn,.ghost-btn{
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:15px 24px;
+border-radius:18px;
+font-family:'Montserrat',sans-serif;
+font-weight:900;
+transition:.25s;
+}
+
+.primary-btn{
+background:linear-gradient(180deg,#25d366,#128c4a);
+color:white;
+border:2px solid #bbf7d0;
+box-shadow:0 0 22px rgba(37,211,102,.62);
+}
+
+.ghost-btn{
+color:#facc15;
+background:rgba(15,23,42,.64);
+border:1px solid rgba(250,204,21,.38);
+}
+
+.primary-btn:hover,.ghost-btn:hover{
+transform:translateY(-3px) scale(1.02);
+}
+
+/* GENERAL */
 .section-title{
 margin:34px 0 18px;
 font-family:'Montserrat',sans-serif;
@@ -342,9 +394,6 @@ background:linear-gradient(90deg,#facc15,transparent);
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:18px;
-animation:fadeUp .9s ease forwards;
-animation-delay:.15s;
-opacity:0;
 }
 
 .bottom-grid{
@@ -352,9 +401,6 @@ display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:18px;
 margin-top:18px;
-animation:fadeUp .9s ease forwards;
-animation-delay:.3s;
-opacity:0;
 }
 
 .card{
@@ -367,9 +413,7 @@ border-radius:26px;
 background:rgba(2,6,23,.58);
 backdrop-filter:blur(18px);
 border:1px solid rgba(148,163,184,.22);
-box-shadow:
-inset 0 0 24px rgba(59,130,246,.08),
-0 14px 28px rgba(0,0,0,.28);
+box-shadow:inset 0 0 24px rgba(59,130,246,.08),0 14px 28px rgba(0,0,0,.28);
 transition:.3s;
 position:relative;
 overflow:hidden;
@@ -396,9 +440,7 @@ pointer-events:none;
 .card:hover{
 transform:translateY(-5px);
 border-color:rgba(250,204,21,.26);
-box-shadow:
-inset 0 0 28px rgba(59,130,246,.12),
-0 20px 40px rgba(0,0,0,.42);
+box-shadow:inset 0 0 28px rgba(59,130,246,.12),0 20px 40px rgba(0,0,0,.42);
 }
 
 .card:hover::after{opacity:1}
@@ -430,6 +472,7 @@ text-transform:uppercase;
 .card p{
 font-size:17px;
 line-height:1.6;
+color:#fff;
 }
 
 .blue,.blue h2{color:#38bdf8}
@@ -446,9 +489,7 @@ line-height:1.8;
 
 .flame{
 border-color:rgba(248,113,113,.55);
-box-shadow:
-inset 0 0 34px rgba(239,68,68,.18),
-0 0 26px rgba(239,68,68,.12);
+box-shadow:inset 0 0 34px rgba(239,68,68,.18),0 0 26px rgba(239,68,68,.12);
 }
 
 .fire-icon{
@@ -457,12 +498,7 @@ height:76px;
 filter:drop-shadow(0 0 16px rgba(255,90,0,.95));
 }
 
-.fire-icon svg{
-width:100%;
-height:100%;
-overflow:visible;
-}
-
+.fire-icon svg{width:100%;height:100%;overflow:visible}
 .fire-main{animation:fireFlicker 1.05s infinite ease-in-out;transform-origin:50% 85%}
 .fire-mid{animation:fireFlicker .82s infinite ease-in-out reverse;transform-origin:50% 85%}
 .fire-core{animation:fireCore .7s infinite ease-in-out;transform-origin:50% 85%}
@@ -494,82 +530,145 @@ animation:tagGlow 7s ease-in-out infinite;
 .tag:nth-child(3){animation-delay:2.8s}
 .tag:nth-child(4){animation-delay:4.2s}
 
-.pdf-box{
-margin-top:28px;
+/* TIMELINE */
+.timeline-section{margin-top:34px}
+
+.timeline{
+position:relative;
+margin-top:24px;
+padding:20px 0;
+}
+
+.timeline-line{
+position:absolute;
+left:50%;
+top:0;
+bottom:0;
+width:4px;
+transform:translateX(-50%);
+border-radius:999px;
+background:linear-gradient(180deg,#38bdf8,#facc15,#a855f7,#22c55e);
+box-shadow:0 0 20px rgba(56,189,248,.4);
+}
+
+.timeline-item{
+position:relative;
+width:50%;
+padding:12px 38px;
+margin-bottom:30px;
+}
+
+.timeline-item.left{text-align:right;left:0}
+.timeline-item.right{left:50%}
+
+.timeline-dot{
+position:absolute;
+top:40px;
+width:22px;
+height:22px;
+border-radius:50%;
+z-index:5;
+box-shadow:0 0 20px currentColor;
+}
+
+.left .timeline-dot{right:-11px}
+.right .timeline-dot{left:-11px}
+
+.blue-dot{background:#38bdf8;color:#38bdf8}
+.yellow-dot{background:#facc15;color:#facc15}
+.purple-dot{background:#a855f7;color:#a855f7}
+.green-dot{background:#22c55e;color:#22c55e}
+.red-dot{background:#ef4444;color:#ef4444}
+
+.timeline-card{
+position:relative;
+overflow:hidden;
+padding:24px;
+border-radius:24px;
+background:rgba(2,6,23,.58);
+backdrop-filter:blur(18px);
+border:1px solid rgba(148,163,184,.18);
+box-shadow:0 14px 28px rgba(0,0,0,.28);
+transition:.35s;
+}
+
+.timeline-card:hover{
+transform:translateY(-5px);
+border-color:rgba(250,204,21,.22);
+box-shadow:0 24px 44px rgba(0,0,0,.42);
+}
+
+.timeline-step{
+width:56px;
+height:56px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:18px;
+margin-bottom:16px;
+font-family:'Montserrat',sans-serif;
+font-size:26px;
+font-weight:900;
+background:linear-gradient(135deg,#38bdf8,#facc15);
+color:#020617;
+box-shadow:0 0 20px rgba(250,204,21,.28);
+}
+
+.left .timeline-step{margin-left:auto}
+
+.timeline-card h3{
+font-family:'Montserrat',sans-serif;
+font-size:24px;
+font-weight:900;
+margin-bottom:12px;
+}
+
+.timeline-card p{
+font-size:16px;
+line-height:1.7;
+color:#dbeafe;
+}
+
+/* MEDIA BOXES */
+.media-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:18px;
+}
+
+.youtube-box,.pdf-box{
+position:relative;
+overflow:hidden;
 padding:30px;
 border-radius:26px;
-background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(168,85,247,.16));
 border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
 display:flex;
 justify-content:space-between;
 align-items:center;
 gap:20px;
-position:relative;
-overflow:hidden;
-backdrop-filter:blur(18px);
-animation:fadeUp .9s ease forwards;
-animation-delay:.45s;
-opacity:0;
+min-height:170px;
 }
 
-.pdf-box::before{
-content:"";
-position:absolute;
-width:260px;
-height:260px;
-border-radius:50%;
-background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
-right:-80px;
-top:-80px;
+.youtube-box{
+background:linear-gradient(135deg,rgba(255,0,0,.18),rgba(185,28,28,.12));
 }
 
-.pdf-left h3{
+.pdf-box{
+background:linear-gradient(135deg,rgba(59,130,246,.18),rgba(168,85,247,.16));
+}
+
+.youtube-box h3,.pdf-box h3{
 font-family:'Montserrat',sans-serif;
 font-size:28px;
 margin-bottom:10px;
 }
 
-.pdf-left p{
-font-size:17px;
-color:#e2e8f0;
-line-height:1.6;
-}
-
-.pdf-badge{
-padding:12px 20px;
-border-radius:999px;
-background:white;
-color:#7c3aed;
-font-weight:900;
-}
-
-.youtube-box{
-margin-top:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-padding:26px;
-border-radius:24px;
-background:linear-gradient(135deg,rgba(255,0,0,.16),rgba(185,28,28,.12));
-border:1px solid rgba(255,255,255,.12);
-position:relative;
-overflow:hidden;
-backdrop-filter:blur(18px);
-animation:fadeUp .9s ease forwards;
-animation-delay:.6s;
-opacity:0;
-}
-
-.youtube-box h3{
-font-family:'Montserrat',sans-serif;
-font-size:28px;
-margin-bottom:8px;
-}
-
-.youtube-box p{
+.youtube-box p,.pdf-box p{
 font-size:17px;
 color:#e5e7eb;
+line-height:1.6;
 }
 
 .youtube-btn{
@@ -581,6 +680,7 @@ color:white;
 font-weight:900;
 box-shadow:0 0 20px rgba(255,0,0,.35);
 transition:.25s;
+white-space:nowrap;
 }
 
 .youtube-btn:hover{
@@ -588,50 +688,74 @@ transform:translateY(-2px) scale(1.03);
 box-shadow:0 0 30px rgba(255,0,0,.55);
 }
 
-.info-row{
-margin-top:26px;
-display:grid;
-grid-template-columns:1fr 1fr 1.4fr;
-border-radius:20px;
-overflow:hidden;
-border:1px solid rgba(250,204,21,.34);
-background:rgba(2,6,23,.68);
-animation:fadeUp .9s ease forwards;
-animation-delay:.75s;
-opacity:0;
-}
-
-.info{
-padding:18px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:12px;
-font-size:18px;
+.pdf-badge{
+padding:12px 20px;
+border-radius:999px;
+background:white;
+color:#7c3aed;
 font-weight:900;
-border-right:1px solid rgba(255,255,255,.14);
-text-align:center;
+white-space:nowrap;
 }
 
-.info:last-child{border-right:none}
+/* PROGRAM */
+.program-section{margin-top:34px}
 
-.info .emoji{
-font-size:32px;
+.program-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+margin-top:18px;
+}
+
+.program-card{
+padding:22px;
+border-radius:22px;
+background:rgba(2,6,23,.58);
+border:1px solid rgba(148,163,184,.2);
+backdrop-filter:blur(18px);
+box-shadow:0 12px 26px rgba(0,0,0,.24);
+}
+
+.program-card strong{
+display:block;
+font-family:'Montserrat',sans-serif;
+font-size:22px;
 color:#facc15;
+margin-bottom:10px;
 }
 
-.script{
-font-style:italic;
-color:#facc15;
-font-size:23px;
+.program-card span{
+display:block;
+color:#dbeafe;
+font-weight:800;
+line-height:1.6;
 }
 
-.cta-wrap{
-margin-top:28px;
+/* CTA */
+.final-cta{
+margin-top:34px;
+padding:36px;
+border-radius:30px;
+background:
+linear-gradient(135deg,rgba(37,211,102,.18),rgba(56,189,248,.12)),
+rgba(2,6,23,.65);
+border:1px solid rgba(187,247,208,.25);
+backdrop-filter:blur(18px);
 text-align:center;
-animation:fadeUp .9s ease forwards;
-animation-delay:.9s;
-opacity:0;
+position:relative;
+overflow:hidden;
+}
+
+.final-cta h2{
+font-family:'Montserrat',sans-serif;
+font-size:38px;
+margin-bottom:12px;
+}
+
+.final-cta p{
+font-size:19px;
+color:#dbeafe;
+margin-bottom:22px;
 }
 
 .button{
@@ -680,13 +804,42 @@ font-weight:600;
 color:#dcfce7;
 }
 
-.note{
-margin-top:14px;
-text-align:center;
-font-size:16px;
-color:#d1d5db;
+.info-row{
+margin-top:26px;
+display:grid;
+grid-template-columns:1fr 1fr 1.4fr;
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(250,204,21,.34);
+background:rgba(2,6,23,.68);
 }
 
+.info{
+padding:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+font-size:18px;
+font-weight:900;
+border-right:1px solid rgba(255,255,255,.14);
+text-align:center;
+}
+
+.info:last-child{border-right:none}
+
+.info .emoji{
+font-size:32px;
+color:#facc15;
+}
+
+.script{
+font-style:italic;
+color:#facc15;
+font-size:23px;
+}
+
+/* FOOTER */
 .footer{
 margin-top:42px;
 padding:30px;
@@ -736,8 +889,30 @@ border-color:#facc15;
 color:#facc15;
 }
 
+.float-wa{
+position:fixed;
+right:22px;
+bottom:22px;
+z-index:80;
+width:62px;
+height:62px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:#25d366;
+box-shadow:0 0 24px rgba(37,211,102,.8);
+animation:pulse 2.2s infinite;
+}
+
+.float-wa svg{
+width:34px;
+height:34px;
+fill:white;
+}
+
 .quick-menu{display:none}
 
+/* ANIMS */
 @keyframes spinLeft{to{transform:rotate(-360deg)}}
 @keyframes spinRight{to{transform:rotate(360deg)}}
 @keyframes orbitRotate{to{transform:rotate(360deg)}}
@@ -746,11 +921,6 @@ color:#facc15;
 @keyframes spark{
 0%,100%{opacity:.45;transform:scale(.8)}
 50%{opacity:1;transform:scale(1.5)}
-}
-
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
 }
 
 @keyframes goldGlow{
@@ -775,12 +945,20 @@ to{opacity:1;transform:translateY(0)}
 45%{opacity:1;transform:scale(1.04);box-shadow:0 0 22px rgba(255,120,40,.55),0 0 42px rgba(255,70,20,.22)}
 }
 
+@keyframes pulse{
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.08)}
+}
+
+/* MOBILE */
 @media(max-width:980px){
 .container{padding:18px 14px 100px}
 
 .topbar{
 flex-direction:column;
 gap:14px;
+position:relative;
+top:0;
 }
 
 .hero{
@@ -820,7 +998,11 @@ font-size:15px;
 .hero h1 .big{font-size:36px}
 .subtitle{font-size:18px}
 
-.top-grid,.bottom-grid{
+.hero-tags,.hero-actions{
+justify-content:center;
+}
+
+.top-grid,.bottom-grid,.media-grid,.program-grid{
 grid-template-columns:1fr;
 }
 
@@ -845,10 +1027,27 @@ display:grid;
 grid-template-columns:1fr 1fr;
 }
 
-.pdf-box,.youtube-box{
+.youtube-box,.pdf-box{
 flex-direction:column;
 text-align:center;
 }
+
+.timeline-line{left:18px}
+
+.timeline-item{
+width:100%;
+left:0 !important;
+padding-left:58px;
+padding-right:0;
+text-align:left !important;
+}
+
+.timeline-dot{
+left:7px !important;
+right:auto !important;
+}
+
+.left .timeline-step{margin-left:0}
 
 .info-row{
 grid-template-columns:1fr;
@@ -860,6 +1059,12 @@ border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .info:last-child{border-bottom:none}
+
+.final-cta{
+padding:26px 18px;
+}
+
+.final-cta h2{font-size:28px}
 
 .button{
 width:100%;
@@ -874,6 +1079,10 @@ text-align:center;
 
 .footer-links{justify-content:center}
 
+.float-wa{
+display:none;
+}
+
 .quick-menu{
 position:fixed;
 left:0;
@@ -885,7 +1094,7 @@ backdrop-filter:blur(10px);
 border-top:1px solid rgba(148,163,184,.2);
 display:grid;
 grid-template-columns:repeat(5,1fr);
-z-index:20;
+z-index:90;
 }
 
 .quick-menu a{
@@ -917,10 +1126,10 @@ gap:4px;
 <nav class="nav">
 <a href="#">Ana Sayfa</a>
 <a href="#dersler">Derslerim</a>
+<a href="#surec">Süreç</a>
+<a href="#program">Program</a>
 <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube</a>
-<a href="#pdf">PDF Notlar</a>
-<a href="#iletisim">İletişim</a>
-<a href="https://wa.me/905058266949">WhatsApp</a>
+<a href="#iletisim">WhatsApp</a>
 </nav>
 </header>
 
@@ -948,27 +1157,38 @@ gap:4px;
 <span class="spark s3"></span>
 <span class="spark gold s4"></span>
 
-<img src="profil.jpg?v=21" alt="SezR Matematik">
+<img src="profil.jpg?v=30" alt="SezR Matematik">
 </div>
 
 <div class="hero-text">
 <div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div>
 
 <h1>
-MATEMATİKTE EKSİKLERİNİ KAPAT,
-<span class="big">YENİ DÖNEME GÜÇLÜ BAŞLA!</span>
+Matematikte Eksiklerini Kapat.
+<span class="big">Yeni Döneme Güçlü Başla!</span>
 </h1>
 
 <p class="subtitle">
 Yazı doğru değerlendir, zorlanan değil
 <span>önde olan</span> öğrenci ol.
 </p>
+
+<div class="hero-tags">
+<span>Maarif Model</span>
+<span>TYT - AYT</span>
+<span>Yeni Nesil Sorular</span>
+<span>Birebir Takip</span>
+</div>
+
+<div class="hero-actions">
+<a class="primary-btn" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">WhatsApp’tan Bilgi Al</a>
+<a class="ghost-btn" href="#dersler">Dersleri İncele</a>
+</div>
 </div>
 
 </section>
 
 <section id="dersler">
-
 <h2 class="section-title">Derslerim</h2>
 
 <div class="top-grid">
@@ -1029,7 +1249,7 @@ Yazı doğru değerlendir, zorlanan değil
 <div class="icon">👤</div>
 <div>
 <h2>Birebir Özel Ders</h2>
-<p>Öğrencinin seviyesine göre özel planlama yapılır. Eksikler belirlenir, konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
+<p>Öğrencinin seviyesine göre özel planlama yapılır. Konu anlatımı ve soru çözümü kişiye özel ilerler.</p>
 </div>
 </div>
 
@@ -1037,7 +1257,7 @@ Yazı doğru değerlendir, zorlanan değil
 <div class="icon">👥</div>
 <div>
 <h2>Grup Dersleri</h2>
-<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç kalabalıkta kaybolmak değil, birlikte güçlenmek.</p>
+<p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç birlikte güçlenmek.</p>
 </div>
 </div>
 
@@ -1045,28 +1265,113 @@ Yazı doğru değerlendir, zorlanan değil
 <div class="icon">🎯</div>
 <div>
 <h2>Problemler Paket Dersi</h2>
-<p>“Problemler yapamıyorum” diyen öğrenciler için özel çalışma.</p>
+<p>“Problemler yapamıyorum” diyen öğrenciler için çözüm yolu kurma odaklı özel çalışma.</p>
 </div>
 </div>
 
 </div>
-
 </section>
 
-<section id="pdf" class="pdf-box">
-<div class="pdf-left">
-<h3>PDF NOTLAR</h3>
-<p>Çalışma föyleri, tekrar PDF’leri ve özel içerikler yakında burada paylaşılacak.</p>
+<section id="surec" class="timeline-section">
+<h2 class="section-title">Nasıl İlerliyoruz?</h2>
+
+<div class="timeline">
+<div class="timeline-line"></div>
+
+<div class="timeline-item left">
+<div class="timeline-dot blue-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">1</div>
+<h3>Seviye Analizi</h3>
+<p>Öğrencinin temel durumu ve eksikleri belirlenir.</p>
 </div>
-<div class="pdf-badge">YAKINDA</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-dot yellow-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">2</div>
+<h3>Eksik Tespiti</h3>
+<p>Konu bazlı yanlışlar ve eksik öğrenmeler netleştirilir.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-dot purple-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">3</div>
+<h3>Konu Anlatımı</h3>
+<p>Temelden başlayıp yeni nesil mantığa uygun anlatım yapılır.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-dot green-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">4</div>
+<h3>Yeni Nesil Soru Çözümü</h3>
+<p>MEB ve yeni sistem soru mantığı üzerine yoğun çalışma yapılır.</p>
+</div>
+</div>
+
+<div class="timeline-item left">
+<div class="timeline-dot red-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">5</div>
+<h3>Düzenli Takip</h3>
+<p>Ödev, tekrar ve gelişim süreci sürekli kontrol edilir.</p>
+</div>
+</div>
+
+<div class="timeline-item right">
+<div class="timeline-dot blue-dot"></div>
+<div class="timeline-card">
+<div class="timeline-step">6</div>
+<h3>Güçlü Tekrar</h3>
+<p>Eksik kalan noktalar tekrar edilerek kalıcı öğrenme sağlanır.</p>
+</div>
+</div>
+
+</div>
 </section>
 
-<section class="youtube-box">
+<section class="media-grid">
+<div class="youtube-box">
 <div>
 <h3>YouTube Dersler</h3>
 <p>Yeni nesil soru çözümleri, konu anlatımları ve tekrar videoları.</p>
 </div>
 <a class="youtube-btn" href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">KANALA GİT</a>
+</div>
+
+<div id="pdf" class="pdf-box">
+<div>
+<h3>PDF Notlar</h3>
+<p>Çalışma föyleri, tekrar PDF’leri ve özel içerikler yakında burada paylaşılacak.</p>
+</div>
+<div class="pdf-badge">YAKINDA</div>
+</div>
+</section>
+
+<section id="program" class="program-section">
+<h2 class="section-title">Ders Programı</h2>
+
+<div class="program-grid">
+<div class="program-card">
+<strong>Hafta İçi</strong>
+<span>Okul sonrası birebir ve grup dersleri</span>
+</div>
+
+<div class="program-card">
+<strong>Hafta Sonu</strong>
+<span>Yoğun tekrar, problem ve soru çözümü</span>
+</div>
+
+<div class="program-card">
+<strong>Yaz Dönemi</strong>
+<span>Eksikleri kapatma ve yeni döneme hazırlık</span>
+</div>
+</div>
 </section>
 
 <section class="info-row">
@@ -1075,7 +1380,10 @@ Yazı doğru değerlendir, zorlanan değil
 <div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div>
 </section>
 
-<section id="iletisim" class="cta-wrap">
+<section id="iletisim" class="final-cta">
+<h2>Programını Birlikte Planlayalım</h2>
+<p>Seviyene ve hedeflerine uygun ders programı için WhatsApp’tan hemen bilgi al.</p>
+
 <a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
 <span class="whatsapp-icon">
 <svg viewBox="0 0 32 32">
@@ -1089,19 +1397,17 @@ BANA UYGUN PROGRAMI SOR
 </a>
 </section>
 
-<div class="note">Ders programı ve uygun saatler için WhatsApp’tan bilgi alabilirsiniz.</div>
-
 <footer class="footer">
 <div class="footer-left">
-<h3>SezR Matematik</h3>
-<p>Yeni nesil matematik anlatımı, özel dersler, grup dersleri ve güçlü tekrar sistemleriyle yeni döneme hazır olun.</p>
+<h3>SezR Matematik Sistemi</h3>
+<p>Yeni nesil matematik anlatımı, özel dersler, grup dersleri ve güçlü tekrar sistemiyle yeni döneme güçlü başlangıç.</p>
 </div>
 
 <div class="footer-links">
 <a href="#">Ana Sayfa</a>
 <a href="#dersler">Dersler</a>
+<a href="#surec">Süreç</a>
 <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube</a>
-<a href="#pdf">PDF Notlar</a>
 <a href="https://wa.me/905058266949">WhatsApp</a>
 </div>
 </footer>
@@ -1109,11 +1415,17 @@ BANA UYGUN PROGRAMI SOR
 </div>
 </div>
 
+<a class="float-wa" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">
+<svg viewBox="0 0 32 32">
+<path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3z"/>
+</svg>
+</a>
+
 <nav class="quick-menu">
 <a href="#" class="active"><span>🏠</span>Ana Sayfa</a>
 <a href="#dersler"><span>📖</span>Dersler</a>
-<a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0"><span>▶️</span>YouTube</a>
-<a href="#pdf"><span>📄</span>PDF</a>
+<a href="#surec"><span>⚡</span>Süreç</a>
+<a href="#program"><span>📅</span>Program</a>
 <a href="#iletisim"><span>🟢</span>İletişim</a>
 </nav>
 
