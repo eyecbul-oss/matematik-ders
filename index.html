@@ -2517,5 +2517,164 @@ window.addEventListener("load", function(){
 })();
 </script>
 
+
+<script>
+/* SEZR FOCUS VIDEO FIX */
+(function(){
+  function getYoutubeInput(){
+    return document.getElementById("focusYoutubeUrl") || document.getElementById("lofiYoutubeUrl");
+  }
+
+  function getYoutubeFrame(){
+    return document.getElementById("focusYoutubeFrame") || document.getElementById("lofiFrame");
+  }
+
+  function getYoutubeBox(){
+    return document.getElementById("focusYoutubeBox") || document.getElementById("lofiVideoScreen");
+  }
+
+  function toEmbed(url){
+    if(!url) return "";
+    try{
+      const u = new URL(url);
+      let id = "";
+
+      if(u.hostname.includes("youtu.be")){
+        id = u.pathname.replace("/","");
+      }else if(u.searchParams.get("v")){
+        id = u.searchParams.get("v");
+      }else if(u.pathname.includes("/embed/")){
+        id = u.pathname.split("/embed/")[1];
+      }else if(u.pathname.includes("/live/")){
+        id = u.pathname.split("/live/")[1];
+      }
+
+      id = (id || "").split("?")[0].split("&")[0];
+
+      if(!id) return "";
+
+      return "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1&playsinline=1";
+    }catch(e){
+      return "";
+    }
+  }
+
+  function startTimerOnly(){
+    const silentBtn = document.getElementById("focusSilentStart");
+    if(silentBtn){
+      silentBtn.click();
+      return;
+    }
+
+    const startBtn = document.getElementById("focusStart");
+    if(startBtn){
+      startBtn.click();
+    }
+  }
+
+  function startFocusVideo(){
+    const input = getYoutubeInput();
+    const frame = getYoutubeFrame();
+    const box = getYoutubeBox();
+
+    const typed = input ? input.value.trim() : "";
+    const saved = localStorage.getItem("sezrFocusYoutube") || localStorage.getItem("sezrLofiVideo") || "";
+    const url = typed || saved;
+
+    if(!url){
+      alert("Önce Focus bölümündeki YouTube video linki kutusuna video linkini yapıştırıp Kaydet butonuna bas.");
+      if(input){
+        input.scrollIntoView({behavior:"smooth", block:"center"});
+        setTimeout(function(){ input.focus(); }, 500);
+      }
+      return;
+    }
+
+    const embed = toEmbed(url);
+
+    if(!embed){
+      alert("YouTube linki geçerli görünmüyor. Normal video linkini yapıştır: https://youtube.com/watch?v=...");
+      return;
+    }
+
+    localStorage.setItem("sezrFocusYoutube", url);
+    localStorage.setItem("sezrLofiVideo", url);
+
+    if(frame){
+      frame.src = embed + "&autoplay=1";
+    }
+
+    if(box){
+      box.classList.add("show");
+      box.classList.add("video-active");
+      box.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+
+    startTimerOnly();
+  }
+
+  function saveFocusVideo(){
+    const input = getYoutubeInput();
+    const frame = getYoutubeFrame();
+    const box = getYoutubeBox();
+
+    if(!input) return;
+
+    const url = input.value.trim();
+    const embed = toEmbed(url);
+
+    if(!embed){
+      alert("Geçerli bir YouTube video linki yapıştır.");
+      return;
+    }
+
+    localStorage.setItem("sezrFocusYoutube", url);
+    localStorage.setItem("sezrLofiVideo", url);
+
+    if(frame){
+      frame.src = embed;
+    }
+
+    if(box){
+      box.classList.add("show");
+      box.classList.add("video-active");
+      box.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+  }
+
+  function wireButtons(){
+    const idsStart = ["focusRoomStart","focusVideoStart","lofiLoadVideoStart"];
+    idsStart.forEach(function(id){
+      const btn = document.getElementById(id);
+      if(btn && !btn.dataset.sezrFixed){
+        btn.dataset.sezrFixed = "yes";
+        btn.addEventListener("click", function(e){
+          e.preventDefault();
+          startFocusVideo();
+        });
+      }
+    });
+
+    const idsSave = ["focusSaveVideo","lofiLoadVideo"];
+    idsSave.forEach(function(id){
+      const btn = document.getElementById(id);
+      if(btn && !btn.dataset.sezrSaveFixed){
+        btn.dataset.sezrSaveFixed = "yes";
+        btn.addEventListener("click", function(e){
+          e.preventDefault();
+          saveFocusVideo();
+        });
+      }
+    });
+  }
+
+  if(document.readyState === "loading"){
+    document.addEventListener("DOMContentLoaded", wireButtons);
+  }else{
+    wireButtons();
+  }
+})();
+</script>
+
 </body>
 </html>
