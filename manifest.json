@@ -1,7 +1,7 @@
 {
   "name": "SezR Matematik",
   "short_name": "SezR",
-  "description": "SezR Matematik yaz dersleri, PDF notlar, YouTube dersler ve kayıt sistemi.",
+  "description": "SezR Matematik yaz dersleri ve öğrenci platformu.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
