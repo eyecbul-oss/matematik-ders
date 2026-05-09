@@ -1454,6 +1454,197 @@ grid-template-columns:1fr;
 }
 }
 
+
+/* ===============================
+SEZR FOCUS ROOM ENTEGRASYON
+=============================== */
+.focus-room-hero{
+margin-top:24px;
+position:relative;
+border-radius:30px;
+overflow:hidden;
+min-height:360px;
+background:
+linear-gradient(90deg,rgba(2,6,23,.92),rgba(2,6,23,.55)),
+url("focus-room.png");
+background-size:cover;
+background-position:center;
+border:1px solid rgba(250,204,21,.25);
+box-shadow:0 22px 54px rgba(0,0,0,.42),0 0 30px rgba(250,204,21,.12);
+}
+
+.focus-room-content{
+position:relative;
+z-index:2;
+padding:34px;
+max-width:620px;
+}
+
+.focus-room-content h3{
+font-family:'Montserrat',sans-serif;
+font-size:38px;
+font-weight:900;
+line-height:1.1;
+margin-bottom:14px;
+}
+
+.focus-room-content h3 span{
+color:#facc15;
+}
+
+.focus-room-content p{
+color:#dbeafe;
+line-height:1.7;
+font-size:17px;
+margin-bottom:20px;
+}
+
+.focus-room-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.focus-room-btn{
+border:0;
+cursor:pointer;
+text-decoration:none;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:14px 18px;
+border-radius:16px;
+font-weight:900;
+background:#facc15;
+color:#020617;
+box-shadow:0 0 22px rgba(250,204,21,.32);
+}
+
+.focus-room-btn.red{
+background:#ff0000;
+color:white;
+box-shadow:0 0 22px rgba(255,0,0,.28);
+}
+
+.focus-room-mini{
+margin-top:18px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+max-width:560px;
+}
+
+.focus-room-mini span{
+padding:10px 12px;
+border-radius:14px;
+background:rgba(15,23,42,.72);
+border:1px solid rgba(148,163,184,.16);
+font-size:13px;
+font-weight:900;
+color:#e5e7eb;
+}
+
+.focus-youtube-box{
+margin-top:18px;
+border-radius:26px;
+overflow:hidden;
+background:#020617;
+border:1px solid rgba(148,163,184,.18);
+box-shadow:0 18px 42px rgba(0,0,0,.36);
+display:none;
+}
+
+.focus-youtube-box.show{
+display:block;
+}
+
+.focus-youtube-frame{
+width:100%;
+aspect-ratio:16/9;
+border:0;
+display:block;
+}
+
+.focus-youtube-note{
+padding:14px 18px;
+background:rgba(15,23,42,.82);
+color:#dbeafe;
+font-size:13px;
+line-height:1.55;
+}
+
+.focus-video-input{
+margin-top:14px;
+display:flex;
+gap:8px;
+}
+
+.focus-video-input input{
+flex:1;
+min-width:0;
+padding:13px 14px;
+border-radius:14px;
+border:1px solid rgba(148,163,184,.22);
+background:rgba(15,23,42,.78);
+color:white;
+outline:none;
+}
+
+.focus-video-input button{
+border:0;
+border-radius:14px;
+padding:13px 14px;
+background:#25d366;
+color:white;
+font-weight:900;
+cursor:pointer;
+white-space:nowrap;
+}
+
+body.light-theme .focus-room-hero{
+background:
+linear-gradient(90deg,rgba(255,255,255,.90),rgba(255,255,255,.58)),
+url("focus-room.png");
+background-size:cover;
+background-position:center;
+}
+
+body.light-theme .focus-room-content p,
+body.light-theme .focus-youtube-note{
+color:#334155 !important;
+}
+
+body.light-theme .focus-room-mini span,
+body.light-theme .focus-video-input input{
+background:rgba(255,255,255,.82);
+color:#0f172a;
+border-color:rgba(15,23,42,.12);
+}
+
+@media(max-width:980px){
+.focus-room-hero{
+min-height:520px;
+background:
+linear-gradient(180deg,rgba(2,6,23,.92),rgba(2,6,23,.55)),
+url("focus-room.png");
+background-size:cover;
+background-position:center;
+}
+.focus-room-content{
+padding:24px;
+}
+.focus-room-content h3{
+font-size:30px;
+}
+.focus-room-mini{
+grid-template-columns:1fr 1fr;
+}
+.focus-video-input{
+flex-direction:column;
+}
+}
+
 </style>
 </head>
 <body>
@@ -1612,8 +1803,8 @@ grid-template-columns:1fr;
 
 <div class="focus-master-controls">
   <button class="focus-main-btn" id="focusSilentStart">🧠 Sessiz Başlat</button>
-  <button class="focus-main-btn music" id="focusMusicStart">🎧 Müzik ile Başlat</button>
-  <button class="focus-main-btn video" id="focusVideoStart">🌙 Video ile Başlat</button>
+  <button class="focus-main-btn music" id="focusMusicStart">🎧 Focus Başlat</button>
+  <button class="focus-main-btn video" id="focusVideoStart">▶ Video ile Başlat</button>
   <button class="focus-main-btn stop" id="focusStopAll">⏹ Durdur</button>
 </div>
 
@@ -1625,76 +1816,8 @@ grid-template-columns:1fr;
 
 
 
-<div class="lofi-media-panel">
-
-  <div class="lofi-video-card">
-    <div class="lofi-row-title">🌙 Lo-Fi Video Alanı</div>
-    <div class="lofi-row-text">
-      Buraya YouTube lo-fi çalışma videosu ekleyebilirsin. Link girilmezse kendi animasyonlu çalışma ekranı görünür.
-    </div>
-
-    <div class="lofi-video-screen" id="lofiVideoScreen">
-      <iframe id="lofiFrame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-      <div class="lofi-visual">
-        <div class="lofi-sun"></div>
-        <div class="lofi-mountain"></div>
-        <div class="lofi-mountain two"></div>
-        <div class="lofi-rain">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
-        </div>
-      </div>
-
-      <div class="lofi-video-overlay">
-        <strong>SezR Study Atmosphere</strong>
-        <span>Animasyonlu sessiz çalışma ekranı</span>
-      </div>
-    </div>
-
-    <div class="lofi-input-row" style="margin-top:14px;">
-      <input id="lofiYoutubeUrl" type="url" placeholder="YouTube lo-fi linki yapıştır">
-      <button id="lofiLoadVideo">Videoyu Ekle</button>
-    </div>
-
-    <div class="lofi-note">
-      Not: YouTube otomatik çalmayı bazen engeller. Video görünür; oynatmayı kullanıcı başlatır.
-    </div>
-  </div>
-
-  <div class="lofi-audio-card">
-    <div class="lofi-row-title">🎧 Müzik Dosyası</div>
-    <div class="lofi-row-text">
-      Repoya <b>lofi.mp3</b> yüklersen buradaki player çalar. Şimdilik görsel focus modu aktif kalır.
-    </div>
-
-    <div class="lofi-audio-main">
-      <div class="lofi-audio-disc"></div>
-      <div class="lofi-audio-info">
-        <strong id="lofiTrackName">lofi.mp3</strong>
-        <span id="lofiAudioStatus">Dosya varsa çalmaya hazır.</span>
-      </div>
-    </div>
-
-    <div class="lofi-audio-controls">
-      <button class="lofi-mini-btn green" id="lofiPlayAudio">▶ Oynat</button>
-      <button class="lofi-mini-btn dark" id="lofiPauseAudio">⏸ Duraklat</button>
-      <button class="lofi-mini-btn dark" id="lofiStopAudio">⏹ Sıfırla</button>
-    </div>
-
-    <input class="lofi-volume" id="lofiVolume" type="range" min="0" max="1" step="0.01" value="0.45">
-
-    <audio id="lofiAudio" src="lofi.mp3" loop preload="none"></audio>
-
-    <div class="lofi-note">
-      Telif sorunu olmaması için kendi yüklediğin veya telifsiz bir MP3 kullanmalısın.
-    </div>
-  </div>
-
 </div>
-
-
-<section id="program" class="program-section"><h2 class="section-title">Ders Programı</h2><div class="program-grid"><div class="program-card"><strong>Hafta İçi</strong><span>Okul sonrası birebir ve grup dersleri</span></div><div class="program-card"><strong>Hafta Sonu</strong><span>Yoğun tekrar, problem ve soru çözümü</span></div><div class="program-card"><strong>Yaz Dönemi</strong><span>Eksikleri kapatma ve yeni döneme hazırlık</span></div></div></section>
+</section>
 <section class="info-row"><div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div><div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div><div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div></section>
 <section id="iletisim" class="final-cta"><h2>Programını Birlikte Planlayalım</h2><p>Seviyene ve hedeflerine uygun ders programı için WhatsApp’tan hemen bilgi al.</p><a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"><span class="whatsapp-icon"><svg viewBox="0 0 32 32"><path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/></svg></span><span>BANA UYGUN PROGRAMI SOR<small>WhatsApp üzerinden hemen yazın</small></span></a></section>
 <footer class="footer"><div class="footer-left"><h3>SezR Matematik Sistemi</h3><p>PDF kaynaklar, YouTube dersler, Focus modu ve kayıt sistemiyle gelişen SezR Matematik platformu.</p></div><div class="footer-links"><a href="#">Ana Sayfa</a><a href="#dersler">Dersler</a><a href="#kaynaklar">PDF & Video</a><a href="#focus">Focus</a><a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube</a><a href="https://wa.me/905058266949">WhatsApp</a></div></footer>
@@ -2309,6 +2432,88 @@ window.addEventListener("load", function(){
     });
   }
 
+})();
+</script>
+
+
+<script>
+(function(){
+  const urlInput = document.getElementById("focusYoutubeUrl");
+  const saveBtn = document.getElementById("focusSaveVideo");
+  const startBtn = document.getElementById("focusRoomStart");
+  const box = document.getElementById("focusYoutubeBox");
+  const frame = document.getElementById("focusYoutubeFrame");
+
+  function toEmbed(url){
+    if(!url) return "";
+    try{
+      const u = new URL(url);
+      let id = "";
+
+      if(u.hostname.includes("youtu.be")){
+        id = u.pathname.replace("/","");
+      }else if(u.searchParams.get("v")){
+        id = u.searchParams.get("v");
+      }else if(u.pathname.includes("/embed/")){
+        id = u.pathname.split("/embed/")[1];
+      }else if(u.pathname.includes("/live/")){
+        id = u.pathname.split("/live/")[1];
+      }
+
+      id = id.split("?")[0].split("&")[0];
+      if(!id) return "";
+
+      return "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1";
+    }catch(e){
+      return "";
+    }
+  }
+
+  function loadVideo(url, autoplay){
+    const embed = toEmbed(url);
+    if(!embed){
+      alert("Geçerli bir YouTube video linki yapıştır.");
+      return false;
+    }
+
+    frame.src = embed + (autoplay ? "&autoplay=1" : "");
+    box.classList.add("show");
+    box.scrollIntoView({behavior:"smooth", block:"center"});
+    return true;
+  }
+
+  const saved = localStorage.getItem("sezrFocusYoutube");
+  if(saved && urlInput){
+    urlInput.value = saved;
+  }
+
+  if(saveBtn){
+    saveBtn.addEventListener("click", function(){
+      const val = urlInput.value.trim();
+      if(loadVideo(val, false)){
+        localStorage.setItem("sezrFocusYoutube", val);
+      }
+    });
+  }
+
+  if(startBtn){
+    startBtn.addEventListener("click", function(){
+      const val = (urlInput && urlInput.value.trim()) || localStorage.getItem("sezrFocusYoutube");
+
+      if(!val){
+        alert("Önce YouTube Focus video linkini yapıştırıp kaydet.");
+        return;
+      }
+
+      localStorage.setItem("sezrFocusYoutube", val);
+      loadVideo(val, true);
+
+      const silentBtn = document.getElementById("focusSilentStart");
+      if(silentBtn){
+        silentBtn.click();
+      }
+    });
+  }
 })();
 </script>
 
