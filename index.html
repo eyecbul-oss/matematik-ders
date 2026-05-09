@@ -1389,6 +1389,71 @@ flex-direction:column;
 }
 }
 
+
+/* ===============================
+SEZR BİRLEŞİK FOCUS KONTROL PANELİ
+=============================== */
+.focus-master-controls{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+width:100%;
+margin-top:10px;
+}
+
+.focus-main-btn{
+border:0;
+border-radius:18px;
+padding:14px 16px;
+font-weight:900;
+cursor:pointer;
+background:rgba(15,23,42,.88);
+color:white;
+border:1px solid rgba(148,163,184,.18);
+transition:.25s;
+box-shadow:0 12px 24px rgba(0,0,0,.22);
+}
+
+.focus-main-btn:hover{
+transform:translateY(-2px) scale(1.01);
+}
+
+.focus-main-btn.music{
+background:linear-gradient(135deg,#25d366,#16a34a);
+color:white;
+box-shadow:0 0 18px rgba(37,211,102,.28);
+}
+
+.focus-main-btn.video{
+background:linear-gradient(135deg,#38bdf8,#6366f1);
+color:white;
+box-shadow:0 0 18px rgba(56,189,248,.26);
+}
+
+.focus-main-btn.stop{
+background:linear-gradient(135deg,#ef4444,#b91c1c);
+color:white;
+box-shadow:0 0 18px rgba(239,68,68,.26);
+}
+
+body.light-theme .focus-main-btn{
+background:white;
+color:#0f172a;
+border-color:rgba(15,23,42,.12);
+}
+
+body.light-theme .focus-main-btn.music,
+body.light-theme .focus-main-btn.video,
+body.light-theme .focus-main-btn.stop{
+color:white;
+}
+
+@media(max-width:980px){
+.focus-master-controls{
+grid-template-columns:1fr;
+}
+}
+
 </style>
 </head>
 <body>
@@ -1544,11 +1609,15 @@ flex-direction:column;
         <div class="timer-value" id="focusTimer">25:00</div>
       </div>
       <div class="timer-label" id="focusStatus">Odak modu hazır</div>
-      <div class="focus-controls">
-        <button class="primary-focus" id="focusStart">Başlat</button>
-        <button id="focusPause">Duraklat</button>
-        <button id="focusReset">Sıfırla</button>
-      </div>
+
+<div class="focus-master-controls">
+  <button class="focus-main-btn" id="focusSilentStart">🧠 Sessiz Başlat</button>
+  <button class="focus-main-btn music" id="focusMusicStart">🎧 Müzik ile Başlat</button>
+  <button class="focus-main-btn video" id="focusVideoStart">🌙 Video ile Başlat</button>
+  <button class="focus-main-btn stop" id="focusStopAll">⏹ Durdur</button>
+</div>
+
+      
     </div>
   </div>
 </div>
@@ -1913,60 +1982,7 @@ window.addEventListener("load", function(){
 </script>
 
 
-<script>
-(function(){
-  let total = 25 * 60;
-  let running = false;
-  const timer = document.getElementById("focusTimer");
-  const status = document.getElementById("focusStatus");
-  const start = document.getElementById("focusStart");
-  const pause = document.getElementById("focusPause");
-  const reset = document.getElementById("focusReset");
 
-  function render(){
-    if(!timer) return;
-    const m = Math.floor(total / 60);
-    const s = total % 60;
-    timer.textContent = String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
-  }
-
-  setInterval(function(){
-    if(running && total > 0){
-      total--;
-      render();
-      if(total === 0){
-        running = false;
-        if(status) status.textContent = "Tebrikler! Mola zamanı.";
-      }
-    }
-  },1000);
-
-  if(start){
-    start.addEventListener("click", function(){
-      running = true;
-      if(status) status.textContent = "Odak modu aktif";
-    });
-  }
-
-  if(pause){
-    pause.addEventListener("click", function(){
-      running = false;
-      if(status) status.textContent = "Duraklatıldı";
-    });
-  }
-
-  if(reset){
-    reset.addEventListener("click", function(){
-      running = false;
-      total = 25 * 60;
-      if(status) status.textContent = "Odak modu hazır";
-      render();
-    });
-  }
-
-  render();
-})();
-</script>
 
 
 <script>
@@ -2114,6 +2130,185 @@ window.addEventListener("load", function(){
       if(status) status.textContent = "Müzik sıfırlandı.";
     });
   }
+})();
+</script>
+
+
+<script>
+(function(){
+
+  // ---------------- TIMER ----------------
+  let total = 25 * 60;
+  let running = false;
+
+  const timer = document.getElementById("focusTimer");
+  const status = document.getElementById("focusStatus");
+
+  function renderTimer(){
+    if(!timer) return;
+    const m = Math.floor(total / 60);
+    const s = total % 60;
+    timer.textContent =
+      String(m).padStart(2,"0") + ":" +
+      String(s).padStart(2,"0");
+  }
+
+  function startPomodoro(text){
+    running = true;
+    if(status) status.textContent = text || "Odak modu aktif";
+  }
+
+  function stopPomodoro(text){
+    running = false;
+    if(status) status.textContent = text || "Odak modu durduruldu";
+  }
+
+  setInterval(function(){
+    if(running && total > 0){
+      total--;
+      renderTimer();
+
+      if(total === 0){
+        running = false;
+        if(status){
+          status.textContent = "Pomodoro tamamlandı 🎉";
+        }
+      }
+    }
+  },1000);
+
+  renderTimer();
+
+  // ---------------- AUDIO ----------------
+  const audio = document.getElementById("lofiAudio");
+  const volume = document.getElementById("lofiVolume");
+
+  if(audio && volume){
+    audio.volume = Number(volume.value || .45);
+
+    volume.addEventListener("input", function(){
+      audio.volume = Number(volume.value);
+    });
+  }
+
+  // ---------------- VIDEO ----------------
+  const input = document.getElementById("lofiYoutubeUrl");
+  const frame = document.getElementById("lofiFrame");
+  const screen = document.getElementById("lofiVideoScreen");
+
+  function youtubeEmbed(url){
+    if(!url) return "";
+
+    let id = "";
+
+    try{
+      const u = new URL(url);
+
+      if(u.hostname.includes("youtu.be")){
+        id = u.pathname.replace("/","");
+      }else if(u.searchParams.get("v")){
+        id = u.searchParams.get("v");
+      }
+
+      if(!id) return "";
+
+      return "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1";
+    }catch(e){
+      return "";
+    }
+  }
+
+  // ---------------- MASTER BUTTONS ----------------
+  const silentBtn = document.getElementById("focusSilentStart");
+  const musicBtn = document.getElementById("focusMusicStart");
+  const videoBtn = document.getElementById("focusVideoStart");
+  const stopBtn = document.getElementById("focusStopAll");
+
+  if(silentBtn){
+    silentBtn.addEventListener("click", function(){
+      startPomodoro("Sessiz focus modu aktif");
+    });
+  }
+
+  if(musicBtn){
+    musicBtn.addEventListener("click", function(){
+
+      startPomodoro("Lo-fi müzik ile focus aktif");
+
+      if(audio){
+        audio.play().catch(function(){
+          alert("lofi.mp3 dosyası bulunamadı.");
+        });
+      }
+    });
+  }
+
+  if(videoBtn){
+    videoBtn.addEventListener("click", function(){
+
+      startPomodoro("Video + focus modu aktif");
+
+      const savedVideo = localStorage.getItem("sezrLofiVideo");
+
+      if(savedVideo && frame && screen){
+        const embed = youtubeEmbed(savedVideo);
+
+        if(embed){
+          frame.src = embed;
+          screen.classList.add("video-active");
+        }
+      }
+
+      if(audio){
+        audio.play().catch(function(){});
+      }
+    });
+  }
+
+  if(stopBtn){
+    stopBtn.addEventListener("click", function(){
+
+      stopPomodoro();
+
+      if(audio){
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      if(frame){
+        frame.src = "";
+      }
+
+      if(screen){
+        screen.classList.remove("video-active");
+      }
+    });
+  }
+
+  // ---------------- SAVE VIDEO ----------------
+  const loadBtn = document.getElementById("lofiLoadVideo");
+
+  if(loadBtn){
+    loadBtn.addEventListener("click", function(){
+
+      const val = input.value.trim();
+
+      if(!val){
+        alert("YouTube linki gir.");
+        return;
+      }
+
+      localStorage.setItem("sezrLofiVideo", val);
+
+      const embed = youtubeEmbed(val);
+
+      if(embed){
+        frame.src = embed;
+        screen.classList.add("video-active");
+      }
+    });
+  }
+
 })();
 </script>
 
