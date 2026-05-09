@@ -1081,6 +1081,314 @@ width:100%;
 }
 }
 
+
+/* ===============================
+SEZR LO-FI MÜZİK + VIDEO GELİŞMİŞ MOD
+=============================== */
+.lofi-media-panel{
+margin-top:22px;
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:18px;
+position:relative;
+z-index:2;
+}
+
+.lofi-video-card,
+.lofi-audio-card{
+border-radius:26px;
+background:rgba(2,6,23,.58);
+border:1px solid rgba(148,163,184,.18);
+backdrop-filter:blur(18px);
+padding:22px;
+box-shadow:0 14px 32px rgba(0,0,0,.26);
+overflow:hidden;
+position:relative;
+}
+
+.lofi-video-card::before,
+.lofi-audio-card::before{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+right:-95px;
+top:-95px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(56,189,248,.16),transparent 70%);
+pointer-events:none;
+}
+
+.lofi-video-screen{
+position:relative;
+border-radius:22px;
+overflow:hidden;
+aspect-ratio:16/9;
+background:
+linear-gradient(135deg,rgba(56,189,248,.16),rgba(250,204,21,.10)),
+#020617;
+border:1px solid rgba(255,255,255,.10);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.lofi-video-screen iframe{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+border:0;
+display:none;
+}
+
+.lofi-video-screen.video-active iframe{
+display:block;
+}
+
+.lofi-visual{
+position:absolute;
+inset:0;
+overflow:hidden;
+}
+
+.lofi-sun{
+position:absolute;
+width:110px;
+height:110px;
+border-radius:50%;
+right:38px;
+top:34px;
+background:radial-gradient(circle,#facc15,#fb923c 58%,transparent 68%);
+box-shadow:0 0 42px rgba(250,204,21,.36);
+animation:lofiSun 5s ease-in-out infinite;
+}
+
+.lofi-mountain{
+position:absolute;
+left:-8%;
+bottom:-5%;
+width:70%;
+height:44%;
+background:linear-gradient(135deg,#0f172a,#1e293b);
+clip-path:polygon(0 100%,35% 18%,62% 100%);
+opacity:.92;
+}
+
+.lofi-mountain.two{
+left:34%;
+width:76%;
+height:52%;
+clip-path:polygon(0 100%,42% 10%,80% 100%);
+opacity:.72;
+}
+
+.lofi-rain span{
+position:absolute;
+top:-40px;
+width:2px;
+height:46px;
+border-radius:999px;
+background:rgba(56,189,248,.45);
+animation:lofiRain 1.7s linear infinite;
+}
+
+.lofi-rain span:nth-child(1){left:8%;animation-delay:.1s}
+.lofi-rain span:nth-child(2){left:20%;animation-delay:.5s}
+.lofi-rain span:nth-child(3){left:31%;animation-delay:.2s}
+.lofi-rain span:nth-child(4){left:44%;animation-delay:.8s}
+.lofi-rain span:nth-child(5){left:56%;animation-delay:.4s}
+.lofi-rain span:nth-child(6){left:68%;animation-delay:.9s}
+.lofi-rain span:nth-child(7){left:79%;animation-delay:.3s}
+.lofi-rain span:nth-child(8){left:91%;animation-delay:.7s}
+
+.lofi-video-overlay{
+position:relative;
+z-index:4;
+text-align:center;
+padding:20px;
+}
+
+.lofi-video-overlay strong{
+display:block;
+font-family:'Montserrat',sans-serif;
+font-size:24px;
+font-weight:900;
+margin-bottom:8px;
+}
+
+.lofi-video-overlay span{
+display:block;
+color:#dbeafe;
+font-size:14px;
+line-height:1.5;
+}
+
+.lofi-video-screen.video-active .lofi-video-overlay,
+.lofi-video-screen.video-active .lofi-visual{
+display:none;
+}
+
+.lofi-row-title{
+font-family:'Montserrat',sans-serif;
+font-size:22px;
+font-weight:900;
+margin-bottom:12px;
+position:relative;
+z-index:2;
+}
+
+.lofi-row-text{
+color:#dbeafe;
+font-size:14px;
+line-height:1.6;
+margin-bottom:16px;
+position:relative;
+z-index:2;
+}
+
+.lofi-input-row{
+display:flex;
+gap:8px;
+position:relative;
+z-index:2;
+}
+
+.lofi-input-row input{
+flex:1;
+min-width:0;
+padding:13px 14px;
+border-radius:14px;
+border:1px solid rgba(148,163,184,.24);
+background:rgba(15,23,42,.74);
+color:white;
+outline:none;
+}
+
+.lofi-input-row button,
+.lofi-mini-btn{
+border:0;
+border-radius:14px;
+padding:13px 14px;
+background:#facc15;
+color:#020617;
+font-weight:900;
+cursor:pointer;
+white-space:nowrap;
+}
+
+.lofi-audio-main{
+position:relative;
+z-index:2;
+display:flex;
+align-items:center;
+gap:16px;
+margin-bottom:18px;
+}
+
+.lofi-audio-disc{
+width:76px;
+height:76px;
+border-radius:50%;
+background:
+radial-gradient(circle,#facc15 0 8%,#0f172a 9% 40%,#020617 41% 100%);
+box-shadow:0 0 28px rgba(250,204,21,.30);
+animation:lofiDisc 7s linear infinite;
+flex:0 0 76px;
+}
+
+.lofi-audio-info strong{
+display:block;
+font-family:'Montserrat',sans-serif;
+font-size:20px;
+margin-bottom:6px;
+}
+
+.lofi-audio-info span{
+color:#94a3b8;
+font-size:13px;
+line-height:1.45;
+}
+
+.lofi-audio-controls{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+position:relative;
+z-index:2;
+}
+
+.lofi-mini-btn.green{
+background:#25d366;
+color:white;
+box-shadow:0 0 18px rgba(37,211,102,.25);
+}
+
+.lofi-mini-btn.dark{
+background:rgba(15,23,42,.84);
+color:white;
+border:1px solid rgba(148,163,184,.22);
+}
+
+.lofi-volume{
+width:100%;
+margin-top:14px;
+position:relative;
+z-index:2;
+accent-color:#facc15;
+}
+
+.lofi-note{
+margin-top:14px;
+font-size:12px;
+line-height:1.5;
+color:#94a3b8;
+position:relative;
+z-index:2;
+}
+
+@keyframes lofiRain{
+to{transform:translateY(360px)}
+}
+
+@keyframes lofiSun{
+0%,100%{transform:translateY(0);filter:brightness(1)}
+50%{transform:translateY(8px);filter:brightness(1.18)}
+}
+
+@keyframes lofiDisc{
+to{transform:rotate(360deg)}
+}
+
+body.light-theme .lofi-video-card,
+body.light-theme .lofi-audio-card{
+background:rgba(255,255,255,.78) !important;
+color:#0f172a;
+border-color:rgba(15,23,42,.12);
+}
+
+body.light-theme .lofi-row-text,
+body.light-theme .lofi-video-overlay span,
+body.light-theme .lofi-note,
+body.light-theme .lofi-audio-info span{
+color:#334155 !important;
+}
+
+body.light-theme .lofi-input-row input{
+background:rgba(255,255,255,.88);
+color:#0f172a;
+border-color:rgba(15,23,42,.14);
+}
+
+@media(max-width:980px){
+.lofi-media-panel{
+grid-template-columns:1fr;
+}
+.lofi-input-row{
+flex-direction:column;
+}
+}
+
 </style>
 </head>
 <body>
@@ -1245,6 +1553,76 @@ width:100%;
   </div>
 </div>
 </section>
+
+
+
+<div class="lofi-media-panel">
+
+  <div class="lofi-video-card">
+    <div class="lofi-row-title">🌙 Lo-Fi Video Alanı</div>
+    <div class="lofi-row-text">
+      Buraya YouTube lo-fi çalışma videosu ekleyebilirsin. Link girilmezse kendi animasyonlu çalışma ekranı görünür.
+    </div>
+
+    <div class="lofi-video-screen" id="lofiVideoScreen">
+      <iframe id="lofiFrame" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+      <div class="lofi-visual">
+        <div class="lofi-sun"></div>
+        <div class="lofi-mountain"></div>
+        <div class="lofi-mountain two"></div>
+        <div class="lofi-rain">
+          <span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+
+      <div class="lofi-video-overlay">
+        <strong>SezR Study Atmosphere</strong>
+        <span>Animasyonlu sessiz çalışma ekranı</span>
+      </div>
+    </div>
+
+    <div class="lofi-input-row" style="margin-top:14px;">
+      <input id="lofiYoutubeUrl" type="url" placeholder="YouTube lo-fi linki yapıştır">
+      <button id="lofiLoadVideo">Videoyu Ekle</button>
+    </div>
+
+    <div class="lofi-note">
+      Not: YouTube otomatik çalmayı bazen engeller. Video görünür; oynatmayı kullanıcı başlatır.
+    </div>
+  </div>
+
+  <div class="lofi-audio-card">
+    <div class="lofi-row-title">🎧 Müzik Dosyası</div>
+    <div class="lofi-row-text">
+      Repoya <b>lofi.mp3</b> yüklersen buradaki player çalar. Şimdilik görsel focus modu aktif kalır.
+    </div>
+
+    <div class="lofi-audio-main">
+      <div class="lofi-audio-disc"></div>
+      <div class="lofi-audio-info">
+        <strong id="lofiTrackName">lofi.mp3</strong>
+        <span id="lofiAudioStatus">Dosya varsa çalmaya hazır.</span>
+      </div>
+    </div>
+
+    <div class="lofi-audio-controls">
+      <button class="lofi-mini-btn green" id="lofiPlayAudio">▶ Oynat</button>
+      <button class="lofi-mini-btn dark" id="lofiPauseAudio">⏸ Duraklat</button>
+      <button class="lofi-mini-btn dark" id="lofiStopAudio">⏹ Sıfırla</button>
+    </div>
+
+    <input class="lofi-volume" id="lofiVolume" type="range" min="0" max="1" step="0.01" value="0.45">
+
+    <audio id="lofiAudio" src="lofi.mp3" loop preload="none"></audio>
+
+    <div class="lofi-note">
+      Telif sorunu olmaması için kendi yüklediğin veya telifsiz bir MP3 kullanmalısın.
+    </div>
+  </div>
+
+</div>
 
 
 <section id="program" class="program-section"><h2 class="section-title">Ders Programı</h2><div class="program-grid"><div class="program-card"><strong>Hafta İçi</strong><span>Okul sonrası birebir ve grup dersleri</span></div><div class="program-card"><strong>Hafta Sonu</strong><span>Yoğun tekrar, problem ve soru çözümü</span></div><div class="program-card"><strong>Yaz Dönemi</strong><span>Eksikleri kapatma ve yeni döneme hazırlık</span></div></div></section>
@@ -1635,6 +2013,105 @@ window.addEventListener("load", function(){
       if(e.target === modal){
         modal.classList.remove("show");
       }
+    });
+  }
+})();
+</script>
+
+
+<script>
+(function(){
+  const input = document.getElementById("lofiYoutubeUrl");
+  const loadBtn = document.getElementById("lofiLoadVideo");
+  const frame = document.getElementById("lofiFrame");
+  const screen = document.getElementById("lofiVideoScreen");
+
+  function youtubeEmbed(url){
+    if(!url) return "";
+    let id = "";
+
+    try{
+      const u = new URL(url);
+
+      if(u.hostname.includes("youtu.be")){
+        id = u.pathname.replace("/","");
+      }else if(u.searchParams.get("v")){
+        id = u.searchParams.get("v");
+      }else if(u.pathname.includes("/embed/")){
+        id = u.pathname.split("/embed/")[1];
+      }else if(u.pathname.includes("/live/")){
+        id = u.pathname.split("/live/")[1];
+      }
+
+      id = id.split("?")[0].split("&")[0];
+
+      if(!id) return "";
+      return "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1";
+    }catch(e){
+      return "";
+    }
+  }
+
+  if(loadBtn){
+    loadBtn.addEventListener("click", function(){
+      const embed = youtubeEmbed(input.value.trim());
+      if(!embed){
+        alert("Geçerli bir YouTube linki yapıştır.");
+        return;
+      }
+      frame.src = embed;
+      screen.classList.add("video-active");
+      localStorage.setItem("sezrLofiVideo", input.value.trim());
+    });
+  }
+
+  const savedVideo = localStorage.getItem("sezrLofiVideo");
+  if(savedVideo && input && frame && screen){
+    input.value = savedVideo;
+    const embed = youtubeEmbed(savedVideo);
+    if(embed){
+      frame.src = embed;
+      screen.classList.add("video-active");
+    }
+  }
+
+  const audio = document.getElementById("lofiAudio");
+  const play = document.getElementById("lofiPlayAudio");
+  const pause = document.getElementById("lofiPauseAudio");
+  const stop = document.getElementById("lofiStopAudio");
+  const volume = document.getElementById("lofiVolume");
+  const status = document.getElementById("lofiAudioStatus");
+
+  if(audio && volume){
+    audio.volume = Number(volume.value || .45);
+    volume.addEventListener("input", function(){
+      audio.volume = Number(volume.value);
+    });
+  }
+
+  if(audio && play){
+    play.addEventListener("click", function(){
+      audio.play().then(function(){
+        if(status) status.textContent = "Lo-fi müzik çalıyor.";
+      }).catch(function(){
+        if(status) status.textContent = "lofi.mp3 bulunamadı veya tarayıcı engelledi.";
+        alert("Müzik çalması için repoya lofi.mp3 dosyası yüklemelisin.");
+      });
+    });
+  }
+
+  if(audio && pause){
+    pause.addEventListener("click", function(){
+      audio.pause();
+      if(status) status.textContent = "Müzik duraklatıldı.";
+    });
+  }
+
+  if(audio && stop){
+    stop.addEventListener("click", function(){
+      audio.pause();
+      audio.currentTime = 0;
+      if(status) status.textContent = "Müzik sıfırlandı.";
     });
   }
 })();

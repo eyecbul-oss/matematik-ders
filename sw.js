@@ -1,4 +1,4 @@
-const CACHE_NAME = "sezr-matematik-v14";
+const CACHE_NAME = "sezr-matematik-v15";
 
 const FILES_TO_CACHE = [
   "./",
@@ -9,7 +9,8 @@ const FILES_TO_CACHE = [
   "./favicon.ico",
   "./preview.jpg",
   "./profil.jpg",
-  "./math-bg.jpg"
+  "./math-bg.jpg",
+  "./lofi.mp3"
 ];
 
 self.addEventListener("install", function (event) {
