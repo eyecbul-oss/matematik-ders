@@ -1,8 +1,9 @@
-const CACHE_NAME = "sezr-matematik-v3";
+const CACHE_NAME = "sezr-matematik-v7";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
+  "./offline.html",
   "./manifest.json",
   "./favicon.png",
   "./favicon.ico",
@@ -41,16 +42,22 @@ self.addEventListener("fetch", function (event) {
   if (event.request.method !== "GET") return;
 
   event.respondWith(
-    caches.match(event.request).then(function (cachedResponse) {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-
-      return fetch(event.request).then(function (networkResponse) {
+    fetch(event.request)
+      .then(function (networkResponse) {
+        const responseClone = networkResponse.clone();
+        caches.open(CACHE_NAME).then(function (cache) {
+          cache.put(event.request, responseClone).catch(function(){});
+        });
         return networkResponse;
-      }).catch(function () {
-        return caches.match("./index.html");
-      });
-    })
+      })
+      .catch(function () {
+        return caches.match(event.request).then(function (cachedResponse) {
+          if (cachedResponse) return cachedResponse;
+
+          if (event.request.mode === "navigate") {
+            return caches.match("./offline.html");
+          }
+        });
+      })
   );
 });
