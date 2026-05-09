@@ -1,4 +1,4 @@
-const CACHE_NAME = "sezr-matematik-v18";
+const CACHE_NAME = "sezr-matematik-v20";
 
 const FILES_TO_CACHE = [
   "./",

@@ -1645,6 +1645,264 @@ flex-direction:column;
 }
 }
 
+
+/* ===============================
+SEZR YOUTUBE OYNATMA LİSTESİ MODU
+=============================== */
+.youtube-playlist-section{
+margin-top:34px;
+}
+
+.youtube-playlist-panel{
+position:relative;
+overflow:hidden;
+border-radius:30px;
+padding:30px;
+background:
+linear-gradient(135deg,rgba(255,0,0,.16),rgba(56,189,248,.10)),
+rgba(2,6,23,.64);
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(18px);
+box-shadow:0 18px 44px rgba(0,0,0,.32);
+}
+
+.youtube-playlist-panel::before{
+content:"";
+position:absolute;
+width:420px;
+height:420px;
+right:-180px;
+top:-180px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(255,0,0,.18),transparent 70%);
+pointer-events:none;
+}
+
+.youtube-playlist-head{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:22px;
+}
+
+.youtube-playlist-head h2{
+font-family:'Montserrat',sans-serif;
+font-size:34px;
+font-weight:900;
+margin-bottom:10px;
+}
+
+.youtube-playlist-head p{
+color:#dbeafe;
+font-size:17px;
+line-height:1.65;
+max-width:760px;
+}
+
+.youtube-playlist-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.youtube-action{
+text-decoration:none;
+border:0;
+cursor:pointer;
+border-radius:16px;
+padding:14px 18px;
+font-weight:900;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+background:#ff0000;
+color:white;
+box-shadow:0 0 22px rgba(255,0,0,.25);
+}
+
+.youtube-action.dark{
+background:rgba(15,23,42,.82);
+border:1px solid rgba(148,163,184,.20);
+box-shadow:none;
+}
+
+.youtube-embed-wrap{
+position:relative;
+z-index:2;
+border-radius:24px;
+overflow:hidden;
+background:#020617;
+border:1px solid rgba(148,163,184,.18);
+box-shadow:0 16px 38px rgba(0,0,0,.38);
+}
+
+.youtube-playlist-frame{
+display:block;
+width:100%;
+aspect-ratio:16/9;
+border:0;
+background:#020617;
+}
+
+.youtube-playlist-note{
+position:relative;
+z-index:2;
+margin-top:14px;
+padding:14px 16px;
+border-radius:18px;
+background:rgba(15,23,42,.72);
+border:1px solid rgba(148,163,184,.16);
+font-size:14px;
+line-height:1.6;
+color:#dbeafe;
+}
+
+body.light-theme .youtube-playlist-panel,
+body.light-theme .youtube-playlist-note{
+background:rgba(255,255,255,.78) !important;
+color:#0f172a;
+border-color:rgba(15,23,42,.12);
+}
+
+body.light-theme .youtube-playlist-head p,
+body.light-theme .youtube-playlist-note{
+color:#334155 !important;
+}
+
+@media(max-width:980px){
+.youtube-playlist-panel{
+padding:22px;
+}
+.youtube-playlist-head h2{
+font-size:28px;
+}
+.youtube-playlist-actions{
+width:100%;
+}
+.youtube-action{
+width:100%;
+}
+}
+
+
+/* ===============================
+SEZR SEÇİLİ YOUTUBE VİDEOLARI
+=============================== */
+.youtube-video-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+margin-top:18px;
+position:relative;
+z-index:2;
+}
+
+.youtube-video-card{
+border-radius:22px;
+overflow:hidden;
+background:rgba(15,23,42,.72);
+border:1px solid rgba(148,163,184,.18);
+box-shadow:0 14px 32px rgba(0,0,0,.26);
+}
+
+.youtube-thumb{
+aspect-ratio:16/9;
+background-size:cover;
+background-position:center;
+position:relative;
+}
+
+.youtube-thumb::after{
+content:"▶";
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:58px;
+height:58px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:#ff0000;
+color:white;
+font-size:24px;
+font-weight:900;
+box-shadow:0 0 24px rgba(255,0,0,.38);
+}
+
+.youtube-card-body{
+padding:16px;
+}
+
+.youtube-card-body strong{
+display:block;
+font-size:16px;
+font-weight:900;
+margin-bottom:8px;
+line-height:1.35;
+}
+
+.youtube-card-body span{
+display:block;
+font-size:13px;
+line-height:1.45;
+color:#94a3b8;
+margin-bottom:12px;
+}
+
+.youtube-watch-btn{
+border:0;
+cursor:pointer;
+width:100%;
+border-radius:14px;
+padding:12px 14px;
+background:#ff0000;
+color:white;
+font-weight:900;
+}
+
+.youtube-main-player{
+margin-top:18px;
+display:none;
+border-radius:24px;
+overflow:hidden;
+background:#020617;
+border:1px solid rgba(148,163,184,.18);
+box-shadow:0 16px 38px rgba(0,0,0,.38);
+}
+
+.youtube-main-player.show{
+display:block;
+}
+
+.youtube-main-player iframe{
+display:block;
+width:100%;
+aspect-ratio:16/9;
+border:0;
+}
+
+body.light-theme .youtube-video-card{
+background:rgba(255,255,255,.82) !important;
+color:#0f172a;
+border-color:rgba(15,23,42,.12);
+}
+
+body.light-theme .youtube-card-body span{
+color:#334155 !important;
+}
+
+@media(max-width:980px){
+.youtube-video-grid{
+grid-template-columns:1fr;
+}
+}
+
 </style>
 </head>
 <body>
@@ -1665,7 +1923,7 @@ flex-direction:column;
 <div class="page">
 <div class="bg-formulas"><span>∫ f(x) dx</span><span>x² + y²</span><span>π</span><span>√Δ</span><span>lim x→∞</span><span>Σ</span></div>
 <div class="container">
-<header class="topbar"><div class="logo">Sez<span>R</span> Matematik</div><nav class="nav"><a href="#">Ana Sayfa</a><a href="#dersler">Derslerim</a><a href="#kaynaklar">PDF & Video</a><a href="#surec">Süreç</a><a href="#focus">Focus</a><a href="#program">Program</a><a href="#iletisim">Kayıt</a></nav></header>
+<header class="topbar"><div class="logo">Sez<span>R</span> Matematik</div><nav class="nav"><a href="#">Ana Sayfa</a><a href="#dersler">Derslerim</a><a href="#kaynaklar">PDF</a><a href="#youtube-dersler">YouTube</a><a href="#surec">Süreç</a><a href="#focus">Focus</a><a href="#iletisim">Kayıt</a></nav></header>
 <section class="hero"><div class="profile-wrap"><div class="profile-ring"></div><div class="math-orbit"><span class="math-symbol sa">∫</span><span class="math-symbol gold sb">π</span><span class="math-symbol sc">√</span><span class="math-symbol gold sd">Δ</span></div><div class="math-orbit reverse"><span class="math-symbol gold se">x²</span><span class="math-symbol sf">∞</span><span class="math-symbol gold sg">Σ</span><span class="math-symbol sh">f′</span></div><span class="spark s1"></span><span class="spark gold s2"></span><span class="spark s3"></span><span class="spark gold s4"></span><img src="profil.jpg?v=40" alt="SezR Matematik"></div><div class="hero-text"><div class="badge">2026 YAZ DÖNEMİ KAYITLARI</div><h1>Matematikte Eksiklerini Kapat.<span class="big">Yeni Döneme Güçlü Başla!</span></h1><p class="subtitle">Yazı doğru değerlendir, zorlanan değil <span>önde olan</span> öğrenci ol.</p><div class="hero-tags"><span>Maarif Model</span><span>TYT - AYT</span><span>Yeni Nesil Sorular</span><span>Birebir Takip</span></div><div class="hero-actions"><a class="primary-btn" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum">WhatsApp’tan Bilgi Al</a><a class="ghost-btn" href="#dersler">Dersleri İncele</a>
 <a class="ghost-btn" id="heroFocusBtn" href="#focus">🎧 Focus Modu</a></div></div></section>
 <section id="dersler"><h2 class="section-title">Derslerim</h2><div class="top-grid"><div class="card green"><div class="icon">📖</div><div><h2>9 - 10. Sınıf Maarif Model Dersler</h2><div class="check">✔ Maarif Model uyumlu çalışma<br>✔ Temel eksikleri kapatma<br>✔ Yeni nesil soru çözümü<br>✔ Yeni döneme hazırlık</div></div></div><div class="card red flame"><div class="icon"><div class="fire-icon"><svg viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="outerFire" cx="50%" cy="65%" r="60%"><stop offset="0%" stop-color="#ffd166"/><stop offset="45%" stop-color="#ff7a18"/><stop offset="100%" stop-color="#d00000"/></radialGradient><radialGradient id="innerFire" cx="50%" cy="70%" r="55%"><stop offset="0%" stop-color="#fff7ad"/><stop offset="55%" stop-color="#ffd000"/><stop offset="100%" stop-color="#ff6b00"/></radialGradient></defs><path class="fire-main" fill="url(#outerFire)" d="M51 5C72 30 79 48 72 66C88 54 95 78 85 96C74 117 32 119 17 95C4 75 13 54 30 42C29 57 39 60 43 50C49 36 36 23 51 5Z"/><path class="fire-mid" fill="#ff7a18" d="M50 33C64 49 66 61 59 72C72 68 74 85 66 98C56 113 31 109 26 93C22 81 29 70 40 61C39 72 48 74 51 65C55 53 45 43 50 33Z"/><path class="fire-core" fill="url(#innerFire)" d="M49 55C60 69 58 78 53 86C62 84 64 96 56 103C47 111 34 104 34 94C34 85 42 79 46 72C47 82 52 78 53 71C54 64 48 60 49 55Z"/></svg></div></div><div><h2>Büyük Dertler Serisi</h2><p>11’den 12’ye geçenler için en kritik paket.</p><div class="tags"><span class="tag">LİMİT</span><span class="tag">TÜREV</span><span class="tag">İNTEGRAL</span><span class="tag">TRİGONOMETRİ</span></div></div></div></div><div class="bottom-grid"><div class="card purple"><div class="icon">👤</div><div><h2>Birebir Özel Ders</h2><p>Öğrencinin seviyesine göre özel planlama yapılır. Konu anlatımı ve soru çözümü kişiye özel ilerler.</p></div></div><div class="card blue"><div class="icon">👥</div><div><h2>Grup Dersleri</h2><p>Derse aktif katılım sağlayan, takipli ve verimli ders ortamı. Amaç birlikte güçlenmek.</p></div></div><div class="card problem"><div class="icon">🎯</div><div><h2>Problemler Paket Dersi</h2><p>“Problemler yapamıyorum” diyen öğrenciler için çözüm yolu kurma odaklı özel çalışma.</p></div></div></div></section>
@@ -1711,44 +1969,6 @@ flex-direction:column;
 </div>
 </div>
 
-<div class="resource-box">
-<h2>🎥 YouTube Ders Merkezi</h2>
-<p>YouTube içeriklerini konu başlıklarına göre düzenli göstermek için hazır kategori paneli.</p>
-
-<div class="video-tabs">
-  <button class="video-tab active" data-tab="tyt">TYT</button>
-  <button class="video-tab" data-tab="ayt">AYT</button>
-  <button class="video-tab" data-tab="problem">Problemler</button>
-  <button class="video-tab" data-tab="maarif">Maarif</button>
-</div>
-
-<div class="video-list">
-  <div class="video-item show" data-video="tyt">
-    <strong>TYT Temel Matematik</strong>
-    <span>Konu anlatımı, hızlı tekrar ve yeni nesil soru çözümü.</span>
-    <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube’a Git</a>
-  </div>
-
-  <div class="video-item" data-video="ayt">
-    <strong>AYT Kritik Konular</strong>
-    <span>Limit, türev, integral ve trigonometri için yoğun tekrar alanı.</span>
-    <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube’a Git</a>
-  </div>
-
-  <div class="video-item" data-video="problem">
-    <strong>Problemler Kampı</strong>
-    <span>Soru tiplerini tanıma, strateji kurma ve pratik kazanma.</span>
-    <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube’a Git</a>
-  </div>
-
-  <div class="video-item" data-video="maarif">
-    <strong>Maarif Model Uyumlu Çalışma</strong>
-    <span>Yeni dönem mantığına uygun anlatım ve örnek soru yapısı.</span>
-    <a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube’a Git</a>
-  </div>
-</div>
-</div>
-
 </section>
 
 <div class="pdf-modal" id="pdfModal">
@@ -1764,6 +1984,75 @@ flex-direction:column;
     </div>
   </div>
 </div>
+
+
+
+<section id="youtube-dersler" class="youtube-playlist-section">
+  <h2 class="section-title">YouTube Derslerim</h2>
+
+  <div class="youtube-playlist-panel">
+    <div class="youtube-playlist-head">
+      <div>
+        <h2>🎥 SezR Matematik Oynatma Listesi</h2>
+        <p>Videolar siteden ayrılmadan YouTube gömülü oynatıcıyla açılır. Öğrenci burada izlerken video YouTube üzerinden çalışır.</p>
+      </div>
+
+      <div class="youtube-playlist-actions">
+        <a class="youtube-action" href="https://youtube.com/@sezrmatematik?si=dlYIsRR3vzXImzvX" target="_blank">YouTube Kanalı</a>
+        <a class="youtube-action dark" href="https://youtube.com/playlist?list=PL9AVMjYTd93lzHYAEWHdnpp0Xq5JYpscy" target="_blank">Listeyi YouTube’da Aç</a>
+      </div>
+    </div>
+
+    <div class="youtube-embed-wrap">
+      <iframe
+        class="youtube-playlist-frame"
+        src="https://www.youtube.com/embed/videoseries?list=PL9AVMjYTd93lzHYAEWHdnpp0Xq5JYpscy&rel=0&modestbranding=1"
+        title="SezR Matematik Oynatma Listesi"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    
+<div class="youtube-main-player" id="youtubeMainPlayer">
+  <iframe id="youtubeMainFrame" title="SezR Matematik Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
+<div class="youtube-video-grid">
+  <div class="youtube-video-card">
+    <div class="youtube-thumb" style="background-image:url('https://img.youtube.com/vi/Zneoob0gk3U/hqdefault.jpg')"></div>
+    <div class="youtube-card-body">
+      <strong>SezR Matematik Video 1</strong>
+      <span>Siteden ayrılmadan YouTube player ile izle.</span>
+      <button class="youtube-watch-btn" data-video="Zneoob0gk3U">Sitede İzle</button>
+    </div>
+  </div>
+
+  <div class="youtube-video-card">
+    <div class="youtube-thumb" style="background-image:url('https://img.youtube.com/vi/ZrH7gO35gcw/hqdefault.jpg')"></div>
+    <div class="youtube-card-body">
+      <strong>SezR Matematik Video 2</strong>
+      <span>Siteden ayrılmadan YouTube player ile izle.</span>
+      <button class="youtube-watch-btn" data-video="ZrH7gO35gcw">Sitede İzle</button>
+    </div>
+  </div>
+
+  <div class="youtube-video-card">
+    <div class="youtube-thumb" style="background-image:url('https://img.youtube.com/vi/lDw1f7Ymb8I/hqdefault.jpg')"></div>
+    <div class="youtube-card-body">
+      <strong>SezR Matematik Video 3</strong>
+      <span>Siteden ayrılmadan YouTube player ile izle.</span>
+      <button class="youtube-watch-btn" data-video="lDw1f7Ymb8I">Sitede İzle</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="youtube-playlist-note">
+      Not: İzlenmenin YouTube tarafında daha sağlıklı sayılması için otomatik başlatma kullanmadım. Öğrenci videoyu kendi tıklayıp başlatır.
+    </div>
+  </div>
+</section>
 
 
 <section id="surec" class="timeline-section"><h2 class="section-title">Nasıl İlerliyoruz?</h2><div class="timeline"><div class="timeline-line"></div><div class="timeline-item left"><div class="timeline-dot blue-dot"></div><div class="timeline-card"><div class="timeline-step">1</div><h3>Seviye Analizi</h3><p>Öğrencinin temel durumu ve eksikleri belirlenir.</p></div></div><div class="timeline-item right"><div class="timeline-dot yellow-dot"></div><div class="timeline-card"><div class="timeline-step">2</div><h3>Eksik Tespiti</h3><p>Konu bazlı yanlışlar ve eksik öğrenmeler netleştirilir.</p></div></div><div class="timeline-item left"><div class="timeline-dot purple-dot"></div><div class="timeline-card"><div class="timeline-step">3</div><h3>Konu Anlatımı</h3><p>Temelden başlayıp yeni nesil mantığa uygun anlatım yapılır.</p></div></div><div class="timeline-item right"><div class="timeline-dot green-dot"></div><div class="timeline-card"><div class="timeline-step">4</div><h3>Yeni Nesil Soru Çözümü</h3><p>MEB ve yeni sistem soru mantığı üzerine yoğun çalışma yapılır.</p></div></div><div class="timeline-item left"><div class="timeline-dot red-dot"></div><div class="timeline-card"><div class="timeline-step">5</div><h3>Düzenli Takip</h3><p>Ödev, tekrar ve gelişim süreci sürekli kontrol edilir.</p></div></div><div class="timeline-item right"><div class="timeline-dot blue-dot"></div><div class="timeline-card"><div class="timeline-step">6</div><h3>Güçlü Tekrar</h3><p>Eksik kalan noktalar tekrar edilerek kalıcı öğrenme sağlanır.</p></div></div></div></section>
@@ -1820,10 +2109,10 @@ flex-direction:column;
 </section>
 <section class="info-row"><div class="info"><span class="emoji">👥</span> KONTENJAN SINIRLIDIR!</div><div class="info"><span class="emoji">✅</span> ÖN KAYITLAR BAŞLAMIŞTIR!</div><div class="info"><span class="emoji">⭐</span> FIRSATI KAÇIRMA, <span class="script">Bugünden Güçlen!</span></div></section>
 <section id="iletisim" class="final-cta"><h2>Programını Birlikte Planlayalım</h2><p>Seviyene ve hedeflerine uygun ders programı için WhatsApp’tan hemen bilgi al.</p><a class="button" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"><span class="whatsapp-icon"><svg viewBox="0 0 32 32"><path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3zm0 22.72c-1.76 0-3.44-.48-4.9-1.38l-.35-.21-4.9.97 1-4.78-.23-.38a9.06 9.06 0 01-1.4-4.98c0-4.98 4.05-9.03 9.03-9.03s9.03 4.05 9.03 9.03-4.05 10.76-9.03 10.76zm5.14-6.76c-.28-.14-1.66-.82-1.92-.91-.26-.1-.45-.14-.64.14-.19.28-.74.91-.91 1.1-.17.19-.34.21-.62.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.64-1.55-.88-2.13-.23-.56-.47-.48-.64-.49h-.55c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34s1 2.71 1.14 2.9c.14.19 1.97 3 4.77 4.2.67.29 1.19.46 1.59.59.67.21 1.28.18 1.76.11.54-.08 1.66-.68 1.89-1.33.23-.65.23-1.21.16-1.33-.07-.12-.26-.19-.54-.33z"/></svg></span><span>BANA UYGUN PROGRAMI SOR<small>WhatsApp üzerinden hemen yazın</small></span></a></section>
-<footer class="footer"><div class="footer-left"><h3>SezR Matematik Sistemi</h3><p>PDF kaynaklar, YouTube dersler, Focus modu ve kayıt sistemiyle gelişen SezR Matematik platformu.</p></div><div class="footer-links"><a href="#">Ana Sayfa</a><a href="#dersler">Dersler</a><a href="#kaynaklar">PDF & Video</a><a href="#focus">Focus</a><a href="https://youtube.com/@sezrmatematik?si=xK3wnd2U6LbqFKm0" target="_blank">YouTube</a><a href="https://wa.me/905058266949">WhatsApp</a></div></footer>
+<footer class="footer"><div class="footer-left"><h3>SezR Matematik Sistemi</h3><p>PDF kaynaklar, YouTube dersler, Focus modu ve kayıt sistemiyle gelişen SezR Matematik platformu.</p></div><div class="footer-links"><a href="#">Ana Sayfa</a><a href="#dersler">Dersler</a><a href="#kaynaklar">PDF</a><a href="#youtube-dersler">YouTube</a><a href="#focus">Focus</a><a href="https://wa.me/905058266949">WhatsApp</a></div></footer>
 </div></div>
 <a class="float-wa" href="https://wa.me/905058266949?text=Merhaba%20SezR%20Matematik%20dersleri%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum"><svg viewBox="0 0 32 32"><path d="M16.04 3C9.44 3 4.08 8.36 4.08 14.96c0 2.12.56 4.18 1.62 5.99L4 29l8.28-1.64c1.7.93 3.62 1.42 5.76 1.42C24.64 28.78 30 23.42 30 16.82S22.64 3 16.04 3z"/></svg></a>
-<nav class="quick-menu"><a href="#" class="active"><span>🏠</span>Ana Sayfa</a><a href="#dersler"><span>📖</span>Dersler</a><a href="#kaynaklar"><span>📚</span>Kaynak</a><a href="#focus"><span>🎧</span>Focus</a><a href="#iletisim"><span>🟢</span>İletişim</a></nav>
+<nav class="quick-menu"><a href="#" class="active"><span>🏠</span>Ana Sayfa</a><a href="#dersler"><span>📖</span>Dersler</a><a href="#youtube-dersler"><span>▶️</span>YouTube</a><a href="#focus"><span>🎧</span>Focus</a><a href="#iletisim"><span>🟢</span>İletişim</a></nav>
 <script>
 function sendWhatsApp(event){event.preventDefault();const ad=document.getElementById("ad").value.trim();const sinif=document.getElementById("sinif").value;const dersTipi=document.getElementById("dersTipi").value;const not=document.getElementById("not").value.trim();const mesaj="Merhaba SezR Matematik, dersler hakkında bilgi almak istiyorum.%0A%0A"+"Öğrenci adı: "+encodeURIComponent(ad)+"%0A"+"Sınıf: "+encodeURIComponent(sinif)+"%0A"+"Ders tipi: "+encodeURIComponent(dersTipi)+"%0A"+"Not: "+encodeURIComponent(not||"Belirtilmedi");window.open("https://wa.me/905058266949?text="+mesaj,"_blank")}
 </script>
@@ -2673,6 +2962,25 @@ window.addEventListener("load", function(){
   }else{
     wireButtons();
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  const mainPlayer = document.getElementById("youtubeMainPlayer");
+  const mainFrame = document.getElementById("youtubeMainFrame");
+
+  document.querySelectorAll(".youtube-watch-btn").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const id = btn.getAttribute("data-video");
+      if(!id || !mainFrame || !mainPlayer) return;
+
+      mainFrame.src = "https://www.youtube.com/embed/" + id + "?rel=0&modestbranding=1";
+      mainPlayer.classList.add("show");
+      mainPlayer.scrollIntoView({behavior:"smooth", block:"center"});
+    });
+  });
 })();
 </script>
 
