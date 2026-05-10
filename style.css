@@ -302,3 +302,171 @@ font-size:22px;box-shadow:0 12px 28px rgba(0,0,0,.26);cursor:pointer;
 }
 body.light-theme .theme-toggle{background:#fff!important;color:#0f172a!important;border-color:rgba(15,23,42,.16)!important}
 @media(max-width:900px){.theme-toggle{right:14px;bottom:70px;width:42px;height:42px;font-size:19px}}
+
+
+/* ===============================
+PREMIUM EFEKTLER GERİ YÜKLEME
+Mouse glow + 3D kartlar + dönen semboller + parıltılar
+=============================== */
+.mouse-glow{
+position:fixed;
+width:360px;
+height:360px;
+border-radius:50%;
+pointer-events:none;
+z-index:1;
+background:radial-gradient(circle,rgba(56,189,248,.18),rgba(250,204,21,.10),transparent 72%);
+filter:blur(22px);
+transform:translate(-50%,-50%);
+opacity:0;
+transition:opacity .35s ease;
+}
+
+.premium-symbols{
+position:fixed;
+inset:0;
+pointer-events:none;
+overflow:hidden;
+z-index:0;
+opacity:.55;
+}
+
+.premium-symbol{
+position:absolute;
+font-family:Montserrat,Inter,sans-serif;
+font-weight:900;
+color:rgba(255,255,255,.18);
+text-shadow:0 0 18px rgba(56,189,248,.20);
+animation:symbolFloat 14s ease-in-out infinite;
+}
+
+.premium-symbol.gold{
+color:rgba(250,204,21,.28);
+text-shadow:0 0 20px rgba(250,204,21,.22);
+}
+
+.premium-symbol.blue{
+color:rgba(56,189,248,.26);
+text-shadow:0 0 20px rgba(56,189,248,.24);
+}
+
+.card,
+.focus-video-stage,
+.focus-control-card,
+.focus-input-card,
+.focus-library-card,
+.focus-player-card,
+.focus-side-panel,
+.video-card,
+.footer,
+.topbar{
+transform-style:preserve-3d;
+will-change:transform;
+transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.card:hover,
+.focus-video-stage:hover,
+.focus-control-card:hover,
+.focus-input-card:hover,
+.focus-library-card:hover,
+.video-card:hover{
+box-shadow:0 22px 48px rgba(0,0,0,.36),0 0 26px rgba(56,189,248,.12);
+border-color:rgba(250,204,21,.30);
+}
+
+.btn,
+.focus-btn,
+.youtube-watch-btn,
+.focus-input-line button,
+.nav a,
+.quick a{
+transition:transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+
+.btn:hover,
+.focus-btn:hover,
+.youtube-watch-btn:hover,
+.focus-input-line button:hover,
+.nav a:hover{
+transform:translateY(-2px) scale(1.03);
+filter:brightness(1.08);
+}
+
+.card::before,
+.focus-video-stage::before,
+.focus-control-card::before,
+.focus-input-card::before,
+.focus-library-card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:inherit;
+background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.08) 40%,transparent 70%);
+transform:translateX(-120%);
+transition:transform .8s ease;
+pointer-events:none;
+}
+
+.card:hover::before,
+.focus-video-stage:hover::before,
+.focus-control-card:hover::before,
+.focus-input-card:hover::before,
+.focus-library-card:hover::before{
+transform:translateX(120%);
+}
+
+.profile-wrap::before{
+animation:spin 18s linear infinite !important;
+}
+
+.profile-wrap::after{
+animation:spin 12s linear infinite reverse !important;
+}
+
+.logo span,
+.gold{
+text-shadow:0 0 20px rgba(250,204,21,.35);
+}
+
+.badge,
+.focus-kicker,
+.focus-pill{
+box-shadow:0 0 22px rgba(250,204,21,.18);
+}
+
+@keyframes symbolFloat{
+0%,100%{transform:translateY(0) rotate(0deg);opacity:.32}
+50%{transform:translateY(-24px) rotate(5deg);opacity:.72}
+}
+
+body.light-theme .premium-symbol{
+color:rgba(15,23,42,.16);
+text-shadow:none;
+}
+
+body.light-theme .premium-symbol.gold{
+color:rgba(180,83,9,.20);
+}
+
+body.light-theme .premium-symbol.blue{
+color:rgba(2,132,199,.18);
+}
+
+body.light-theme .mouse-glow{
+background:radial-gradient(circle,rgba(56,189,248,.13),rgba(250,204,21,.10),transparent 72%);
+}
+
+@media(max-width:900px){
+.mouse-glow{display:none}
+.premium-symbols{opacity:.30}
+.premium-symbol{font-size:16px !important}
+.card:hover,
+.focus-video-stage:hover,
+.focus-control-card:hover,
+.focus-input-card:hover,
+.focus-library-card:hover,
+.video-card:hover{
+transform:none !important;
+}
+}

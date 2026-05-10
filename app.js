@@ -74,3 +74,79 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     applyTheme(next);
   });
 })();
+
+
+/* PREMIUM EFEKTLER GERİ YÜKLEME JS */
+(function(){
+  if(!document.getElementById("mouseGlow")){
+    const glow = document.createElement("div");
+    glow.className = "mouse-glow";
+    glow.id = "mouseGlow";
+    document.body.prepend(glow);
+
+    if(window.matchMedia("(min-width: 901px)").matches){
+      window.addEventListener("mousemove", function(e){
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+        glow.style.opacity = "1";
+      });
+      window.addEventListener("mouseleave", function(){
+        glow.style.opacity = "0";
+      });
+    }
+  }
+
+  if(!document.getElementById("premiumSymbols")){
+    const wrap = document.createElement("div");
+    wrap.className = "premium-symbols";
+    wrap.id = "premiumSymbols";
+
+    const symbols = [
+      ["∫", "gold", "8%", "22%", "38px", "0s"],
+      ["π", "blue", "84%", "18%", "34px", "1s"],
+      ["√x", "", "12%", "72%", "30px", "2s"],
+      ["∞", "gold", "82%", "68%", "42px", "3s"],
+      ["sin x", "blue", "72%", "40%", "24px", "1.6s"],
+      ["a²+b²", "", "18%", "42%", "24px", "2.7s"],
+      ["Δ", "gold", "52%", "14%", "28px", "3.3s"],
+      ["f(x)", "blue", "48%", "78%", "26px", "1.9s"]
+    ];
+
+    symbols.forEach(function(s){
+      const el = document.createElement("div");
+      el.className = "premium-symbol " + s[1];
+      el.textContent = s[0];
+      el.style.left = s[2];
+      el.style.top = s[3];
+      el.style.fontSize = s[4];
+      el.style.animationDelay = s[5];
+      wrap.appendChild(el);
+    });
+
+    document.body.prepend(wrap);
+  }
+
+  if(window.matchMedia("(min-width: 901px)").matches){
+    const tiltItems = document.querySelectorAll(".card,.focus-video-stage,.focus-control-card,.focus-input-card,.focus-library-card,.video-card");
+
+    tiltItems.forEach(function(card){
+      if(card.dataset.tiltReady === "yes") return;
+      card.dataset.tiltReady = "yes";
+
+      card.addEventListener("mousemove", function(e){
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const midX = rect.width / 2;
+        const midY = rect.height / 2;
+        const rotateY = ((x - midX) / midX) * 4.5;
+        const rotateX = -((y - midY) / midY) * 4.5;
+        card.style.transform = "perspective(900px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-4px)";
+      });
+
+      card.addEventListener("mouseleave", function(){
+        card.style.transform = "";
+      });
+    });
+  }
+})();
