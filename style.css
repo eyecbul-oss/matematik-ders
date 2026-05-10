@@ -187,3 +187,118 @@ padding-bottom:0 !important;
 .focus-screen{max-height:188px !important}
 .nav a{font-size:10px !important;padding:6px 7px !important}
 }
+
+
+/* AÇIK TEMA OKUNURLUK DÜZELTMESİ */
+body.light-theme{background:#f4f7fb!important;color:#0f172a!important}
+body.light-theme::before{background:linear-gradient(180deg,#f8fafc,#e2e8f0)!important}
+body.light-theme::after{opacity:.12!important}
+body.light-theme .topbar,
+body.light-theme .card,
+body.light-theme .footer,
+body.light-theme .focus-video-stage,
+body.light-theme .focus-control-card,
+body.light-theme .focus-input-card,
+body.light-theme .focus-library-card,
+body.light-theme .focus-player-card,
+body.light-theme .focus-side-panel,
+body.light-theme .timer-card-mini{
+background:rgba(255,255,255,.90)!important;
+color:#0f172a!important;
+border-color:rgba(15,23,42,.14)!important;
+box-shadow:0 14px 30px rgba(15,23,42,.12)!important;
+}
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme .logo,
+body.light-theme .focus-time,
+body.light-theme .focus-video-top strong,
+body.light-theme .focus-library-head strong,
+body.light-theme .focus-list-item b{
+color:#0f172a!important;
+text-shadow:none!important;
+}
+body.light-theme p,
+body.light-theme .lead,
+body.light-theme .card p,
+body.light-theme .footer,
+body.light-theme .focus-title-wrap p,
+body.light-theme .focus-video-top span,
+body.light-theme .focus-library-head span,
+body.light-theme .focus-list-item small,
+body.light-theme .focus-timer-circle small{
+color:#334155!important;
+}
+body.light-theme .nav a,
+body.light-theme .quick,
+body.light-theme .quick a,
+body.light-theme .focus-list-item,
+body.light-theme .btn,
+body.light-theme .focus-btn{
+background:rgba(255,255,255,.94)!important;
+color:#0f172a!important;
+border-color:rgba(15,23,42,.16)!important;
+}
+body.light-theme .nav a.active,
+body.light-theme .nav a:hover,
+body.light-theme .quick a.active{
+color:#b45309!important;
+border-color:#f59e0b!important;
+}
+body.light-theme .btn.green,
+body.light-theme .focus-input-line button{
+background:#16a34a!important;
+color:white!important;
+}
+body.light-theme .btn.red,
+body.light-theme .focus-btn.danger{
+background:#dc2626!important;
+color:white!important;
+}
+body.light-theme .btn.gold,
+body.light-theme .focus-btn.main,
+body.light-theme .focus-pill,
+body.light-theme .badge,
+body.light-theme .focus-kicker{
+background:#facc15!important;
+color:#111827!important;
+border-color:#d97706!important;
+}
+body.light-theme .tag{
+background:#fee2e2!important;
+color:#7f1d1d!important;
+border-color:#fecaca!important;
+}
+body.light-theme input,
+body.light-theme .focus-input-line input,
+body.light-theme .input-row input{
+background:#ffffff!important;
+color:#0f172a!important;
+border-color:rgba(15,23,42,.18)!important;
+}
+body.light-theme input::placeholder{color:#64748b!important}
+body.light-theme .focus-screen,
+body.light-theme .video-player{
+background:#0f172a!important;
+}
+body.light-theme .focus-screen-placeholder{
+background:linear-gradient(135deg,rgba(248,250,252,.82),rgba(226,232,240,.78)),url("focus-room.png")!important;
+background-size:cover!important;
+background-position:center!important;
+}
+body.light-theme .focus-screen-placeholder strong{color:#0f172a!important}
+body.light-theme .focus-screen-placeholder span{color:#334155!important}
+body.light-theme .focus-timer-circle{
+background:#ffffff!important;
+border-color:rgba(15,23,42,.14)!important;
+box-shadow:0 8px 24px rgba(15,23,42,.10)!important;
+}
+.theme-toggle{
+position:fixed;right:18px;bottom:82px;z-index:120;width:48px;height:48px;
+border-radius:50%;border:1px solid rgba(250,204,21,.35);
+background:rgba(2,6,23,.86);color:#facc15;display:grid;place-items:center;
+font-size:22px;box-shadow:0 12px 28px rgba(0,0,0,.26);cursor:pointer;
+}
+body.light-theme .theme-toggle{background:#fff!important;color:#0f172a!important;border-color:rgba(15,23,42,.16)!important}
+@media(max-width:900px){.theme-toggle{right:14px;bottom:70px;width:42px;height:42px;font-size:19px}}

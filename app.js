@@ -46,3 +46,31 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
   document.querySelectorAll(".focus-list-item").forEach(function(item){item.addEventListener("click",function(){document.querySelectorAll(".focus-list-item").forEach(function(i){i.classList.remove("active");});item.classList.add("active");const url=item.dataset.focusLink;const title=item.dataset.title||"Hazır video";input.value=url;loadVideo(url,title);});});
   render();
 })();
+
+
+/* AÇIK/KARANLIK TEMA BUTONU */
+(function(){
+  if(document.getElementById("themeToggle")) return;
+  const btn=document.createElement("button");
+  btn.id="themeToggle";
+  btn.className="theme-toggle";
+  btn.type="button";
+  btn.setAttribute("aria-label","Tema değiştir");
+  document.body.appendChild(btn);
+  function applyTheme(theme){
+    if(theme==="light"){
+      document.body.classList.add("light-theme");
+      btn.textContent="🌙";
+    }else{
+      document.body.classList.remove("light-theme");
+      btn.textContent="☀️";
+    }
+  }
+  const saved=localStorage.getItem("sezrTheme")||"dark";
+  applyTheme(saved);
+  btn.addEventListener("click",function(){
+    const next=document.body.classList.contains("light-theme")?"dark":"light";
+    localStorage.setItem("sezrTheme",next);
+    applyTheme(next);
+  });
+})();
