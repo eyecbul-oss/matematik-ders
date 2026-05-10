@@ -3,59 +3,75 @@
 <meta property="og:title" content="SezR Matematik | Yaz Dersleri"><meta property="og:description" content="Matematikte eksiklerini kapat, yeni döneme güçlü başla."><meta property="og:image" content="https://eyecbul-oss.github.io/matematik-ders/preview.jpg?v=9"><meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
 <body><div class="container"><header class="topbar"><div class="logo">Sez<span>R</span> Matematik</div><nav class="nav"><a class="" href="index.html">Ana Sayfa</a><a class="" href="dersler.html">Derslerim</a><a class="" href="youtube.html">YouTube</a><a class="" href="pdf.html">PDF</a><a class="active" href="focus.html">Focus</a><a class="" href="iletisim.html">Kayıt</a></nav></header>
-<h1>Focus Room</h1>
-<p class="lead">Focus başlatınca video altta ayrı kutuda değil, üstteki ana ekranda açılır. Pomodoro ve video yan yana çalışır.</p>
+<section class="focus-mobile-hero">
+  <div class="focus-title-wrap">
+    <span class="focus-kicker">SEZR FOCUS ROOM</span>
+    <h1>Odaklan. Çöz. Güçlen.</h1>
+    <p>Pomodoro ve YouTube çalışma videosu tek ekranda, mobil uyumlu ve sade.</p>
+  </div>
+</section>
 
-<section class="focus-layout">
-  <div class="focus-player-card">
-    <div class="focus-player-header">
+<section class="focus-app-shell">
+  <div class="focus-video-stage">
+    <div class="focus-video-top">
       <div>
-        <h2>Sez<span class="gold">R</span> Focus Room</h2>
-        <p>Çalışma videosu ana ekranda açılır.</p>
+        <strong>🎧 Çalışma Ekranı</strong>
+        <span id="focusNowPlaying">Hazır video bekliyor</span>
       </div>
-      <div class="focus-chip">25/5</div>
+      <div class="focus-pill">25/5</div>
     </div>
 
-    <div class="focus-main-screen" id="focusMainScreen">
+    <div class="focus-screen" id="focusMainScreen">
       <iframe id="focusVideoFrame" title="Focus Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div class="focus-placeholder" id="focusPlaceholder">
-        <strong>🎧 Focus videosu hazır</strong>
-        <span>Linki kaydet veya yandaki hazır videolardan birini seç.</span>
+      <div class="focus-screen-placeholder">
+        <div class="focus-orbit"></div>
+        <strong>Focus videosu burada açılır</strong>
+        <span>Hazır videolardan seç veya kendi YouTube linkini kaydet.</span>
       </div>
-    </div>
-
-    <div class="input-row focus-input-row">
-      <input id="focusVideoUrl" placeholder="YouTube Focus video linki yapıştır">
-      <button class="btn green" id="focusSave">Kaydet</button>
     </div>
   </div>
 
-  <aside class="focus-side-panel">
-    <div class="timer-card-mini">
-      <div class="timer" id="focusTimer">25:00</div>
-      <p id="focusStatus">Odak modu hazır</p>
-      <div class="focus-buttons">
-        <button class="btn gold" id="focusStart">🎧 Focus Başlat</button>
-        <button class="btn" id="focusPause">Duraklat</button>
-        <button class="btn" id="focusReset">Sıfırla</button>
-      </div>
+  <div class="focus-control-card">
+    <div class="focus-timer-circle">
+      <div class="focus-time" id="focusTimer">25:00</div>
+      <small id="focusStatus">Odak modu hazır</small>
+    </div>
+    <div class="focus-primary-actions">
+      <button class="focus-btn main" id="focusStart">🎧 Focus Başlat</button>
+      <button class="focus-btn soft" id="focusPause">Duraklat</button>
+      <button class="focus-btn danger" id="focusReset">Sıfırla</button>
+    </div>
+  </div>
+
+  <div class="focus-input-card">
+    <label>YouTube Focus Video Linki</label>
+    <div class="focus-input-line">
+      <input id="focusVideoUrl" placeholder="https://youtu.be/...">
+      <button id="focusSave">Kaydet</button>
+    </div>
+  </div>
+
+  <div class="focus-library-card">
+    <div class="focus-library-head">
+      <strong>Hazır Videolar</strong>
+      <span>Dokun, ana ekranda açılsın</span>
     </div>
 
-    <div class="focus-scroll-box">
-      <div class="focus-mini-card active" data-focus-link="https://youtu.be/lDw1f7Ymb8I">
-        <strong>🌙 Focus Video</strong>
-        <span>Varsayılan çalışma videosu</span>
-      </div>
-      <div class="focus-mini-card" data-focus-link="https://youtu.be/Zneoob0gk3U">
-        <strong>📐 Matematik Video 1</strong>
-        <span>Hızlı aç</span>
-      </div>
-      <div class="focus-mini-card" data-focus-link="https://youtu.be/ZrH7gO35gcw">
-        <strong>🧠 Matematik Video 2</strong>
-        <span>Hızlı aç</span>
-      </div>
+    <div class="focus-video-list">
+      <button class="focus-list-item active" data-focus-link="https://youtu.be/lDw1f7Ymb8I" data-title="Focus Video">
+        <span class="focus-list-icon">🌙</span>
+        <span><b>Focus Video</b><small>Varsayılan çalışma videosu</small></span>
+      </button>
+      <button class="focus-list-item" data-focus-link="https://youtu.be/Zneoob0gk3U" data-title="Matematik Video 1">
+        <span class="focus-list-icon">📐</span>
+        <span><b>Matematik Video 1</b><small>Hızlı aç</small></span>
+      </button>
+      <button class="focus-list-item" data-focus-link="https://youtu.be/ZrH7gO35gcw" data-title="Matematik Video 2">
+        <span class="focus-list-icon">🧠</span>
+        <span><b>Matematik Video 2</b><small>Hızlı aç</small></span>
+      </button>
     </div>
-  </aside>
+  </div>
 </section>
 <footer class="footer">SezR Matematik Sistemi © 2026</footer></div><nav class="quick">
 <a class="" href="index.html"><span>🏠</span>Ana</a>
