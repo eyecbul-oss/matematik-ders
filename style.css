@@ -523,3 +523,84 @@ body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
 .focus-timer-ring.view-compact,.focus-timer-ring.view-clean{width:auto;height:auto;border-radius:18px;padding:16px;border-width:1px}.focus-timer-ring.view-compact::before,.focus-timer-ring.view-clean::before{display:none}.focus-timer-ring.view-large{width:260px;height:260px}.focus-timer-ring.view-large .focus-timer-value{font-size:54px}
 @keyframes focusRain{to{transform:translateY(28px)}}@keyframes focusMoon{0%,100%{transform:translateY(0);filter:brightness(1)}50%{transform:translateY(8px);filter:brightness(1.15)}}@keyframes focusGlow{0%,100%{opacity:.55}50%{opacity:1}}@keyframes focusStudioSpin{to{transform:rotate(360deg)}}
 @media(max-width:900px){.focus-studio-hero{padding:7px 0 8px}.focus-studio-badge{font-size:10px;padding:6px 9px;margin-bottom:8px}.focus-studio-hero h1{font-size:28px;line-height:1.05;margin-bottom:6px}.focus-studio-hero p{font-size:14px;line-height:1.35}.focus-studio{grid-template-columns:1fr;gap:10px;margin-top:8px}.focus-stage-card{padding:9px;border-radius:18px}.focus-stage-top{margin-bottom:7px}.focus-stage-top strong{font-size:13px}.focus-stage-top span{font-size:11px}.focus-session-pill{font-size:11px;padding:6px 9px}.focus-stage-screen{border-radius:15px;max-height:205px}.focus-quote{font-size:11px;padding:8px 10px;left:12px;bottom:12px}.focus-moon{width:62px;height:62px}.focus-student-silhouette{width:70px;height:110px;left:39%;bottom:14%}.focus-student-silhouette::before{width:42px;height:42px;left:15px;top:-38px}.focus-control-studio{position:relative;top:0;padding:9px;border-radius:18px;gap:9px}.focus-timer-card,.focus-option-card{padding:10px;border-radius:18px}.focus-timer-ring{width:auto;height:auto;border-radius:16px;padding:10px;border-width:1px;margin-bottom:8px}.focus-timer-ring::before{display:none}.focus-timer-value{font-size:34px;line-height:1}.focus-timer-status{font-size:11px}.focus-main-actions{grid-template-columns:1fr 1fr 1fr;gap:7px}.studio-btn,.focus-choice,.focus-bg-choice,.focus-sound-choice,.focus-view-choice{font-size:10.5px;padding:9px 6px;border-radius:12px}.studio-btn.primary{grid-column:auto}.focus-option-card h3{font-size:13px;margin-bottom:7px}.focus-choice-grid{gap:6px}.focus-input-row{display:grid;grid-template-columns:1fr auto;gap:6px}.focus-input-row input{font-size:11px;padding:9px}.focus-input-row button{font-size:11px;padding:9px 10px}.focus-library-studio{padding:10px;border-radius:18px;margin-top:10px}.focus-library-title{display:block;margin-bottom:9px}.focus-library-title h2{font-size:17px;margin-bottom:4px}.focus-library-title p{font-size:11px}.focus-mode-cards{display:flex;overflow-x:auto;gap:8px;padding-bottom:6px}.focus-mode-card{min-width:210px;padding:12px;border-radius:17px}.focus-mode-card span{width:34px;height:34px;font-size:20px;border-radius:12px;margin-bottom:8px}.focus-mode-card strong{font-size:13px}.focus-mode-card small{font-size:10.5px}}
+
+
+/* FOCUS ATMOSFER GELİŞTİRME */
+.focus-stage-screen{
+overflow:hidden;
+}
+
+.focus-visual-layer{
+background:
+linear-gradient(135deg,rgba(2,6,23,.82),rgba(2,6,23,.36)),
+url("focus-atmosphere.svg") center/cover no-repeat !important;
+}
+
+.focus-moon{
+display:none !important;
+}
+
+.focus-desk-glow{
+display:none !important;
+}
+
+.focus-student-silhouette{
+display:none !important;
+}
+
+.focus-stage-card{
+overflow:visible !important;
+}
+
+.focus-mode-card.active{
+position:relative;
+}
+
+.focus-mode-card.active::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:22px;
+border:2px solid rgba(250,204,21,.92);
+pointer-events:none;
+}
+
+.focus-library-studio{
+padding-bottom:26px !important;
+}
+
+@media(min-width:901px){
+.focus-library-studio{
+margin-bottom:10px;
+}
+
+.focus-studio{
+align-items:start;
+}
+
+.focus-control-studio{
+min-height:auto;
+}
+
+body.focus-page{
+padding-bottom:40px;
+}
+
+.footer{
+margin-top:12px !important;
+}
+}
+
+@media(max-width:900px){
+.focus-stage-screen{
+min-height:210px;
+}
+
+.focus-library-studio{
+padding-bottom:16px !important;
+}
+
+.focus-mode-card.active::before{
+border-radius:17px;
+}
+}
