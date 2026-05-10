@@ -470,3 +470,16 @@ background:radial-gradient(circle,rgba(56,189,248,.13),rgba(250,204,21,.10),tran
 transform:none !important;
 }
 }
+
+
+/* GENEL TUTARLILIK DÜZENLEMELERİ */
+.section-title,h1,h2,h3{letter-spacing:-0.02em}
+.card p,.lead,.focus-title-wrap p,.focus-video-top span,.focus-library-head span,.focus-list-item small{font-weight:500}
+.card h2,.card h3,.focus-video-top strong,.focus-library-head strong{font-weight:800}
+.btn,.focus-btn,.nav a{font-weight:800}
+.footer{line-height:1.6}
+body{text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased}
+.video-body strong{font-size:16px;line-height:1.4}
+.focus-list-item{align-items:flex-start}
+.focus-list-item span{line-height:1.35}
+.quick a{letter-spacing:-0.01em}
