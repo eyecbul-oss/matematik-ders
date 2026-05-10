@@ -8,145 +8,31 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
 
 
 
-/* FOCUS ROOM - EN İYİ MOBİL TASARIM JS */
+
+
+/* SEZR FOCUS STUDIO PREMIUM JS */
 (function(){
-  const timer=document.getElementById("focusTimer");
-  const status=document.getElementById("focusStatus");
-  const input=document.getElementById("focusVideoUrl");
-  const frame=document.getElementById("focusVideoFrame");
-  const screen=document.getElementById("focusMainScreen");
-  const now=document.getElementById("focusNowPlaying");
-  if(!timer || !input || !frame || !screen) return;
-  let total=25*60, running=false;
-  function toEmbed(url){
-    try{
-      const u=new URL(url); let id="";
-      if(u.hostname.includes("youtu.be")) id=u.pathname.replace("/","");
-      else if(u.searchParams.get("v")) id=u.searchParams.get("v");
-      else if(u.pathname.includes("/embed/")) id=u.pathname.split("/embed/")[1];
-      id=(id||"").split("?")[0].split("&")[0];
-      return id ? "https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1&playsinline=1" : "";
-    }catch(e){return "";}
-  }
-  function render(){timer.textContent=String(Math.floor(total/60)).padStart(2,"0")+":"+String(total%60).padStart(2,"0");}
-  function loadVideo(url,title){
-    const embed=toEmbed(url);
-    if(!embed){alert("Geçerli YouTube linki yapıştır.");return false;}
-    frame.src=embed; screen.classList.add("video-on");
-    localStorage.setItem("sezrFocusVideo",url);
-    if(now) now.textContent=title || "Focus videosu açıldı";
-    return true;
-  }
-  setInterval(function(){if(running&&total>0){total--;render();if(total===0){running=false;if(status)status.textContent="Pomodoro tamamlandı 🎉";}}},1000);
-  input.value=localStorage.getItem("sezrFocusVideo") || "https://youtu.be/lDw1f7Ymb8I";
-  document.getElementById("focusSave").onclick=function(){if(loadVideo(input.value.trim(),"Kaydedilen video")){if(status)status.textContent="Video kaydedildi";}};
-  document.getElementById("focusStart").onclick=function(){const url=input.value.trim()||localStorage.getItem("sezrFocusVideo")||"https://youtu.be/lDw1f7Ymb8I";if(loadVideo(url,"Focus modu aktif")){running=true;if(status)status.textContent="Focus modu aktif";}};
-  document.getElementById("focusPause").onclick=function(){running=false;if(status)status.textContent="Duraklatıldı";};
-  document.getElementById("focusReset").onclick=function(){running=false;total=25*60;render();if(status)status.textContent="Odak modu hazır";};
-  document.querySelectorAll(".focus-list-item").forEach(function(item){item.addEventListener("click",function(){document.querySelectorAll(".focus-list-item").forEach(function(i){i.classList.remove("active");});item.classList.add("active");const url=item.dataset.focusLink;const title=item.dataset.title||"Hazır video";input.value=url;loadVideo(url,title);});});
-  render();
-})();
-
-
-/* AÇIK/KARANLIK TEMA BUTONU */
-(function(){
-  if(document.getElementById("themeToggle")) return;
-  const btn=document.createElement("button");
-  btn.id="themeToggle";
-  btn.className="theme-toggle";
-  btn.type="button";
-  btn.setAttribute("aria-label","Tema değiştir");
-  document.body.appendChild(btn);
-  function applyTheme(theme){
-    if(theme==="light"){
-      document.body.classList.add("light-theme");
-      btn.textContent="🌙";
-    }else{
-      document.body.classList.remove("light-theme");
-      btn.textContent="☀️";
-    }
-  }
-  const saved=localStorage.getItem("sezrTheme")||"dark";
-  applyTheme(saved);
-  btn.addEventListener("click",function(){
-    const next=document.body.classList.contains("light-theme")?"dark":"light";
-    localStorage.setItem("sezrTheme",next);
-    applyTheme(next);
-  });
-})();
-
-
-/* PREMIUM EFEKTLER GERİ YÜKLEME JS */
-(function(){
-  if(!document.getElementById("mouseGlow")){
-    const glow = document.createElement("div");
-    glow.className = "mouse-glow";
-    glow.id = "mouseGlow";
-    document.body.prepend(glow);
-
-    if(window.matchMedia("(min-width: 901px)").matches){
-      window.addEventListener("mousemove", function(e){
-        glow.style.left = e.clientX + "px";
-        glow.style.top = e.clientY + "px";
-        glow.style.opacity = "1";
-      });
-      window.addEventListener("mouseleave", function(){
-        glow.style.opacity = "0";
-      });
-    }
-  }
-
-  if(!document.getElementById("premiumSymbols")){
-    const wrap = document.createElement("div");
-    wrap.className = "premium-symbols";
-    wrap.id = "premiumSymbols";
-
-    const symbols = [
-      ["∫", "gold", "8%", "22%", "38px", "0s"],
-      ["π", "blue", "84%", "18%", "34px", "1s"],
-      ["√x", "", "12%", "72%", "30px", "2s"],
-      ["∞", "gold", "82%", "68%", "42px", "3s"],
-      ["sin x", "blue", "72%", "40%", "24px", "1.6s"],
-      ["a²+b²", "", "18%", "42%", "24px", "2.7s"],
-      ["Δ", "gold", "52%", "14%", "28px", "3.3s"],
-      ["f(x)", "blue", "48%", "78%", "26px", "1.9s"]
-    ];
-
-    symbols.forEach(function(s){
-      const el = document.createElement("div");
-      el.className = "premium-symbol " + s[1];
-      el.textContent = s[0];
-      el.style.left = s[2];
-      el.style.top = s[3];
-      el.style.fontSize = s[4];
-      el.style.animationDelay = s[5];
-      wrap.appendChild(el);
-    });
-
-    document.body.prepend(wrap);
-  }
-
-  if(window.matchMedia("(min-width: 901px)").matches){
-    const tiltItems = document.querySelectorAll(".card,.focus-video-stage,.focus-control-card,.focus-input-card,.focus-library-card,.video-card");
-
-    tiltItems.forEach(function(card){
-      if(card.dataset.tiltReady === "yes") return;
-      card.dataset.tiltReady = "yes";
-
-      card.addEventListener("mousemove", function(e){
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const midX = rect.width / 2;
-        const midY = rect.height / 2;
-        const rotateY = ((x - midX) / midX) * 4.5;
-        const rotateX = -((y - midY) / midY) * 4.5;
-        card.style.transform = "perspective(900px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg) translateY(-4px)";
-      });
-
-      card.addEventListener("mouseleave", function(){
-        card.style.transform = "";
-      });
-    });
-  }
+  const timer=document.getElementById("focusTimer"), status=document.getElementById("focusStatus"), pill=document.getElementById("focusSessionPill"), title=document.getElementById("focusModeTitle"), now=document.getElementById("focusNowPlaying"), input=document.getElementById("focusVideoUrl"), frame=document.getElementById("focusVideoFrame"), screen=document.getElementById("focusMainScreen"), visual=document.getElementById("focusVisualLayer"), ring=document.getElementById("focusTimerRing"), quote=document.getElementById("focusQuote");
+  if(!timer||!input||!frame||!screen)return;
+  let work=25, brk=5, total=work*60, running=false, sound="silent";
+  const quotes=["Bir soru daha çöz.","Telefonu bırak, hedefe bak.","Bugünün emeği yarının gücü.","Zor soru yok, eksik tekrar var.","5 dakika daha dayan."];
+  function embed(url){try{const u=new URL(url);let id="";if(u.hostname.includes("youtu.be"))id=u.pathname.replace("/","");else if(u.searchParams.get("v"))id=u.searchParams.get("v");else if(u.pathname.includes("/embed/"))id=u.pathname.split("/embed/")[1];id=(id||"").split("?")[0].split("&")[0];return id?"https://www.youtube.com/embed/"+id+"?rel=0&modestbranding=1&playsinline=1":"";}catch(e){return"";}}
+  function render(){timer.textContent=String(Math.floor(total/60)).padStart(2,"0")+":"+String(total%60).padStart(2,"0");pill.textContent=work+" / "+brk;}
+  function setSession(w,b){work=Number(w);brk=Number(b);total=work*60;running=false;if(status)status.textContent="Süre seçildi";render();}
+  function setBg(bg){if(!visual)return;visual.classList.remove("bg-rain","bg-desk","bg-space","bg-minimal");visual.classList.add("bg-"+bg);}
+  function setView(v){if(!ring)return;ring.classList.remove("view-compact","view-large","view-clean");if(v!=="circle")ring.classList.add("view-"+v);}
+  function loadVideo(url,label){const e=embed(url);if(!e){alert("Geçerli bir YouTube linki yapıştır.");return false;}frame.src=e;screen.classList.add("video-on");localStorage.setItem("sezrFocusVideo",url);if(now)now.textContent=label||"YouTube çalışma videosu";return true;}
+  function start(){running=true;if(status)status.textContent="Odak modu aktif";if(sound==="youtube"){const url=input.value.trim()||localStorage.getItem("sezrFocusVideo");if(url)loadVideo(url,"YouTube Focus");}if(quote)quote.textContent=quotes[Math.floor(Math.random()*quotes.length)];}
+  setInterval(()=>{if(running&&total>0){total--;render();if(total===0){running=false;if(status)status.textContent="Mola zamanı 🎉";}}},1000);
+  input.value=localStorage.getItem("sezrFocusVideo")||"https://youtu.be/lDw1f7Ymb8I";
+  document.getElementById("focusStart").onclick=start;
+  document.getElementById("focusPause").onclick=()=>{running=false;if(status)status.textContent="Duraklatıldı";};
+  document.getElementById("focusReset").onclick=()=>{running=false;total=work*60;if(status)status.textContent="Odak modu hazır";render();};
+  document.getElementById("focusSave").onclick=()=>{if(loadVideo(input.value.trim(),"Kaydedilen video")){if(status)status.textContent="Video kaydedildi";sound="youtube";document.querySelectorAll(".focus-sound-choice").forEach(b=>b.classList.remove("active"));document.querySelector('.focus-sound-choice[data-sound="youtube"]').classList.add("active");}};
+  document.querySelectorAll(".focus-choice").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".focus-choice").forEach(b=>b.classList.remove("active"));btn.classList.add("active");setSession(btn.dataset.work,btn.dataset.break);});
+  document.querySelectorAll(".focus-bg-choice").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".focus-bg-choice").forEach(b=>b.classList.remove("active"));btn.classList.add("active");setBg(btn.dataset.bg);});
+  document.querySelectorAll(".focus-sound-choice").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".focus-sound-choice").forEach(b=>b.classList.remove("active"));btn.classList.add("active");sound=btn.dataset.sound;if(status)status.textContent=btn.textContent+" seçildi";});
+  document.querySelectorAll(".focus-view-choice").forEach(btn=>btn.onclick=()=>{document.querySelectorAll(".focus-view-choice").forEach(b=>b.classList.remove("active"));btn.classList.add("active");setView(btn.dataset.view);});
+  document.querySelectorAll(".focus-mode-card").forEach(card=>card.onclick=()=>{document.querySelectorAll(".focus-mode-card").forEach(c=>c.classList.remove("active"));card.classList.add("active");setSession(card.dataset.work||25,card.dataset.break||5);setBg(card.dataset.bg||"rain");if(title)title.textContent=card.dataset.title||"Focus Modu";if(input)input.value=card.dataset.link||"";if(card.dataset.link){sound="youtube";loadVideo(card.dataset.link,card.dataset.title);}else{screen.classList.remove("video-on");sound="silent";}if(status)status.textContent=(card.dataset.title||"Focus")+" seçildi";});
+  setBg("rain");render();
 })();
