@@ -26,3 +26,32 @@ h1{font-family:Montserrat,Inter,sans-serif;font-size:48px;line-height:1.12;text-
 .quick{display:none}
 @keyframes spin{to{transform:rotate(360deg)}}
 @media(max-width:900px){.container{padding:16px 12px 90px}.topbar{position:relative;top:0;flex-direction:column}.hero{grid-template-columns:1fr;text-align:center;gap:22px}.profile-wrap{margin:auto;width:220px;height:220px}.profile-wrap img{width:176px;height:176px}h1{font-size:30px}.lead{font-size:17px}.actions{justify-content:center}.grid.two,.grid.three,.grid.four{grid-template-columns:1fr}.input-row{flex-direction:column}.focus-room{padding:22px;min-height:520px}.quick{position:fixed;left:0;right:0;bottom:0;height:74px;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(2,6,23,.95);backdrop-filter:blur(12px);z-index:90;border-top:1px solid rgba(148,163,184,.18)}.quick a{text-decoration:none;color:#d1d5db;font-size:11px;font-weight:900;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px}.quick a span{font-size:21px}.quick a.active{color:var(--gold)}}
+
+
+/* FOCUS PANEL TEMİZ YENİ DÜZEN */
+.focus-layout{display:grid;grid-template-columns:1fr 330px;gap:18px;align-items:start}
+.focus-player-card,.focus-side-panel{border-radius:28px;background:rgba(2,6,23,.72);border:1px solid rgba(148,163,184,.18);box-shadow:0 18px 42px rgba(0,0,0,.32);backdrop-filter:blur(18px);padding:18px}
+.focus-player-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.focus-player-header h2{font-family:Montserrat,Inter,sans-serif;font-size:28px}
+.focus-player-header p{color:#dbeafe;line-height:1.5}
+.focus-chip{padding:10px 14px;border-radius:999px;background:#facc15;color:#020617;font-weight:900}
+.focus-main-screen{position:relative;border-radius:24px;overflow:hidden;background:#020617;border:1px solid rgba(148,163,184,.18);aspect-ratio:16/9}
+.focus-main-screen iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:none}
+.focus-main-screen.video-on iframe{display:block}
+.focus-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(250,204,21,.10)),url("focus-room.png");background-size:cover;background-position:center}
+.focus-placeholder::before{content:"";position:absolute;inset:0;background:rgba(2,6,23,.58)}
+.focus-placeholder strong,.focus-placeholder span{position:relative;z-index:2}
+.focus-placeholder strong{font-size:28px;font-weight:900}
+.focus-placeholder span{margin-top:8px;color:#dbeafe}
+.focus-input-row{margin-top:14px}
+.focus-side-panel{position:sticky;top:96px}
+.timer-card-mini{text-align:center;border-radius:24px;padding:18px;background:rgba(15,23,42,.64);border:1px solid rgba(148,163,184,.16)}
+.timer-card-mini p{color:#dbeafe;font-weight:800;margin-bottom:12px}
+.focus-buttons{display:grid;gap:10px}
+.focus-buttons .btn{width:100%}
+.focus-scroll-box{margin-top:14px;max-height:330px;overflow-y:auto;display:grid;gap:10px;padding-right:4px}
+.focus-mini-card{padding:15px;border-radius:18px;background:rgba(15,23,42,.72);border:1px solid rgba(148,163,184,.16);cursor:pointer;transition:.25s}
+.focus-mini-card:hover,.focus-mini-card.active{border-color:#facc15;box-shadow:0 0 18px rgba(250,204,21,.18)}
+.focus-mini-card strong{display:block;margin-bottom:5px}
+.focus-mini-card span{font-size:13px;color:#94a3b8}
+@media(max-width:900px){.focus-layout{grid-template-columns:1fr}.focus-side-panel{position:relative;top:0}.focus-scroll-box{display:flex;overflow-x:auto;max-height:none;padding-bottom:8px}.focus-mini-card{min-width:220px}.focus-player-header{flex-direction:column}.focus-placeholder strong{font-size:22px}}
