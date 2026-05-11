@@ -1,0 +1,5 @@
+Düzeltildi:
+- PWA ikonunda Sez beyaz, R sarı ve ortalı.
+- Dikey tam ekranda görsel kırpılmadan sığar.
+- Yatay tam ekranda sinematik geniş görünüm korunur.
+- Sayaç ve söz kutusu dikey modda alt menüye çakışmayacak şekilde yukarı alındı.

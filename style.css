@@ -718,3 +718,54 @@ body.light-theme .focus-visual-layer.bg-minimal{background-image:linear-gradient
 body.focus-lock-scroll{overflow:hidden!important}
 body.light-theme .focus-fullscreen-btn{background:#fff!important;color:#0f172a!important;border-color:rgba(15,23,42,.18)!important}
 @media(max-width:900px){.focus-stage-top{grid-template-columns:1fr auto}.focus-fullscreen-btn{font-size:11px;padding:7px 9px}.focus-stage-card.focus-fullscreen-active::after{right:12px;bottom:12px;font-size:21px;padding:8px 13px}.focus-stage-card.focus-fullscreen-active .focus-quote{left:12px!important;bottom:12px!important;max-width:55%}}
+
+
+/* İKON + TAM EKRAN DİKEY/YATAY GÖRSEL DÜZELTME */
+.focus-stage-card.focus-fullscreen-active .focus-stage-screen{
+background:#020617 !important;
+overflow:hidden !important;
+}
+
+.focus-stage-card.focus-fullscreen-active .focus-visual-layer{
+background-repeat:no-repeat !important;
+background-position:center center !important;
+}
+
+/* Yatay telefonda sinematik tam ekran */
+@media (orientation: landscape){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{
+    background-size:cover !important;
+  }
+}
+
+/* Dikey telefonda görsel kırpılmasın, tamamı görünsün */
+@media (orientation: portrait){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{
+    background-size:contain !important;
+    background-color:#020617 !important;
+  }
+
+  .focus-stage-card.focus-fullscreen-active .focus-stage-screen{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+
+  .focus-stage-card.focus-fullscreen-active::after{
+    right:12px !important;
+    bottom:calc(82px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .focus-stage-card.focus-fullscreen-active .focus-quote{
+    left:12px !important;
+    bottom:calc(82px + env(safe-area-inset-bottom)) !important;
+    max-width:58% !important;
+  }
+}
+
+/* PWA modunda alt güvenli boşluk */
+@supports (padding: max(0px)){
+  .focus-stage-card.focus-fullscreen-active{
+    padding-bottom:env(safe-area-inset-bottom) !important;
+  }
+}

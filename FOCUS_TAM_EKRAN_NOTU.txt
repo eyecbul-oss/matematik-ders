@@ -1,0 +1,1 @@
+Tam ekran, görsel sığdırma, hızlı ses ve ortalanmış PWA ikon düzeltmeleri eklendi.
