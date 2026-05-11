@@ -1,0 +1,5 @@
+Düzeltmeler:
+- Mobil normal ekranda Focus görseli kırpılmadan sığacak şekilde ayarlandı.
+- Tam ekranda üst bilgi çubuğu 3 saniye sonra gizlenir.
+- Ekrana dokununca veya mouse hareket edince üst bilgi çubuğu tekrar görünür.
+- Dikey tam ekranda görsel contain, yatay tam ekranda cover çalışır.

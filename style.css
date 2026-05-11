@@ -769,3 +769,85 @@ background-position:center center !important;
     padding-bottom:env(safe-area-inset-bottom) !important;
   }
 }
+
+
+/* FOCUS GÖRSEL TAM SIĞDIRMA + TAM EKRAN BİLGİ ÇUBUĞU OTOMATİK GİZLEME */
+.focus-stage-screen{
+background:#020617 !important;
+}
+
+.focus-visual-layer{
+background-repeat:no-repeat !important;
+}
+
+/* Normal sayfada görselin tamamı görünsün */
+@media(max-width:900px){
+  .focus-stage-screen{
+    aspect-ratio:16/10 !important;
+    min-height:260px !important;
+  }
+
+  .focus-visual-layer{
+    background-size:contain !important;
+    background-position:center center !important;
+    background-color:#020617 !important;
+  }
+
+  .focus-quote{
+    left:14px !important;
+    bottom:14px !important;
+    max-width:72% !important;
+  }
+}
+
+/* Masaüstünde geniş alanı doldursun ama merkeze göre kırpsın */
+@media(min-width:901px){
+  .focus-visual-layer{
+    background-size:cover !important;
+    background-position:center center !important;
+  }
+}
+
+/* Tam ekranda üst bilgi çubuğu birkaç saniye sonra kaybolur */
+.focus-stage-card.focus-fullscreen-active .focus-stage-top{
+transition:opacity .35s ease, transform .35s ease !important;
+}
+
+.focus-stage-card.focus-fullscreen-active .focus-stage-top.fs-ui-hidden{
+opacity:0 !important;
+pointer-events:none !important;
+transform:translateY(-18px) !important;
+}
+
+/* Tam ekrandayken dokununca/mouse hareket edince tekrar görünür */
+.focus-stage-card.focus-fullscreen-active .focus-stage-top.fs-ui-visible{
+opacity:1 !important;
+pointer-events:auto !important;
+transform:translateY(0) !important;
+}
+
+/* Dikey tam ekran: görsel tamamı sığsın */
+@media(orientation:portrait){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{
+    background-size:contain !important;
+    background-position:center center !important;
+    background-color:#020617 !important;
+  }
+}
+
+/* Yatay tam ekran: sinematik dolsun */
+@media(orientation:landscape){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{
+    background-size:cover !important;
+    background-position:center center !important;
+  }
+}
+
+/* Tam ekranda söz kutusu dikkat dağıtmasın */
+.focus-stage-card.focus-fullscreen-active .focus-quote{
+opacity:.72 !important;
+}
+
+.focus-stage-card.focus-fullscreen-active.fs-clean .focus-quote{
+opacity:0 !important;
+}

@@ -102,3 +102,67 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
   const start=document.getElementById("focusStart");
   if(start&&audio){start.addEventListener("click",function(){try{if(audio.src)audio.load();}catch(e){}},true);}
 })();
+
+
+/* FOCUS TAM EKRAN BİLGİ ÇUBUĞU OTOMATİK GİZLE */
+(function(){
+  const stage = document.querySelector(".focus-stage-card");
+  const topbar = stage ? stage.querySelector(".focus-stage-top") : null;
+  const fullscreenBtn = document.getElementById("focusFullscreenBtn");
+
+  if(!stage || !topbar) return;
+
+  let hideTimer = null;
+
+  function isFull(){
+    return stage.classList.contains("focus-fullscreen-active");
+  }
+
+  function showFsUi(){
+    if(!isFull()) return;
+    clearTimeout(hideTimer);
+    topbar.classList.remove("fs-ui-hidden");
+    topbar.classList.add("fs-ui-visible");
+    stage.classList.remove("fs-clean");
+
+    hideTimer = setTimeout(function(){
+      if(isFull()){
+        topbar.classList.remove("fs-ui-visible");
+        topbar.classList.add("fs-ui-hidden");
+        stage.classList.add("fs-clean");
+      }
+    }, 3000);
+  }
+
+  function stopFsUi(){
+    clearTimeout(hideTimer);
+    topbar.classList.remove("fs-ui-hidden","fs-ui-visible");
+    stage.classList.remove("fs-clean");
+  }
+
+  document.addEventListener("fullscreenchange", function(){
+    if(document.fullscreenElement){
+      showFsUi();
+    }else{
+      stopFsUi();
+    }
+  });
+
+  if(fullscreenBtn){
+    fullscreenBtn.addEventListener("click", function(){
+      setTimeout(function(){
+        if(isFull()) showFsUi();
+      }, 250);
+    });
+  }
+
+  ["mousemove","touchstart","click"].forEach(function(evt){
+    stage.addEventListener(evt, function(){
+      if(isFull()) showFsUi();
+    }, {passive:true});
+  });
+
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape") stopFsUi();
+  });
+})();
