@@ -851,3 +851,40 @@ opacity:.72 !important;
 .focus-stage-card.focus-fullscreen-active.fs-clean .focus-quote{
 opacity:0 !important;
 }
+
+
+/* GENEL SON TARAMA VE DENGE DÜZELTMELERİ */
+:root{--sezr-gold:#facc15;--sezr-blue:#38bdf8}
+img,iframe,video{max-width:100%}
+.nav a,.quick a,.btn,.studio-btn{user-select:none}
+.card,.focus-stage-card,.focus-control-studio,.focus-preset-section,.focus-youtube-card{isolation:isolate}
+@media(max-width:900px){
+  h1{font-size:clamp(28px,8vw,38px)!important;line-height:1.08!important}
+  .lead,.focus-studio-hero p{font-size:15px!important}
+  .container{max-width:100%;overflow-x:hidden}
+  .nav{justify-content:center}
+}
+.focus-stage-screen{background:#020617!important}
+@media(max-width:900px){
+  .focus-stage-screen{aspect-ratio:16/10!important;min-height:240px!important;max-height:330px!important}
+  .focus-visual-layer{background-size:cover!important;background-position:center center!important}
+}
+@media(max-width:430px){.focus-stage-screen{min-height:220px!important}}
+.focus-stage-card.focus-fullscreen-active .focus-stage-screen{height:100vh!important;width:100vw!important}
+@media(orientation:portrait){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{background-size:contain!important;background-position:center!important;background-color:#020617!important}
+}
+@media(orientation:landscape){
+  .focus-stage-card.focus-fullscreen-active .focus-visual-layer{background-size:cover!important;background-position:center!important}
+}
+.focus-mode-card{overflow:hidden!important}
+.focus-mode-card.active::before{inset:6px!important;border-radius:16px!important;box-sizing:border-box!important}
+.focus-input-row input{min-width:0}
+@media(max-width:900px){
+  .focus-input-row{grid-template-columns:1fr auto!important}
+  .focus-input-row input{width:100%}
+}
+body.light-theme .focus-youtube-card,body.light-theme .focus-preset-section{background:rgba(255,255,255,.92)!important}
+body.light-theme .focus-youtube-card p,body.light-theme .focus-library-title p{color:#334155!important}
+.quick{padding-bottom:env(safe-area-inset-bottom)}
+body{padding-bottom:env(safe-area-inset-bottom)}

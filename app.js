@@ -166,3 +166,22 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     if(e.key === "Escape") stopFsUi();
   });
 })();
+
+
+/* GENEL SON TARAMA KORUMA KATMANI */
+(function(){
+  document.querySelectorAll('a[href="#"],a[href=""]').forEach(function(a){
+    a.addEventListener("click",function(e){e.preventDefault();});
+  });
+  const audio=document.getElementById("focusAudio");
+  const note=document.getElementById("focusAudioNote");
+  if(audio&&note&&!audio.dataset.guardReady){
+    audio.dataset.guardReady="1";
+    audio.addEventListener("error",function(){
+      note.textContent="Müzik dosyası bulunamadı. MP3 dosyasının adı GitHub’da doğru olmalı.";
+    });
+  }
+  if("serviceWorker" in navigator && navigator.serviceWorker.getRegistration){
+    navigator.serviceWorker.getRegistration().then(function(reg){if(reg)reg.update().catch(function(){});});
+  }
+})();

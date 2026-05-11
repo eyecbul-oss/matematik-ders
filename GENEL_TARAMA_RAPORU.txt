@@ -1,0 +1,6 @@
+- pdf.html: teknik/tekrarlı açıklama dili temizlendi.
+- style.css: mobil taşma, focus görsel, çerçeve ve açık tema emniyetleri eklendi.
+- app.js: boş link, MP3 hata bildirimi ve cache güncelleme koruması eklendi.
+- manifest.json: PWA ayarları standartlaştırıldı.
+- sw.js: cache adı yenilendi ve focus/PWA görselleri korumaya alındı.
+- Kontrol: eksik görünebilecek dosyalar: ./focus-room.png, ./math-bg.jpg, ./profil.jpg, focus-jazz.mp3, focus-piano.mp3, focus-relax.mp3, focus-room.png, profil.jpg
