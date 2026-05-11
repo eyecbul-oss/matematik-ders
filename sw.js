@@ -1,4 +1,4 @@
-const CACHE_NAME="sezr-focus-resim-ses-fix-v14";
+const CACHE_NAME="sezr-focus-fullscreen-fit-icon-v15";
 const FILES=["./","./index.html","./dersler.html","./youtube.html","./pdf.html","./focus.html","./iletisim.html","./style.css","./app.js","./manifest.json","./favicon.png","./favicon.ico","./profil.jpg","./math-bg.jpg","./preview.jpg","./focus-room.png","./focus-atmosphere.svg"];
 self.addEventListener("install",e=>{e.waitUntil(caches.open(CACHE_NAME).then(c=>c.addAll(FILES).catch(()=>Promise.resolve())));self.skipWaiting();});
 self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.map(k=>k!==CACHE_NAME?caches.delete(k):null))));self.clients.claim();});

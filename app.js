@@ -65,3 +65,40 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     btn.addEventListener("click",function(){failCount=0;});
   });
 })();
+
+/* FOCUS TAM EKRAN + HIZLI SES BAŞLATMA */
+(function(){
+  const stage=document.querySelector(".focus-stage-card");
+  const btn=document.getElementById("focusFullscreenBtn");
+  const timer=document.getElementById("focusTimer");
+  const audio=document.getElementById("focusAudio");
+  const warm=document.getElementById("focusAudioWarmup");
+
+  if(stage&&timer){
+    function sync(){stage.setAttribute("data-fullscreen-time",timer.textContent||"25:00");}
+    sync();
+    new MutationObserver(sync).observe(timer,{childList:true,subtree:true,characterData:true});
+  }
+  if(btn&&stage){
+    btn.addEventListener("click",function(){
+      const active=stage.classList.toggle("focus-fullscreen-active");
+      document.body.classList.toggle("focus-lock-scroll",active);
+      btn.textContent=active?"✕ Kapat":"⛶ Tam Ekran";
+      if(active&&stage.requestFullscreen){stage.requestFullscreen().catch(function(){});}
+      else if(!active&&document.fullscreenElement&&document.exitFullscreen){document.exitFullscreen().catch(function(){});}
+    });
+    document.addEventListener("fullscreenchange",function(){
+      if(!document.fullscreenElement&&stage.classList.contains("focus-fullscreen-active")){
+        stage.classList.remove("focus-fullscreen-active");
+        document.body.classList.remove("focus-lock-scroll");
+        btn.textContent="⛶ Tam Ekran";
+      }
+    });
+  }
+  function warmAudio(src){if(!warm||!src)return;try{warm.src=src;warm.load();}catch(e){}}
+  document.querySelectorAll(".focus-sound-choice,.focus-mode-card").forEach(function(el){
+    el.addEventListener("click",function(){warmAudio(el.dataset.audio||"");});
+  });
+  const start=document.getElementById("focusStart");
+  if(start&&audio){start.addEventListener("click",function(){try{if(audio.src)audio.load();}catch(e){}},true);}
+})();
