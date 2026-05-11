@@ -1,0 +1,10 @@
+Düzeltildi:
+- Orta ekrandaki büyük sayaç kaldırıldı.
+- Focus görselleri arka plana zorunlu bağlandı.
+- Kartların üzerine ilgili görsel arka plan olarak eklendi.
+- Ses dosyası bulunmazsa yedek müzik denemesi eklendi.
+
+MP3 dosyaları GitHub'da şu adlarla olmalı:
+- focus-piano.mp3
+- focus-relax.mp3
+- focus-jazz.mp3

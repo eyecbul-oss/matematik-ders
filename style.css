@@ -686,3 +686,20 @@ font-size:17px;
 font-size:12px;
 }
 }
+
+
+/* FOCUS RESİM + SES DÜZELTME */
+.focus-screen-timer{display:none!important}
+.focus-visual-layer{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
+.focus-visual-layer.bg-desk{background-image:linear-gradient(135deg,rgba(2,6,23,.28),rgba(2,6,23,.03)),url("focus-desk.png")!important}
+.focus-visual-layer.bg-rain{background-image:linear-gradient(135deg,rgba(2,6,23,.30),rgba(2,6,23,.05)),url("focus-rain.png")!important}
+.focus-visual-layer.bg-space{background-image:linear-gradient(135deg,rgba(2,6,23,.26),rgba(2,6,23,.04)),url("focus-space.png")!important}
+.focus-visual-layer.bg-minimal{background-image:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),url("focus-minimal.png")!important}
+.focus-mode-card[data-bg="desk"]{background-image:linear-gradient(180deg,rgba(2,6,23,.22),rgba(2,6,23,.78)),url("focus-desk.png")!important;background-size:cover!important;background-position:center!important}
+.focus-mode-card[data-bg="rain"]{background-image:linear-gradient(180deg,rgba(2,6,23,.22),rgba(2,6,23,.78)),url("focus-rain.png")!important;background-size:cover!important;background-position:center!important}
+.focus-mode-card[data-bg="space"]{background-image:linear-gradient(180deg,rgba(2,6,23,.22),rgba(2,6,23,.78)),url("focus-space.png")!important;background-size:cover!important;background-position:center!important}
+.focus-mode-card[data-bg="minimal"]{background-image:linear-gradient(180deg,rgba(255,255,255,.10),rgba(15,23,42,.78)),url("focus-minimal.png")!important;background-size:cover!important;background-position:center!important}
+.focus-mode-card strong,.focus-mode-card small,.focus-mode-card span{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+.focus-mode-card span{background:rgba(250,204,21,.20)!important;backdrop-filter:blur(8px)}
+body.light-theme .focus-mode-card strong,body.light-theme .focus-mode-card small{color:#fff!important}
+body.light-theme .focus-visual-layer.bg-minimal{background-image:linear-gradient(135deg,rgba(255,255,255,.18),rgba(255,255,255,.04)),url("focus-minimal.png")!important}

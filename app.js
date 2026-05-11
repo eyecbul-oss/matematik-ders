@@ -40,3 +40,28 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
   document.querySelectorAll(".focus-mode-card").forEach(card=>card.onclick=()=>{document.querySelectorAll(".focus-mode-card").forEach(c=>c.classList.remove("active"));card.classList.add("active");if(card.dataset.work && card.dataset.break){setSession(card.dataset.work,card.dataset.break);}setBg(card.dataset.bg||"desk",card.dataset.img||"focus-desk.png",card.dataset.title);if(title)title.textContent=card.dataset.title||"Odak Modu";selectedAudio=card.dataset.audio||"";selectedSound=card.dataset.sound||"silent";document.querySelectorAll(".focus-sound-choice").forEach(b=>b.classList.remove("active"));const m=document.querySelector('.focus-sound-choice[data-audio="'+selectedAudio+'"]')||document.querySelector('.focus-sound-choice[data-sound="'+selectedSound+'"]');if(m)m.classList.add("active");if(status)status.textContent=(card.dataset.title||"Mod")+" seçildi";});
   setBg("desk","focus-desk.png","Loş Masa");render();
 })();
+
+
+/* FOCUS SES FALLBACK + ORTA SAYAÇ KAPALI */
+(function(){
+  const audio=document.getElementById("focusAudio");
+  const audioNote=document.getElementById("focusAudioNote");
+  if(!audio) return;
+  const fallbackList=["focus-piano.mp3","focus-relax.mp3","focus-jazz.mp3"];
+  let failCount=0;
+  audio.addEventListener("error",function(){
+    failCount++;
+    if(failCount<=fallbackList.length){
+      const next=fallbackList[failCount-1];
+      audio.src=next;
+      audio.loop=true;
+      audio.play().catch(function(){});
+      if(audioNote) audioNote.textContent="Seçilen dosya bulunamadı, yedek müzik deneniyor.";
+    }else{
+      if(audioNote) audioNote.textContent="Bu müzik dosyası bulunamadı. MP3 adlarını kontrol et.";
+    }
+  });
+  document.querySelectorAll(".focus-sound-choice,.focus-mode-card").forEach(function(btn){
+    btn.addEventListener("click",function(){failCount=0;});
+  });
+})();
