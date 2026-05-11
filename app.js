@@ -50,3 +50,53 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     reg.addEventListener("updatefound",()=>{showUpdateToast();});
   }).catch(()=>{});
 })();
+
+
+/* FOCUS CANLI EKRAN SAYACI + YAĞMUR */
+(function(){
+  const mainTimer = document.getElementById("focusTimer");
+  const screenTimer = document.getElementById("focusScreenTimer");
+  const visual = document.getElementById("focusVisualLayer");
+  const rain = document.getElementById("focusWindowRain");
+
+  if(!mainTimer || !screenTimer) return;
+
+  function syncScreenTimer(){
+    screenTimer.textContent = mainTimer.textContent || "25:00";
+  }
+
+  const observer = new MutationObserver(syncScreenTimer);
+  observer.observe(mainTimer, { childList:true, characterData:true, subtree:true });
+  syncScreenTimer();
+
+  document.querySelectorAll(".focus-choice").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      const work = btn.dataset.work || "25";
+      screenTimer.textContent = String(work).padStart(2,"0") + ":00";
+    });
+  });
+
+  document.querySelectorAll(".focus-mode-card").forEach(function(card){
+    card.addEventListener("click", function(){
+      const work = card.dataset.work || "25";
+      screenTimer.textContent = String(work).padStart(2,"0") + ":00";
+    });
+  });
+
+  function updateRain(){
+    if(!visual || !rain) return;
+    if(visual.classList.contains("bg-rain")){
+      rain.classList.add("active");
+    }else{
+      rain.classList.remove("active");
+    }
+  }
+
+  document.querySelectorAll(".focus-bg-choice,.atmo-card,.focus-mode-card").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      setTimeout(updateRain, 80);
+    });
+  });
+
+  updateRain();
+})();
