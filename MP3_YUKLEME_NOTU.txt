@@ -1,0 +1,19 @@
+MP3 DOSYA ADLARI
+
+Bu paket MP3 dosyalarını içermez; indirme hatası yaşamamak için MP3'leri ayrıca yükle.
+
+GitHub'a şu isimlerle yükle:
+- focus-piano.mp3
+- focus-relax.mp3
+- focus-jazz.mp3
+
+Senin dosyaları şu şekilde yeniden adlandır:
+1) playlist for studying...writing...  => focus-piano.mp3
+2) music for study...relax...meditation => focus-relax.mp3
+3) Relaxing Autumn Jazz... => focus-jazz.mp3
+
+Görseller paketin içindedir:
+- focus-desk.png
+- focus-rain.png
+- focus-space.png
+- focus-minimal.png

@@ -550,3 +550,139 @@ body.light-theme .focus-audio-note{color:#334155!important}
 .focus-stage-screen{min-height:210px}
 }
 @media(max-width:390px){.focus-screen-timer{font-size:26px}}
+
+
+/* FOCUS SADELEŞTİRME VE ÇERÇEVE DÜZELTME */
+.focus-clean-layout{
+display:grid;
+grid-template-columns:1fr 340px;
+gap:18px;
+align-items:start;
+margin-top:16px;
+}
+
+.focus-clean-panel{
+position:sticky;
+top:96px;
+}
+
+.focus-preset-section,
+.focus-youtube-card{
+margin-top:18px;
+border-radius:30px;
+background:rgba(2,6,23,.74);
+border:1px solid rgba(148,163,184,.20);
+box-shadow:0 20px 48px rgba(0,0,0,.34);
+backdrop-filter:blur(18px);
+padding:20px;
+}
+
+.focus-preset-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+}
+
+.focus-youtube-card{
+display:grid;
+grid-template-columns:1fr 420px;
+gap:18px;
+align-items:center;
+}
+
+.focus-youtube-card h2{
+font-family:Montserrat,Inter,sans-serif;
+font-size:24px;
+margin-bottom:6px;
+}
+
+.focus-youtube-card p{
+color:#dbeafe;
+line-height:1.55;
+}
+
+.focus-mode-card{
+overflow:hidden !important;
+}
+
+.focus-mode-card.active::before{
+inset:6px !important;
+border-radius:16px !important;
+border:2px solid rgba(250,204,21,.78) !important;
+}
+
+.focus-mode-card.active{
+outline:none !important;
+}
+
+.focus-atmosphere-strip{
+display:none !important;
+}
+
+.focus-option-card:has(.focus-sound-choice){
+display:none !important;
+}
+
+.focus-stage-screen{
+overflow:hidden !important;
+}
+
+body.light-theme .focus-preset-section,
+body.light-theme .focus-youtube-card{
+background:rgba(255,255,255,.90)!important;
+color:#0f172a!important;
+border-color:rgba(15,23,42,.14)!important;
+}
+
+body.light-theme .focus-youtube-card p{
+color:#334155!important;
+}
+
+@media(max-width:900px){
+.focus-clean-layout{
+grid-template-columns:1fr;
+gap:10px;
+margin-top:8px;
+}
+
+.focus-clean-panel{
+position:relative;
+top:0;
+}
+
+.focus-preset-section,
+.focus-youtube-card{
+padding:10px;
+border-radius:18px;
+margin-top:10px;
+}
+
+.focus-preset-cards{
+display:flex;
+overflow-x:auto;
+gap:8px;
+padding:2px 2px 8px;
+}
+
+.focus-preset-cards .focus-mode-card{
+min-width:210px;
+}
+
+.focus-mode-card.active::before{
+inset:5px !important;
+border-radius:13px !important;
+}
+
+.focus-youtube-card{
+grid-template-columns:1fr;
+gap:10px;
+}
+
+.focus-youtube-card h2{
+font-size:17px;
+}
+
+.focus-youtube-card p{
+font-size:12px;
+}
+}

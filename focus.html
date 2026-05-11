@@ -6,10 +6,10 @@
 <section class="focus-studio-hero">
   <span class="focus-studio-badge">SEZR FOCUS ROOM</span>
   <h1>Odak Modunu Seç ve Çalışmaya Başla</h1>
-  <p>Görsel atmosferini, çalışma müziğini ve pomodoro süreni seç. Başlat butonuna bastığında müzik süre boyunca döngüde çalar, süre bitince durur.</p>
+  <p>Önce çalışma süreni belirle, sonra atmosfer ve müziği seç. Başlat dediğinde sayaç ve müzik birlikte çalışır.</p>
 </section>
 
-<section class="focus-studio focus-audio-visual-layout">
+<section class="focus-clean-layout">
   <div class="focus-stage-card">
     <div class="focus-stage-top">
       <div>
@@ -21,31 +21,15 @@
 
     <div class="focus-stage-screen" id="focusMainScreen">
       <iframe id="focusVideoFrame" title="Focus Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
       <div class="focus-visual-layer bg-desk" id="focusVisualLayer">
         <div class="focus-window-rain" id="focusWindowRain"></div>
         <div class="focus-screen-timer" id="focusScreenTimer">25:00</div>
         <div class="focus-quote" id="focusQuote">Bir soru daha çöz.</div>
       </div>
     </div>
-
-    <div class="focus-atmosphere-strip">
-      <button class="atmo-card active" data-bg="desk" data-img="focus-desk.png" data-title="Loş Masa">
-        <span style="background-image:url('focus-desk.png')"></span><b>Loş Masa</b>
-      </button>
-      <button class="atmo-card" data-bg="rain" data-img="focus-rain.png" data-title="Yağmurlu">
-        <span style="background-image:url('focus-rain.png')"></span><b>Yağmurlu</b>
-      </button>
-      <button class="atmo-card" data-bg="space" data-img="focus-space.png" data-title="Uzay">
-        <span style="background-image:url('focus-space.png')"></span><b>Uzay</b>
-      </button>
-      <button class="atmo-card" data-bg="minimal" data-img="focus-minimal.png" data-title="Minimal">
-        <span style="background-image:url('focus-minimal.png')"></span><b>Minimal</b>
-      </button>
-    </div>
   </div>
 
-  <aside class="focus-control-studio">
+  <aside class="focus-control-studio focus-clean-panel">
     <div class="focus-timer-card">
       <div class="focus-timer-ring" id="focusTimerRing">
         <div class="focus-timer-value" id="focusTimer">25:00</div>
@@ -70,25 +54,6 @@
     </div>
 
     <div class="focus-option-card">
-      <h3>🎧 Çalışma Müziği</h3>
-      <div class="focus-choice-grid">
-        <button class="focus-sound-choice active" data-sound="piano" data-audio="focus-piano.mp3">Piyano</button>
-        <button class="focus-sound-choice" data-sound="rain" data-audio="focus-relax.mp3">Yağmur</button>
-        <button class="focus-sound-choice" data-sound="jazz" data-audio="focus-jazz.mp3">Jazz</button>
-        <button class="focus-sound-choice" data-sound="silent" data-audio="">Sessiz</button>
-      </div>
-      <div class="focus-audio-note" id="focusAudioNote">Piyano seçili. Başlatınca süre boyunca çalar.</div>
-    </div>
-
-    <div class="focus-option-card">
-      <h3>🎬 YouTube Focus</h3>
-      <div class="focus-input-row">
-        <input id="focusVideoUrl" placeholder="İsteğe bağlı YouTube video linki">
-        <button id="focusSave">Aç</button>
-      </div>
-    </div>
-
-    <div class="focus-option-card">
       <h3>🎯 Sayaç Görünümü</h3>
       <div class="focus-choice-grid">
         <button class="focus-view-choice active" data-view="circle">Daire</button>
@@ -100,25 +65,36 @@
   </aside>
 </section>
 
-<section class="focus-library-studio">
+<section class="focus-preset-section">
   <div class="focus-library-title">
-    <h2>Hazır Çalışma Kombinleri</h2>
-    <p>Tek dokunuşla süre, görsel ve müzik birlikte seçilir.</p>
+    <h2>Atmosfer ve Müzik Seçimi</h2>
+    <p>Her kart görsel atmosferi ve müziği birlikte ayarlar. İstersen sadece sessiz çalışma modunu seçebilirsin.</p>
   </div>
 
-  <div class="focus-mode-cards">
-    <button class="focus-mode-card active" data-title="Loş Masa" data-bg="desk" data-img="focus-desk.png" data-work="25" data-break="5" data-audio="focus-piano.mp3" data-sound="piano">
-      <span>☕</span><strong>Loş Masa + Piyano</strong><small>25 dakika sakin çalışma</small>
+  <div class="focus-mode-cards focus-preset-cards">
+    <button class="focus-mode-card active" data-title="Loş Masa" data-bg="desk" data-img="focus-desk.png" data-work="" data-break="" data-audio="focus-piano.mp3" data-sound="piano">
+      <span>☕</span><strong>Loş Masa + Piyano</strong><small>Sakin çalışma atmosferi</small>
     </button>
-    <button class="focus-mode-card" data-title="Yağmurlu Focus" data-bg="rain" data-img="focus-rain.png" data-work="35" data-break="10" data-audio="focus-relax.mp3" data-sound="rain">
-      <span>🌧</span><strong>Yağmurlu + Yağmur</strong><small>Pencerede yağmur efekti ve sakin ses</small>
+    <button class="focus-mode-card" data-title="Yağmurlu Focus" data-bg="rain" data-img="focus-rain.png" data-work="" data-break="" data-audio="focus-relax.mp3" data-sound="rain">
+      <span>🌧</span><strong>Yağmurlu + Relax</strong><small>Pencerede yağmur efekti</small>
     </button>
-    <button class="focus-mode-card" data-title="Uzay Modu" data-bg="space" data-img="focus-space.png" data-work="45" data-break="15" data-audio="focus-piano.mp3" data-sound="piano">
+    <button class="focus-mode-card" data-title="Uzay Modu" data-bg="space" data-img="focus-space.png" data-work="" data-break="" data-audio="focus-piano.mp3" data-sound="piano">
       <span>🚀</span><strong>Uzay + Piyano</strong><small>Derin odak çalışması</small>
     </button>
-    <button class="focus-mode-card" data-title="Minimal" data-bg="minimal" data-img="focus-minimal.png" data-work="25" data-break="5" data-audio="" data-sound="silent">
-      <span>🧘</span><strong>Minimal + Sessiz</strong><small>Sadece sayaç ve sade atmosfer</small>
+    <button class="focus-mode-card" data-title="Minimal" data-bg="minimal" data-img="focus-minimal.png" data-work="" data-break="" data-audio="" data-sound="silent">
+      <span>🧘</span><strong>Minimal + Sessiz</strong><small>Sade ve sessiz çalışma</small>
     </button>
+  </div>
+</section>
+
+<section class="focus-youtube-card">
+  <div>
+    <h2>YouTube Focus</h2>
+    <p>İstersen kendi focus videonu da çalışma ekranında açabilirsin.</p>
+  </div>
+  <div class="focus-input-row">
+    <input id="focusVideoUrl" placeholder="İsteğe bağlı YouTube video linki">
+    <button id="focusSave">Aç</button>
   </div>
 </section>
 
