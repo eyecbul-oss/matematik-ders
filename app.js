@@ -250,3 +250,49 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
   const goal=document.getElementById("focusGoal"), quote=document.getElementById("focusQuote");
   if(goal&&quote){goal.addEventListener("change",function(){if(goal.value.trim())quote.textContent=goal.value.trim();});}
 })();
+
+
+/* LOŞ MASA DASHBOARD ETKİLEŞİMLERİ */
+(function(){
+  const heroStart = document.getElementById("focusHeroStart");
+  const playerStart = document.getElementById("losPlayerStart");
+  const focusStart = document.getElementById("focusStart");
+  const goal = document.getElementById("focusGoal");
+  const quote = document.getElementById("focusQuote");
+  const screenTimer = document.getElementById("focusScreenTimer");
+  const mainTimer = document.getElementById("focusTimer");
+
+  function syncLaptopTimer(){
+    if(screenTimer && mainTimer) screenTimer.textContent = mainTimer.textContent || "25:00";
+  }
+
+  if(mainTimer && screenTimer){
+    syncLaptopTimer();
+    new MutationObserver(syncLaptopTimer).observe(mainTimer,{childList:true,subtree:true,characterData:true});
+  }
+
+  if(heroStart && focusStart){
+    heroStart.addEventListener("click", function(){
+      focusStart.click();
+      window.scrollTo({top:document.querySelector(".los-top-controls").offsetTop - 80, behavior:"smooth"});
+    });
+  }
+
+  if(playerStart && focusStart){
+    playerStart.addEventListener("click", function(){
+      focusStart.click();
+    });
+  }
+
+  if(goal && quote){
+    goal.addEventListener("input", function(){
+      if(goal.value.trim()) quote.textContent = goal.value.trim();
+    });
+  }
+
+  document.querySelectorAll(".focus-choice").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      setTimeout(syncLaptopTimer, 60);
+    });
+  });
+})();

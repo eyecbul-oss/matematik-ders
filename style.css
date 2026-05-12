@@ -928,3 +928,532 @@ body.light-theme .yt-player-card,body.light-theme .yt-section{background:rgba(25
 @media(max-width:900px){.dash-focus-hero{min-height:500px;grid-template-columns:1fr;padding:30px 18px;background:linear-gradient(180deg,rgba(2,6,23,.94) 0%,rgba(2,6,23,.62) 50%,rgba(2,6,23,.25) 100%),url("sezr-focus-dashboard-concept.png") center/cover no-repeat}.dash-hero-copy h1{font-size:44px}.dash-hero-copy p{font-size:17px}.dash-hero-scene{min-height:170px}.dash-scene-timer{font-size:30px;right:12%;top:42%}.dash-scene-glow{width:120px;height:120px;right:6%;top:36%;border-width:7px}.dash-options,.dash-focus-player,.dash-more-modes{border-radius:22px;padding:12px}.dash-section-title{display:block}.dash-env-row,.dash-env-row.small{display:flex;gap:10px;overflow-x:auto}.dash-env-card{min-width:150px;min-height:174px}.env-img{height:82px}.dash-controls-grid{grid-template-columns:1fr;gap:13px}.dash-focus-player{grid-template-columns:1fr}.dash-sticky-player{position:relative;top:0}.dash-focus-player .focus-stage-screen{min-height:260px}.yt-player{aspect-ratio:16/10!important;max-height:245px!important}.yt-player-card{padding:10px!important}.yt-player-top strong{font-size:14px!important}.yt-player-top span{font-size:11px!important}}
 @media(max-width:430px){.dash-focus-hero{min-height:455px}.dash-hero-copy h1{font-size:38px}.dash-env-card{min-width:142px}.yt-player{max-height:215px!important}}
 body.light-theme .dash-options,body.light-theme .dash-focus-player,body.light-theme .dash-more-modes,body.light-theme .dash-sticky-player{background:rgba(255,255,255,.90)!important;color:#0f172a!important;border-color:rgba(15,23,42,.14)!important}body.light-theme .dash-env-card,body.light-theme .dash-pill-row button,body.light-theme .dash-goal-input{background:rgba(255,255,255,.92)!important;color:#0f172a!important;border-color:rgba(15,23,42,.14)!important}body.light-theme .dash-env-card small,body.light-theme .dash-section-title p{color:#334155!important}
+
+
+/* LOŞ MASA BİREBİR DASHBOARD TASARIMI */
+.los-focus-page{
+  --los-bg:#050b12;
+  --los-card:rgba(7,15,24,.86);
+  --los-card2:rgba(9,18,29,.78);
+  --los-border:rgba(148,163,184,.18);
+  --los-yellow:#facc15;
+  --los-red:#ef3340;
+  padding-top:10px;
+}
+
+.los-hero{
+  position:relative;
+  min-height:640px;
+  border-radius:0;
+  overflow:hidden;
+  margin:0 calc(50% - 50vw);
+  padding:82px max(24px,calc((100vw - 1180px)/2)) 42px;
+  background:
+    linear-gradient(90deg,rgba(2,6,23,.94) 0%,rgba(2,6,23,.62) 38%,rgba(2,6,23,.22) 100%),
+    url("focus-desk.png") center/cover no-repeat,
+    linear-gradient(135deg,#020617,#0f172a);
+}
+
+.los-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 70% 50%,rgba(250,204,21,.12),transparent 20%),
+    linear-gradient(180deg,transparent 72%,#050b12 100%);
+  pointer-events:none;
+}
+
+.los-hero-text{
+  position:relative;
+  z-index:2;
+  max-width:360px;
+  color:white;
+}
+
+.los-icon{
+  color:var(--los-yellow);
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.los-hero-text h1{
+  font-family:Montserrat,Inter,sans-serif;
+  font-size:56px;
+  line-height:1;
+  margin:0 0 18px;
+  letter-spacing:-.04em;
+}
+
+.los-hero-text p{
+  font-size:20px;
+  line-height:1.55;
+  color:#f8fafc;
+  text-shadow:0 2px 18px rgba(0,0,0,.58);
+}
+
+.los-laptop-timer{
+  position:absolute;
+  z-index:3;
+  left:50%;
+  top:45%;
+  transform:translate(-50%,-50%);
+  width:210px;
+  height:210px;
+  display:grid;
+  place-items:center;
+  pointer-events:none;
+}
+
+.laptop-ring{
+  width:142px;
+  height:142px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  border:10px solid rgba(255,255,255,.16);
+  border-top-color:var(--los-yellow);
+  border-right-color:var(--los-yellow);
+  color:white;
+  background:rgba(2,6,23,.62);
+  box-shadow:0 0 35px rgba(0,0,0,.40);
+}
+
+.laptop-ring span{
+  font-size:28px;
+  font-weight:900;
+  font-family:Montserrat,Inter,sans-serif;
+}
+
+.laptop-ring small{
+  font-size:10px;
+  color:#e5e7eb;
+}
+
+.los-laptop-timer button{
+  margin-top:-28px;
+  border:0;
+  border-radius:999px;
+  background:var(--los-yellow);
+  color:#020617;
+  padding:7px 18px;
+  font-weight:900;
+  pointer-events:auto;
+}
+
+.los-info-card{
+  position:absolute;
+  z-index:3;
+  right:max(24px,calc((100vw - 1180px)/2));
+  top:230px;
+  width:270px;
+  border:1px solid var(--los-border);
+  background:rgba(7,15,24,.72);
+  backdrop-filter:blur(16px);
+  border-radius:22px;
+  padding:22px;
+  color:white;
+}
+
+.los-info-card h3,.los-info-panel h3,.los-stat-card h3,.los-motivation-card h3{
+  margin:0 0 18px;
+  font-size:18px;
+  font-weight:900;
+}
+
+.los-info-card div,.info-row{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  margin:18px 0;
+}
+
+.los-info-card b,.info-row b,.stat-grid b{
+  color:var(--los-yellow);
+  display:grid;
+  place-items:center;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(250,204,21,.08);
+  flex:0 0 auto;
+}
+
+.los-info-card span,.info-row span,.stat-grid span{
+  display:grid;
+  gap:3px;
+  color:white;
+}
+
+.los-info-card small,.info-row small,.stat-grid small{
+  color:#94a3b8;
+  font-size:12px;
+}
+
+.los-top-controls{
+  display:grid;
+  grid-template-columns:1fr 1.05fr 1fr;
+  gap:14px;
+  margin-top:-26px;
+  position:relative;
+  z-index:5;
+}
+
+.los-control-card,.los-timer-card,.los-info-panel,.los-stat-card,.los-motivation-card,.los-player-bar{
+  border:1px solid var(--los-border);
+  background:linear-gradient(135deg,rgba(12,24,37,.92),rgba(5,12,20,.88));
+  border-radius:18px;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+  color:white;
+}
+
+.los-control-card{
+  padding:20px;
+}
+
+.los-control-card h3{
+  margin:0 0 15px;
+  font-size:16px;
+  font-weight:900;
+}
+
+.los-control-card h3 small{
+  color:#94a3b8;
+  font-weight:600;
+}
+
+.los-pills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.los-pills button,.los-view-grid button{
+  border:1px solid rgba(148,163,184,.16);
+  border-radius:12px;
+  background:rgba(2,6,23,.58);
+  color:white;
+  padding:12px 16px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.los-pills button.active,.los-view-grid button.active{
+  background:var(--los-yellow)!important;
+  color:#020617!important;
+  border-color:var(--los-yellow)!important;
+  box-shadow:0 0 20px rgba(250,204,21,.22);
+}
+
+.los-input{
+  width:100%;
+  border:1px solid rgba(148,163,184,.18);
+  background:rgba(2,6,23,.48);
+  color:white;
+  border-radius:14px;
+  padding:15px 16px;
+  outline:none;
+}
+
+.los-main-grid{
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  gap:14px;
+  margin-top:14px;
+}
+
+.los-timer-card{
+  padding:30px;
+  min-height:270px;
+}
+
+.los-big-time{
+  font-family:Montserrat,Inter,sans-serif;
+  font-size:64px;
+  font-weight:900;
+  text-align:center;
+  line-height:1;
+  margin-top:8px;
+}
+
+.los-status{
+  text-align:center;
+  color:#f8fafc;
+  font-size:18px;
+  font-weight:800;
+  margin:10px 0 28px;
+}
+
+.los-action-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:18px;
+}
+
+.los-action-grid .studio-btn{
+  border-radius:14px;
+  padding:16px 18px;
+  font-size:15px;
+}
+
+.los-action-grid .studio-btn.primary{
+  background:linear-gradient(180deg,#facc15,#eab308)!important;
+  color:#020617!important;
+}
+
+.los-action-grid .studio-btn.danger{
+  background:linear-gradient(180deg,#ef3340,#be1f2c)!important;
+}
+
+.los-view-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:18px;
+  margin-top:18px;
+}
+
+.los-info-panel{
+  padding:26px;
+}
+
+.los-stat-card,.los-motivation-card{
+  padding:24px;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
+
+.stat-grid div{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.quote-box{
+  position:relative;
+  min-height:120px;
+  border:1px solid rgba(148,163,184,.12);
+  background:rgba(15,23,42,.45);
+  border-radius:16px;
+  padding:24px;
+}
+
+.quote-box p{
+  margin:0 0 16px;
+  font-size:17px;
+  line-height:1.55;
+}
+
+.quote-box b{
+  position:absolute;
+  right:24px;
+  top:20px;
+  color:var(--los-yellow);
+  font-size:50px;
+}
+
+.los-player-bar{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:48px 1fr auto auto auto auto 1fr;
+  gap:16px;
+  align-items:center;
+  padding:14px 18px;
+}
+
+.mini-cover{
+  width:48px;
+  height:48px;
+  border-radius:12px;
+  background:url("focus-desk.png") center/cover;
+}
+
+.los-player-bar strong,.los-player-bar small{
+  display:block;
+}
+
+.los-player-bar small{
+  color:#94a3b8;
+  margin-top:4px;
+}
+
+.los-player-bar button{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid rgba(148,163,184,.24);
+  background:rgba(2,6,23,.46);
+  color:white;
+  font-weight:900;
+  font-size:18px;
+}
+
+.los-player-bar button#losPlayerStart{
+  width:58px;
+  height:58px;
+  font-size:24px;
+}
+
+.volume{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:14px;
+}
+
+.volume span{
+  display:block;
+  width:150px;
+  height:5px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--los-yellow) 68%,rgba(148,163,184,.20) 68%);
+}
+
+.hidden-focus-stage{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.los-youtube-hidden{
+  margin-top:14px;
+}
+
+@media(max-width:900px){
+  .los-hero{
+    min-height:560px;
+    padding:56px 20px 34px;
+    background:
+      linear-gradient(180deg,rgba(2,6,23,.90) 0%,rgba(2,6,23,.42) 44%,rgba(2,6,23,.78) 100%),
+      url("focus-desk.png") center/cover no-repeat;
+  }
+
+  .los-hero-text h1{
+    font-size:44px;
+  }
+
+  .los-hero-text p{
+    font-size:17px;
+    max-width:310px;
+  }
+
+  .los-laptop-timer{
+    left:54%;
+    top:52%;
+    transform:translate(-50%,-50%) scale(.78);
+  }
+
+  .los-info-card{
+    display:none;
+  }
+
+  .los-top-controls{
+    grid-template-columns:1fr;
+    margin-top:14px;
+  }
+
+  .los-main-grid{
+    grid-template-columns:1fr;
+  }
+
+  .los-timer-card{
+    padding:24px 18px;
+  }
+
+  .los-big-time{
+    font-size:56px;
+  }
+
+  .los-action-grid,.los-view-grid{
+    gap:12px;
+  }
+
+  .los-action-grid .studio-btn{
+    padding:14px 8px;
+    font-size:13px;
+  }
+
+  .stat-grid{
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+  }
+
+  .los-player-bar{
+    grid-template-columns:44px 1fr auto auto auto;
+    gap:10px;
+    padding:12px;
+  }
+
+  .los-player-bar button:nth-of-type(1),
+  .los-player-bar button:nth-of-type(2),
+  .volume{
+    display:none;
+  }
+
+  .los-player-bar button#losPlayerStart{
+    width:50px;
+    height:50px;
+  }
+}
+
+@media(max-width:430px){
+  .los-hero{
+    min-height:510px;
+  }
+
+  .los-hero-text h1{
+    font-size:40px;
+  }
+
+  .los-laptop-timer{
+    top:55%;
+    transform:translate(-50%,-50%) scale(.68);
+  }
+
+  .los-pills button{
+    padding:10px 12px;
+    font-size:12px;
+  }
+
+  .los-big-time{
+    font-size:48px;
+  }
+
+  .los-control-card,.los-info-panel,.los-stat-card,.los-motivation-card{
+    border-radius:16px;
+  }
+}
+
+body.light-theme .los-control-card,
+body.light-theme .los-timer-card,
+body.light-theme .los-info-panel,
+body.light-theme .los-stat-card,
+body.light-theme .los-motivation-card,
+body.light-theme .los-player-bar{
+  background:rgba(255,255,255,.92)!important;
+  color:#0f172a!important;
+  border-color:rgba(15,23,42,.14)!important;
+}
+
+body.light-theme .los-status,
+body.light-theme .los-info-card span,
+body.light-theme .info-row span,
+body.light-theme .stat-grid span{
+  color:#0f172a!important;
+}
+
+body.light-theme .quote-box,
+body.light-theme .los-input,
+body.light-theme .los-pills button,
+body.light-theme .los-view-grid button{
+  background:#fff!important;
+  color:#0f172a!important;
+}

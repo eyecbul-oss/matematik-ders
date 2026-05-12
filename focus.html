@@ -3,67 +3,155 @@
 <meta property="og:title" content="SezR Matematik | Yaz Dersleri"><meta property="og:description" content="Matematikte eksiklerini kapat, yeni döneme güçlü başla."><meta property="og:image" content="https://eyecbul-oss.github.io/matematik-ders/preview.jpg?v=9"><meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"></head>
 <body><div class="container"><header class="topbar"><div class="logo">Sez<span>R</span> Matematik</div><nav class="nav"><a class="" href="index.html">Ana Sayfa</a><a class="" href="dersler.html">Derslerim</a><a class="" href="youtube.html">YouTube</a><a class="" href="pdf.html">PDF</a><a class="active" href="focus.html">Focus</a><a class="" href="iletisim.html">Kayıt</a></nav></header>
-<section class="dash-focus-hero">
-  <div class="dash-hero-copy">
-    <span class="dash-badge">SEZR FOCUS ROOM</span>
-    <h1>Focus <span>Room</span></h1>
-    <p>Dikkatini topla, zamanı yönet, hedeflerine odaklan.</p>
-    <div class="dash-hero-actions">
-      <button class="dash-play" id="focusHeroStart" type="button"><b>▶</b> Odaklan ve Başla</button>
-      <button class="dash-ghost" id="focusHeroBreak" type="button">☕ Kısa Mola</button>
+<section class="los-focus-page">
+  <section class="los-hero">
+    <div class="los-hero-overlay"></div>
+
+    <div class="los-hero-text">
+      <div class="los-icon">Ϟ</div>
+      <h1>Loş Masa</h1>
+      <p>Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
     </div>
-  </div>
-  <div class="dash-hero-scene"><div class="dash-scene-timer">25:00</div><div class="dash-scene-glow"></div></div>
-</section>
 
-<section class="dash-options">
-  <div class="dash-section-title"><h2>Ortamını Seç ✨</h2><p>Görsel atmosfer ve müzik tek karttan ayarlanır.</p></div>
-  <div class="dash-env-row">
-    <button class="focus-mode-card dash-env-card active" data-title="Loş Masa" data-bg="desk" data-img="focus-desk.png" data-audio="focus-piano.mp3" data-sound="piano"><span class="env-img" style="background-image:url('focus-desk.png')"></span><strong>Loş Masa</strong><small>Sakin ve loş çalışma ortamı</small></button>
-    <button class="focus-mode-card dash-env-card" data-title="Yağmurlu Gece" data-bg="rain" data-img="focus-rain.png" data-audio="focus-relax.mp3" data-sound="rain"><span class="env-img" style="background-image:url('focus-rain.png')"></span><strong>Yağmurlu Gece</strong><small>Yağmur efektiyle odaklan</small></button>
-    <button class="focus-mode-card dash-env-card" data-title="Uzay" data-bg="space" data-img="focus-space.png" data-audio="focus-piano.mp3" data-sound="piano"><span class="env-img" style="background-image:url('focus-space.png')"></span><strong>Uzay</strong><small>Derin çalışma modu</small></button>
-    <button class="focus-mode-card dash-env-card" data-title="Minimal" data-bg="minimal" data-img="focus-minimal.png" data-audio="" data-sound="silent"><span class="env-img" style="background-image:url('focus-minimal.png')"></span><strong>Minimal</strong><small>Sade ve sessiz ortam</small></button>
-    <button class="focus-mode-card dash-env-card future" data-title="Kafe" data-bg="desk" data-img="focus-desk.png" data-audio="focus-jazz.mp3" data-sound="jazz"><span class="env-img"></span><strong>Kafe</strong><small>Jazz atmosferi</small></button>
-  </div>
-
-  <div class="dash-controls-grid">
-    <div class="dash-control-block"><h3>Süre Seç ✨</h3><div class="dash-pill-row">
-      <button class="focus-choice active" data-work="25" data-break="5">25 dk</button><button class="focus-choice" data-work="50" data-break="10">50 dk</button><button class="focus-choice" data-work="75" data-break="15">75 dk</button><button class="focus-choice" data-work="100" data-break="20">100 dk</button>
-    </div></div>
-    <div class="dash-control-block"><h3>Müzik Seç ✨</h3><div class="dash-pill-row">
-      <button class="focus-sound-choice active" data-sound="piano" data-audio="focus-piano.mp3">🔊 Piyano</button><button class="focus-sound-choice" data-sound="rain" data-audio="focus-relax.mp3">Yağmur</button><button class="focus-sound-choice" data-sound="jazz" data-audio="focus-jazz.mp3">Jazz</button><button class="focus-sound-choice" data-sound="silent" data-audio="">Yok</button>
-    </div><div class="focus-audio-note" id="focusAudioNote">Piyano seçili. Başlatınca süre boyunca çalar.</div></div>
-    <div class="dash-control-block"><h3>Hedef Belirle</h3><input class="dash-goal-input" id="focusGoal" placeholder="Bugün neyi başarmak istiyorsun?"></div>
-  </div>
-</section>
-
-<section class="dash-focus-player">
-  <div class="focus-stage-card">
-    <div class="focus-stage-top">
-      <div><strong id="focusModeTitle">Loş Masa</strong><span id="focusNowPlaying">Piyano çalışma atmosferi hazır</span></div>
-      <button class="focus-fullscreen-btn" id="focusFullscreenBtn" type="button">⛶ Tam Ekran</button><div class="focus-session-pill" id="focusSessionPill">25 / 5</div>
+    <div class="los-laptop-timer">
+      <div class="laptop-ring">
+        <span id="focusScreenTimer">25:00</span>
+        <small>Odak Süresi</small>
+      </div>
+      <button id="focusHeroStart" type="button">Başlat</button>
     </div>
-    <div class="focus-stage-screen" id="focusMainScreen">
-      <iframe id="focusVideoFrame" title="Focus Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div class="focus-visual-layer bg-desk" id="focusVisualLayer"><div class="focus-window-rain" id="focusWindowRain"></div><div class="focus-quote" id="focusQuote">Bir soru daha çöz.</div></div>
+
+    <div class="los-info-card">
+      <h3>Ortam Bilgisi</h3>
+      <div><b>⚚</b><span><small>Ortam</small>Loş Masa</span></div>
+      <div><b>〽</b><span><small>Ses</small>Hafif yağmur sesi</span></div>
+      <div><b>☼</b><span><small>Aydınlatma</small>Loş</span></div>
+      <div><b>◉</b><span><small>Zorluk</small>Orta</span></div>
     </div>
-  </div>
-  <aside class="dash-sticky-player">
-    <div class="focus-timer-ring" id="focusTimerRing"><div class="focus-timer-value" id="focusTimer">25:00</div><div class="focus-timer-status" id="focusStatus">Odak modu hazır</div></div>
-    <div class="focus-main-actions"><button class="studio-btn primary" id="focusStart">Başlat</button><button class="studio-btn" id="focusPause">Duraklat</button><button class="studio-btn danger" id="focusReset">Sıfırla</button></div>
-    <div class="dash-view-row"><button class="focus-view-choice active" data-view="circle">Daire</button><button class="focus-view-choice" data-view="compact">Kompakt</button><button class="focus-view-choice" data-view="clean">Sade</button></div>
-  </aside>
+  </section>
+
+  <section class="los-top-controls">
+    <div class="los-control-card">
+      <h3>Süre Seç</h3>
+      <div class="los-pills">
+        <button class="focus-choice active" data-work="25" data-break="5">25 dk</button>
+        <button class="focus-choice" data-work="50" data-break="10">50 dk</button>
+        <button class="focus-choice" data-work="75" data-break="15">75 dk</button>
+        <button class="focus-choice" data-work="100" data-break="20">100 dk</button>
+      </div>
+    </div>
+
+    <div class="los-control-card">
+      <h3>Müzik Seç 🎵</h3>
+      <div class="los-pills">
+        <button class="focus-sound-choice active" data-sound="piano" data-audio="focus-piano.mp3">Piyano</button>
+        <button class="focus-sound-choice" data-sound="rain" data-audio="focus-relax.mp3">Lo-fi</button>
+        <button class="focus-sound-choice" data-sound="jazz" data-audio="focus-jazz.mp3">Jazz</button>
+        <button class="focus-sound-choice" data-sound="nature" data-audio="focus-relax.mp3">Doğa</button>
+        <button class="focus-sound-choice" data-sound="silent" data-audio="">Yok</button>
+      </div>
+      <div class="focus-audio-note" id="focusAudioNote">Piyano seçili. Başlatınca çalmaya başlar.</div>
+    </div>
+
+    <div class="los-control-card">
+      <h3>Hedef Belirle <small>(İsteğe Bağlı)</small></h3>
+      <input id="focusGoal" class="los-input" placeholder="Bugün neyi başarmak istiyorsun?">
+    </div>
+  </section>
+
+  <section class="los-main-grid">
+    <div class="los-timer-card">
+      <div class="los-big-time" id="focusTimer">25:00</div>
+      <div class="los-status" id="focusStatus">Odak modu hazır</div>
+
+      <div class="los-action-grid">
+        <button class="studio-btn primary" id="focusStart">Başlat</button>
+        <button class="studio-btn" id="focusPause">Duraklat</button>
+        <button class="studio-btn danger" id="focusReset">Sıfırla</button>
+      </div>
+
+      <div class="los-view-grid">
+        <button class="focus-view-choice active" data-view="circle">Daire</button>
+        <button class="focus-view-choice" data-view="compact">Kompakt</button>
+        <button class="focus-view-choice" data-view="clean">Sade</button>
+      </div>
+
+      <div class="hidden-focus-stage">
+        <div class="focus-stage-card">
+          <div class="focus-stage-top">
+            <div>
+              <strong id="focusModeTitle">Loş Masa</strong>
+              <span id="focusNowPlaying">Piyano çalışma atmosferi hazır</span>
+            </div>
+            <button class="focus-fullscreen-btn" id="focusFullscreenBtn" type="button">⛶ Tam Ekran</button>
+            <div class="focus-session-pill" id="focusSessionPill">25 / 5</div>
+          </div>
+          <div class="focus-stage-screen" id="focusMainScreen">
+            <iframe id="focusVideoFrame" title="Focus Video" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <div class="focus-visual-layer bg-desk" id="focusVisualLayer">
+              <div class="focus-window-rain" id="focusWindowRain"></div>
+              <div class="focus-quote" id="focusQuote">Bir soru daha çöz.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="los-info-panel">
+      <h3>Ortam Bilgisi</h3>
+      <div class="info-row"><b>⚚</b><span><small>Ortam</small>Loş Masa</span></div>
+      <div class="info-row"><b>〽</b><span><small>Ses</small>Hafif yağmur sesi</span></div>
+      <div class="info-row"><b>☼</b><span><small>Aydınlatma</small>Loş</span></div>
+      <div class="info-row"><b>◉</b><span><small>Zorluk</small>Orta</span></div>
+    </div>
+
+    <div class="los-stat-card">
+      <h3>Odak İstatistikleri</h3>
+      <div class="stat-grid">
+        <div><b>⏱</b><span><small>Toplam Odak Süresi</small>12s 45dk</span></div>
+        <div><b>✣</b><span><small>Tamamlanan Seans</small>8</span></div>
+        <div><b>☾</b><span><small>En Uzun Odak</small>75 dk</span></div>
+        <div><b>⌁</b><span><small>Ortalama Süre</small>36 dk</span></div>
+      </div>
+    </div>
+
+    <div class="los-motivation-card">
+      <h3>Motivasyon</h3>
+      <div class="quote-box">
+        <p>"Başarı, küçük çabaların her gün tekrar edilmesiyle gelir."</p>
+        <small>— SezR</small>
+        <b>”</b>
+      </div>
+    </div>
+  </section>
+
+  <section class="los-player-bar">
+    <div class="mini-cover"></div>
+    <div>
+      <strong>Piyano Melodileri</strong>
+      <small>Odaklan, üret, başarmak senin elinde.</small>
+    </div>
+    <button type="button">⌘</button>
+    <button type="button">⏮</button>
+    <button type="button" id="losPlayerStart">▶</button>
+    <button type="button">⏭</button>
+    <div class="volume">🔊 <span></span></div>
+  </section>
+
+  <section class="focus-youtube-card los-youtube-hidden">
+    <div>
+      <h2>YouTube Focus</h2>
+      <p>İstersen kendi focus videonu da çalışma ekranında açabilirsin.</p>
+    </div>
+    <div class="focus-input-row">
+      <input id="focusVideoUrl" placeholder="İsteğe bağlı YouTube video linki">
+      <button id="focusSave">Aç</button>
+    </div>
+  </section>
+
+  <audio id="focusAudio" preload="auto"></audio>
+  <audio id="focusAudioWarmup" preload="auto" muted></audio>
 </section>
-
-<section class="dash-more-modes"><h2>Daha Fazlası: Focus Modları ✨</h2><div class="dash-env-row small">
-  <button class="dash-env-card future"><span class="env-img"></span><strong>Sahilde Gün Batımı</strong><small>Yakında</small></button>
-  <button class="dash-env-card future"><span class="env-img"></span><strong>Orman</strong><small>Yakında</small></button>
-  <button class="dash-env-card future"><span class="env-img"></span><strong>Kamp Ateşi</strong><small>Yakında</small></button>
-  <button class="dash-env-card future add"><span>＋</span><strong>Yakında</strong><small>Daha fazla mod</small></button>
-</div></section>
-
-<section class="focus-youtube-card"><div><h2>YouTube Focus</h2><p>İstersen kendi focus videonu da çalışma ekranında açabilirsin.</p></div><div class="focus-input-row"><input id="focusVideoUrl" placeholder="İsteğe bağlı YouTube video linki"><button id="focusSave">Aç</button></div></section>
-<audio id="focusAudio" preload="auto"></audio><audio id="focusAudioWarmup" preload="auto" muted></audio>
 <footer class="footer">SezR Matematik Sistemi © 2026</footer></div><nav class="quick">
 <a class="" href="index.html"><span>🏠</span>Ana</a>
 <a class="" href="dersler.html"><span>📖</span>Ders</a>
