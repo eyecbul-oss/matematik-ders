@@ -185,3 +185,57 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     navigator.serviceWorker.getRegistration().then(function(reg){if(reg)reg.update().catch(function(){});});
   }
 })();
+
+
+/* 1-4 PREMIUM GELİŞTİRME JS */
+(function(){
+  const focusScreen=document.getElementById("focusMainScreen");
+  if(focusScreen && !document.getElementById("studyToast")){
+    const toast=document.createElement("div");toast.id="studyToast";toast.className="study-toast";focusScreen.appendChild(toast);
+    const msgs=["Telefonu bırak, hedefe bak.","Bir soru daha çöz.","Ritmi bozma.","Bugünün emeği yarının gücü.","Odak sende."];let i=0;
+    setInterval(function(){if(!document.hidden){toast.textContent=msgs[i++%msgs.length];toast.classList.add("show");setTimeout(()=>toast.classList.remove("show"),2600);}},13000);
+  }
+
+  const ytFrame=document.getElementById("ytFrame");
+  if(ytFrame){
+    const title=document.getElementById("ytTitle"), desc=document.getElementById("ytDesc");
+    document.querySelectorAll(".yt-card").forEach(function(card){
+      card.addEventListener("click",function(){
+        document.querySelectorAll(".yt-card").forEach(c=>c.classList.remove("active"));card.classList.add("active");
+        ytFrame.src="https://www.youtube.com/embed/"+card.dataset.id+"?rel=0&modestbranding=1";
+        if(title)title.textContent=card.dataset.title;if(desc)desc.textContent=card.dataset.desc;
+        ytFrame.scrollIntoView({behavior:"smooth",block:"center"});
+      });
+    });
+    document.querySelectorAll(".yt-tab").forEach(function(tab){
+      tab.addEventListener("click",function(){
+        document.querySelectorAll(".yt-tab").forEach(t=>t.classList.remove("active"));tab.classList.add("active");
+        const f=tab.dataset.filter;
+        document.querySelectorAll(".yt-card").forEach(card=>{card.style.display=(f==="all"||card.dataset.cat===f)?"block":"none";});
+      });
+    });
+  }
+
+  if(!sessionStorage.getItem("sezrIntroSeen")){
+    const intro=document.createElement("div");intro.className="sezr-intro";
+    intro.innerHTML='<div class="intro-ring"></div><div class="intro-symbol s1">π</div><div class="intro-symbol s2">∫</div><div class="intro-symbol s3">√x</div><div class="intro-symbol s4">∞</div><div class="intro-logo">Sez<span>R</span> Matematik</div>';
+    document.body.appendChild(intro);sessionStorage.setItem("sezrIntroSeen","1");
+    setTimeout(()=>intro.classList.add("hide"),1450);setTimeout(()=>intro.remove(),2100);
+  }
+
+  document.body.classList.add("page-transition");
+  document.querySelectorAll("button,.btn,.nav a,.quick a,.yt-card,.focus-mode-card").forEach(function(el){
+    el.addEventListener("pointerdown",()=>el.classList.add("tap-active"));
+    el.addEventListener("pointerup",()=>el.classList.remove("tap-active"));
+    el.addEventListener("pointerleave",()=>el.classList.remove("tap-active"));
+  });
+
+  let deferredPrompt=null;
+  window.addEventListener("beforeinstallprompt",function(e){
+    e.preventDefault();deferredPrompt=e;if(document.getElementById("pwaInstallHint"))return;
+    const hint=document.createElement("div");hint.id="pwaInstallHint";hint.className="pwa-install-hint show";
+    hint.innerHTML='<span>SezR Matematik uygulama gibi açılsın mı?</span><button>Yükle</button>';document.body.appendChild(hint);
+    hint.querySelector("button").onclick=function(){hint.classList.remove("show");if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null;}};
+    setTimeout(()=>hint.classList.remove("show"),9000);
+  });
+})();
