@@ -1,209 +1,46 @@
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:Inter,sans-serif;
-background:#050816;
-color:white;
-}
-
-.hero{
-position:relative;
-min-height:70vh;
-padding:60px 24px;
-background:
-linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
-url('focus-desk.png') center/cover no-repeat;
-display:flex;
-align-items:flex-start;
-justify-content:space-between;
-overflow:hidden;
-}
-
-.overlay{
-position:absolute;
-inset:0;
-background:radial-gradient(circle at right,rgba(250,204,21,.15),transparent 30%);
-}
-
-.hero-left{
-position:relative;
-z-index:2;
-max-width:420px;
-}
-
-.badge{
-display:inline-block;
-padding:8px 16px;
-border:1px solid rgba(250,204,21,.4);
-border-radius:999px;
-margin-bottom:20px;
-color:#facc15;
-font-weight:800;
-}
-
-.hero h1{
-font-size:64px;
-font-weight:900;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:22px;
-line-height:1.6;
-color:#e2e8f0;
-}
-
-.laptop-timer{
-position:absolute;
-left:50%;
-top:58%;
-transform:translate(-50%,-50%);
-}
-
-.timer-ring{
-width:180px;
-height:180px;
-border-radius:50%;
-border:10px solid rgba(255,255,255,.15);
-border-top-color:#facc15;
-border-right-color:#facc15;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-backdrop-filter:blur(8px);
-background:rgba(0,0,0,.35);
-}
-
-.timer-ring span{
-font-size:38px;
-font-weight:900;
-}
-
-.dashboard{
-margin-top:-60px;
-padding:0 24px 40px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-position:relative;
-z-index:5;
-}
-
-.card,
-.timer-card{
-background:rgba(10,15,28,.95);
-border:1px solid rgba(255,255,255,.08);
-border-radius:24px;
-padding:24px;
-box-shadow:0 10px 40px rgba(0,0,0,.3);
-}
-
-.card h3{
-margin-bottom:18px;
-}
-
-.pills{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-}
-
-.pills button,
-.actions button{
-border:none;
-background:#0f172a;
-color:white;
-padding:12px 18px;
-border-radius:14px;
-font-weight:800;
-}
-
-.pills button.active,
-.yellow{
-background:#facc15!important;
-color:#111827!important;
-}
-
-.red{
-background:#ef4444!important;
-}
-
-input{
-width:100%;
-padding:14px;
-border-radius:14px;
-border:none;
-background:#111827;
-color:white;
-}
-
-.timer-card{
-grid-column:span 3;
-text-align:center;
-}
-
-.main-time{
-font-size:82px;
-font-weight:900;
-}
-
-.status{
-margin:10px 0 30px;
-color:#cbd5e1;
-}
-
-.actions{
-display:flex;
-justify-content:center;
-gap:16px;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--yellow:#facc15;--red:#ef3340;--bg:#050816;--card:rgba(8,16,27,.88);--border:rgba(148,163,184,.17)}
+body{font-family:Inter,Arial,sans-serif;background:#050816;color:#fff;min-height:100vh;padding-bottom:92px}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:14px auto 0;max-width:1180px;padding:15px 20px;background:rgba(2,6,23,.82);border:1px solid var(--border);border-radius:22px;backdrop-filter:blur(16px)}
+.brand{font-size:25px;font-weight:900}.brand span{color:var(--yellow)}
+nav{display:flex;gap:10px;overflow-x:auto}
+nav a{color:#fff;text-decoration:none;font-weight:800;padding:10px 14px;border-radius:999px;white-space:nowrap}
+nav a.active{color:var(--yellow);border:1px solid rgba(250,204,21,.45)}
+.focus-page{max-width:1180px;margin:auto;padding:0 14px}
+.hero{position:relative;min-height:640px;margin:14px calc(50% - 50vw) 0;padding:80px max(24px,calc((100vw - 1180px)/2));background:linear-gradient(90deg,rgba(2,6,23,.94),rgba(2,6,23,.45),rgba(2,6,23,.22)),url('focus-desk.png') center/cover no-repeat;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 75%,#050816);pointer-events:none}
+.heroText{position:relative;z-index:2;max-width:390px}
+.icon{font-size:46px;color:var(--yellow);font-weight:900;margin-bottom:12px}
+.hero h1{font-family:Montserrat,Inter,Arial,sans-serif;font-size:60px;line-height:1;margin-bottom:18px;letter-spacing:-.04em}
+.hero p{font-size:21px;line-height:1.58;color:#f8fafc;text-shadow:0 2px 16px #000}
+.laptopTimer{position:absolute;z-index:3;left:50%;top:49%;transform:translate(-50%,-50%);display:grid;place-items:center}
+.ring{width:160px;height:160px;border-radius:50%;border:10px solid rgba(255,255,255,.16);border-top-color:var(--yellow);border-right-color:var(--yellow);display:grid;place-items:center;align-content:center;background:rgba(2,6,23,.62);box-shadow:0 0 36px rgba(0,0,0,.42)}
+.ring span{font-size:32px;font-weight:900}.ring small{font-size:10px;color:#e5e7eb}
+.laptopTimer button{margin-top:-26px;border:0;border-radius:999px;padding:8px 20px;background:var(--yellow);font-weight:900;color:#020617}
+.heroInfo{position:absolute;right:max(24px,calc((100vw - 1180px)/2));top:220px;z-index:3;width:275px;padding:22px;border-radius:22px;background:rgba(8,16,27,.72);border:1px solid var(--border);backdrop-filter:blur(18px)}
+.heroInfo h3,.infoPanel h3,.statsPanel h3,.motivation h3{margin-bottom:18px}
+.heroInfo p,.infoPanel p,.stats p{display:flex;align-items:center;gap:13px;margin:15px 0}
+.heroInfo b,.infoPanel b,.stats b{color:var(--yellow);width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(250,204,21,.08)}
+.heroInfo span,.infoPanel span,.stats span{display:grid}.heroInfo small,.infoPanel small,.stats small{color:#94a3b8;font-size:12px}
+.controls{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:14px;margin-top:-36px;position:relative;z-index:5}
+.panel,.timerCard,.infoPanel,.statsPanel,.motivation,.player{background:linear-gradient(135deg,rgba(12,24,37,.94),rgba(5,12,20,.9));border:1px solid var(--border);border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+.panel{padding:20px}.panel h3{margin-bottom:15px}.panel h3 small{color:#94a3b8;font-weight:600}
+.pills{display:flex;gap:10px;flex-wrap:wrap}
+.pills button,.actions button,.viewBtns button{border:1px solid rgba(148,163,184,.16);background:rgba(2,6,23,.58);color:white;border-radius:12px;padding:12px 16px;font-weight:900}
+.pills button.active,.viewBtns button.active,.yellow{background:var(--yellow)!important;color:#020617!important;border-color:var(--yellow)!important}.red{background:var(--red)!important}
+.panel small{display:block;color:#94a3b8;margin-top:12px}
+input{width:100%;border:1px solid rgba(148,163,184,.18);background:rgba(2,6,23,.48);color:white;border-radius:14px;padding:15px 16px;outline:none}
+.dashboard{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:14px}
+.timerCard{padding:30px;min-height:270px}.mainTime{text-align:center;font-size:66px;line-height:1;font-weight:900}.status{text-align:center;color:#f8fafc;font-size:18px;font-weight:800;margin:10px 0 28px}
+.actions,.viewBtns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px}.actions button{padding:16px 18px}.viewBtns{margin-top:18px}
+.infoPanel,.statsPanel,.motivation{padding:24px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.quote{position:relative;min-height:120px;border:1px solid rgba(148,163,184,.12);background:rgba(15,23,42,.45);border-radius:16px;padding:24px}.quote p{font-size:17px;line-height:1.55;margin-bottom:14px}.quote b{position:absolute;right:24px;top:16px;font-size:50px;color:var(--yellow)}
+.player{margin-top:14px;display:grid;grid-template-columns:48px 1fr auto auto auto 1fr;gap:16px;align-items:center;padding:14px 18px}.cover{width:48px;height:48px;border-radius:12px;background:url('focus-desk.png') center/cover}.player small{display:block;color:#94a3b8;margin-top:4px}.player button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(148,163,184,.24);background:rgba(2,6,23,.46);color:white;font-weight:900}.player .play{width:58px;height:58px;font-size:24px}.volume{display:flex;align-items:center;justify-content:flex-end;gap:12px}.volume span{display:block;width:150px;height:5px;border-radius:99px;background:linear-gradient(90deg,var(--yellow) 68%,rgba(148,163,184,.2) 68%)}
 @media(max-width:900px){
-
-.hero{
-min-height:540px;
-padding:40px 18px;
+.topbar{margin:10px 10px 0;display:block;text-align:center}.brand{margin-bottom:10px}nav{justify-content:center}
+.hero{min-height:560px;padding:46px 18px;background:linear-gradient(180deg,rgba(2,6,23,.9),rgba(2,6,23,.35),rgba(2,6,23,.82)),url('focus-desk.png') center/cover no-repeat}
+.hero h1{font-size:45px}.hero p{font-size:17px;max-width:330px}.laptopTimer{top:60%;transform:translate(-50%,-50%) scale(.72)}.heroInfo{display:none}
+.controls,.dashboard{grid-template-columns:1fr}.controls{margin-top:12px}.timerCard{padding:24px 18px}.mainTime{font-size:56px}.actions,.viewBtns{gap:12px}.actions button{padding:14px 8px}.player{grid-template-columns:44px 1fr auto;gap:10px}.player button:not(.play),.volume{display:none}.player .play{width:50px;height:50px}.stats{grid-template-columns:1fr 1fr}
 }
-
-.hero h1{
-font-size:48px;
-}
-
-.hero p{
-font-size:18px;
-max-width:320px;
-}
-
-.laptop-timer{
-transform:translate(-50%,-50%) scale(.75);
-top:62%;
-}
-
-.dashboard{
-grid-template-columns:1fr;
-margin-top:-30px;
-padding:0 16px 30px;
-}
-
-.timer-card{
-grid-column:auto;
-}
-
-.main-time{
-font-size:58px;
-}
-
-.actions{
-flex-direction:column;
-}
-
-.actions button{
-width:100%;
-}
-}
+@media(max-width:430px){.hero{min-height:510px}.hero h1{font-size:40px}.laptopTimer{top:62%;transform:translate(-50%,-50%) scale(.65)}.pills button{padding:10px 12px;font-size:12px}.mainTime{font-size:48px}.panel,.timerCard,.infoPanel,.statsPanel,.motivation{border-radius:16px}}

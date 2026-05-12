@@ -3,67 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SezR Focus</title>
+<title>SezR Matematik | Focus</title>
 <link rel="stylesheet" href="focus.css">
 </head>
 <body>
 
-<section class="hero">
-  <div class="overlay"></div>
+<header class="topbar">
+  <div class="brand">Sez<span>R</span> Matematik</div>
+  <nav>
+    <a href="index.html">Ana Sayfa</a>
+    <a href="dersler.html">Derslerim</a>
+    <a href="youtube.html">YouTube</a>
+    <a href="pdf.html">PDF</a>
+    <a class="active" href="focus.html">Focus</a>
+    <a href="iletisim.html">Kayıt</a>
+  </nav>
+</header>
 
-  <div class="hero-left">
-    <span class="badge">SEZR FOCUS ROOM</span>
-    <h1>Loş Masa</h1>
-    <p>Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
-  </div>
-
-  <div class="laptop-timer">
-    <div class="timer-ring">
-      <span id="heroTimer">25:00</span>
-      <small>Odak Süresi</small>
+<main class="focus-page">
+  <section class="hero" id="hero">
+    <div class="heroText">
+      <div class="icon">Ϟ</div>
+      <h1>Loş Masa</h1>
+      <p>Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
     </div>
-  </div>
-</section>
 
-<section class="dashboard">
+    <div class="laptopTimer" id="laptopTimer">
+      <div class="ring">
+        <span id="screenTimer">25:00</span>
+        <small>Odak Süresi</small>
+      </div>
+      <button id="screenStart">Başlat</button>
+    </div>
 
-<div class="card">
-<h3>Süre Seç</h3>
-<div class="pills">
-<button class="active">25 dk</button>
-<button>50 dk</button>
-<button>75 dk</button>
-<button>100 dk</button>
-</div>
-</div>
+    <div class="heroInfo">
+      <h3>Ortam Bilgisi</h3>
+      <p><b>⚚</b><span><small>Ortam</small>Loş Masa</span></p>
+      <p><b>〽</b><span><small>Ses</small><span id="infoSound">Piyano</span></span></p>
+      <p><b>☼</b><span><small>Aydınlatma</small>Loş</span></p>
+      <p><b>◉</b><span><small>Zorluk</small>Orta</span></p>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Müzik Seç</h3>
-<div class="pills">
-<button class="active">Piyano</button>
-<button>Lo-fi</button>
-<button>Jazz</button>
-<button>Doğa</button>
-</div>
-</div>
+  <section class="controls">
+    <div class="panel">
+      <h3>Süre Seç</h3>
+      <div class="pills" id="durationPills">
+        <button class="active" data-min="25" data-break="5">25 dk</button>
+        <button data-min="50" data-break="10">50 dk</button>
+        <button data-min="75" data-break="15">75 dk</button>
+        <button data-min="100" data-break="20">100 dk</button>
+      </div>
+    </div>
 
-<div class="card">
-<h3>Hedef Belirle</h3>
-<input placeholder="Bugün neyi başarmak istiyorsun?">
-</div>
+    <div class="panel">
+      <h3>Müzik Seç 🎵</h3>
+      <div class="pills" id="musicPills">
+        <button class="active" data-audio="focus-piano.mp3" data-name="Piyano">Piyano</button>
+        <button data-audio="focus-relax.mp3" data-name="Lo-fi">Lo-fi</button>
+        <button data-audio="focus-jazz.mp3" data-name="Jazz">Jazz</button>
+        <button data-audio="focus-relax.mp3" data-name="Doğa">Doğa</button>
+        <button data-audio="" data-name="Sessiz">Yok</button>
+      </div>
+      <small id="musicNote">Piyano seçili. Başlatınca çalmaya başlar.</small>
+    </div>
 
-<div class="timer-card">
-<div class="main-time" id="mainTimer">25:00</div>
-<div class="status">Odak modu hazır</div>
+    <div class="panel">
+      <h3>Hedef Belirle <small>(İsteğe Bağlı)</small></h3>
+      <input id="goalInput" placeholder="Bugün neyi başarmak istiyorsun?">
+    </div>
+  </section>
 
-<div class="actions">
-<button class="yellow">Başlat</button>
-<button>Duraklat</button>
-<button class="red">Sıfırla</button>
-</div>
-</div>
+  <section class="dashboard">
+    <div class="timerCard">
+      <div class="mainTime" id="mainTimer">25:00</div>
+      <div class="status" id="status">Odak modu hazır</div>
+      <div class="actions">
+        <button class="yellow" id="startBtn">Başlat</button>
+        <button id="pauseBtn">Duraklat</button>
+        <button class="red" id="resetBtn">Sıfırla</button>
+      </div>
+      <div class="viewBtns">
+        <button class="active">Daire</button>
+        <button>Kompakt</button>
+        <button>Sade</button>
+      </div>
+    </div>
 
-</section>
+    <div class="infoPanel">
+      <h3>Ortam Bilgisi</h3>
+      <p><b>⚚</b><span><small>Ortam</small>Loş Masa</span></p>
+      <p><b>〽</b><span><small>Ses</small><span id="infoSound2">Piyano</span></span></p>
+      <p><b>☼</b><span><small>Aydınlatma</small>Loş</span></p>
+      <p><b>◉</b><span><small>Zorluk</small>Orta</span></p>
+    </div>
+
+    <div class="statsPanel">
+      <h3>Odak İstatistikleri</h3>
+      <div class="stats">
+        <p><b>⏱</b><span><small>Toplam Odak Süresi</small><strong id="totalFocus">0 dk</strong></span></p>
+        <p><b>✣</b><span><small>Tamamlanan Seans</small><strong id="sessionCount">0</strong></span></p>
+        <p><b>☾</b><span><small>En Uzun Odak</small><strong id="bestFocus">0 dk</strong></span></p>
+        <p><b>⌁</b><span><small>Ortalama Süre</small><strong id="avgFocus">0 dk</strong></span></p>
+      </div>
+    </div>
+
+    <div class="motivation">
+      <h3>Motivasyon</h3>
+      <div class="quote">
+        <p id="motivationText">"Başarı, küçük çabaların her gün tekrar edilmesiyle gelir."</p>
+        <small>— SezR</small>
+        <b>”</b>
+      </div>
+    </div>
+  </section>
+
+  <section class="player">
+    <div class="cover"></div>
+    <div>
+      <strong id="playerTitle">Piyano Melodileri</strong>
+      <small>Odaklan, üret, başarmak senin elinde.</small>
+    </div>
+    <button id="prevBtn">⏮</button>
+    <button class="play" id="bottomPlay">▶</button>
+    <button id="nextBtn">⏭</button>
+    <div class="volume">🔊<span></span></div>
+  </section>
+</main>
+
+<audio id="audio" preload="auto"></audio>
 
 <script src="focus.js"></script>
 </body>

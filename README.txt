@@ -1,7 +1,12 @@
-YÜKLENECEK DOSYALAR:
-focus.html
-focus.css
-focus.js
-focus-desk.png
+Bu paket artık sadece resim değil, interaktif Focus sayfasıdır.
 
-Eski focus.html tamamen silinip bununla değiştirilecek.
+Yükle:
+- focus.html
+- focus.css
+- focus.js
+- focus-desk.png
+
+MP3 dosyaları aynı klasörde şu adlarla olursa müzik de çalışır:
+- focus-piano.mp3
+- focus-relax.mp3
+- focus-jazz.mp3
