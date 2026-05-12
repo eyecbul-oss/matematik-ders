@@ -1,0 +1,1 @@
+Mockup tasarım Focus sayfasına uygulandı; YouTube mobil oynatıcı yüksekliği küçültüldü.

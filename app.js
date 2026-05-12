@@ -239,3 +239,14 @@ if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.se
     setTimeout(()=>hint.classList.remove("show"),9000);
   });
 })();
+
+
+/* MOCKUP TASARIM ETKİLEŞİMLERİ */
+(function(){
+  const heroStart=document.getElementById("focusHeroStart"), realStart=document.getElementById("focusStart");
+  if(heroStart&&realStart){heroStart.addEventListener("click",function(){realStart.click();const p=document.querySelector(".dash-focus-player");if(p)p.scrollIntoView({behavior:"smooth",block:"center"});});}
+  const heroBreak=document.getElementById("focusHeroBreak");
+  if(heroBreak){heroBreak.addEventListener("click",function(){const b=document.querySelector('.focus-choice[data-work="25"]');if(b)b.click();const s=document.querySelector('.focus-sound-choice[data-sound="silent"]');if(s)s.click();});}
+  const goal=document.getElementById("focusGoal"), quote=document.getElementById("focusQuote");
+  if(goal&&quote){goal.addEventListener("change",function(){if(goal.value.trim())quote.textContent=goal.value.trim();});}
+})();
