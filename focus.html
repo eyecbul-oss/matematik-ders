@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="focus.css">
 </head>
 <body>
-
 <header class="topbar">
   <div class="brand">Sez<span>R</span> Matematik</div>
   <nav>
@@ -20,36 +19,58 @@
   </nav>
 </header>
 
-<main class="focus-page">
+<main class="focus-app">
   <section class="hero" id="hero">
-    <div class="heroText">
-      <div class="icon">Ϟ</div>
-      <h1>Loş Masa</h1>
-      <p>Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
+    <div class="heroShade"></div>
+    <div class="heroCopy">
+      <div class="modeIcon" id="modeIcon">Ϟ</div>
+      <h1 id="modeTitle">Loş Masa</h1>
+      <p id="modeDesc">Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
     </div>
 
-    <div class="laptopTimer" id="laptopTimer">
-      <div class="ring">
-        <span id="screenTimer">25:00</span>
-        <small>Odak Süresi</small>
+    <div class="laptop" id="laptopStart">
+      <div class="lid">
+        <div class="screenGlow"></div>
+        <div class="screenTop">
+          <span>SezR Focus</span><i></i><i></i><i></i>
+        </div>
+        <div class="screenSidebar">
+          <b></b><b></b><b></b><b></b><b></b>
+        </div>
+        <div class="screenCenter">
+          <div class="screenRing"><span id="screenTimer">25:00</span><small>Odak Süresi</small></div>
+          <button>Başlat</button>
+        </div>
       </div>
-      <button id="screenStart">Başlat</button>
+      <div class="keyboard"></div>
+      <div class="base"></div>
     </div>
 
-    <div class="heroInfo">
+    <aside class="heroInfo">
       <h3>Ortam Bilgisi</h3>
-      <p><b>⚚</b><span><small>Ortam</small>Loş Masa</span></p>
-      <p><b>〽</b><span><small>Ses</small><span id="infoSound">Piyano</span></span></p>
-      <p><b>☼</b><span><small>Aydınlatma</small>Loş</span></p>
-      <p><b>◉</b><span><small>Zorluk</small>Orta</span></p>
+      <p><b id="infoIcon">Ϟ</b><span><small>Ortam</small><strong id="infoMode">Loş Masa</strong></span></p>
+      <p><b>♪</b><span><small>Ses</small><strong id="infoSound">Piyano</strong></span></p>
+      <p><b>☼</b><span><small>Aydınlatma</small><strong id="infoLight">Loş</strong></span></p>
+      <p><b>◉</b><span><small>Zorluk</small><strong id="infoLevel">Orta</strong></span></p>
+    </aside>
+  </section>
+
+  <section class="modeSection">
+    <div class="sectionHead">
+      <div>
+        <h2>Ortamını Seç ✨</h2>
+        <p>Her mod arka planı, ortam bilgisini ve önerilen sesi değiştirir.</p>
+      </div>
     </div>
+    <div class="modeScroller" id="modeScroller"></div>
   </section>
 
   <section class="controls">
     <div class="panel">
-      <h3>Süre Seç</h3>
+      <h3>Süre Seç ✨</h3>
       <div class="pills" id="durationPills">
         <button class="active" data-min="25" data-break="5">25 dk</button>
+        <button data-min="35" data-break="10">35 dk</button>
         <button data-min="50" data-break="10">50 dk</button>
         <button data-min="75" data-break="15">75 dk</button>
         <button data-min="100" data-break="20">100 dk</button>
@@ -60,16 +81,18 @@
       <h3>Müzik Seç 🎵</h3>
       <div class="pills" id="musicPills">
         <button class="active" data-audio="focus-piano.mp3" data-name="Piyano">Piyano</button>
-        <button data-audio="focus-relax.mp3" data-name="Lo-fi">Lo-fi</button>
+        <button data-audio="focus-lofi.mp3" data-name="Lo-fi">Lo-fi</button>
         <button data-audio="focus-jazz.mp3" data-name="Jazz">Jazz</button>
-        <button data-audio="focus-relax.mp3" data-name="Doğa">Doğa</button>
+        <button data-audio="focus-nature.mp3" data-name="Doğa">Doğa</button>
+        <button data-audio="focus-rain.mp3" data-name="Yağmur">Yağmur</button>
+        <button data-audio="focus-fire.mp3" data-name="Kamp Ateşi">Ateş</button>
         <button data-audio="" data-name="Sessiz">Yok</button>
       </div>
       <small id="musicNote">Piyano seçili. Başlatınca çalmaya başlar.</small>
     </div>
 
     <div class="panel">
-      <h3>Hedef Belirle <small>(İsteğe Bağlı)</small></h3>
+      <h3>Hedef Belirle <small>(İsteğe bağlı)</small></h3>
       <input id="goalInput" placeholder="Bugün neyi başarmak istiyorsun?">
     </div>
   </section>
@@ -84,18 +107,18 @@
         <button class="red" id="resetBtn">Sıfırla</button>
       </div>
       <div class="viewBtns">
-        <button class="active">Daire</button>
-        <button>Kompakt</button>
-        <button>Sade</button>
+        <button class="active" data-view="circle">Daire</button>
+        <button data-view="compact">Kompakt</button>
+        <button data-view="clean">Sade</button>
       </div>
     </div>
 
     <div class="infoPanel">
       <h3>Ortam Bilgisi</h3>
-      <p><b>⚚</b><span><small>Ortam</small>Loş Masa</span></p>
-      <p><b>〽</b><span><small>Ses</small><span id="infoSound2">Piyano</span></span></p>
-      <p><b>☼</b><span><small>Aydınlatma</small>Loş</span></p>
-      <p><b>◉</b><span><small>Zorluk</small>Orta</span></p>
+      <p><b id="infoIcon2">Ϟ</b><span><small>Ortam</small><strong id="infoMode2">Loş Masa</strong></span></p>
+      <p><b>♪</b><span><small>Ses</small><strong id="infoSound2">Piyano</strong></span></p>
+      <p><b>☼</b><span><small>Aydınlatma</small><strong id="infoLight2">Loş</strong></span></p>
+      <p><b>◉</b><span><small>Zorluk</small><strong id="infoLevel2">Orta</strong></span></p>
     </div>
 
     <div class="statsPanel">
@@ -112,14 +135,13 @@
       <h3>Motivasyon</h3>
       <div class="quote">
         <p id="motivationText">"Başarı, küçük çabaların her gün tekrar edilmesiyle gelir."</p>
-        <small>— SezR</small>
-        <b>”</b>
+        <small>— SezR</small><b>”</b>
       </div>
     </div>
   </section>
 
   <section class="player">
-    <div class="cover"></div>
+    <div class="cover" id="playerCover"></div>
     <div>
       <strong id="playerTitle">Piyano Melodileri</strong>
       <small>Odaklan, üret, başarmak senin elinde.</small>
@@ -132,7 +154,6 @@
 </main>
 
 <audio id="audio" preload="auto"></audio>
-
 <script src="focus.js"></script>
 </body>
 </html>
