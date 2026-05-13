@@ -1,0 +1,23 @@
+12 adet görsel:
+focus-erkek-gun-isigi.png
+focus-erkek-aksam.png
+focus-erkek-gece.png
+focus-erkek-yagmurlu.png
+focus-erkek-karli.png
+focus-erkek-kamp-atesi.png
+focus-kiz-gun-isigi.png
+focus-kiz-aksam.png
+focus-kiz-gece.png
+focus-kiz-yagmurlu.png
+focus-kiz-karli.png
+focus-kiz-kamp-atesi.png
+
+MP3 isimleri:
+focus-piano.mp3
+focus-lofi.mp3
+focus-jazz.mp3
+focus-nature.mp3
+focus-rain.mp3
+focus-fire.mp3
+focus-snow.mp3
+focus-night.mp3
