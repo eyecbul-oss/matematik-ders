@@ -1,0 +1,32 @@
+YÜKLEME
+
+Bu pakette sayaç bilgisayar ekranının üstüne CSS ile konumlandırıldı.
+
+GitHub'a yükle:
+- focus.html
+- focus.css
+- focus.js
+
+Ayrıca şu 12 görsel aynı klasörde olmalı:
+- erkek-gun-isigi.png
+- erkek-aksam.png
+- erkek-gece.png
+- erkek-yagmurlu.png
+- erkek-karli.png
+- erkek-kamp-atesi.png
+- kiz-gun-isigi.png
+- kiz-aksam.png
+- kiz-gece.png
+- kiz-yagmurlu.png
+- kiz-karli.png
+- kiz-kamp-atesi.png
+
+MP3 isimleri:
+- focus-piano.mp3
+- focus-lofi.mp3
+- focus-rain.mp3
+- focus-fire.mp3
+
+Not:
+Eğer sayaç görselde laptop ekranına 1-2 cm kayarsa focus.css içindeki .laptopHotspot ayarında:
+left, top ve width değerlerini değiştirmen yeterli.

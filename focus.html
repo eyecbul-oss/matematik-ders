@@ -1,159 +1,116 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SezR Matematik | Focus</title>
-<link rel="stylesheet" href="focus.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SezR Matematik | Focus</title>
+  <link rel="stylesheet" href="focus.css" />
 </head>
 <body>
-<header class="topbar">
-  <div class="brand">Sez<span>R</span> Matematik</div>
-  <nav>
-    <a href="index.html">Ana Sayfa</a>
-    <a href="dersler.html">Derslerim</a>
-    <a href="youtube.html">YouTube</a>
-    <a href="pdf.html">PDF</a>
-    <a class="active" href="focus.html">Focus</a>
-    <a href="iletisim.html">Kayıt</a>
-  </nav>
-</header>
+  <header class="topbar" id="topbar">
+    <div class="brand">Sez<span>R</span> Matematik</div>
+    <nav>
+      <a href="index.html">Ana Sayfa</a>
+      <a href="dersler.html">Derslerim</a>
+      <a href="youtube.html">YouTube</a>
+      <a href="pdf.html">PDF</a>
+      <a class="active" href="focus.html">Focus</a>
+      <a href="iletisim.html">Kayıt</a>
+    </nav>
+  </header>
 
-<main class="focus-app">
-  <section class="hero" id="hero">
-    <div class="heroShade"></div>
-    <div class="heroCopy">
-      <div class="modeIcon" id="modeIcon">Ϟ</div>
-      <h1 id="modeTitle">Loş Masa</h1>
-      <p id="modeDesc">Sakin ve loş bir çalışma ortamı. Dikkatini topla, zamanı yönet ve hedeflerine odaklan.</p>
-    </div>
+  <main class="focusApp">
+    <section class="cinema" id="cinema">
+      <img id="sceneImg" class="sceneImg" src="erkek-gun-isigi.png" alt="SezR Focus ortamı" />
 
-    <div class="laptop" id="laptopStart">
-      <div class="lid">
-        <div class="screenGlow"></div>
-        <div class="screenTop">
-          <span>SezR Focus</span><i></i><i></i><i></i>
-        </div>
-        <div class="screenSidebar">
-          <b></b><b></b><b></b><b></b><b></b>
-        </div>
-        <div class="screenCenter">
-          <div class="screenRing"><span id="screenTimer">25:00</span><small>Odak Süresi</small></div>
-          <button>Başlat</button>
+      <div class="shade"></div>
+      <div class="weather" id="weather"></div>
+
+      <div class="hud topLeft" id="focusHud">
+        <div class="pill" id="modeLabel">☀️ Erkek • Gün Işığı</div>
+        <div class="infoBox">
+          <h3>Focus Bilgileri</h3>
+          <p><b>Mod</b><span id="infoMode">Ders Çalışma</span></p>
+          <p><b>Süre</b><span id="infoTime">25 Dakika</span></p>
+          <p><b>Müzik</b><span id="infoMusic">Piyano</span></p>
+          <p><b>Hedef</b><span id="infoGoal">Bir soru daha çöz.</span></p>
+          <small>5 saniye sonra odak moduna geçilecek...</small>
         </div>
       </div>
-      <div class="keyboard"></div>
-      <div class="base"></div>
-    </div>
 
-    <aside class="heroInfo">
-      <h3>Ortam Bilgisi</h3>
-      <p><b id="infoIcon">Ϟ</b><span><small>Ortam</small><strong id="infoMode">Loş Masa</strong></span></p>
-      <p><b>♪</b><span><small>Ses</small><strong id="infoSound">Piyano</strong></span></p>
-      <p><b>☼</b><span><small>Aydınlatma</small><strong id="infoLight">Loş</strong></span></p>
-      <p><b>◉</b><span><small>Zorluk</small><strong id="infoLevel">Orta</strong></span></p>
-    </aside>
-  </section>
+      <!-- Sayaç laptop ekranının üstüne sabitlenir -->
+      <button class="laptopHotspot" id="laptopHotspot" aria-label="Odak modunu başlat">
+        <div class="laptopTimer" id="laptopTimer">
+          <div class="ring" id="timerRing">
+            <span id="timerText">25:00</span>
+            <small>Odak Süresi</small>
+          </div>
+          <em id="miniStatus">Başlat</em>
+        </div>
+      </button>
 
-  <section class="modeSection">
-    <div class="sectionHead">
-      <div>
-        <h2>Ortamını Seç ✨</h2>
-        <p>Her mod arka planı, ortam bilgisini ve önerilen sesi değiştirir.</p>
+      <div class="quoteToast" id="quoteToast">Telefonu bırak, hedefe bak.</div>
+
+      <button class="fullscreenBtn" id="fullscreenBtn">⛶ Tam Ekran</button>
+    </section>
+
+    <section class="setupPanel" id="setupPanel">
+      <div class="group">
+        <h3>Öğrenci Modu</h3>
+        <div class="chips" id="genderChips">
+          <button class="active" data-gender="erkek">Erkek</button>
+          <button data-gender="kiz">Kız</button>
+        </div>
       </div>
-    </div>
-    <div class="modeScroller" id="modeScroller"></div>
-  </section>
 
-  <section class="controls">
-    <div class="panel">
-      <h3>Süre Seç ✨</h3>
-      <div class="pills" id="durationPills">
-        <button class="active" data-min="25" data-break="5">25 dk</button>
-        <button data-min="35" data-break="10">35 dk</button>
-        <button data-min="50" data-break="10">50 dk</button>
-        <button data-min="75" data-break="15">75 dk</button>
-        <button data-min="100" data-break="20">100 dk</button>
+      <div class="group">
+        <h3>Ortam</h3>
+        <div class="chips" id="envChips">
+          <button class="active" data-env="gun-isigi" data-icon="☀️" data-weather="">Gün Işığı</button>
+          <button data-env="aksam" data-icon="🌇" data-weather="">Akşam</button>
+          <button data-env="gece" data-icon="🌙" data-weather="stars">Gece</button>
+          <button data-env="yagmurlu" data-icon="🌧️" data-weather="rain">Yağmurlu</button>
+          <button data-env="karli" data-icon="❄️" data-weather="snow">Karlı</button>
+          <button data-env="kamp-atesi" data-icon="🔥" data-weather="fire">Kamp Ateşi</button>
+        </div>
       </div>
-    </div>
 
-    <div class="panel">
-      <h3>Müzik Seç 🎵</h3>
-      <div class="pills" id="musicPills">
-        <button class="active" data-audio="focus-piano.mp3" data-name="Piyano">Piyano</button>
-        <button data-audio="focus-lofi.mp3" data-name="Lo-fi">Lo-fi</button>
-        <button data-audio="focus-jazz.mp3" data-name="Jazz">Jazz</button>
-        <button data-audio="focus-nature.mp3" data-name="Doğa">Doğa</button>
-        <button data-audio="focus-rain.mp3" data-name="Yağmur">Yağmur</button>
-        <button data-audio="focus-fire.mp3" data-name="Kamp Ateşi">Ateş</button>
-        <button data-audio="" data-name="Sessiz">Yok</button>
+      <div class="group">
+        <h3>Süre</h3>
+        <div class="chips" id="durationChips">
+          <button class="active" data-min="25">25 dk</button>
+          <button data-min="35">35 dk</button>
+          <button data-min="50">50 dk</button>
+          <button data-min="75">75 dk</button>
+          <button data-min="100">100 dk</button>
+        </div>
       </div>
-      <small id="musicNote">Piyano seçili. Başlatınca çalmaya başlar.</small>
-    </div>
 
-    <div class="panel">
-      <h3>Hedef Belirle <small>(İsteğe bağlı)</small></h3>
-      <input id="goalInput" placeholder="Bugün neyi başarmak istiyorsun?">
-    </div>
-  </section>
+      <div class="group">
+        <h3>Müzik</h3>
+        <div class="chips" id="musicChips">
+          <button class="active" data-name="Piyano" data-file="focus-piano.mp3">Piyano</button>
+          <button data-name="Lo-fi" data-file="focus-lofi.mp3">Lo-fi</button>
+          <button data-name="Yağmur" data-file="focus-rain.mp3">Yağmur</button>
+          <button data-name="Kamp Ateşi" data-file="focus-fire.mp3">Ateş</button>
+          <button data-name="Sessiz" data-file="">Sessiz</button>
+        </div>
+      </div>
 
-  <section class="dashboard">
-    <div class="timerCard">
-      <div class="mainTime" id="mainTimer">25:00</div>
-      <div class="status" id="status">Odak modu hazır</div>
+      <div class="group goalGroup">
+        <h3>Hedef</h3>
+        <input id="goalInput" placeholder="Bugünkü hedefin ne?" />
+      </div>
+
       <div class="actions">
-        <button class="yellow" id="startBtn">Başlat</button>
+        <button class="primary" id="startBtn">▶ Başlat</button>
         <button id="pauseBtn">Duraklat</button>
-        <button class="red" id="resetBtn">Sıfırla</button>
+        <button id="resetBtn">Sıfırla</button>
       </div>
-      <div class="viewBtns">
-        <button class="active" data-view="circle">Daire</button>
-        <button data-view="compact">Kompakt</button>
-        <button data-view="clean">Sade</button>
-      </div>
-    </div>
+    </section>
+  </main>
 
-    <div class="infoPanel">
-      <h3>Ortam Bilgisi</h3>
-      <p><b id="infoIcon2">Ϟ</b><span><small>Ortam</small><strong id="infoMode2">Loş Masa</strong></span></p>
-      <p><b>♪</b><span><small>Ses</small><strong id="infoSound2">Piyano</strong></span></p>
-      <p><b>☼</b><span><small>Aydınlatma</small><strong id="infoLight2">Loş</strong></span></p>
-      <p><b>◉</b><span><small>Zorluk</small><strong id="infoLevel2">Orta</strong></span></p>
-    </div>
-
-    <div class="statsPanel">
-      <h3>Odak İstatistikleri</h3>
-      <div class="stats">
-        <p><b>⏱</b><span><small>Toplam Odak Süresi</small><strong id="totalFocus">0 dk</strong></span></p>
-        <p><b>✣</b><span><small>Tamamlanan Seans</small><strong id="sessionCount">0</strong></span></p>
-        <p><b>☾</b><span><small>En Uzun Odak</small><strong id="bestFocus">0 dk</strong></span></p>
-        <p><b>⌁</b><span><small>Ortalama Süre</small><strong id="avgFocus">0 dk</strong></span></p>
-      </div>
-    </div>
-
-    <div class="motivation">
-      <h3>Motivasyon</h3>
-      <div class="quote">
-        <p id="motivationText">"Başarı, küçük çabaların her gün tekrar edilmesiyle gelir."</p>
-        <small>— SezR</small><b>”</b>
-      </div>
-    </div>
-  </section>
-
-  <section class="player">
-    <div class="cover" id="playerCover"></div>
-    <div>
-      <strong id="playerTitle">Piyano Melodileri</strong>
-      <small>Odaklan, üret, başarmak senin elinde.</small>
-    </div>
-    <button id="prevBtn">⏮</button>
-    <button class="play" id="bottomPlay">▶</button>
-    <button id="nextBtn">⏭</button>
-    <div class="volume">🔊<span></span></div>
-  </section>
-</main>
-
-<audio id="audio" preload="auto"></audio>
-<script src="focus.js"></script>
+  <audio id="focusAudio" preload="auto"></audio>
+  <script src="focus.js"></script>
 </body>
 </html>
